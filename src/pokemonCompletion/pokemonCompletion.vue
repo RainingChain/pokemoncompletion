@@ -416,7 +416,7 @@
   </h5>
   <div v-show="displayCredits" style="margin-left:5px">
     <p>
-      Contact me: RainingChain on <a target="_blank" rel="noopener" href="https://discord.gg/FZf9WNZZ"> Scripters War Discord</a>.
+      Contact me: RainingChain on <a target="_blank" rel="noopener" href="https://discord.com/invite/tMXrJzjWmg">Discord</a>.
     </p>
     <p>
       Data gathered from <a href="http://bulbapedia.bulbagarden.net/" target="_blank" rel="noopener">http://bulbapedia.bulbagarden.net/</a>.

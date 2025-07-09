@@ -10,7 +10,7 @@
       <br>
     </div>
     <div>
-      To report a bug, contact RainingChain on <a target="_blank" rel="noopener" href="https://discord.gg/FZf9WNZZ"> Scripters War Discord</a>
+      To report a bug, contact RainingChain on <a target="_blank" rel="noopener" href="https://discord.com/invite/tMXrJzjWmg">Discord</a>
     </div>
   </div>
   <div v-if="result && result.teamResultsFiltered.length !== 0" class="smaller-pk-icons">

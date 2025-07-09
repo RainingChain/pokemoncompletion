@@ -343,7 +343,7 @@
     </h5>
     <div v-show="displayCredits" style="margin-left:5px">
       <p>
-        Contact me: RainingChain on <a target="_blank" rel="noopener" href="https://discord.gg/FZf9WNZZ"> Scripters War Discord</a>.
+        Contact me: RainingChain on <a target="_blank" rel="noopener" href="https://discord.com/invite/tMXrJzjWmg">Discord</a>.
       </p>
       <p>
         <a target="_blank" rel="noopener" href="https://github.com/pret/pokeplatinum">Platinum decompil project</a>

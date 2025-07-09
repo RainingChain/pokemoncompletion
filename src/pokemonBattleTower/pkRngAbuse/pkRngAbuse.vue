@@ -326,7 +326,7 @@
     </h5>
     <div v-show="displayCredits && facility !== Facility.dome" style="margin-left:5px">
       <p>
-        Contact me: RainingChain on <a target="_blank" rel="noopener" href="https://discord.gg/FZf9WNZZ"> Scripters War Discord</a>.
+        Contact me: RainingChain on <a target="_blank" rel="noopener" href="https://discord.com/invite/tMXrJzjWmg">Discord</a>.
       </p>
       <p>
         Thanks to Shao and the mGBA team for support. Thanks to the <a href="https://github.com/pret/pokeemerald">pokeemerald</a> project.

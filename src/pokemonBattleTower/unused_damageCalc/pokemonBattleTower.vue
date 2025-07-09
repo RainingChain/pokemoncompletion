@@ -53,7 +53,7 @@
   <p>Data from <a href="https://www.smogon.com/" target="_blank" rel="noopener">https://www.smogon.com/</a>.</p>
   <p>
   <p>
-    Contact me: RainingChain on <a target="_blank" rel="noopener" href="https://discord.gg/FZf9WNZZ"> Scripters War Discord</a>.
+    Contact me: RainingChain on <a target="_blank" rel="noopener" href="https://discord.com/invite/tMXrJzjWmg">Discord</a>.
   </p>
 </div>
 

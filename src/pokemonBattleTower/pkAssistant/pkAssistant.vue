@@ -319,7 +319,7 @@
     </h5>
     <div v-show="displayReportBug" style="margin-left:5px">
       <p>
-        Contact RainingChain on <a target="_blank" rel="noopener" href="https://discord.gg/FZf9WNZZ"> Scripters War Discord</a>.
+        Contact RainingChain on <a target="_blank" rel="noopener" href="https://discord.com/invite/tMXrJzjWmg">Discord</a>.
       </p>
       <p>
         For issues with damage calculation, open the Import/Export Battle section, export your battle and include the battle in the issue.
@@ -335,7 +335,7 @@
     </h5>
     <div v-show="displayCredits" style="margin-left:5px">
       <p>
-        Contact me: RainingChain on <a target="_blank" rel="noopener" href="https://discord.gg/FZf9WNZZ"> Scripters War Discord</a>.
+        Contact me: RainingChain on <a target="_blank" rel="noopener" href="https://discord.com/invite/tMXrJzjWmg">Discord</a>.
       </p>
       <p v-show="pkCompletionist">
         Powered by <a href="https://github.com/smogon/damage-calc" target="_blank" rel="noopener">Smogon Damage Calculator</a>.

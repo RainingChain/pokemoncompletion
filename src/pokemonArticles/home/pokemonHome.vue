@@ -76,7 +76,7 @@
 <div v-if="loc === 'home'">
   <h3>Changelog</h3>
   <ul>
-    <li>2025-07-06: The webiste is now hosted on pokemoncompletion.com.</li>
+    <li>2025-07-06: The website is now hosted on pokemoncompletion.com.</li>
     <li>2025-06-30: <a href="/articles/GamePreservation">Pokémon Game Preservation</a></li>
     <li>2025-06-25: <a href="/completion/shuffle/dlc">Pokémon Shuffle Special Stages DLC</a></li>
     <li>2025-06-20: <a href="/completion/shuffle">Pokémon Shuffle 100% Completion Checklist</a></li>
@@ -89,6 +89,7 @@
 </div>
 
 <div v-if="loc === 'home'" style="padding:10px;padding-top:30px;font-size:12px;">
+    <p>Contact: RainingChain on <a target="_blank" rel="noopener" href="https://discord.com/invite/tMXrJzjWmg">Discord</a></p>
     <p><a href="/legal">Terms & Privacy</a></p>
     <p>Pokémon is a registered trademark of Game Freak, The Pokémon Company, and Nintendo. This website is not affiliated with Nintendo.</p>
 </div>

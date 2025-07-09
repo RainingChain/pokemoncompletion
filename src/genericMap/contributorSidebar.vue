@@ -11,7 +11,7 @@
     </ul>
 
     <div>
-      Feedback: Contact RainingChain on Discord</li>
+      Feedback: Contact RainingChain on <a href="https://discord.com/invite/tMXrJzjWmg">Discord</a></li>
     </div>
     <br>
     <div>
