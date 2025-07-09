@@ -88,10 +88,14 @@
   </ul>
 </div>
 
-<div v-if="loc === 'home'" style="padding:10px;padding-top:30px;font-size:12px;">
+<div v-if="loc === 'home'" style="padding:10px;padding-top:30px;">
+    <p>Website source code on <a target="_blank" rel="noopener" href="https://github.com/RainingChain/pokemoncompletion">GitHub</a></p>
     <p>Contact: RainingChain on <a target="_blank" rel="noopener" href="https://discord.com/invite/tMXrJzjWmg">Discord</a></p>
-    <p><a href="/legal">Terms & Privacy</a></p>
-    <p>Pokémon is a registered trademark of Game Freak, The Pokémon Company, and Nintendo. This website is not affiliated with Nintendo.</p>
+
+    <div style="font-size:12px;">
+      <p><a href="/legal">Terms & Privacy</a></p>
+      <p>Pokémon is a registered trademark of Game Freak, The Pokémon Company, and Nintendo. This website is not affiliated with Nintendo.</p>
+    </div>
 </div>
 
 </div>

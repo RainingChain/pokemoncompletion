@@ -8,3 +8,5 @@ To compil:
  - npm install
  - npm run compil
  - npm run start
+
+This project also relies on [PkCompletionist](https://github.com/RainingChain/PkCompletionist).
