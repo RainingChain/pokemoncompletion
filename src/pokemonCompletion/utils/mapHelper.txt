@@ -1,0 +1,10 @@
+c = [];
+
+a.forEach(a => {
+  a.list.forEach(b => { b.cat = a.id; c.push(b); })
+});
+
+c.sort((a,b) => a.location < b.location ? -1 : 1);
+
+c.map(a => JSON.stringify(a)).join(',\n')
+

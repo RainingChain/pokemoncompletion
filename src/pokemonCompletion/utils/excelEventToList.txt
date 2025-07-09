@@ -1,0 +1,66 @@
+
+//purpose:
+//input = raw.githubusercontent.com/fattard/FlagsEditorEXPlugin/refs/heads/main/flagslist/flags_gen4pt_en.txtz
+//output = Collectable json for pokemonCompletion
+
+
+
+// a22 = ``;
+
+;(function(){
+// for Hidden item
+
+let count = new Map();
+a22.split('\n').map(a => {
+  if(!a.includes('HIDDEN ITEM') && !a.includes('FIELD ITEM'))
+    return;
+
+  let [idx,type,where,where2,what] = a.split('\t');
+  what = what.replace('Found ','').replace(' item ball disappeared','');
+  const hidden = type.includes('HIDDEN');
+  const loc = [where, where2, hidden ? '(Hidden)' : ''].filter(a => a).join(' ');
+  let list = count.get(what);
+  if (list === undefined)
+    count.set(what, []);
+  list = count.get(what);
+
+  let num = list.length + 1;
+
+  let numStr = num === 1 ? '' : ' #' + num;
+  if(hidden)
+    numStr += ' (Hidden)';
+  const s = `{"id":"${+idx}","flagHex":"${idx}","name":"${what}${numStr}","location":"${loc}"},`;
+  list.push(s);
+});
+
+const list2 = Array.from(count.entries()).sort((a,b) => a[0] < b[0] ? -1 : 1);
+let s = [];
+for(const a of list2)
+  s.push(...a[1]);
+let s22 = s.join('\n');
+
+console.log('items');
+console.log(s22);
+
+})();
+
+
+
+
+
+;(function(){
+// for item gift
+let s22 = a22.split('\n').map(a => {
+  if(!a.includes('ITEM GIFT'))
+    return null;
+  const [_,idx,type,where,where2,what] = a.split('\t');
+  const loc = [where, where2].filter(a => a).join(' ');
+
+  const s = `{"id":"${+idx}","flagHex":"${idx}","name":"${what}","location":"${loc}"},`;
+  return s;
+}).filter(s => s).join('\n');
+
+console.log('item gift');
+console.log(s22);
+
+})();

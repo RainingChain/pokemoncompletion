@@ -1,0 +1,36 @@
+
+BattleTower:
+download Pokefinder
+https://www.einarkl.no/Pokemon/RNGTimer/
+
+
+mgba: Tools -> Game Overrides -> Uncheck Realtime clock
+
+Latios in Southern Island:
+  Frame 4571	62C07792	No	Modest	0: Levitate	154	94	92	165	126	129	Dark	63	♂
+  Frame 4571	62C07792	No	Modest	0: Levitate	29	21	15	31	23	29	Dark	63	♂
+
+Metagross
+  Frame 2297	7FA46B96	No	Adamant	0: Clear Body	27	25	29	11	28	31	Steel	45	-
+  Frame 2297	7FA46B96	No	Adamant	0: Clear Body	20	12	14	8	12	9	Steel	45	-
+
+Mudkip
+  Frame 1475 5523B2BD No Brave 17 31 31 25 22 23 Steel 59 ♂
+  Frame 1475 5523B2BD No Brave 20 14 11 11 11 9 Steel 59 ♂
+
+                 HP   ATK   DEF  SA   SD  SP
+Latios:     EVs: 28/  0/    0/  252/  0/  228 | Stats: 158/94/92/200/126/158 | 158 Speed beats 31 IV Base 105s (e.g Manetric), 21 IV Base 110s (e.g. Gengar)
+Metagross:  EVs: 44/  252/  0/  0/    0/  212 | Stats: 159/202/149/94/104/117 | 117 Speed is exclusively to outspeed Spenser's Suicune (has 116). Hits many other notable benchmarks, but that's the reason for exactly that number
+Swampert:   EVs: 100/ 132/  28/ 140/  0/  108 | Stats: 181/161/114/120/106/81 | 81 Speed beats 31 IV 0 EV Base 60s (E.g. Clefable, Lapras, Weezing, etc)
+
+Team:
+Latios @ Lum Berry: Calm Mind, Psychic, Dragon Claw, Thunderbolt
+Swampert @ Leftovers: Earthquake, Surf, Ice Beam, Counter
+Metagross @ Choice Band: Meteor Mash, Earthquake, Shadow Ball, Explosion
+
+                 HP   ATK   DEF  SA   SD  SP
+Latios:     EVs: _8/  0/    0/  _152/  0/  _128
+
+
+128
+64

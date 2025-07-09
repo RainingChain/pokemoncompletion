@@ -1,0 +1,58 @@
+
+
+.pkPtRngAbuse {
+  --iconSize:24;
+  padding-right: 5px;
+  padding-left: 5px;
+}
+
+.underlineDashed {
+  border-bottom: 1px dashed rgba(255,255,255,0.5);
+}
+
+.clickable, .clickable * {
+  cursor:pointer;
+}
+
+.input-invalid {
+  background-color:rgba(255,200,200,1) !important;
+}
+
+.input-valid {
+  background-color:rgba(200,255,200,1) !important;
+}
+.input-table input {
+  margin:0px !important;
+}
+.input-table input[type=number] {
+  width:100px  !important;
+}
+.input-table tr td {
+  padding-right:5px;
+}
+.results-table>tr>td {
+  padding:10px;
+}
+.results-table {
+  border-collapse: collapse;
+}
+.results-table td, .results-table th  {
+  border:1px solid rgba(255,255,255,0.5);
+}
+
+input:disabled {
+  background-color:rgb(225,225,225);
+}
+.checkbox {
+  margin-bottom:10px;
+  cursor:pointer;
+}
+.checkbox * {
+  cursor:pointer;
+}
+.div-section { margin-bottom:10px }
+
+input[type=checkbox] {
+  width:18px;
+  height:18px;
+}

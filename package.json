@@ -1,0 +1,68 @@
+{
+  "name": "pokemoncompletion",
+  "version": "1.0.0",
+  "description": "Pokémon Completion",
+  "main": "app.js",
+  "domains": [
+    "pokemoncompletion.com"
+  ],
+  "engines": {
+    "node": ">=21.6.0"
+  },
+  "type": "module",
+  "scripts": {
+    "start": "cd dist && node --no-deprecation --inspect app.js",
+    "compil": "npx webpack --progress --env=debug=true --env=watch=true",
+    "compil-prod": "npx webpack --progress --env=deleteDist=true",
+    "herokuLogs": "heroku logs -a pokemoncompletion -n 2000 --source app > ./herokuLogs.txt && code ./herokuLogs.txt"
+  },
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "compression": "^1.7.4",
+    "ejs": "^2.5.6",
+    "express": "^4.16.3",
+    "source-map-support": "^0.5.16",
+    "ws": "^5.1.1"
+  },
+  "devDependencies": {
+    "@types/body-parser": "^1.17.0",
+    "@types/compression": "0.0.36",
+    "@types/ejs": "^2.6.0",
+    "@types/express": "^4.16.0",
+    "@types/html-webpack-plugin": "^3.2.6",
+    "@types/node": "^20.11.5",
+    "@types/source-map-support": "^0.5.0",
+    "@types/webpack": "^4.41.0",
+    "@types/webpack-merge": "^4.1.5",
+    "@types/webpack-node-externals": "^1.7.0",
+    "@types/ws": "^6.0.4",
+    "@typescript-eslint/eslint-plugin": "^6.18.1",
+    "@typescript-eslint/parser": "^6.18.1",
+    "clean-terminal-webpack-plugin": "^3.0.0",
+    "copy-webpack-plugin": "^11.0.0",
+    "css-loader": "^3.6.0",
+    "ejs-loader": "^0.3.5",
+    "eslint": "^8.56.0",
+    "file-loader": "^5.0.2",
+    "handlebars": "^4.7.7",
+    "handlebars-loader": "^1.7.1",
+    "html-inline-css-webpack-plugin": "^1.11.1",
+    "html-loader": "^0.5.5",
+    "html-webpack-plugin": "^5.5.0",
+    "mini-css-extract-plugin": "^2.6.1",
+    "ts-loader": "^9.3.1",
+    "typescript": "^4.3.2",
+    "vue-template-compiler": "^2.6.10",
+    "vue-template-loader": "^0.4.1",
+    "webpack": "^5.67.0",
+    "webpack-bundle-analyzer": "^4.5.0",
+    "webpack-cli": "^4.9.2",
+    "webpack-merge": "^4.2.2",
+    "webpack-node-externals": "^3.0.0"
+  },
+  "license": "UNLICENSED",
+  "optionalDependencies": {
+    "bufferutil": "^4.0.1",
+    "utf-8-validate": "^5.0.2"
+  }
+}

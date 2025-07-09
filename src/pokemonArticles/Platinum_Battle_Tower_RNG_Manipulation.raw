@@ -1,0 +1,78 @@
+<h2>Pokémon Platinum: Battle Tower RNG Manipulation</h2>
+
+<h3>Summary</h3>
+<p>
+How to abuse RNG to face easy trainers in Pokémon Platinum Battle Tower. <a href="/BattleFacilities/Platinum/RngManipulation">Platinum Battle Tower RNG tool</a>
+</p>
+
+
+<h3>Battle Tower RNG Seeds & Formulas</h3>
+There are 3 seeds/formula for Platinum Battle Tower:
+<ul>
+  <li>Different day seed (u32):
+    <ul>
+      <li>Its initial value is set when starting a new savefile.</li>
+      <li>It advances by 1 for each day that has passed since the last save. </li>
+      <li>It doesn't update when the day is earlier than the last save. </li>
+      <li>The update formula is new = old * 1812433253 + 1</li>
+    </ul>
+  </li>
+  <li>Same day seed (u32):
+    <ul>
+      <li>When different day seed changes, same day seed is set equal to the different day seed, then advanced by 1.</li>
+      <li>It also advances by 1 for every new Battle Tower streak started (with 0 ongoing wins).</li>
+      <li>The update formula is new = old * 1566083941 + 1 </li>
+    </ul>
+  </li>
+  <li>Team generation seed (u32):
+    <ul>
+      <li>Its the seed used to determine trainers, TID, their Pokémons, and their PID.</li>
+      <li>When the teams generation starts, the team generation seed is set equal to the same day seed.</li>
+      <li>Afterwards, (1 + win_count / 7 * 24) advances are performed.</li>
+      <li>The update formula is new = old * 48828125 + 1 </li>
+    </ul>
+  </li>
+</ul>
+
+<h3>Battle Tower Trainer Team Generation</h3>
+<p>
+First, the game performs (win_count / 7 * 24 + 1) frame advances.
+<p>
+<p>
+The game then selects 7 trainers. It selects a pool of possible trainers based on the number of wins you'll have when reaching that trainer.
+<p>
+The formula used is
+</p>
+<p>
+Idx = ((seed / 65535) & 0xFFFF) % NumberOfTrainers;
+</p>
+<p>
+If there is only 1 possible trainer (ex: at 48 wins), then the RNG frame is not advanced.
+</p>
+<p>
+If the selected trainer has already been selected, a new roll is performed until an unused trainer is generated.
+</p>
+<p>
+Each trainer has a list of possible Pokémons. The same formula as the trainer is used to determine the trainer Pokémons.
+</p>
+<p>
+If the selected Pokémon has already been selected or if it has the same item as an already selected Pokémon for that trainer, a new roll is performed until a valid Pokémon is generated.
+</p>
+<p>
+After selecting all 3 Pokémons, there is a 2-frames advance to generate TID.
+</p>
+<p>
+Afterwards, for each Pokémon, random PID (2-frames advance) are generated until the nature derived from the PID matches the wanted nature of the Pokémon. In average, ~12 PID generations are needed.
+</p>
+<p>For example, the trainer Pokémon must have the nature Brave. The first PID results in the nature Adamant. The 2nd PID results in Timid. The 3rd PID results in Brave. PID generation is stopped. (6-frames advances)
+</p>
+<p>
+The gender and ability of the Pokémon is derived from its PID.
+</p>
+<p>
+After that, there is a 1-frame avance with unknown impact.
+</p>
+
+<p>
+<a href="https://github.com/RainingChain/pk_platinum_battle_facilities_rng_manip">Source code</a> for Platinum Battle Tower RNG tool
+</p>

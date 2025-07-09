@@ -1,0 +1,33 @@
+{
+  "compilerOptions": {
+    "experimentalDecorators":true,
+    "noImplicitAny": true,
+    "suppressImplicitAnyIndexErrors":false,
+    "noImplicitReturns":false,
+    "noImplicitThis":true,
+    "removeComments": false,
+    "preserveConstEnums": true,
+    "declaration":false,
+    "module":"esnext",
+    "target": "es2020",
+    "sourceMap":false,
+    "alwaysStrict":true,
+    "pretty":false,
+    "esModuleInterop":true,
+    "moduleResolution": "node",
+    "lib":["ES2020","es7","es2015.promise","dom","dom.iterable"],
+    "strictNullChecks":true,
+    "strictPropertyInitialization":false,
+    "strictBindCallApply":true,
+    "strictFunctionTypes":false,
+    "resolveJsonModule": true,
+    "outDir": "./../tmp_testingPokemonCompletionDist",
+    "skipLibCheck":true
+  },
+  "exclude": [
+    "dist",
+    "node_modules",
+    "**/node_modules",
+    ".git",
+  ]
+}

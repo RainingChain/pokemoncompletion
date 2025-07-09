@@ -1,0 +1,203 @@
+{{> ../../common/header.hbs}}
+
+<body class="darkTheme">
+<div id="nav-slot"></div>
+
+<style>
+.table {
+  border-spacing:0px;
+  padding-bottom:10px;
+}
+.table td {
+  border:0.5px solid white;
+  padding:4px;
+}
+.table tr:first-child {
+  font-weight:bold;
+}
+.pokemon-title a {
+  color:rgba(200,200,200,1);
+  text-decoration: none !important;
+}
+.pokemon-title span:first-of-type {
+  color:rgba(200,200,200,1);
+}
+
+.pokemon-title a:hover {
+  opacity:0.8;
+  text-decoration: underline !important;
+}
+
+</style>
+
+<div class="root-container">
+  <h2 class="pokemon-title">
+    <a href="/VersionCompatibility"><span>Pokémon Version Compatibility</span></a><span>▸</span><span>Generation III (WIP)</span>
+  </h2>
+
+  <p>This page lists all Pokémon Generation IV game versions and accessories for all consoles. It also explains what game versions are compatible.</p>
+
+  <h4>DS Console</h4>
+  <ul>
+    <li>DS and DS Lite consoles are same world-wide and can play any game versions. Those consoles can play DS and GBA games, and transfer Pokémon from GBA to DS.</li>
+    <li>DSi consoles exist in multiple versions based on region. They can play DS games from any language and any region. They can't play GBA games. They can only play DSi games from the region of the DSi console. There are no DSi Pokémon games.</li>
+  </ul>
+
+  <h4>DS Game Versions</h4>
+  <div>Pokémon Diamond, Pearl, Platinum, HeartGold, SoulSilver games each have 7 versions based on language.</div>
+  <ul>
+    <li>
+      English (The US, Canada, UK, Australia retail boxes are different, but the GBA cartridge content is the same.)
+    </li>
+    <li>Japanese</li>
+    <li>French</li>
+    <li>Italian</li>
+    <li>Spanish</li>
+    <li>German</li>
+    <li>Korean</li>
+  </ul>
+
+  <h5>Main Core Series</h5>
+  <div>Pokémon Diamond, Pearl, Platinum, HeartGold, SoulSilver games each have 8 versions based on language and region.</div>
+  <ul>
+    <li><span class="bold">Japan:</span> Japanese language</li>
+    <li><span class="bold">The Americas and Asia:</span> English language</li>
+    <li><span class="bold">Europe and Oceania:</span> English, French, German, Italian or Spanish (Unchangeable)</li>
+    <li><span class="bold">Korea:</span> Korean language</li>
+  </ul>
+  <div>
+    A notable difference between Americas English version and Europe English version is that the Americas version has access to the Game Corner, while the Europe one doesn't.
+  </div>
+
+  <br>
+  <h5>Pokémon Ranger Series</h5>
+  <div>Pokémon Ranger, Pokémon Ranger: Shadows of Almia, Pokémon Ranger: Guardian Signs games each have 3 versions based on region.</div>
+  <ul>
+    <li><span class="bold">Japan:</span> Japanese language</li>
+    <li><span class="bold">The Americas and Asia:</span> English language</li>
+    <li><span class="bold">Europe and Oceania:</span> English, French, German, Italian or Spanish language (Changeable)</li>
+  </ul>
+
+
+  <br>
+  <h4>DS Accessories</h4>
+  <ul>
+    <li><span class="bold">PokéWalker:</span> There is only 1 version of the PokéWalker which can connect with HeartGold or SoulSilver games from any language.</li>
+  </ul>
+
+  <h4>DS-DS Interactions</h4>
+  <ul>
+    <li>
+      <div><span class="bold">Trade & Battle (Main Core Series):</span></div>
+
+      <table class="table">
+        <tr><td>↓ DS \ DS →</td><td>English</td><td>Japanese</td><td>French</td><td>Italian</td><td>German</td><td>Spanish</td><td>Korean</td></tr>
+
+        <tr><td>English</td><td>Yes</td><td>Yes</td><td>Yes</td><td>Yes</td><td>Yes</td><td>Yes</td><td></td></tr>
+        <tr><td>Japanese</td><td>Yes</td><td>Yes</td><td>Yes</td><td>Yes</td><td>Yes</td><td>Yes</td><td></td></tr>
+        <tr><td>French</td><td>Yes</td><td>Yes</td><td>Yes</td><td>Yes</td><td>Yes</td><td>Yes</td><td></td></tr>
+        <tr><td>Italian</td><td>Yes</td><td>Yes</td><td>Yes</td><td>Yes</td><td>Yes</td><td>Yes</td><td></td></tr>
+        <tr><td>German</td><td>Yes</td><td>Yes</td><td>Yes</td><td>Yes</td><td>Yes</td><td>Yes</td><td></td></tr>
+        <tr><td>Spanish</td><td>Yes</td><td>Yes</td><td>Yes</td><td>Yes</td><td>Yes</td><td>Yes</td><td></td></tr>
+        <tr><td>Korean</td><td></td><td></td><td></td><td></td><td></td><td></td><td>Yes</td></tr>
+      </table>
+    </li>
+
+    <li>
+      <div><span class="bold">Transfer Manaphy, Deoxys, Shaymin, Darkrai from Pokémon Ranger to Diamond/Pearl:</span></div>
+
+      <table class="table">
+        <tr><td>↓ DS \ DS →</td><td>English</td><td>Japanese</td><td>French</td><td>Italian</td><td>German</td><td>Spanish</td><td>Korean</td></tr>
+
+        <tr><td>English</td><td>Yes</td><td>Yes</td><td>Yes</td><td>Yes</td><td>Yes</td><td>Yes</td><td></td></tr>
+        <tr><td>Japanese</td><td>Yes</td><td>Yes</td><td>Yes</td><td>Yes</td><td>Yes</td><td>Yes</td><td></td></tr>
+        <tr><td>French</td><td>Yes</td><td>Yes</td><td>Yes</td><td>Yes</td><td>Yes</td><td>Yes</td><td></td></tr>
+        <tr><td>Italian</td><td>Yes</td><td>Yes</td><td>Yes</td><td>Yes</td><td>Yes</td><td>Yes</td><td></td></tr>
+        <tr><td>German</td><td>Yes</td><td>Yes</td><td>Yes</td><td>Yes</td><td>Yes</td><td>Yes</td><td></td></tr>
+        <tr><td>Spanish</td><td>Yes</td><td>Yes</td><td>Yes</td><td>Yes</td><td>Yes</td><td>Yes</td><td></td></tr>
+        <tr><td>Korean</td><td></td><td></td><td></td><td></td><td></td><td></td><td>Yes</td></tr>
+      </table>
+    </li>
+  </ul>
+
+  <h4>DS-GBA Interactions</h4>
+  <ul>
+    <li>
+      <div><span class="bold">Pal Park:</span> Pokémon from GBA games (Ruby, Sapphire, Emerald, FireRed, LeafGreen) can be transfered to DS games depending on language.</div>
+
+      <table class="table">
+        <tr><td>↓ DS \ GBA →</td><td>English</td><td>Japanese</td><td>French</td><td>Italian</td><td>German</td><td>Spanish</td></tr>
+
+        <tr><td>English</td><td>Yes</td><td></td><td></td><td></td><td></td><td></td></tr>
+        <tr><td>Japanese</td><td></td><td>Yes</td><td></td><td></td><td></td><td></td></tr>
+        <tr><td>French</td><td></td><td></td><td>Yes</td><td></td><td></td><td></td></tr>
+        <tr><td>Italian</td><td></td><td></td><td></td><td>Yes</td><td></td><td></td></tr>
+        <tr><td>German</td><td></td><td></td><td></td><td></td><td>Yes</td><td></td></tr>
+        <tr><td>Spanish</td><td></td><td></td><td></td><td></td><td></td><td>Yes</td></tr>
+        <tr><td>Korean</td><td>Yes</td><td>Yes</td><td>Yes</td><td>Yes</td><td>Yes</td><td>Yes</td></tr>
+      </table>
+    </li>
+
+    <li><span class="bold">Dual-Slot mode (Wild Pokémon, Accessories, PC Wallpaper):</span> Any DS games can connect with any GBA games, not matter there language.</li>
+
+  </ul>
+
+
+  <h4>Wii Console</h4>
+  <div>The Wii has 5 officially released versions.</div>
+  <ul>
+    <li><span class="bold">NTSC-J (Japan):</span> Japanese language (unchangeable)</li>
+    <li><span class="bold">NTSC-J (Hong-Kong, Taiwan):</span> Traditional Chinese language (unchangeable)
+      <ul><li>No Pokémon games were released for the Chinese WII.</li></ul></li>
+    <li><span class="bold">NTSC-U (The Americas, Middle East, Southeast Asia):</span> TODO</li>
+    <li><span class="bold">PAL (Europe, Oceania, Indian, African): TODO</span>
+    <li><span class="bold">NTSC-K (South Korea):</span> Korean language (unchangeable)
+      <ul><li>No Pokémon games were released for the Korean WII.</li></ul></li>
+  </ul>
+  <h2 style="color: #f0ad4e;text-shadow: 0.1em  0.1em 0 #000 !important;">Beyond this point, information is incorrect.</h2>
+
+
+
+  <h4>Accessories</h4>
+  <ul>
+    <li><span class="bold">Wii Controllers:</span> They are the same world-wide and can be used on any console version.</li>
+    <li><span class="bold">Memory Card:</span> They are the same world-wide and can be used on any console version. The same Memory Card can only contain information of a single region at once. Ex: It can't contain both a NTSC-J and NTSC-U saves at once.</li>
+  </ul>
+
+  <h4>Game Versions</h4>
+  <div>A Wii game is specific to a region and can only be played on a Wii of that region.</div>
+  <br>
+  <div>My Pokémon Ranch (without update) exists in 3 versions. Is is discontinued since Wii Shop Channel's shutdown on January 31, 2019. It can interact with Pokémon Diamond and Pearl of the same language. TODO: What happens after changing the language on PAL Wii?</div>
+  <div>
+    It can be used to obtain Phione and Mew.
+  </div>
+  <ul>
+    <li><span class="bold">NTSC-J (Japan):</span> Japanese language</li>
+    <li><span class="bold">NTSC-U (The Americas and Asia):</span> English language</li>
+    <li><span class="bold">PAL (Europe and Oceania):</span> Uses the Wii language (English, German, French, Spanish, Italian).</li>
+  </ul>
+
+  <div>My Pokémon Ranch (updated) exists in 1 version: Japanese. Is is discontinued since Wii Shop Channel's shutdown on January 31, 2019. It can interact with Japanese Diamond, Pearl and Platinum.</div>
+  <ul>
+    <li><span class="bold">NTSC-J (Japan):</span> Japanese language</li>
+  </ul>
+
+
+  <div>Pokémon Battle Revolution exists in 4 versions. They can interact with DS games of the same language. It is notable for providing Soul Dew and rare berries such as Starf Berry. However, it offers no exclusive content.</div>
+  <ul>
+    <li><span class="bold">NTSC-J (Japan):</span> Japanese language.</li>
+    <li><span class="bold">NTSC-U (The Americas and Asia):</span> English language.</li>
+    <li><span class="bold">PAL (Europe and Oceania):</span> Uses the Wii language (English, German, French, Spanish, Italian).</li>
+    <li><span class="bold">NTSC-J (Taiwan):</span> Chinese language. TODO: It is unknown if it can interact with DS games.</li>
+  </ul>
+
+  <h4>Wii-Game Cube Interactions</h4>
+  <div>
+    All Wii (except Chinese and Korean) can play Game Cube games of the same region. However, Game Cube Pokémon games played on the Wii can't interact with other games because the Wii is not compatible with the Game Cube to GBA Link Cable.
+  </div>
+
+</div>
+
+  
+
+{{> ../../common/footer.hbs}}

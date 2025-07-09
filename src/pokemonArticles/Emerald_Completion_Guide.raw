@@ -1,0 +1,150 @@
+<h2>Pokémon Emerald: 100% Completion Guide</h2>
+
+<div>
+How to catch and EV train the recommended Pokémon to complete 100% Emerald:
+<ul>
+  <li>Catching and training Pokémon<ul>
+    <li>Swampert (for Battle Frontier)</li>
+    <li>Metagross (for Battle Frontier)</li>
+    <li>Latios (for Battle Frontier)</li>
+    <li>Kecleon (for Liechi Berry in Mirage Island)</li>
+    <li>Smeargle (for Trainer Hill)</li>
+  </ul></li>
+  <li>Battle Frontier</li>
+</ul>
+</div>
+<br>
+
+<h2>Catching and Training Pokémon</h2>
+<h3>Swampert</h3>
+<ul>
+  <li><a href="/completion/Emerald/Guide/RNG">RNG manipulate Mudkip</a></li>
+  <li><a href="https://www.smogon.com/ingame/guides/emerald_ev_manual">EV training</a> for HP:100, Atk:132, Def:28, SpA:140, Spe:108</li>
+  <li>Train to Level 50</li>
+</ul>
+<br>
+<h3>Metagross</h3>
+<ul>
+  <li><a href="/completion/Emerald/Guide/RNG">RNG manipulate Beldum</a></li>
+  <li><a href="https://www.smogon.com/ingame/guides/emerald_ev_manual">EV training</a> for HP:44, Atk:252, Spe:212</li>
+  <li>Train to Level 50</li>
+</ul>
+<br>
+<h3>Latios</h3>
+<ul>
+  <li><a href="/completion/Emerald/Guide/RNG">RNG manipulate Latios</a></li>
+  <li><a href="https://www.smogon.com/ingame/guides/emerald_ev_manual">EV training</a> for HP:28, SpA:252, Spe:228</li>
+  <li>Train to Level 50</li>
+</ul>
+<br>
+<h3>Kecleon</h3>
+<ul>
+  <li><a href="/completion/Emerald/Guide/RNG">RNG manipulate Kecleon</a> with PID 4513EAD1</li>
+  <li>Wait 44 days after starting your game, then talk to old man to see Mirage Island.</li>
+</ul>
+<br>
+<h3>Smeargle</h3>
+<ul>
+  <a href="https://www.youtube.com/watch?v=6-sss9giRHo">Video guide</a>
+  <li>Catch Smeargle and breed until it has 31 Speed IV and +Speed nature (ex: Jolly, Timid)
+    <ul>
+      <li>Catch a Female Smeargle or Ditto with the correct nature, and give it an Everstone when breeding.</li>
+      <li>Have a Pokémon with ability Magma Armour or Flame Body in the first slot to hatch eggs faster.</li>
+    </ul>
+  </li>
+  <li>Get a Gyarados with Dragon Rage (Level 25). Battle Ditto. Use Dragon Rage. Ditto uses Dragon Rage. Put Ditto to Sleep. Switch to Smeargle. Sketch Dragon Rage.</li>
+  <li>Give Smeargle x10 Carbos</li>
+  <li>Give Smeargle Pokérus (not needed, but without it, resulting Smeargle will only have 17 Speed)</li>
+  <li>Give Smeargle a Macro Brace. Get x5 other Pokémon with Exp. Share (not needed, but without it, resulting Smeargle will only have 17 Speed).</li>
+  <li>In Route 103, battle level 2 Wingull. During the battle, switch to all other 5 Pokémon. This ensures Smearlge earns only 1 exp per battle.</li>
+  <li>Repeat until Smeargle is about to raise to level 6.</li>
+  <li>Level 5 Smeargle should have 18 Speed.</li>
+  <li>Repeat all the same steps to have x2 Level 5 Smeargle with 18 Speed and Dragon Rage.</li>
+</ul>
+
+<br>
+<h2>Battle Frontier</h2>
+<div><a href="/BattleFacilities/Emerald/RngManipulation">RNG manipulation tool</a></div>
+<div><a href="/BattleFacilities/Emerald/Assistant">Automated RNG manipulation tool</a></div>
+<div>Credits to werster for team strategy</div>
+<br>
+<h3>Battle Tower</h3>
+<div>
+  Objective: <ul>
+    <li>100 consecutive Single wins (Level 50 or Open Level) for Gold Trophy</li>
+    <li>56 consecutive Single wins (Level 50) for Winning Ribbon</li>
+    <li>56 consecutive Single wins (Open Level) for Victory Ribbon</li>
+  </ul>
+</div>
+<div>
+  Team: <ul style="margin-top:0px">
+    <li>Latios @ Lum Berry: Calm Mind, Psychic, Dragon Claw, Thunderbolt</li>
+    <li>Swampert @ Leftovers: Earthquake, Surf, Ice Beam, Counter</li>
+    <li>Metagross @ Choice Band: Meteor Mash, Earthquake, Shadow Ball, Explosion</li>
+  </ul>
+</div>
+
+<br>
+<h3>Battle Arena</h3>
+<div>
+  Objective: 56 consecutive Single wins (Level 50 or Open Level) for Gold Guts Symbol Trophy
+</div>
+<div>
+  Team: <ul style="margin-top:0px">
+    <li>Latios @ Lum Berry: Calm Mind, Psychic, Dragon Claw, Thunderbolt</li>
+    <li>Metagross @ Choice Band: Meteor Mash, Earthquake, Shadow Ball, Explosion</li>
+    <li>Swampert @ Leftovers: Earthquake, Surf, Ice Beam, Counter</li>
+  </ul>
+</div>
+
+<br>
+<h3>Battle Dome</h3>
+<div>
+  Objective: 10 consecutive tournament wins (Level 50 or Open Level) for Gold Tactics Symbol
+</div>
+<div>
+  Team: <ul style="margin-top:0px">
+    <li>Latios @ Lum Berry: Calm Mind, Psychic, Dragon Claw, Thunderbolt</li>
+    <li>Swampert @ Leftovers: Earthquake, Surf, Ice Beam, Counter</li>
+    <li>Metagross @ Choice Band: Meteor Mash, Earthquake, Shadow Ball, Explosion</li>
+  </ul>
+</div>
+
+<br>
+<h3>Battle Palace</h3>
+<div>
+  Objective: 42 consecutive wins (Level 50 or Open Level) for Gold Spirits Symbol
+</div>
+<div>
+  Team: <ul style="margin-top:0px">
+    <li>Metagross @ Choice Band: Meteor Mash, Earthquake</li>
+    <li>Latios @ Lum Berry: Psychic, Dragon Claw, Thunderbolt (Surf) | Teach Surf after beating Set 3</li>
+    <li>Swampert @ Leftovers: Earthquake, Surf, Ice Beam, Rock Slide</li>
+  </ul>
+</div>
+
+<br>
+<h3>Battle Pike</h3>
+<div>
+  Objective: 10 consecutive tournament wins (Level 50 or Open Level) for Gold Luck Symbol
+</div>
+<div>
+  Team: <ul style="margin-top:0px">
+    <li>Latios @ Lum Berry: Calm Mind, Psychic, Dragon Claw, Thunderbolt</li>
+    <li>Swampert @ Leftovers: Earthquake, Surf, Ice Beam, Counter</li>
+    <li>Metagross @ Choice Band: Meteor Mash, Earthquake, Shadow Ball, Explosion</li>
+  </ul>
+</div>
+
+<br>
+<h3>Battle Pyramid</h3>
+<div>
+  Objective: 10 consecutive wins (Level 50 or Open Level) for Gold Brave Symbol
+</div>
+<div>
+  Team: <ul style="margin-top:0px">
+    <li>Latios @ Lum Berry: Calm Mind, Psychic, Dragon Claw, Thunderbolt</li>
+    <li>Swampert @ Earthquake, Surf, Ice Beam, Protect</li>
+    <li>Metagross @ Choice Band: Meteor Mash, Earthquake, Shadow Ball, Brick Break</li>
+  </ul>
+</div>

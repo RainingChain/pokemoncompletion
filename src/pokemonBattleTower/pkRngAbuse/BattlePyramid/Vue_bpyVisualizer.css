@@ -1,0 +1,206 @@
+:root {
+  --bpyTileSize:24px;
+}
+
+.myTable > div {
+  display:flex;
+}
+.myTable > div > div {
+  padding:0px;
+  position:relative;
+}
+
+kbd {
+  color:white !important;
+  background-color:#292b2c !important;
+  font-family: monospace, monospace;
+  padding: 0.2rem 0.4rem;
+  font-size: 90%;
+  border-radius: 0.2rem;
+}
+
+.myTable {
+	image-rendering: crisp-edges;
+  image-rendering: -webkit-optimize-contrast;
+	image-rendering: pixelated;
+}
+.myTable, .myTable div {
+  box-sizing:content-box;
+}
+.myTable > div div, .selectableInputTile {
+  width: var(--bpyTileSize);
+  height:var(--bpyTileSize);
+  background-size: var(--bpyTileSize) var(--bpyTileSize);
+}
+.myTable.withSquareBorder {
+  width: calc((var(--bpyTileSize) * 8 + 8px) * 4);
+}
+.myTable.withSquareBorder > div:nth-child(8n) {
+  border-bottom:8px solid black;
+}
+.myTable.withSquareBorder > div div:nth-child(8n) {
+  border-right:8px solid black;
+}
+
+.emptyTile {
+  background-image:url("./img/emptyTile.png");
+}
+.wallTile {
+  background-image:url("./img/wallTile.png");
+}
+.trainerTile {
+  background-image:url("./img/emptyTile.png");
+}
+.trainerTile-sub {
+  background-image:url("./img/trainerTile.png");
+}
+.itemTile {
+  background-image:url("./img/itemTile.png");
+}
+.itemNoTile {
+  background-image:url("./img/itemNoTile.png");
+}
+.entranceTile {
+  background-image:url("./img/entranceTile.png");
+}
+.exitTile {
+  background-image:url("./img/exitTile.png");
+}
+.oobTile {
+  background:rgb(0,0,0);
+}
+.unknownTile {
+  background-image:url("./img/unknownTile.png");
+}
+.trainerOnTile {
+  background-image:url("./img/trainerOnTile.png");
+}
+
+.playerTile {
+  background-image:url("./img/playerTile.png");
+}
+
+.subTile {
+  width:var(--bpyTileSize);
+  height:var(--bpyTileSize);
+  position:absolute;
+  top:0px;
+  left:0px;
+}
+
+.inTrainerRange {
+  background-color:rgba(255,0,0,0.25);
+  width:var(--bpyTileSize);
+  height:var(--bpyTileSize);
+  position:absolute;
+  top:0px;
+  left:0px;
+}
+
+.trainer-sight {
+  position: absolute;
+  top:0px;
+  left:0px;
+}
+
+
+
+.trainer-14 {
+  background-image:url("./img/npc/14_girl_3.png");
+}
+.trainer-15 {
+  background-image:url("./img/npc/15_rich_boy.png");
+}
+.trainer-18 {
+  background-image:url("./img/npc/18_pokefan_f.png");
+}
+.trainer-20 {
+  background-image:url("./img/npc/20_woman_2.png");
+}
+.trainer-21 {
+  background-image:url("./img/npc/21_expert_m.png");
+}
+.trainer-22 {
+  background-image:url("./img/npc/22_expert_f.png");
+}
+.trainer-25 {
+  background-image:url("./img/npc/25_pokefan_m.png");
+}
+.trainer-31 {
+  background-image:url("./img/npc/31_camper.png");
+}
+.trainer-32 {
+  background-image:url("./img/npc/32_picnicker.png");
+}
+.trainer-33 {
+  background-image:url("./img/npc/33_man_3.png");
+}
+.trainer-34 {
+  background-image:url("./img/npc/34_woman_5.png");
+}
+.trainer-35 {
+  background-image:url("./img/npc/35_youngster.png");
+}
+.trainer-36 {
+  background-image:url("./img/npc/36_bug_catcher.png");
+}
+.trainer-37 {
+  background-image:url("./img/npc/37_psychic_m.png");
+}
+.trainer-38 {
+  background-image:url("./img/npc/38_school_kid_m.png");
+}
+.trainer-39 {
+  background-image:url("./img/npc/39_maniac.png");
+}
+.trainer-40 {
+  background-image:url("./img/npc/40_hex_maniac.png");
+}
+.trainer-44 {
+  background-image:url("./img/npc/44_black_belt.png");
+}
+.trainer-45 {
+  background-image:url("./img/npc/45_beauty.png");
+}
+.trainer-47 {
+  background-image:url("./img/npc/47_lass.png");
+}
+.trainer-48 {
+  background-image:url("./img/npc/48_gentleman.png");
+}
+.trainer-49 {
+  background-image:url("./img/npc/49_sailor.png");
+}
+.trainer-50 {
+  background-image:url("./img/npc/50_fisherman.png");
+}
+.trainer-51 {
+  background-image:url("./img/npc/51_running_triathlete_m.png");
+}
+.trainer-52 {
+  background-image:url("./img/npc/52_running_triathlete_f.png");
+}
+.trainer-53 {
+  background-image:url("./img/npc/53_tuber_f.png");
+}
+.trainer-54 {
+  background-image:url("./img/npc/54_tuber_m.png");
+}
+.trainer-55 {
+  background-image:url("./img/npc/55_hiker.png");
+}
+.trainer-56 {
+  background-image:url("./img/npc/56_cycling_triathlete_m.png");
+}
+.trainer-57 {
+  background-image:url("./img/npc/57_cycling_triathlete_f.png");
+}
+.trainer-5 {
+  background-image:url("./img/npc/5_ninja_boy.png");
+}
+.trainer-65 {
+  background-image:url("./img/npc/65_man_4.png");
+}
+.trainer-66 {
+  background-image:url("./img/npc/66_man_5.png");
+}

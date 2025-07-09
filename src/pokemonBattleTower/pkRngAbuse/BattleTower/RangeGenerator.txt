@@ -1,0 +1,219 @@
+
+import {AlgoSection, Options,Generator,FilteredReason,Result} from "./Generator";
+
+const MAX_RES_COUNT = 100000;
+
+export class Range {
+  constructor(public min:number,public max:number){}
+  static createFromVueInput(arr:string[]){
+    return new Range(+arr[0], +arr[1]);
+  }
+  count(){
+    return Math.max(0, this.max - this.min + 1);
+  }
+  getList(){
+    let a:number[] = [];
+    for(let i = this.min; i <= this.max; i++)
+      a.push(i);
+    return a;
+  }
+}
+export class SectionFrameInputRange {
+  constructor(public vblankP1:number | null, public vblankP2:Range){}
+}
+
+export class SectionFrameInput {
+  constructor(public vblankP1:number, public vblankP2:number){}
+  toStr(){
+    return '' + this.vblankP1 + ',' + this.vblankP2;
+  }
+}
+
+export class RangeOptions {
+  constructor(extra:Partial<RangeOptions>){
+    Object.assign(this, extra);
+  }
+
+  genOptions:Options;
+  frameInputs:SectionFrameInputRange[] = [];
+
+  getGenCountEq1(){
+    return this.frameInputs.every((ip,i) => {
+      return ip.vblankP2.count() === 1 && (ip.vblankP1 !== null || i === AlgoSection.START);
+    });
+  }
+}
+
+export class RangeGenerator {
+  constructor(public opts:RangeOptions){
+    this.generator = new Generator(this.opts.genOptions);
+  }
+  generator:Generator;
+  lastResult:Result | null = null;
+
+  getNextVblank1(old:number, sec:AlgoSection){
+    const ip = this.opts.frameInputs;
+    if (ip[sec].vblankP1 !== null)
+      return null;
+
+    if (this.lastResult === null) //error
+      throw new Error('this.lastResult === null');
+
+    const idx = [AlgoSection.MON1NAT, AlgoSection.MON2NAT, AlgoSection.MON3NAT].indexOf(sec);
+    if (idx === -1){
+      if (this.lastResult.rngCountPerSec[sec] <= 1)
+        return null; //aka first attempt was succesfull. vblank p1 can't occur
+      if (old === -1)
+        return 1;
+      return old + 1;
+    }
+
+    const oldRngCount = this.lastResult.rngCountPerSec[sec];
+    if (old === -1){
+      if (oldRngCount === 2) // aka first attempt was good
+        return null;
+      //otherwise, try vblank as soon as possible
+      return 2;
+    }
+
+    // if good nat occurs at {5, 17, 34, 51}
+    // when using vblank=-1, we got 34.
+    // when we used vblank=2, we got 4 (+1 from vblank).
+    // to get 17, we need to trigger vblank at 6.
+
+    return oldRngCount + 2;
+  }
+  async sleep0(){
+    return new Promise(resolve => setTimeout(resolve, 0));
+  }
+  async forEachInputFrameCountInfo(cb:(inp:SectionFrameInput[]) => Result){
+    const ip = this.opts.frameInputs;
+
+    let c = 0;
+    for(let i00 of ip[AlgoSection.START].vblankP2.getList()){
+      trainer1: for(let i01:number | null = ip[AlgoSection.TRAINER].vblankP1 ?? -1; i01 !== null; i01 = this.getNextVblank1(i01, AlgoSection.TRAINER)){
+      trainer2: for(let i02 of ip[AlgoSection.TRAINER].vblankP2.getList()){
+      mon1id1: for(let i05:number | null = ip[AlgoSection.MON1ID].vblankP1 ?? -1; i05 !== null; i05 = this.getNextVblank1(i05, AlgoSection.MON1ID)){
+      mon1id2: for(let i06 of ip[AlgoSection.MON1ID].vblankP2.getList()){
+      mon1nat1: for(let i07:number | null = ip[AlgoSection.MON1NAT].vblankP1 ?? -1; i07 !== null; i07 = this.getNextVblank1(i07, AlgoSection.MON1NAT)){
+      mon1nat2: for(let i08 of ip[AlgoSection.MON1NAT].vblankP2.getList()){
+      mon2id1: for(let i09:number | null = ip[AlgoSection.MON2ID].vblankP1 ?? -1; i09 !== null; i09 = this.getNextVblank1(i09, AlgoSection.MON2ID)){
+      mon2id2: for(let i10 of ip[AlgoSection.MON2ID].vblankP2.getList()){
+      mon2nat1: for(let i11:number | null = ip[AlgoSection.MON2NAT].vblankP1 ?? -1; i11 !== null; i11 = this.getNextVblank1(i11, AlgoSection.MON2NAT)){
+      mon2nat2: for(let i12 of ip[AlgoSection.MON2NAT].vblankP2.getList()){
+      mon3id1: for(let i13:number | null = ip[AlgoSection.MON3ID].vblankP1 ?? -1; i13 !== null; i13 = this.getNextVblank1(i13, AlgoSection.MON3ID)){
+      mon3id2: for(let i14 of ip[AlgoSection.MON3ID].vblankP2.getList()){
+      mon3nat1: for(let i15:number | null = ip[AlgoSection.MON3NAT].vblankP1 ?? -1; i15 !== null; i15 = this.getNextVblank1(i15, AlgoSection.MON3NAT)){
+      mon3nat2: for(let i16 of ip[AlgoSection.MON3NAT].vblankP2.getList()){
+
+        const inp = [
+          new SectionFrameInput(-1, i00),
+          new SectionFrameInput(i01, i02),
+          new SectionFrameInput(i05, i06),
+          new SectionFrameInput(i07, i08),
+          new SectionFrameInput(i09, i10),
+          new SectionFrameInput(i11, i12),
+          new SectionFrameInput(i13, i14),
+          new SectionFrameInput(i15, i16),
+        ];
+
+        const res = cb(inp);
+        c++;
+        if (c % 2000 === 0)
+          await this.sleep0();
+
+        const {filteredReason} = res;
+        if (filteredReason === FilteredReason.wrongTrainer)
+          continue trainer1;
+        if (filteredReason === FilteredReason.wrongPokemon0)
+          continue mon1id1;
+        if (filteredReason === FilteredReason.wrongPokemon12)
+          continue mon3id1;
+        if (filteredReason === FilteredReason.TRAINER_NOT_ENOUGH_VBLANKP1)
+          break trainer1;
+        if (filteredReason === FilteredReason.MON1ID_NOT_ENOUGH_VBLANKP1)
+          break mon1id1;
+        if (filteredReason === FilteredReason.MON1NAT_NOT_ENOUGH_VBLANKP1)
+          break mon1nat1;
+        if (filteredReason === FilteredReason.MON2ID_NOT_ENOUGH_VBLANKP1)
+          break mon2id1;
+        if (filteredReason === FilteredReason.MON2NAT_NOT_ENOUGH_VBLANKP1)
+          break mon2nat1;
+        if (filteredReason === FilteredReason.MON3ID_NOT_ENOUGH_VBLANKP1)
+          break mon3id1;
+        if (filteredReason === FilteredReason.MON3NAT_NOT_ENOUGH_VBLANKP1)
+          break mon3nat1;
+        if (filteredReason === FilteredReason.tooManyResults)
+          return;
+    }}}}}}}}}}}}}}}
+  }
+  async generate(){
+    this.lastResult = null;
+
+    const results:Result[] = [];
+    await this.forEachInputFrameCountInfo(inp => {
+      const res = this.generator.generate(inp);
+
+      this.lastResult = res;
+
+      if(res.filteredReason === null){
+        res.probWeight = this.calcWeight(res);
+        results.push(res);
+      }
+      if (results.length > MAX_RES_COUNT)
+        res.filteredReason = FilteredReason.tooManyResults;
+
+      return res;
+    });
+    return results;
+  }
+  calcWeight(res:Result){
+    let chance = 1;
+    for (let sec = 0; sec <= AlgoSection.MON3NAT; sec++)
+      for(let p1 of [true, false])
+        chance *= this.calcWeight_one(res, sec, p1);
+
+    return chance;
+  }
+  calcWeight_one(res:Result, sec:AlgoSection, isP1:boolean){
+    const ip = res.frameCountInfo[sec];
+    const range = this.opts.frameInputs[sec];
+
+    if (isP1 && range.vblankP1 !== null)
+      return 1;
+
+    const isMonNat = [AlgoSection.MON1NAT, AlgoSection.MON2NAT, AlgoSection.MON3NAT].includes(sec);
+    if (!isMonNat){
+      if (!isP1)
+        return 1; //aka all same chance
+
+      return ip.vblankP1 === -1 ? 1 : 1/20; // no v-blank 20 more likely
+    }
+
+    const isMonId = [AlgoSection.MON1ID, AlgoSection.MON2ID, AlgoSection.MON3ID].includes(sec);
+    if (isMonId && !isP1){
+      return ip.vblankP2 === range.vblankP2.min ? 3 : 1;
+    }
+
+    if (!isP1)
+      return 1;
+
+    //280896 cycle per vblank
+    //about 950 cycle for nature
+    //250 Random32() calls inbetween vblank
+
+    const MAX_RANDOM32_BY_VBLANK = 250;
+
+    if (ip.vblankP1 === -1){
+      const random32CountNoVblank = res.rngCountPerSec[sec] / 2;
+      // ex: if it requires 50 random32 without interrupt, then it has 4/5 chance to occur
+      return Math.max(1 - random32CountNoVblank / MAX_RANDOM32_BY_VBLANK, 0.01);
+    }
+
+    // ex: we forced vblank at frame 2, and valid nature was at 15 (14 + 1).
+    // this means the interval possible frames are {2,4,6,8,10,12,14}
+    const p1Range = (res.rngCountPerSec[sec] - ip.vblankP1) / 2 + 1;
+
+    return Math.max(p1Range / MAX_RANDOM32_BY_VBLANK, 0.001);
+  }
+}

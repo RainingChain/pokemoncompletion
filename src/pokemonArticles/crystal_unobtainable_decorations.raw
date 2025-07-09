@@ -1,0 +1,147 @@
+
+<h2>Pokémon Crystal: Unobtainable Decorations</h2>
+
+<h3>Summary</h3>
+<p>
+Tentacool Doll and Pikachu Bed decorations in Pokémon Crystal are impossible to obtain due to a coding oversight. Those decorations are featured in official Nintendo guides.
+</p>
+
+<h3>Mystery Gift in Pokémon Stadium 2</h3>
+<p>
+The logic is the mostly the same between Pokémon Stadium 2 and Mystery Gift between GameBoy Color using infra-red system.
+</p>
+<p>
+The game chooses a random item and decoration separately. The game first tries to give the decoration but you already have that decoration, you will get the item instead.
+</p>
+<p>
+Choosing a specific item or decoration gift to send occurs in two stages. First, the game selects a set from which the gift will come. Then, it uses a part of the player's Trainer ID number to determine which gift from that set to send. (Below, bit 0 refers to the least significant bit of the Trainer ID and bit 15 refers to the most significant bit. Given the Trainer ID 32768, which translates to 1000000000000000 in binary, bit 15 is 1 and bit 0 is 0.)
+</p>
+<p>
+The logic for determining the item given is the same as the logic for Mystery Gift between GameBoy Color using infra-red system.
+See <a href="https://bulbapedia.bulbagarden.net/wiki/Mystery_Gift">https://bulbapedia.bulbagarden.net/wiki/Mystery_Gift</a> for more info.
+</p>
+
+<h3>Decoration Logic</h3>
+<p>
+The logic for determining decoration is different however.
+</p>
+
+<table>
+  <tr>
+    <td>Random number</td>
+    <td>Range</td>
+    <td>Gift set</td>
+    <td>Overall rate</td>
+  </tr>
+  <tr>
+    <td rowspan="2">1st</td>
+    <td>36-255</td>
+    <td>Common</td>
+    <td>223/256</td>
+  </tr>
+  <tr>
+    <td>0-35</td>
+    <td colspan="2">N/A (pick a 2nd number)</td>
+  </tr>
+  <tr>
+    <td rowspan="2">2nd</td>
+    <td>72-255</td>
+    <td>Uncommon</td>
+    <td>25/256</td>
+  </tr>
+  <tr>
+    <td>0-71</td>
+    <td colspan="2">N/A (pick a 3rd number)</td>
+  </tr>
+  <tr>
+    <td rowspan="2">3rd</td>
+    <td>72-255</td>
+    <td>Rare</td>
+    <td>7/256</td>
+  </tr>
+  <tr>
+    <td>0-71</td>
+    <td colspan="2">N/A (pick a 4th number)</td>
+  </tr>
+  <tr>
+    <td rowspawn="3">4th</td>
+    <td>154-255</td>
+    <td>Very Rare</td>
+    <td>1/256</td>
+  </tr>
+  <tr>
+    <td>77-153</td>
+    <td>Tentacool Doll</td>
+    <td>0/256</td>
+  </tr>
+  <tr>
+    <td>0-76</td>
+    <td>Tentacool Doll or Pikachu Bed</td>
+    <td>0/256</td>
+  </tr>
+</table>
+
+<p>
+Common, Uncommon, Rare and Very Rare follows a similar logic as GameBoy Color Infra-Red Mystery Gifts (using Trainer ID). The exact bit used for each item and decoration is slightly different. Check <a href="https://bulbapedia.bulbagarden.net/wiki/Mystery_Gift">https://bulbapedia.bulbagarden.net/wiki/Mystery_Gift</a> for the detailed list.
+</p>
+<p>
+Upon reaching the 4th roll with 0-76, Tentacool Doll is given if Round 2 has not been unlocked and Pikachu Bed is given if Round 2 has been unlocked.
+</p>
+<p>
+No code exists to return Unown Doll (internal decoration ID 35).
+</p>
+
+<h3>Why Tentacool Doll and Pikachu Bed are unobtainable</h3>
+<p>
+You may have noticed that Overall rate for Tentacool Doll and Pikachu Bed is 0/256. Here's why:
+</p>
+<p>
+To obtain Tentacool Doll, the game must roll 0-35, 0-71, 0-71, 0-153 (assuming Round 2 hasn't been unlocked).
+</p>
+<p>
+To obtain Pikachu Bed, the game must roll 0-35, 0-71, 0-71, 0-76 (assuming Round 2 has been unlocked).
+</p>
+<p>
+Those sequences of numbers are not possible.
+</p>
+<p>
+The game uses a 32-bit linear congruential generator: result = (seed * 0x19660D) + 0x3C6EF35F;
+</p>
+<p>
+Mystery Gift logic only uses the last 8 bits of the generated random number.
+</p>
+<p>
+The last 8 bits of the generator follows a cyclic pattern:
+0, 95, 50, 233, 52, 3, 134, 45, 168, 231, 26, 177, 92, 11, 238, 117, 80, 111, 2, 121, 132, 19, 86, 189, 248, 247, 234, 65, 172, 27, 190, 5, 160, 127, 210, 9, 212, 35, 38, 77, 72, 7, 186, 209, 252, 43, 142, 149, 240, 143, 162, 153, 36, 51, 246, 221, 152, 23, 138, 97, 76, 59, 94, 37, 64, 159, 114, 41, 116, 67, 198, 109, 232, 39, 90, 241, 156, 75, 46, 181, 144, 175, 66, 185, 196, 83, 150, 253, 56, 55, 42, 129, 236, 91, 254, 69, 224, 191, 18, 73, 20, 99, 102, 141, 136, 71, 250, 17, 60, 107, 206, 213, 48, 207, 226, 217, 100, 115, 54, 29, 216, 87, 202, 161, 140, 123, 158, 101, 128, 223, 178, 105, 180, 131, 6, 173, 40, 103, 154, 49, 220, 139, 110, 245, 208, 239, 130, 249, 4, 147, 214, 61, 120, 119, 106, 193, 44, 155, 62, 133, 32, 255, 82, 137, 84, 163, 166, 205, 200, 135, 58, 81, 124, 171, 14, 21, 112, 15, 34, 25, 164, 179, 118, 93, 24, 151, 10, 225, 204, 187, 222, 165, 192, 31, 242, 169, 244, 195, 70, 237, 104, 167, 218, 113, 28, 203, 174, 53, 16, 47, 194, 57, 68, 211, 22, 125, 184, 183, 170, 1, 108, 219, 126, 197, 96, 63, 146, 201, 148, 227, 230, 13, 8, 199, 122, 145, 188, 235, 78, 85, 176, 79, 98, 89, 228, 243, 182, 157, 88, 215, 74, 33, 12, 251, 30, 229, 0
+</p>
+<p>
+The first random number is selected randomly in that list, then at every new roll, the next random number is the next one in the list.
+</p>
+<p>
+The issue is that there are no 4 consecutive numbers that are 0-35, 0-71, 0-71, 0-153 respectively.
+This means Tentacool Doll (and Pikachu Bed) can't be obtained.
+</p>
+<p>
+The sequence to obtain a Very Rare decoration (0-35, 0-71, 0-71, 154-255) appears once (15,34,25,164).
+</p>
+
+<p>
+In short, none of the Pokémon Stadium 2 exclusive decorations are actually obtainable. All 8 Pokémon Stadium 2 versions have been tested.
+</p>
+
+<h3>Cheating</h3>
+<p>
+By using hacks, it is possible to receive Pikachu Bed, Unown Doll, and Tentacool Doll.
+</p>
+<p>
+In Pokémon Stadium 2 USA 1.0, place a breakpoint at command 0x801454F8 and alter the register V0 to 0x22 for Pikachu Bed, 0x23 for Unown Doll, or 0x24 for Tentacool Doll.
+</p>
+
+<p>
+<img style="max-width:60%" src="{{IMG}}">
+</p>
+
+<p>
+Special thanks to Lincoln for providing the initial disassembly of Mystery Gift functions of Pokémon Stadium 2.
+<a href="https://github.com/Lincoln-LM/stad2">https://github.com/Lincoln-LM/stad2</a>
+</p>

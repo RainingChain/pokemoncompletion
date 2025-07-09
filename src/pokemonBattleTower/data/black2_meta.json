@@ -1,0 +1,14 @@
+{
+"gen":5,
+"gameName":"Black 2",
+"dangerousMoves":[],
+"semiDangerousMoves":[
+  "Whirlwind","Will-O-Wisp","Substitute","Roar"
+],
+"ohkoMoves":[
+  "Guillotine","Sheer Cold","Fissure","Horn Drill"
+],
+"dangerousItems":[
+  "Quick Claw", "Focus Sash", "Focus Band","BrightPowder"
+]
+}

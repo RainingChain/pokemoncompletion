@@ -1,0 +1,84 @@
+<h2>Pokémon Black 2: Subway RNG Manipulation</h2>
+
+<h3>Summary</h3>
+<p>
+How to abuse RNG to face easy trainers in Pokémon White 2 and Black 2 Battle Subway.
+</p>
+
+<h3>Tool</h3>
+<p>
+<a href="https://github.com/RainingChain/PokemonB2W2BattleSubwayRNG">PokemonB2W2BattleSubwayRNG</a> is a tool that predicts the trainer pokemons you'll face depending on your initial RNG seed.
+</p>
+<p>
+Special thanks to Admiral Fish for his PokéFinder project.
+</p>
+
+<h3>Battle Subway RNG Mechanisms</h3>
+<p>
+The map where the player starts the Battle Subway has no wandering NPCs, which makes it perfect for RNG abuse.
+</p>
+<p>
+Battle Subway only uses PID RNG to determine trainers and pokemons.
+</p>
+<p>
+Upon loading the game, an initial seed and initial frame advance is determined based on the boot time, mac, ds type etc.
+</p>
+Afterwards, when starting the battle subway, the player must save the game, which advances the RNG frame by 1.
+</p>
+<p>
+Then, the game selects 7 trainers. The game selects a pool of possible trainers based on the number of wins you'll have when reaching that trainer. The following info is for Super Single subway:
+<ul>
+<li>0-5 wins: Trainers with IDs 110-159</li>
+<li>6-12 wins: Trainers with IDs 140-179</li>
+<li>13-19 wins: Trainers with IDs 160-199</li>
+<li>20-26 wins: Trainers with IDs 180-219</li>
+<li>27 wins: Trainers with IDs 200-239</li>
+<li>28-47 wins: Trainers with IDs 200-299</li>
+<li>48 wins: Trainers with ID 307 (Boss)</li>
+<li>49+ wins: Trainers with IDs 200-299</li>
+</ul>
+<p>
+The formula used is
+</p>
+<p>
+Idx = ((((seed >> 32) >> 16) + (seed >> 32)) >> 16) % NumberOfTrainers;
+</p>
+<p>
+If there is only 1 possible trainer (ex: at 48 wins), then the RNG frame is not advanced.
+</p>
+<p>
+If the selected trainer has already been selected, a new roll is performed until an unused trainer is generated.
+</p>
+<p>
+After selecting all 7 trainers, the player character moves inside the subway vehicle, which changes the map. Changing map after changing the DS clock date may trigger the daily event reset which will advance the RNG frame uncontrollably. This will cause pokemons predicted by the tool to be incorrect. Note that the trainer prediction is still valid because it was generated before changing map. To avoid this issue, change the DS clock, load the game, go outside, save the game, go inside, save the game again.
+</p>
+<p>
+After entering the vehicle, the pokemons of the first trainer are calculated.
+</p>
+<p>
+Each trainer has a list of possible pokemons. The same formula as the trainer is used.
+</p>
+<p>
+Idx = ((((seed >> 32) >> 16) + (seed >> 32)) >> 16) % NumberOfPokémons;
+</p>
+<p>
+If the selected pokemon has already been selected or if it has the same item as an already selected pokemon for that trainer, a new roll is performed until a valid pokemon is generated.
+</p>
+<p>
+After selecting all 3 pokemons, there is a 2-frames advance with unknown impact.
+</p>
+<p>
+Afterwards, the gender and ability for each pokemon is selected, according to this formula:
+</p>
+<p>
+AbilityIdx = (seed >> 32) % 2
+</p>
+<p>
+After that, there is a 6-frames avance with unknown impact (most likely battle setup?).
+</p>
+<p>
+During the battle, PID RNG is not advanced (thankfully!).
+</p>
+<p>
+After defeating the first trainer, the 3 pokemons of the next trainer is calculated with the same formula, all the way until the 7th trainer.
+</p>

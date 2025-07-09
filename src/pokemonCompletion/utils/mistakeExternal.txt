@@ -1,0 +1,14 @@
+
+mistsake:
+  Rare Candy Route 109 vs 110
+  n":"Revive #2","l":"Route 114","pos":[2424.8,1425.9]}, 113
+
+map:
+  Secret Power Route 111 is Attract?
+
+  :"HP Up #4","l":"Route 116","pos":[4018.8,2593.7]},
+
+  click on location doesnt work after toggle underwater
+  "Max Revive #3","l":"Safari Zone (Southwest)","pos":[2781.6,7329.8]}, is not Protein
+  TM07 - Hail","l":"Shoal Cave","pos":[1998.9,12721.8]}, is not Psychic
+  missing: 3254.6,6803.0 hyper potion in route 120

@@ -1,0 +1,176 @@
+
+{{> ../../common/header.hbs}}
+
+<body class="darkTheme" style="padding-bottom:50px">
+  <div id="nav-slot"></div>
+  <div class="root-container">
+  <div>
+    <h2 class="pokemon-title">
+      <a href="/completion/shuffle"><span>Pokémon Shuffle</span></a><span>▸</span><span>Special stages DLC</span>
+    </h2>
+    <p>
+      This page contains a web tool to inject the Special stages DLC into the original 3DS Pokémon Shuffle game file.
+    </p>
+
+    <p>
+      Those Special stages were originally available for download in 3DS eShop. Unfortunately, it is no longer possible to obtain them by official means since the eShop closure in 2023.
+    </p>
+    <p>
+      <img id="img_map" style="height:232px">
+    </p>
+    <!-- ################### -->
+    <h4>
+      DLC Features:
+    </h4>
+    <ul>
+      <li>Access to all <a href="https://bulbapedia.bulbagarden.net/wiki/Special_stage">Special stages</a>, repeating on a <a href="https://bulbapedia.bulbagarden.net/wiki/Pok%C3%A9mon_Shuffle_event_cycle">24-week schedule</a> (Competitive stage, Daily Pokémon, Escalation battle, Great Challenge, High-Speed Challenge, One Chance a Day!, Pokémon Safari, Resource events, Special Challenge, UB Challenge).</li>
+      <li>This increases the number of catchable Pokémon from 584 to 975, the number of Mega Stones from 34 to 48, and the maximum Trainer Rank from 22 to 30.</li>
+      <li>Completing Mission Card #3 is now possible.</li>
+      <li>The number of Mega Speedup, Raise Max Level, Level Up, Skill Booster, and Skill Swapper is no longer limited. All Pokémon can now be fully upgraded.</li>
+    </ul>
+    <!-- ################### -->
+    <h4>
+      Notable differences with the original game:
+    </h4>
+    <ul>
+      <li>Competitive stages have been converted into boss stages. When defeated, they give their respective Mega Stone. Their HP is based on a F-Class (30% percentile) cutoff of the last live service competition. In the original game, their Mega Stone would be awarded based on a H-Class (50% percentile) cutoff.</a></li>
+
+      <li>Changing the 3DS clock won't remove access to the Special stages. In the original game, changing the 3DS clock (or changing the battery) would permanently prevent access to the Special stages.</li>
+
+      <li>It is not possible to obtain the 12 Pikachu Celebration Pokémon. To obtain them, use the <a href="/completion/Shuffle">Event Simulator</a> instead.</li>
+      <li><a href="https://github.com/SaltedNeos/shuffle-preservation-mod/releases/tag/v1.2">Complete changelog</a></li>
+    </ul>
+    <br>
+
+    <!-- ################### -->
+    <h3>
+      How to play Pokémon Shuffle with the DLC on emulator:
+    </h3>
+    <ul>
+      <li>Step 1: Locate the required files.</li>
+      <li>Step 2: Inject the DLC in the game file.</li>
+      <li>Step 3: Adapt your save data file.</li>
+      <li>Step 4: Enjoy!</li>
+    </ul>
+    <div style="padding-left:30px">An alternative installation procedure for 3DS is detailed <a href="https://github.com/SaltedNeos/shuffle-preservation-mod">here.</a></div>
+    <br>
+    <h5>
+      Step 1: Locate the required files.
+    </h5>
+    <ul>
+      <li>
+        1. Original Pokémon Shuffle game file: <code style="padding-left:15px">0004000000141000 Pokémon Shuffle (CTR-N-KRXA) (v5.6.0) (W).cia</code>
+        <ul>
+          <li>ID: 18269</li>
+          <li>Title ID: 0004000000141000</li>
+          <li>Version: 5.6.0 (5216)</li>
+          <li>Size: 89.27 MiB</li>
+          <li>Product Code: CTR-N-KRXA</li>
+          <li>SHA-256 Hash: 9c801679d4a37a1a28d259ac7aee950b00383bbebfb4513350114a1c6d9a345f</li>
+        </ul>
+      </li>
+      <li style="padding-top:10px">
+        2. Pokémon Shuffle save data file: <code style="padding-left:15px">savedata.bin</code>
+        <ul>
+          <li>To get that file, install the original Pokémon Shuffle game file on the <a href="https://github.com/azahar-emu/azahar">Azahar emulator.</a></li>
+          <li>Play the game shortly, then close the game.</li>
+          <li>If you are on PC, in the Installed Titles in Azahar, right-click Pokémon Shuffle, and select "Open → Save Data Location".</li>
+          <li>If you are on Android, click and hold the Pokémon Shuffle game label. Click the "Directory" icon next to "➤ Play" and select "Open Save Data Folder".</li>
+          <li>Note: The file is located at <code>&lt;EMULATOR&gt;/sdmc/Nintendo 3DS/00000000000000000000000000000000/00000000000000000000000000000000/title/00040000/00141000/data/00000001/savedata.bin</code></li>
+        </ul>
+      </li>
+    </ul>
+    <h5>
+      Step 2: Inject the DLC in the game file.
+    </h5>
+    <ul>
+      <li style="padding-bottom:10px">
+        1. Click the "Load .cia" button below and select <code>0004000000141000 Pokémon Shuffle (CTR-N-KRXA) (v5.6.0) (W).cia</code>.
+        <br>
+        <br>
+        <label for="file-upload-cia" class="button" style="cursor: pointer;">
+          Load .cia
+        </label>
+        <input id="file-upload-cia" accept=".cia" style="display: none;" type="file"/>
+        <br>
+        <br>
+        <div style="font-weight: bold; padding-top:10px;padding-bottom:10px;" id="outputMsg-cia"></div>
+
+        <a id="downloadLink-cia" style="display:none;font-size:1.2em;" type="download" download="Pokemon_Shuffle_with_Special_Stages_DLC.cia">Download modified .cia with DLC</a>
+      </li>
+      <li>
+        2. Wait until the DLC injection is complete. Once complete, a link will appear.
+      </li>
+      <li>
+        3. Click the link to download the modified .cia which contains Pokémon Shuffle with the Special stages DLC.
+      </li>
+      <li>
+        4. Install the .cia on your emulator.
+      </li>
+      <li style="padding-top:10px">
+        Legal disclaimer: This website doesn't host any .cia game files. The DLC is injected by applying a <a href="https://www.smwcentral.net/?a=details&id=11474&p=section">IPS patch.</a>
+      </li>
+    </ul>
+
+    <!-- ################### -->
+    <h5>
+      Step 3: Adapt your save data file.
+    </h5>
+    <ul>
+      <li>
+        1. Make a backup of the original save data file.
+      </li>
+      <li style="padding-bottom:10px">
+        2. Click the "Load savedata.bin" button below and select <code>savedata.bin</code>.
+        <br>
+        <br>
+        <label for="file-upload-savedata" class="button" style="cursor: pointer;">
+          Load savedata.bin
+        </label>
+        <input id="file-upload-savedata" accept=".bin" style="display: none;" type="file"/>
+        <br>
+        <br>
+        <div style="font-weight: bold; padding-top:10px;padding-bottom:10px;" id="outputMsg-savedata"></div>
+
+        <a id="downloadLink-savedata" style="display:none;font-size:1.2em;" type="download" download="savedata.bin">Download adapted savedata.bin</a>
+      </li>
+      <li>
+        3. Wait until the save data file is adapted. Once complete, a link will appear.
+      </li>
+      <li>
+        4. Click the link to download the adapted <code>savedata.bin</code>.
+      </li>
+      <li>
+        5. Overwrite the previous <code>savedata.bin</code> with the new one in your emulator.
+      </li>
+    </ul>
+    <!-- ################### -->
+    <h5>
+      Step 4: Enjoy!
+    </h5>
+    <ul>
+      <li>Make sure that the emulator clock is set between 2018-02-14 and 2037-12-31.</li>
+      <li>
+        Upon loading the game, in the Main stage map, a Special stage icon should be displayed at the bottom-right corner.
+        <p style="padding-top:10px">
+          <img id="img_icon" style="height:231px">
+        </p>
+      </li>
+      <li>Check out the <a href="/completion/shuffle">100% Pokémon Shuffle Checklist</a>!</li>
+    </ul>
+    <!-- ################### -->
+    <h4>
+      Credits:
+    </h4>
+    <ul>
+      <li><a href="https://github.com/SaltedNeos/shuffle-preservation-mod">SaltedNeos</a> for creating the DLC (mod).</li>
+      <li>For support: Open an <a href="https://github.com/RainingChain/PokemonShuffleSpecialStagesDLC">issue on GitHub</a> or contact RainingChain on <a target="_blank" rel="noopener" href="https://discord.gg/FZf9WNZZ"> Scripters War Discord</a>.</li>
+    </ul>
+    <!-- ################### -->
+  </div>
+  
+
+  </div>
+{{> ../../common/footer.hbs}}
+
+

@@ -1,0 +1,13 @@
+# dist
+
+node_modules
+
+*.bak
+*.orig
+*.cpuprofile
+
+**/**/Thumbs.db
+**/**/thumbs.db
+Thumbs.db
+thumbs.db
+desktop.ini

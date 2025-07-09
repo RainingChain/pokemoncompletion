@@ -1,0 +1,49 @@
+
+@media only screen and (max-width: 900px) {
+  .smallOnSmallScreen {
+    font-size:1.2em;
+  }
+}
+
+img.leaflet-tile {
+  image-rendering: pixelated;
+}
+
+html, body {
+  height: 100%;
+  width: 100%;
+}
+
+#myMap {
+  height: 100%;
+  width: 100%;
+}
+
+nav.navbar {
+  margin-bottom:0px;
+}
+.hideIfTooSmall {display:none;}
+@media only screen and (min-width: 900px) {
+  .hideIfTooSmall {display:inline-block;}
+}
+
+.crosshairPointer, .crosshairPointer * {
+  cursor:crosshair  !important;
+}
+.leaflet-container {
+  background-color:rgba(255,0,0,0.0);
+}
+.leaflet-sidebar {
+  color:black;
+}
+
+/** otherwise too big on mobile */
+.leaflet-control-layers-toggle {
+  width:25px !important;
+  height:25px  !important;
+}
+
+/** otherwise impossible to close sidebar on mobile */
+.close {
+  z-index:1000 !important;
+}

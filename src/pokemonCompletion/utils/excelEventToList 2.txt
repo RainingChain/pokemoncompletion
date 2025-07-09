@@ -1,0 +1,10 @@
+JSON.stringify(b.map(c => {
+    d = c.split('\t');
+    hidden = d[1] === 'HIDDEN ITEM';
+    return {
+        id:d[0].replace('0x0','').replace('0x',''),
+        name:d[4].replace('Found ','').replace(' item ball disappeared',''),
+        flag:d[d.length -1],
+        location:(d[2] + ' ' + d[3] + (hidden ? ' (Hidden)' : '').trim())
+    };
+}).sort((a,b) => a.name < b.name ? -1 : 1)).replace(/\},/g,'},\n');

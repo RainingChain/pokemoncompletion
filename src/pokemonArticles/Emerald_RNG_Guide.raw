@@ -1,0 +1,93 @@
+<h2>Pokémon Emerald: RNG Manipulation for 100% Completion</h2>
+
+<div>
+How to obtain the recommended Pokémon to complete 100% Emerald:
+<ul>
+  <li>Latios (for Battle Frontier)</li>
+  <li>Metagross (for Battle Frontier)</li>
+  <li>Swampert (for Battle Frontier)</li>
+  <li>Kecleon (for Liechi Berry in Mirage Island)</li>
+</ul>
+</div>
+<br>
+
+<h4>Emerald RNG Mechanisms</h4>
+<p>All recommended Pokémon for completing 100% Emerald are stationnary Pokémon.</p>
+<p>The IV, ability, nature, and PID of stationnary Pokémon only depend on the frame the battle starts (time elapsed since the savefile was booted).</p>
+
+<br>
+<h4>General Requirements</h4>
+<ul>
+  <li><a href="https://mgba.io/downloads.html">mGBA emulator</a> (to play the game)</li>
+  <li>Pokémon Emerald</li>
+  <li><a href="https://github.com/Admiral-Fish/PokeFinder/releases">PokéFinder</a> (for timing calibration)</li>
+  <li><a href="https://www.einarkl.no/Pokemon/RNGTimer/">RNGTimer</a> (for frame-based timer)</li>
+</ul>
+<br>
+<h3>Latios</h3>
+<p><span style="font-weight:bold">Goal:</span> Latios. Nature: Modest, IV: HP:29, Atk:21, Def:15, SpA:31, SpD:23, Spe:29.</p>
+
+<h4>Requirements</h4>
+<ul>
+  <li>Eon Ticket (to access Southern Island)</li>
+  <li>After defeating the Elite Four, picking Red as the color on the TV so Latias is roaming Hoenn (and Latios is in Southern Island)</li>
+</ul>
+
+<h4>How To</h4>
+<div><span style="font-weight:bold">Target Frame:</span> 4571</div>
+<div><span style="font-weight:bold">Stats:</span> Male, Modest, HP: 154 Atk:94, Def:92, SpA:165, SpD:126, Spe:129</div>
+
+<ul>
+  <li>Step 1: In PokéFinder, select Emerald, Gen 3 -> Static. Method: Method 1, Category: Legends, Pokémon: Latios. Filter: Check Show Stats. Press Generate.</li>
+  <li>Step 2: Go to Southern Island and save right in front of Latios</li>
+  <li>Step 3: On RNGTimer, select GBA mode, Frame 4571, Calibration 0.</li>
+  <li>Step 4: Start the timer. When it reaches 0.000, reset the GBA (Start+Select+A+B).</li>
+  <li>Step 5: When the timer reaches 0.000, press A to start Latios battle.</li>
+  <li>Step 6: Catch Latios</li>
+  <li>Step 7: Find the row matching the caught Latios <ul>
+    <li>For example, if the caught Latios is Impish, HP: 143, Atk:95, Def: 99, SpA: 135, SpD: 124, Spe: 121; then this means the actual frame the A button was pressed is 4567.</li>
+  </ul></li>
+
+  <li>
+    Step 8: In RNGTimer, write down the actual frame the A button was pressed in the "Frame hit" field, and press Update.
+  </li>
+  <li>
+    Repeat Steps 4-8 until the caught Latios has the wanted stats (Male, Modest, HP:154, Atk:94, Def:92, SpA:165, SpD:126, Spe:129).
+  </li>
+</ul>
+
+<br>
+<h3>Metagross</h3>
+<div><span style="font-weight:bold">Goal:</span> Beldum. Nature: Adamant, IV: HP:27, Atk:25, Def:29, SpA:11, SpD:28, Spe:31.</div>
+<div><span style="font-weight:bold">Target Frame:</span> 2297</div>
+<div><span style="font-weight:bold">Stats:</span> Adamant, HP:20, Atk:12, Def:14, SpA:8, SpD:12, Spe:9</div>
+
+<ul>
+  <li>In PokéFinder, select Emerald, Gen 3 -> Static. Method: Method 1, Category: Gifts, Pokémon: Beldum. Filter: Check Show Stats. Press Generate.</li>
+  <li>Go to Mossdeep City after defeating the Elite Four. Save right in front of Beldum's ball.</li>
+  <li>Do the same process as explained above for Latios, but for target frame 2297.</li>
+</ul>
+
+<br>
+<h3>Swampert</h3>
+<div><span style="font-weight:bold">Goal:</span> Mudkip. Nature: Brave, IV: HP:17, Atk:31, Def:31, SpA:25, SpD:22, Spe:23.</div>
+<div><span style="font-weight:bold">Target Frame:</span> 1475</div>
+<div><span style="font-weight:bold">Stats:</span> Brave, HP:20, Atk:14, Def:11, SpA:11, SpD:11, Spe:9</div>
+
+<ul>
+  <li>In PokéFinder, select Emerald, Gen 3 -> Static. Method: Method 1, Category: Starter, Pokémon: Mudkip. Filter: Check Show Stats. Press Generate.</li>
+  <li>Save right in front of Mudkip's ball.</li>
+  <li>Do the same process as explained above for Latios, but for target frame 1475.</li>
+</ul>
+
+<br>
+<h3>Kecleon</h3>
+<div><span style="font-weight:bold">Goal:</span> Kecleon with PID 4513EAD1 (to get to Mirage Island for Liechi Berry)</div>
+<div><span style="font-weight:bold">Target Frame:</span> 1008</div>
+<div><span style="font-weight:bold">Stats:</span> Lonely, HP:80, Atk:66, Def:47, SpA:45, SpD:85, Spe:32</div>
+
+<ul>
+  <li>In PokéFinder, select Emerald, Gen 3 -> Static. Method: Method 1, Category: Stationnary, Pokémon: Kecleon. Filter: Check Show Stats. Press Generate.</li>
+  <li>Save right in front of an invisible Kecleon.</li>
+  <li>Do the same process as explained above for Latios, for target frame 1008.</li>
+</ul>

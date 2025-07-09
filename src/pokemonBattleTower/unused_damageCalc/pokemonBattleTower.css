@@ -1,0 +1,15 @@
+
+.checkbox {
+  margin-bottom:10px;
+  cursor:pointer;
+}
+.checkbox * {
+  cursor:pointer;
+}
+.div-section { margin-bottom:10px }
+
+input[type=checkbox] {
+  width:18px;
+  height:18px;
+}
+

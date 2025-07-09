@@ -1,0 +1,289 @@
+import { GameData, JsonTrainerPokemon, Trainer } from "../../data/getData";
+import {Rng} from "../Rng";
+import * as CONST from "../const";
+import {getGender,FRONTIER_STAGES_PER_CHALLENGE,Gender,Options,Filter,FilterMon,FilteredReason} from "../Structs";
+import {AlgoSection} from "./BtStructs";
+export {getGender,FRONTIER_STAGES_PER_CHALLENGE,Gender,Options,Filter,FilterMon,FilteredReason,AlgoSection};
+
+//03005d80 gRngValue, 020249c0 sRandCount
+
+export class Result {
+  constructor(public genOpts:Options,
+              public frameCountInfo:InputFrame[]){
+    for(let i = 0 ; i <= AlgoSection.MON3NAT; i++)
+      this.rngCountPerSec.push(0);
+  }
+  trainer:Trainer | null = null;
+  pokemons:{jmon:JsonTrainerPokemon,abilityNum:number,gender:Gender}[] = [];
+  rngCountPerSec:number[] = [];
+  probWeight = 1;
+  filteredReason:FilteredReason | null = null;
+  frameCountInfoToString(){
+    let arr:number[] = [];
+    this.frameCountInfo.forEach((inp,i) => {
+      if (i !== AlgoSection.START)
+        arr.push(inp.vblankP1);
+      arr.push(inp.vblankP2);
+    });
+    return arr.join(',');
+  }
+}
+
+
+export class InputFrame {
+  vblankP1 = 0;
+  vblankP2 = 0
+}
+
+export class Generator {
+  constructor(public opts:Options){}
+
+  private rng:Rng;
+
+  frames:InputFrame[] = [];
+  res:Result;
+
+  advance(frame:number, reason:string){
+    if (frame === 0)
+      return;
+    for(let i = 0; i < frame; i++)
+      this.rng.Random();
+    this.logIfNeeded(frame, reason);
+  }
+  generate(frames:InputFrame[]) : Result {
+    this.frames = frames;
+    this.res = new Result(this.opts, frames);
+    this.rng = new Rng(BigInt(0));
+    this.advance(frames[AlgoSection.START].vblankP2, 'advanceBeforeTrainer');
+
+    this.SetNextFacilityOpponent();
+
+    if (this.res.filteredReason !== null)
+      return this.res;
+
+    if(this.opts.filter.trainerId !== null && this.opts.filter.trainerId !== this.res.trainer!.id){
+      this.res.filteredReason = FilteredReason.wrongTrainer;
+      return this.res;
+    }
+
+    this.advance(this.frames[AlgoSection.TRAINER].vblankP2, 'TRAINER vblankP2');
+
+    this.FillTrainerParty();
+
+    return this.res;
+  }
+
+
+  logIfNeeded(frameCount:number, msg:string){
+    if(!this.opts.printRngFramesInfo)
+      return;
+    window['console'].log(`${this.rng.advancedCount - frameCount}-${this.rng.advancedCount} (+${frameCount}) ${msg}`);
+  }
+  Random(reason:string){
+    const r = this.rng.Random();
+    if(reason)
+      this.logIfNeeded(1, reason);
+    return r;
+  }
+  RandomNum(reason:string){
+    return Number(this.Random(reason));
+  }
+  Random32(reason:string){
+    const r1 = this.Random("");
+    const r2 = this.Random("");
+    const res = (r1 | (r2 << BigInt(16))) & BigInt(0xFFFFFFFF);
+    if(reason)
+      this.logIfNeeded(2, reason);
+    return res;
+  }
+
+  ChooseSpecialBattleTowerTrainer() : Trainer | null{
+    return null;
+  }
+  //081623f0 l 00000158 SetNextFacilityOpponent
+  SetNextFacilityOpponent() {
+    const fixedTrainer = this.ChooseSpecialBattleTowerTrainer();
+    if (fixedTrainer !== null){
+      this.res.trainer = fixedTrainer;
+      return;
+    }
+
+    while(true){
+      const id = this.GetRandomScaledFrontierTrainerId();
+      this.res.rngCountPerSec[AlgoSection.TRAINER]++;
+
+      if(!this.opts.trainersBattledAlready.includes(id)){
+        if (this.res.rngCountPerSec[AlgoSection.TRAINER] <= this.frames[AlgoSection.TRAINER].vblankP1){
+          this.res.filteredReason = FilteredReason.TRAINER_NOT_ENOUGH_VBLANKP1;
+          return;
+        }
+
+        this.res.trainer = this.opts.gameData.trainers[id];
+        return;
+      }
+
+      if (this.res.rngCountPerSec[AlgoSection.TRAINER] === this.frames[AlgoSection.TRAINER].vblankP1)
+        this.advance(1, 'TRAINER vblankP1');
+    }
+  }
+  static GetTrainerIdRange(winStreak:number){
+    winStreak = Math.floor(winStreak);
+    if (winStreak < 0)
+      winStreak = 0;
+    const challengeNum = Math.min(Math.floor(winStreak / 7), 7);
+    const battleNum = winStreak % 7;
+
+    if (challengeNum <= 7){
+      if (battleNum == FRONTIER_STAGES_PER_CHALLENGE - 1)
+        return CONST.sFrontierTrainerIdRangesHard[challengeNum];
+      else
+        return CONST.sFrontierTrainerIdRanges[challengeNum];
+    } else {
+      return CONST.sFrontierTrainerIdRanges[7];
+    }
+  }
+  GetRandomScaledFrontierTrainerId(){
+    let trainerId = 0;
+
+    const challengeNum = this.opts.getChallengeNum();
+    const battleNum = this.opts.getBattleNum();
+
+    if (challengeNum <= 7){
+      if (battleNum == FRONTIER_STAGES_PER_CHALLENGE - 1){
+        // The last battle in each challenge has a jump in difficulty, pulls from a table with higher ranges
+        trainerId = (CONST.sFrontierTrainerIdRangesHard[challengeNum][1] - CONST.sFrontierTrainerIdRangesHard[challengeNum][0]) + 1;
+        trainerId = CONST.sFrontierTrainerIdRangesHard[challengeNum][0] + (this.RandomNum('GetRandomScaledFrontierTrainerId-1') % trainerId);
+      } else {
+        trainerId = (CONST.sFrontierTrainerIdRanges[challengeNum][1] - CONST.sFrontierTrainerIdRanges[challengeNum][0]) + 1;
+        trainerId = CONST.sFrontierTrainerIdRanges[challengeNum][0] + (this.RandomNum('GetRandomScaledFrontierTrainerId-2') % trainerId);
+      }
+    } else {
+      // After challenge 7, trainer IDs always come from the last, hardest range, which is the same for both trainer ID tables
+      trainerId = (CONST.sFrontierTrainerIdRanges[7][1] - CONST.sFrontierTrainerIdRanges[7][0]) + 1;
+      trainerId = CONST.sFrontierTrainerIdRanges[7][0] + (this.RandomNum('GetRandomScaledFrontierTrainerId-3') % trainerId);
+    }
+
+    return trainerId;
+  }
+  static updateForMonNature(monIdx:number, nat:string, vblankP1:number,
+    random32:(reason:string) => bigint,
+    advance:(adv:number, msg:string) => void){
+    const secNameNat = ['MON1NAT','MON2NAT','MON3NAT'][monIdx];
+
+    // Place the chosen Pokémon into the trainer's party.
+    const natureId = BigInt(CONST.NATURES.indexOf(nat));
+
+    let pid = BigInt(0);
+    let natFromPid = BigInt(0);
+    let rngCountNat = 0;
+    do {
+      pid = random32("");
+      rngCountNat += 2;
+      natFromPid = pid % BigInt(CONST.NATURES.length);
+      if (natFromPid === natureId)
+        break;
+
+      if (rngCountNat === vblankP1)
+        advance(1, `${secNameNat} vblankP1`);
+    } while(true);
+
+    return [rngCountNat, pid] as const;
+  }
+
+  //081630c4 l 00000380 FillTrainerParty
+  FillTrainerParty() {
+    const trainerId = this.res.trainer!.id;
+
+    this.logIfNeeded(0,'FillTrainerParty start');
+    const monSet = this.opts.gameData.trainers[trainerId].pokemons;
+    const bfMonCount = monSet.length;
+
+    this.advance(2, 'OT Generation');
+
+    while (this.res.pokemons.length < 3){
+      //------------------------
+      // MONX_ID
+      //------------------------
+      const sectionId = [AlgoSection.MON1ID,AlgoSection.MON2ID,AlgoSection.MON3ID][this.res.pokemons.length];
+      const secNameId = ['MON1ID','MON2ID','MON3ID'][this.res.pokemons.length];
+
+      if(!this.res.rngCountPerSec[sectionId])
+        this.logIfNeeded(0, `${secNameId} start`);
+
+      const rIdx = this.RandomNum(`${secNameId} FillTrainerParty-ChoseMon`) % bfMonCount;
+      this.res.rngCountPerSec[sectionId]++;
+
+      const monId = monSet[rIdx];
+      const jmon = this.opts.gameData.trainerPokemons[monId];
+
+      if(!jmon)
+        throw new Error(`invalid jmon: ${rIdx}|${monId}|${bfMonCount}|${this.opts.gameData.trainerPokemons.length}|${monSet.toString()}`);
+
+      const isGood = (() => {
+        if (this.opts.isLvl50 && monId > CONST.FRONTIER_MONS_HIGH_TIER)
+          return false;
+
+        if(this.res.pokemons.find(m => m.jmon.species === jmon.species))
+          return false;
+
+        if (jmon.item && this.res.pokemons.find(m => m.jmon.item === jmon.item))
+          return false;
+
+        return true;
+      })();
+
+      if (!isGood){
+        if (this.res.rngCountPerSec[sectionId] === this.frames[sectionId].vblankP1)
+          this.advance(1, `${secNameId} vblankP1`);
+        continue;
+      }
+
+      if (this.res.rngCountPerSec[sectionId] <= this.frames[sectionId].vblankP1){
+        const r = [FilteredReason.MON1ID_NOT_ENOUGH_VBLANKP1,FilteredReason.MON2ID_NOT_ENOUGH_VBLANKP1,FilteredReason.MON3ID_NOT_ENOUGH_VBLANKP1][this.res.pokemons.length];
+        this.res.filteredReason = r;
+        return;
+      }
+
+      this.advance(this.frames[sectionId].vblankP2, `${secNameId} vblankP2`);
+
+      //------------------------
+      // MONX_NAT
+      //------------------------
+
+      const sectionNat = [AlgoSection.MON1NAT,AlgoSection.MON2NAT,AlgoSection.MON3NAT][this.res.pokemons.length];
+      const secNameNat = ['MON1NAT','MON2NAT','MON3NAT'][this.res.pokemons.length];
+      this.logIfNeeded(0, `${secNameNat} start`);
+
+      const [rngCountNat, pid] =
+        Generator.updateForMonNature(this.res.pokemons.length, jmon.nature, this.frames[sectionNat].vblankP1, reason => this.Random32(reason),
+        (adv,msg) => this.advance(adv,msg));
+
+      this.res.rngCountPerSec[sectionNat] = rngCountNat;
+      this.logIfNeeded(this.res.rngCountPerSec[sectionNat], `NaturePid`);
+
+      if (this.res.rngCountPerSec[sectionNat] <= this.frames[sectionNat].vblankP1){
+        const r = [FilteredReason.MON1NAT_NOT_ENOUGH_VBLANKP1,FilteredReason.MON2NAT_NOT_ENOUGH_VBLANKP1,FilteredReason.MON3NAT_NOT_ENOUGH_VBLANKP1][this.res.pokemons.length];
+        this.res.filteredReason = r;
+        return;
+      }
+
+      let abilityNum = jmon.abilities.length <= 1 ? 0 : (pid & BigInt(1) ? 1 : 0);
+      const gender = getGender(pid, jmon.species);
+
+      if (this.res.pokemons.length === 0 && !this.opts.filter.doesMonRespectFilter0(jmon, abilityNum, gender)){
+        this.res.filteredReason = FilteredReason.wrongPokemon0;
+        return;
+      }
+
+      this.res.pokemons.push({jmon: jmon,abilityNum, gender});
+
+      this.advance(this.frames[sectionNat].vblankP2, `${secNameNat} vblankP2`);
+      this.logIfNeeded(0, `${secNameNat} end`);
+    }
+    if(!this.opts.filter.doesMonRespectFilter12(this.res.pokemons)){
+      this.res.filteredReason = FilteredReason.wrongPokemon12;
+      return;
+    }
+  }
+
+}

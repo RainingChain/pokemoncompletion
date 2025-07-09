@@ -1,0 +1,143 @@
+calibration:
+-3699 no script
+
+
+213 diff between werster and real rng frame
+
+Set 1: 2021
+Set 2: 2047
+Set: 2065
+Set 4: 2208
+Set 5: 1855
+Set 6: 1842
+
+<tr><td>2018</td><td>Elekid, Charmeleon, Togetic, Kabuto, Grovyle, Graveler</td><td>Graveler, Elekid, Charmeleon (Swap for Magby)</td></tr>
+<tr><td>2019</td><td>Charmeleon, Togetic, Kabuto, Grovyle, Graveler, Houndour</td><td>Graveler, Houndour, Grovyle</td></tr>
+<tr><td>2020</td><td>Togetic, Kabuto, Grovyle, Graveler, Houndour, Raticate</td><td>Graveler, Houndour, Grovyle</td></tr>
+<tr><td>2021</td><td>Kabuto, Grovyle, Graveler, Houndour, Raticate, Magby</td><td>Graveler, Houndour, Grovyle</td></tr>
+<tr><td>2022</td><td>Grovyle, Graveler, Houndour, Raticate, Magby, Furret</td><td>Graveler, Houndour, Grovyle</td></tr>
+<tr><td>2023</td><td>Graveler, Houndour, Bayleef, Raticate, Magby, Furret</td><td>Graveler, Houndour, Bayleef</td></tr>
+<tr><td>2041</td><td>Dragonair, Sandslash, Arbok, Sharpedo, Dunsparce, Hitmonlee</td><td>Hitmonlee, Sharpedo, Arbok</td></tr>
+<tr><td>2042</td><td>Sandslash, Arbok, Sharpedo, Dunsparce, Hitmonlee, Plusle</td><td>Hitmonlee, Sharpedo, Arbok</td></tr>
+<tr><td>2043</td><td>Arbok, Sharpedo, Delcatty, Dunsparce, Hitmonlee, Plusle</td><td>Hitmonlee, Sharpedo, Arbok</td></tr>
+<tr><td>2044</td><td>Sharpedo, Delcatty, Venomoth, Dunsparce, Hitmonlee, Plusle</td><td>Hitmonlee, Sharpedo, Venomoth</td></tr>
+<tr><td>2045</td><td>Delcatty, Venomoth, Croconaw, Dunsparce, Hitmonlee, Plusle</td><td>Hitmonlee, Croconaw, Venomoth</td></tr>
+<tr><td>2046</td><td>Venomoth, Pelipper, Croconaw, Dunsparce, Hitmonlee, Plusle</td><td>Hitmonlee, Croconaw, Venomoth</td></tr>
+<tr><td>2047</td><td>Pelipper, Gorebyss, Croconaw, Dunsparce, Hitmonlee, Plusle</td><td>Hitmonlee, Croconaw, Plusle</td></tr>
+<tr><td>2048</td><td>Gorebyss, Croconaw, Parasect, Dunsparce, Hitmonlee, Plusle</td><td>Hitmonlee, Croconaw, Plusle</td></tr>
+<tr><td>2049</td><td>Croconaw, Parasect, Dunsparce, Hitmonlee, Plusle, Seadra</td><td>Hitmonlee, Croconaw, Plusle</td></tr>
+<tr><td>2050</td><td>Parasect, Dunsparce, Hitmonlee, Plusle, Seadra, Raticate</td><td>Hitmonlee, Dunsparce, Plusle</td></tr>
+<tr><td>2051</td><td>Dunsparce, Lickitung, Hitmonlee, Plusle, Seadra, Raticate</td><td>Hitmonlee, Dunsparce, Plusle</td></tr>
+<tr><td>2052</td><td>Lickitung, Hitmonlee, Plusle, Seadra, Raticate, Swellow</td><td>Hitmonlee, Swellow, Plusle</td></tr>
+<tr><td>2053</td><td>Hitmonlee, Plusle, Seadra, Raticate, Swellow, Porygon</td><td>Hitmonlee, Swellow, Plusle</td></tr>
+<tr><td>2063</td><td>Murkrow, Chansey, Graveler, Seviper, Grumpig, Zangoose</td><td>Zangoose, Grumpig, Seviper</td></tr>
+<tr><td>2064</td><td>Chansey, Graveler, Seviper, Grumpig, Quilava, Zangoose</td><td>Zangoose, Grumpig, Seviper</td></tr>
+<tr><td>2065</td><td>Graveler, Seviper, Grumpig, Quilava, Zangoose, Vigoroth</td><td>Zangoose, Grumpig, Seviper</td></tr>
+<tr><td>2066</td><td>Ninjask, Seviper, Grumpig, Quilava, Zangoose, Vigoroth</td><td>Zangoose, Grumpig, Seviper</td></tr>
+<tr><td>2067</td><td>Seviper, Grumpig, Quilava, Zangoose, Vigoroth, Parasect</td><td>Zangoose, Grumpig, Seviper</td></tr>
+<tr><td>2068</td><td>Grumpig, Quilava, Zangoose, Seaking, Vigoroth, Parasect</td><td>Zangoose, Grumpig, Vigoroth</td></tr>
+<tr><td>2204</td><td>Ludicolo, Feraligatr, Umbreon, Hypno, Nidoking, Heracross</td><td>Umbreon, Heracross, Ludicolo (swap Umbreon for Espeon)</td></tr>
+<tr><td>2205</td><td>Feraligatr, Umbreon, Hypno, Nidoking, Heracross, Altaria</td><td>Umbreon, Heracross, Altaria</td></tr>
+<tr><td>2206</td><td>Umbreon, Hypno, Nidoking, Heracross, Altaria, Espeon</td><td>Espeon, Heracross, Altaria (swap Altaria for Salamance)</td></tr>
+<tr><td>2207</td><td>Hypno, Nidoking, Heracross, Altaria, Espeon, Flareon</td><td>Espeon, Heracross, Flareon</td></tr>
+<tr><td>2208</td><td>Nidoking, Heracross, Altaria, Espeon, Flareon, Golduck</td><td>Espeon, Heracross, Flareon</td></tr>
+<tr><td>2209</td><td>Nidoking, Heracross, Altaria, Espeon, Flareon, Golduck</td><td>Espeon, Heracross, Flareon</td></tr>
+<tr><td>2210</td><td>Heracross, Altaria, Espeon, Flareon, Golduck, Salamence</td><td>Espeon, Heracross, Salamence</td></tr>
+<tr><td>2211</td><td>Altaria, Espeon, Flareon, Golduck, Salamence, Gengar</td><td>Espeon, Salamence, Flareon</td></tr>
+<tr><td>2212</td><td>Espeon, Granbull, Flareon, Golduck, Salamence, Gengar</td><td>Espeon, Salamence, Flareon</td></tr>
+<tr><td>1851</td><td>Walrein, Starmie, Gengar, Electrode, Granbull, Espeon</td><td>Espeon, Starmie, Granbull</td></tr>
+<tr><td>1852</td><td>Starmie, Gengar, Electrode, Granbull, Milotic, Espeon</td><td>Espeon, Milotic, Granbull</td></tr>
+<tr><td>1853</td><td>Gengar, Electrode, Granbull, Milotic, Espeon, Heracross</td><td>Espeon, Heracross, Milotic</td></tr>
+<tr><td>1854</td><td>Quagsire, Electrode, Granbull, Milotic, Espeon, Heracross</td><td>Espeon, Heracross, Milotic</td></tr>
+<tr><td>1855</td><td>Electrode, Granbull, Milotic, Espeon, Heracross, Cradily</td><td>Espeon, Heracross, Milotic</td></tr>
+<tr><td>1856</td><td>Ampharos, Granbull, Milotic, Espeon, Heracross, Cradily</td><td>Espeon, Heracross, Milotic</td></tr>
+<tr><td>1857</td><td>Granbull, Milotic, Espeon, Heracross, Cradily, Rhydon</td><td>Espeon, Heracross, Milotic</td></tr>
+<tr><td>1858</td><td>Milotic, Espeon, Heracross, Cradily, Rhydon, Vaporeon</td><td>Espeon, Heracross, Milotic</td></tr>
+<tr><td>1859</td><td>Espeon, Heracross, Cradily, Clefable, Rhydon, Vaporeon</td><td>Espeon, Heracross, Vaporeon</td></tr>
+<tr><td>1839</td><td>Flareon, Forretress, Miltank, Misdreavus</td><td> Starmie, Flygon Starmie, Flygon, Forretress</td></tr>
+<tr><td>1840</td><td>Flareon, Forretress, Miltank, Misdreavus</td><td> Starmie, Flygon Starmie, Flygon, Forretress</td></tr>
+<tr><td>1841</td><td>Forretress, Miltank, Misdreavus, Starmie</td><td> Flygon, Golduck Starmie, Flygon, Forretress</td></tr>
+<tr><td>1842</td><td>Miltank, Misdreavus, Starmie, Scizor</td><td> Flygon, Golduck Starmie, Flygon, Miltank</td></tr>
+<tr><td>1843</td><td>Misdreavus, Starmie, Scizor, Flygon</td><td> Golduck, Walrein	 Starmie, Flygon, Scizor (Swap for Electrode after fight)</td></tr>
+<tr><td>1844</td><td>Starmie, Scizor, Flygon, Golduck</td><td> Walrein, Electrode	 Starmie, Flygon, Electrode</td></tr>
+<tr><td>1845</td><td>Scizor, Flygon, Golduck, Hypno</td><td> Walrein, Electrode	 Hypno, Flygon, Electrode (Swap Hypno for Heracross)</td></tr>
+<tr><td>1846</td><td>Flygon, Golduck, Hypno, Scizor</td><td> Walrein, Electrode	 Hypno, Flygon, Electrode (Swap Hypno for Heracross)</td></tr>
+<tr><td>1847</td><td>Sceptile, Golduck, Hypno, Scizor</td><td> Walrein, Electrode	 Hypno, Sceptile, Electrode (Swap Hypno for Heracross)</td></tr>
+<tr><td>1848</td><td>Golduck, Hypno, Scizor, Walrein</td><td> Fearow, Electrode	 Hypno, Fearow, Electrode (Swap Hypno for Heracross)</td></tr>
+<tr><td>1849</td><td>Hypno, Scizor, Walrein, Fearow</td><td> Electrode, Dusclops	 Electrode, Fearow, Dusclops (Swap Dusclops for Heracross)</td></tr>
+<tr><td>1850</td><td>Scizor, Walrein, Starmie, Fearow</td><td> Electrode, Dusclops	 Starmie, Electrode, Fearow (Swap Fearow for Heracross)</td></tr>
+<tr><td>1851</td><td>Walrein, Starmie, Fearow, Electrode</td><td> Ampharos, Dusclops	 Starmie, Electrode, Fearow (Swap Fearow for Heracross)</td></tr>
+<tr><td>1852</td><td>Starmie, Gengar, Fearow, Electrode</td><td> Ampharos, Dusclops	 Starmie, Electrode, Fearow (Swap Fearow for Heracross)</td></tr>
+<tr><td>1853</td><td>Gengar, Fearow, Electrode, Ampharos</td><td> Dusclops, Espeon	 Espeon, Electrode, Fearow</td></tr>
+<tr><td>1854</td><td>Fearow, Electrode, Ampharos, Dusclops</td><td> Espeon, Heracross	 Heracross, Espeon, Electrode</td></tr>
+<tr><td>1855</td><td>Electrode, Ampharos, Dusclops, Espeon</td><td> Heracross, Alakazam	 Heracross, Espeon, Electrode</td></tr>
+<tr><td>1856</td><td>Ampharos, Dusclops, Espeon, Heracross</td><td> Alakazam, Rhydon	 Heracross, Espeon, Rhydon</td></tr>
+<tr><td>1857</td><td>Dusclops, Espeon, Heracross, Alakazam</td><td> Rhydon, Shiftry	 Heracross, Espeon, Rhydon</td></tr>
+<tr><td>1858</td><td>Milotic, Espeon, Heracross, Alakazam</td><td> Rhydon, Shiftry	 Heracross, Espeon, Rhydon</td></tr>
+<tr><td>1859</td><td>Espeon, Heracross, Alakazam, Cradily</td><td> Rhydon, Shiftry	 Heracross, Espeon, Rhydon</td></tr>
+
+
+<tr><td>2018</td><td>Elekid, Charmeleon, Togetic, Kabuto, Grovyle, Graveler</td><td>Graveler, Elekid, Charmeleon (Swap for Magby)</td></tr>
+<tr><td>2019</td><td>Charmeleon, Togetic, Kabuto, Grovyle, Graveler, Houndour</td><td>Graveler, Houndour, Grovyle</td></tr>
+<tr><td>2020</td><td>Togetic, Kabuto, Grovyle, Graveler, Houndour, Raticate</td><td>Graveler, Houndour, Grovyle</td></tr>
+<tr><td>2021</td><td>Kabuto, Grovyle, Graveler, Houndour, Raticate, Magby</td><td>Graveler, Houndour, Grovyle</td></tr>
+<tr><td>2022</td><td>Grovyle, Graveler, Houndour, Raticate, Magby, Furret</td><td>Graveler, Houndour, Grovyle</td></tr>
+<tr><td>2023</td><td>Graveler, Houndour, Bayleef, Raticate, Magby, Furret</td><td>Graveler, Houndour, Bayleef</td></tr>
+<tr><td>2041</td><td>Dragonair, Sandslash, Arbok, Sharpedo, Dunsparce, Hitmonlee</td><td>Hitmonlee, Sharpedo, Arbok</td></tr>
+<tr><td>2042</td><td>Sandslash, Arbok, Sharpedo, Dunsparce, Hitmonlee, Plusle</td><td>Hitmonlee, Sharpedo, Arbok</td></tr>
+<tr><td>2043</td><td>Arbok, Sharpedo, Delcatty, Dunsparce, Hitmonlee, Plusle</td><td>Hitmonlee, Sharpedo, Arbok</td></tr>
+<tr><td>2044</td><td>Sharpedo, Delcatty, Venomoth, Dunsparce, Hitmonlee, Plusle</td><td>Hitmonlee, Sharpedo, Venomoth</td></tr>
+<tr><td>2045</td><td>Delcatty, Venomoth, Croconaw, Dunsparce, Hitmonlee, Plusle</td><td>Hitmonlee, Croconaw, Venomoth</td></tr>
+<tr><td>2046</td><td>Venomoth, Pelipper, Croconaw, Dunsparce, Hitmonlee, Plusle</td><td>Hitmonlee, Croconaw, Venomoth</td></tr>
+<tr><td>2047</td><td>Pelipper, Gorebyss, Croconaw, Dunsparce, Hitmonlee, Plusle</td><td>Hitmonlee, Croconaw, Plusle</td></tr>
+<tr><td>2048</td><td>Gorebyss, Croconaw, Parasect, Dunsparce, Hitmonlee, Plusle</td><td>Hitmonlee, Croconaw, Plusle</td></tr>
+<tr><td>2049</td><td>Croconaw, Parasect, Dunsparce, Hitmonlee, Plusle, Seadra</td><td>Hitmonlee, Croconaw, Plusle</td></tr>
+<tr><td>2050</td><td>Parasect, Dunsparce, Hitmonlee, Plusle, Seadra, Raticate</td><td>Hitmonlee, Dunsparce, Plusle</td></tr>
+<tr><td>2051</td><td>Dunsparce, Lickitung, Hitmonlee, Plusle, Seadra, Raticate</td><td>Hitmonlee, Dunsparce, Plusle</td></tr>
+<tr><td>2052</td><td>Lickitung, Hitmonlee, Plusle, Seadra, Raticate, Swellow</td><td>Hitmonlee, Swellow, Plusle</td></tr>
+<tr><td>2053</td><td>Hitmonlee, Plusle, Seadra, Raticate, Swellow, Porygon</td><td>Hitmonlee, Swellow, Plusle</td></tr>
+<tr><td>2063</td><td>Murkrow, Chansey, Graveler, Seviper, Grumpig, Zangoose</td><td>Zangoose, Grumpig, Seviper</td></tr>
+<tr><td>2064</td><td>Chansey, Graveler, Seviper, Grumpig, Quilava, Zangoose</td><td>Zangoose, Grumpig, Seviper</td></tr>
+<tr><td>2065</td><td>Graveler, Seviper, Grumpig, Quilava, Zangoose, Vigoroth</td><td>Zangoose, Grumpig, Seviper</td></tr>
+<tr><td>2066</td><td>Ninjask, Seviper, Grumpig, Quilava, Zangoose, Vigoroth</td><td>Zangoose, Grumpig, Seviper</td></tr>
+<tr><td>2067</td><td>Seviper, Grumpig, Quilava, Zangoose, Vigoroth, Parasect</td><td>Zangoose, Grumpig, Seviper</td></tr>
+<tr><td>2068</td><td>Grumpig, Quilava, Zangoose, Seaking, Vigoroth, Parasect</td><td>Zangoose, Grumpig, Vigoroth</td></tr>
+<tr><td>2204</td><td>Ludicolo, Feraligatr, Umbreon, Hypno, Nidoking, Heracross</td><td>Umbreon, Heracross, Ludicolo (swap Umbreon for Espeon)</td></tr>
+<tr><td>2205</td><td>Feraligatr, Umbreon, Hypno, Nidoking, Heracross, Altaria</td><td>Umbreon, Heracross, Altaria</td></tr>
+<tr><td>2206</td><td>Umbreon, Hypno, Nidoking, Heracross, Altaria, Espeon</td><td>Espeon, Heracross, Altaria (swap Altaria for Salamance)</td></tr>
+<tr><td>2207</td><td>Hypno, Nidoking, Heracross, Altaria, Espeon, Flareon</td><td>Espeon, Heracross, Flareon</td></tr>
+<tr><td>2208</td><td>Nidoking, Heracross, Altaria, Espeon, Flareon, Golduck</td><td>Espeon, Heracross, Flareon</td></tr>
+<tr><td>2209</td><td>Nidoking, Heracross, Altaria, Espeon, Flareon, Golduck</td><td>Espeon, Heracross, Flareon</td></tr>
+<tr><td>2210</td><td>Heracross, Altaria, Espeon, Flareon, Golduck, Salamence</td><td>Espeon, Heracross, Salamence</td></tr>
+<tr><td>2211</td><td>Altaria, Espeon, Flareon, Golduck, Salamence, Gengar</td><td>Espeon, Salamence, Flareon</td></tr>
+<tr><td>2212</td><td>Espeon, Granbull, Flareon, Golduck, Salamence, Gengar</td><td>Espeon, Salamence, Flareon</td></tr>
+<tr><td>1851</td><td>Walrein, Starmie, Gengar, Electrode, Granbull, Espeon</td><td>Espeon, Starmie, Granbull</td></tr>
+<tr><td>1852</td><td>Starmie, Gengar, Electrode, Granbull, Milotic, Espeon</td><td>Espeon, Milotic, Granbull</td></tr>
+<tr><td>1853</td><td>Gengar, Electrode, Granbull, Milotic, Espeon, Heracross</td><td>Espeon, Heracross, Milotic</td></tr>
+<tr><td>1854</td><td>Quagsire, Electrode, Granbull, Milotic, Espeon, Heracross</td><td>Espeon, Heracross, Milotic</td></tr>
+<tr><td>1855</td><td>Electrode, Granbull, Milotic, Espeon, Heracross, Cradily</td><td>Espeon, Heracross, Milotic</td></tr>
+<tr><td>1856</td><td>Ampharos, Granbull, Milotic, Espeon, Heracross, Cradily</td><td>Espeon, Heracross, Milotic</td></tr>
+<tr><td>1857</td><td>Granbull, Milotic, Espeon, Heracross, Cradily, Rhydon</td><td>Espeon, Heracross, Milotic</td></tr>
+<tr><td>1858</td><td>Milotic, Espeon, Heracross, Cradily, Rhydon, Vaporeon</td><td>Espeon, Heracross, Milotic</td></tr>
+<tr><td>1859</td><td>Espeon, Heracross, Cradily, Clefable, Rhydon, Vaporeon</td><td>Espeon, Heracross, Vaporeon</td></tr>
+<tr><td>1839</td><td>Flareon, Forretress, Miltank, Misdreavus</td><td> Starmie, Flygon Starmie, Flygon, Forretress</td></tr>
+<tr><td>1840</td><td>Flareon, Forretress, Miltank, Misdreavus</td><td> Starmie, Flygon Starmie, Flygon, Forretress</td></tr>
+<tr><td>1841</td><td>Forretress, Miltank, Misdreavus, Starmie</td><td> Flygon, Golduck Starmie, Flygon, Forretress</td></tr>
+<tr><td>1842</td><td>Miltank, Misdreavus, Starmie, Scizor</td><td> Flygon, Golduck Starmie, Flygon, Miltank</td></tr>
+<tr><td>1843</td><td>Misdreavus, Starmie, Scizor, Flygon</td><td> Golduck, Walrein	 Starmie, Flygon, Scizor (Swap for Electrode after fight)</td></tr>
+<tr><td>1844</td><td>Starmie, Scizor, Flygon, Golduck</td><td> Walrein, Electrode	 Starmie, Flygon, Electrode</td></tr>
+<tr><td>1845</td><td>Scizor, Flygon, Golduck, Hypno</td><td> Walrein, Electrode	 Hypno, Flygon, Electrode (Swap Hypno for Heracross)</td></tr>
+<tr><td>1846</td><td>Flygon, Golduck, Hypno, Scizor</td><td> Walrein, Electrode	 Hypno, Flygon, Electrode (Swap Hypno for Heracross)</td></tr>
+<tr><td>1847</td><td>Sceptile, Golduck, Hypno, Scizor</td><td> Walrein, Electrode	 Hypno, Sceptile, Electrode (Swap Hypno for Heracross)</td></tr>
+<tr><td>1848</td><td>Golduck, Hypno, Scizor, Walrein</td><td> Fearow, Electrode	 Hypno, Fearow, Electrode (Swap Hypno for Heracross)</td></tr>
+<tr><td>1849</td><td>Hypno, Scizor, Walrein, Fearow</td><td> Electrode, Dusclops	 Electrode, Fearow, Dusclops (Swap Dusclops for Heracross)</td></tr>
+<tr><td>1850</td><td>Scizor, Walrein, Starmie, Fearow</td><td> Electrode, Dusclops	 Starmie, Electrode, Fearow (Swap Fearow for Heracross)</td></tr>
+<tr><td>1851</td><td>Walrein, Starmie, Fearow, Electrode</td><td> Ampharos, Dusclops	 Starmie, Electrode, Fearow (Swap Fearow for Heracross)</td></tr>
+<tr><td>1852</td><td>Starmie, Gengar, Fearow, Electrode</td><td> Ampharos, Dusclops	 Starmie, Electrode, Fearow (Swap Fearow for Heracross)</td></tr>
+<tr><td>1853</td><td>Gengar, Fearow, Electrode, Ampharos</td><td> Dusclops, Espeon	 Espeon, Electrode, Fearow</td></tr>
+<tr><td>1854</td><td>Fearow, Electrode, Ampharos, Dusclops</td><td> Espeon, Heracross	 Heracross, Espeon, Electrode</td></tr>
+<tr><td>1855</td><td>Electrode, Ampharos, Dusclops, Espeon</td><td> Heracross, Alakazam	 Heracross, Espeon, Electrode</td></tr>
+<tr><td>1856</td><td>Ampharos, Dusclops, Espeon, Heracross</td><td> Alakazam, Rhydon	 Heracross, Espeon, Rhydon</td></tr>
+<tr><td>1857</td><td>Dusclops, Espeon, Heracross, Alakazam</td><td> Rhydon, Shiftry	 Heracross, Espeon, Rhydon</td></tr>
+<tr><td>1858</td><td>Milotic, Espeon, Heracross, Alakazam</td><td> Rhydon, Shiftry	 Heracross, Espeon, Rhydon</td></tr>
+<tr><td>1859</td><td>Espeon, Heracross, Alakazam, Cradily</td><td> Rhydon, Shiftry	 Heracross, Espeon, Rhydon</td></tr>

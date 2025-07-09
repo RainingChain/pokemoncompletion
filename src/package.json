@@ -1,0 +1,22 @@
+{
+  "name": "pokemoncompletion",
+  "version": "1.0.0",
+  "description": "Pokémon Completion",
+  "engines": {
+    "node": ">=21.6.0"
+  },
+  "type": "module",
+  "dependencies": {
+    "@microsoft/clarity": "^1.0.0"
+  },
+  "devDependencies": {
+    "@smogon/calc": "^0.6.0",
+    "@types/big.js": "^6.1.2",
+    "v-tooltip": "^2.0.2",
+    "vue": "^2.6.10",
+    "vue-lazyload": "^1.3.3"
+  },
+  "author": "Samuel Magnan-Levesque",
+  "private": true,
+  "license": "UNLICENSED"
+}

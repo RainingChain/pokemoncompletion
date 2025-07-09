@@ -1,0 +1,56 @@
+
+      /*deepCloneify(new Pokemon(GEN, 'Dragonite',{
+        ivs:{hp:31,atk:31,def:31,spa:31,spd:31,spe:31},
+        nature:'Careful',
+        evs:{hp:252, spd:252,def:4},
+        level:50,
+        item: 'Leftovers',
+        ability:'Multiscale',
+        moves: ['Dragon Claw','Dragon Dance','Earthquake','Substitute'],
+      })),*/
+
+      deepCloneify(new Pokemon(GEN, 'Shuckle',{
+        ivs:{hp:31,atk:0,def:31,spa:0,spd:31,spe:0},
+        nature:'Impish',
+        level:50,
+        evs:{hp:252, spd:4,def:252},
+        item: 'Lum Berry',
+        ability:'Sturdy',
+        moves: ['Power Split','Stealth Rock','Flash','Struggle Bug'],
+      })),
+      deepCloneify(new Pokemon(GEN, 'Dragonite',{
+        ivs:{hp:31,atk:31,def:31,spa:31,spd:31,spe:31},
+        nature:'Adamant',
+        evs:{hp:252, atk:252,spd:4},
+        level:50,
+        item: 'Leftovers',
+        ability:'Multiscale',
+        moves: ['Dragon Claw','Dragon Dance','Substitute','Fire Punch'],
+      })),
+      deepCloneify(new Pokemon(GEN, 'Metagross',{
+        ivs:{hp:31,atk:31,def:31,spa:31,spd:31,spe:31},
+        nature:'Jolly',
+        level:50,
+        evs:{hp:252, spe:252,spd:4},
+        item: 'Choice Scarf',
+        ability:'Clear Body',
+        moves: ['Iron Head','Trick','Thunder Punch','Earthquake'],
+      })),
+      /*deepCloneify(new Pokemon(GEN, 'Whimsicott',{
+        ivs:{hp:31,atk:31,def:31,spa:31,spd:31,spe:31},
+        nature:'Calm',
+        level:50,
+        evs:{hp:252, def:252,spd:4},
+        item: 'Focus Sash',
+        ability:'Prankster',
+        moves: ['Taunt','Memento','Stun Spore','Worry Seed'],
+      })),*/
+      /*deepCloneify(new Pokemon(GEN, 'Stoutland',{
+        ivs:{hp:31,atk:1,def:31,spa:31,spd:31,spe:31},
+        nature:'Jolly',
+        level:50,
+        evs:{hp:252, spd:6,spe:252},
+        item: 'Sitrus Berry',
+        ability:'Intimidate',
+        moves: ['Thunder Wave','Snarl','Sand-Attack','Charm'],
+      })),*/

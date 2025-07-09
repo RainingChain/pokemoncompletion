@@ -1,0 +1,33 @@
+//https://gamefaqs.gamespot.com/ds/929407-pokemon-mystery-dungeon-blue-rescue-team/faqs/79172/evolution
+let map = {}
+Array.from(table.querySelectorAll('tr')).slice(1).map((tr,i) => {
+  const tds = Array.from(tr.querySelectorAll('td'));
+  let evolutions = Array.from(tds[1].querySelectorAll('p')).map(p => p.innerText);
+  let how = Array.from(tds[2].querySelectorAll('p')).map(p => p.innerText);
+  if(!evolutions.length)
+    evolutions = [tds[1].innerText];
+  if(!how.length)
+    how = [tds[2].innerText];
+
+  evolutions.forEach((evo,i) => {
+    map[evo] = `Evolve ${tds[0].innerText} (${how[i]})`;
+  });
+});
+
+
+//https://gamefaqs.gamespot.com/ds/929407-pokemon-mystery-dungeon-blue-rescue-team/faqs/79172/pokemon-by-location
+
+Array.from(table.querySelectorAll('tr')).slice(1).map((tr,i) => {
+  const tds = Array.from(tr.querySelectorAll('td'));
+  let locs = Array.from(tds[2].querySelectorAll('p')).map(p => p.innerText).join(', ');
+  if(!locs)
+    locs = tds[2].innerText.trim();
+  if(tds[3].innerText.includes('Starter'))
+    locs += ', ' + tds[3].innerText;
+
+  const evolve = map[tds[0].innerText];
+  let loc = locs + `. Requires Friend Area ${tds[1].innerText}.`;
+  if (evolve)
+    loc = evolve + ', ' + loc;
+  return {name:tds[0].innerText, id:'' + (i + 1), location: loc};
+}).map(a => JSON.stringify(a)).join(', \n');

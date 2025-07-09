@@ -1,0 +1,9 @@
+[mergetool]
+    prompt = false
+    keepBackup = false
+    keepTemporaries = false
+
+[merge]
+        tool = vscode
+[mergetool "vscode"]
+        cmd = code --wait $MERGED

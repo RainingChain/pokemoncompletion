@@ -1,0 +1,75 @@
+
+html {
+  /* prevent smaller text on mobile */
+  -ms-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  margin:0px;
+  padding:0px;
+  line-height: 1.5;
+  font-size:14px;
+  background-color:#333;
+  background-image: url("../img/blackmamba.jpg");
+  color:white;
+  font-family: -apple-system, system-ui, Arial, sans-serif;
+}
+
+a {
+  color:cyan;
+}
+
+a:hover {
+  opacity:0.8;
+}
+
+html, div, span, input, button, a, textarea, canvas, table, ul, li, td, tr {
+  box-sizing: border-box;
+}
+
+p {
+  margin-top: 0;
+  margin-bottom: 1rem;
+}
+
+button, button *, a, input[type=button], input[type=checkbox] {
+  cursor: pointer;
+}
+button, input, textarea, select, option {
+  font: inherit;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  margin-top: 0;
+  margin-bottom: 0.5rem;
+  font-weight: 500;
+  line-height: 1.1;
+}
+
+h1 {
+  font-size: 2.5rem;
+}
+
+h2 {
+  font-size: 2rem;
+}
+
+h3 {
+  font-size: 1.75rem;
+}
+
+h4 {
+  font-size: 1.5rem;
+}
+
+h5 {
+  font-size: 1.25rem;
+}
+
+h6 {
+  font-size: 1rem;
+}
+
+
+

@@ -1,0 +1,78 @@
+<h2>Pokémon Black 2: Battle Institute 9999 Points</h2>
+
+<h3>Summary</h3>
+<p>
+On January 28th 2023, RainingChain became the first player to get the perfect score of 9999 Points in the Battle Institute in Pokémon Black 2 (Tool-Assisted).
+<div><img style="max-width:60%" src="{{IMG}}"></div>
+</p>
+
+<h3>Point Mechanism</h3>
+<p>
+Under normal circonstances, the maximum number of points is 7350 points, assuming receiving no damage, damaging each foes with super effective attacks, and doing so in the minimum number of turns. Master rank requires 6000 points.
+</p>
+<p>
+The only way to obtain more points is by switching a Pokémon (+5 pts) and when the opponent uses a move that doesn't affect the player's Pokémon (+5 pts). Note that each turn that passes causes -10 pts.
+</p>
+
+<h3>Strategy in a nutshell</h3>
+<ul>
+  <li>Use 4 Flying pokemons.</li>
+  <li>Fight a Pokémon that knowns Earthquake. </li>
+  <li>Force it to use Earthquake and trick it a Choice Scarf. </li>
+  <li>Swap both Pokémons every turn. This grants +10 pts every turn (+5 pts * 2 for Earthquake + 5 pts * 2 for swapping - 10 pts for turn passing).</li>
+</ul>
+
+<p>
+In order for the Pokémon with Earthquake to not run out of PP, give it the ability Harvest (with Skill Swap) and Trick it a Leppa Berry. Leppa Berry heals 10 PP and the ability Harvest, under the sun, restores the berry.
+</p>
+<p>
+Right before giving the opponent the Leppa Berry, use Encore to force it to continue using Earthquake.
+</p>
+
+<h3>How to force the opponent to use Earthquake</h3>
+<p>Normally, the AI will never use Earthquake against both Flying Pokémons.</p>
+<p>
+The strategy was using Spite to reduce PP to 0 for an attack, using Disable on another attack, and using Imprison to disable the third attack, leaving only Earthquake.
+</p>
+<p>
+This strategy requires a Pokémon that knows Imprison and share at least 1 attack with each Earthquake-using Pokémon opponents.
+</p>
+<p>
+Note: There is a bug with Harvest which deletes the berry forever if it is tricked and consumed twice in the same round. This means under no circonstances, the opponent can reach 0 PP on two attacks. This means using Spite to reduce the PP to 0 to all attacks but Earthquake doesn't work.</p>
+
+
+<h3>Opponent team</h3>
+<p>
+RNG manipulation was used to force fighting these exact Pokémons in each battle, while making sure the other Pokémons could be beaten easily.</p>
+
+<ul>
+  <li>Battle 1: Boldore: Stone Edge,Earthquake,Headbutt,Sandstorm</li>
+  <li>Battle 2: Garchomp: Earthquake,Protect,Sandstorm,Sand Tomb</li>
+  <li>Battle 3: Golem: Rock Slide,Earthquake,Bulldoze,Autotomize</li>
+  <li>Battle 4: Garchomp: Earthquake,Protect,Sandstorm,Sand Tomb</li>
+  <li>Battle 5: Garchomp: Earthquake,Protect,Sandstorm,Sand Tomb</li>
+  <li>Initial Seed: 0x6d3fac1f75b70a5</li>
+</ul>
+
+<p>
+In theory, only one very long battle should be necessary. Once the setup is completed, each turn gives 10 points, and you repeat until 9999 points. However, there is another important bug (or limitation) with the game. After 255 swaps, the swap counter resets to 0, removing all granted points. The same applies for the number non-affecting opponent moves, which resets once it reaches 256. This means that a single battle can give about 2400 points at most. 5 battles are required to reach 9999 points.
+</p>
+
+<h3>Player Team</h3>
+<ul>
+<li>Togekiss @ <span style="font-weight:bold">Choice Scarf. Encore</span>, Trick, Charm, Air Slash</li>
+<li>Drifblim @ <span style="font-weight:bold">Leppa Berry. Trick, Skill Swap, Disable</span>, Spite</li>
+<li><span style="font-weight:bold">Landorus</span> @ Leftovers. <span style="font-weight:bold">Imprison, Sandstorm, Protect, Rock Slide</span></li>
+<li><span style="font-weight:bold">Tropius @ Heat Rock. Ability: Harvest. Sunny Day,</span> Protect, Energy Ball, Synthesis</li>
+</ul>
+
+<p>In bold are elements that are mandatory for this strategy to work.</p>
+
+
+<h3>Alternative Strategies</h3>
+<p>
+A simpler approach is to use Taunt to force the opponent to use Earthquake (untested).
+</p>
+<p>
+Another possible approach is using Gravity (untested).
+</p>

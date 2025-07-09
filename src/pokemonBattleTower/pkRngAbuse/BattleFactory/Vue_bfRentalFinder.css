@@ -1,0 +1,39 @@
+.easyRoom {
+  color:green;
+}
+.notEasyRoom {
+  color:red;
+}
+.inLongestStreak {
+  font-weight: bold;
+  background:rgba(0,0,0,0.5);
+}
+
+.outputTable td {
+  white-space: nowrap;
+}
+
+.outputTable tr td:first-child {
+  min-width:50px;
+}
+
+.hideFarFromWantedRental .farFromWantedRental {
+  display: none;
+}
+
+.fakea {
+  color:cyan;
+  padding:0px;
+  border:none;
+  background:none;
+  text-shadow: 0.1em  0.1em 0 #000;
+}
+.fakea:hover {
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.rentalSelected {
+  color:yellow;
+  text-decoration: underline;
+}

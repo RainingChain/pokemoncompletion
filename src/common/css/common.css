@@ -1,0 +1,79 @@
+
+.root-container {
+  position: relative;
+  margin-left: auto;
+  margin-right: auto;
+  padding-right: 5px;
+  padding-left: 5px;
+  padding-bottom:15px;
+}
+
+@media (min-width: 576px) {
+  .root-container {
+    padding-right: 15px;
+    padding-left: 15px;
+    max-width: 100%;
+  }
+}
+
+@media (min-width: 576px) {
+  .root-container {
+    width: 540px;
+  }
+}
+
+@media (min-width: 768px) {
+  .root-container {
+    width: 720px;
+  }
+}
+
+@media (min-width: 992px) {
+  .root-container {
+    width: 960px;
+  }
+}
+
+@media (min-width: 1200px) {
+  .root-container {
+    width: 1140px;
+  }
+}
+
+
+.clickable, .clickable * {
+	cursor:pointer;
+  pointer-events:all;
+}
+
+.pixelated {
+	image-rendering: crisp-edges;
+  image-rendering: -webkit-optimize-contrast;
+	image-rendering: pixelated;
+}
+
+.flex {
+  display:flex;
+  /* https://yoksel.github.io/flex-cheatsheet/
+
+  flex-direction: column;
+
+  vertical:     align-items:      flex-start, flex-end, center, stretch, baseline
+  horizontal:   justify-content:  flex-start, flex-end, center, space-between, space-around, space-evenly
+  align-content
+  */
+}
+
+.bold {
+	font-weight:bold;
+}
+
+.div-h {
+	white-space: nowrap;
+  overflow-x: hidden;
+}
+.div-h > div {
+	display:inline-block;
+	white-space: normal;
+	vertical-align: top;
+}

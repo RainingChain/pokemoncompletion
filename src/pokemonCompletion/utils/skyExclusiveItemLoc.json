@@ -1,0 +1,7064 @@
+[
+    [],
+    [
+        "White Silk",
+        "しろいシフォン White Chiffon",
+        "☆",
+        "Raises Attack by 10 and Defense by 7",
+        "Zero Isle East B40F"
+    ],
+    [
+        "Normal Dust",
+        "ノーマルパウダー Normal Powder",
+        "☆",
+        "Raises Sp. Attack by 10 and Sp. Defense by 7",
+        "Payment for completing a job"
+    ],
+    [
+        "White Gem",
+        "ホワイトジェム White Gem",
+        "☆☆",
+        "Protects against bad status conditions during the Cloudy weather condition.",
+        "Trade White Silk and Normal Dust"
+    ],
+    [
+        "Joy Globe",
+        "しあわせのオーブ Happiness Orb",
+        "☆☆☆",
+        "Protects against damage from Fighting-type moves.",
+        "Trade White Silk, Normal Dust, and White Gem"
+    ],
+    [
+        "Red Silk",
+        "あかいシフォン Red Chiffon",
+        "☆",
+        "Raises Sp. Attack by 10 and Sp. Defense by 7",
+        "Midnight Forest B15F (Key)"
+    ],
+    [
+        "Fire Dust",
+        "ほのおのパウダー Fire Powder",
+        "☆",
+        "Raises Attack and Sp. Attack by 10",
+        "Payment for completing a job"
+    ],
+    [
+        "Fiery Gem",
+        "ファイヤージェム Fire Gem",
+        "☆☆",
+        "Protects against bad status conditions during the Sunny weather condition.",
+        "Trade Red Silk and Fire Dust"
+    ],
+    [
+        "Fiery Globe",
+        "ほのおのオーブ Fire Orb",
+        "☆☆☆",
+        "Protects against damage from Water-type moves.",
+        "Trade Red Silk, Fire Dust, and Fiery Gem"
+    ],
+    [
+        "Blue Silk",
+        "あおいシフォン Blue Chiffon",
+        "☆",
+        "Raises Sp. Attack by 10 and Sp. Defense 7",
+        "Lake Afar B15F (Key)"
+    ],
+    [
+        "Water Dust",
+        "みずのパウダー Water Powder",
+        "☆",
+        "Raises Defense and Sp. Defense by 7 each",
+        "Payment for completing a job"
+    ],
+    [
+        "Aqua Gem",
+        "アクアジェム Aqua Gem",
+        "☆☆",
+        "Protects against bad status conditions during the Rainy weather condition.",
+        "Trade Blue Silk and Water Dust"
+    ],
+    [
+        "Aqua Globe",
+        "みずのオーブ Water Orb",
+        "☆☆☆",
+        "Protects against damage from Electric-type moves.",
+        "Trade Blue Silk, Water Dust, and Aqua Gem"
+    ],
+    [
+        "Grass Silk",
+        "わかくさシフォン Light Green Chiffon",
+        "☆",
+        "Raises Sp. Attack by 10 and Sp. Defense by 7",
+        "Mt. Mistral 15F (Key)"
+    ],
+    [
+        "Grass Dust",
+        "くさのパウダー Grass Powder",
+        "☆",
+        "Raises Defense and Sp. Defense by 7 each",
+        "Payment for completing a job"
+    ],
+    [
+        "Grass Gem",
+        "グラスジェム Grass Gem",
+        "☆☆",
+        "Boosts Movement Speed by 1 during the Sunny weather condition.",
+        "Trade Grass Silk and Grass Dust"
+    ],
+    [
+        "Soothe Globe",
+        "いやしのオーブ Healing Orb",
+        "☆☆☆",
+        "Protects against damage from Fire-type moves.",
+        "Trade Grass Silk, Grass Dust, and Grass Gem"
+    ],
+    [
+        "Yellow Silk",
+        "きいろのシフォン Yellow Chiffon",
+        "☆",
+        "Raises Sp. Attack by 10 and Sp. Defense by 7",
+        "Shimmer Hill 15F (Key)"
+    ],
+    [
+        "Thunder Dust",
+        "でんきのパウダー Electric Powder",
+        "☆",
+        "Raises Attack and Sp. Attack by 10 each",
+        "Payment for completing a job"
+    ],
+    [
+        "Thunder Gem",
+        "サンダージェム Thunder Gem",
+        "☆☆",
+        "Boosts Movement Speed by 1 during the Cloudy weather condition.",
+        "Trade Yellow Silk and Thunder Dust"
+    ],
+    [
+        "Volt Globe",
+        "かみなりのオーブ Thunder Orb",
+        "☆☆☆",
+        "Protects against damage from Ground-type moves.",
+        "Trade Yellow Silk, Thunder Dust, and Thunder Gem"
+    ],
+    [
+        "Clear Silk",
+        "とうめいシフォン Clear Chiffon",
+        "☆",
+        "Raises Sp. Attack by 10 and Sp. Defense by 7",
+        "Zero Isle North B16F (Key)"
+    ],
+    [
+        "Icy Dust",
+        "こおりのパウダー Ice Powder",
+        "☆",
+        "Raises Defense and Sp. Defense by 7 each",
+        "Payment for completing a job"
+    ],
+    [
+        "Icy Gem",
+        "アイスジェム Ice Gem",
+        "☆☆",
+        "Protects against bad status conditions during the Hail weather condition.",
+        "Trade Clear Silk and Icy Dust"
+    ],
+    [
+        "Icy Globe",
+        "こおりのオーブ Ice Orb",
+        "☆☆☆",
+        "Protects against damage from Fire-type moves.",
+        "Trade Clear Silk, Icy Dust, and Icy Gem"
+    ],
+    [
+        "Orange Silk",
+        "だいだいシフォン Orange Chiffon",
+        "☆",
+        "Raises Attack by 10 and Defense by 7",
+        "Zero Isle North B26F (Key)"
+    ],
+    [
+        "Courage Dust",
+        "きあいのパウダー Fighting Powder",
+        "☆",
+        "Raises Attack and Sp. Attack by 10 each",
+        "Payment for completing a job"
+    ],
+    [
+        "Fight Gem",
+        "ファイトジェム Fight Gem",
+        "☆☆",
+        "Boosts Movement Speed by 1 during the Clear weather condition.",
+        "Trade Orange Silk and Courage Dust"
+    ],
+    [
+        "Power Globe",
+        "パワフルオーブ Powerful Orb",
+        "☆☆☆",
+        "Protects against damage from Psychic-type moves.",
+        "Trade Orange Silk, Courage Dust, and Fight Gem"
+    ],
+    [
+        "Pink Silk",
+        "ももいろシフォン Pink Chiffon",
+        "☆",
+        "Raises Attack by 10 and Defense by 7",
+        "Zero Isle West B9F (Key)"
+    ],
+    [
+        "Poison Dust",
+        "どくのパウダー Poison Powder",
+        "☆",
+        "Raises Attack and Sp. Attack by 10 each",
+        "Payment for completing a job"
+    ],
+    [
+        "Poison Gem",
+        "ポイズンジェム Poison Gem",
+        "☆☆",
+        "Protects against bad status conditions during the Cloudy weather condition.",
+        "Trade Pink Silk and Poison Dust"
+    ],
+    [
+        "Poison Globe",
+        "どくのオーブ Poison Orb",
+        "☆☆☆",
+        "Protects against damage from Ground-type moves.",
+        "Trade Pink Silk, Poison Dust, and Poison Gem"
+    ],
+    [
+        "Brown Silk",
+        "ちゃいろシフォン Brown Chiffon",
+        "☆",
+        "Raises Attack by 10 and Defense by 7",
+        "Zero Isle North B10F (Key)"
+    ],
+    [
+        "Ground Dust",
+        "じめんのパウダー Ground Powder",
+        "☆",
+        "Raises Defense and Sp. Defense by 7 each",
+        "Payment for completing a job"
+    ],
+    [
+        "Earth Gem",
+        "アースジェム Earth Gem",
+        "☆☆",
+        "Protects against bad status conditions during the Sandstorm weather condition.",
+        "Trade Brown Silk and Ground Dust"
+    ],
+    [
+        "Terra Globe",
+        "だいちのオーブ Earth Globe",
+        "☆☆☆",
+        "Protects against damage from Grass-type moves.",
+        "Trade Brown Silk, Ground Dust, and Earth Gem"
+    ],
+    [
+        "Sky Silk",
+        "そらいろシフォン Sky Blue Chiffon",
+        "☆",
+        "Raises Attack by 10 and Defense by 7",
+        "Zero Isle North B13F (Key)"
+    ],
+    [
+        "Sky Dust",
+        "そらのパウダー Sky Dust",
+        "☆",
+        "Raises Sp. Attack by 10 and Sp. Defense by 7",
+        "Payment for completing a job"
+    ],
+    [
+        "Sky Gem",
+        "スカイジェム Sky Gem",
+        "☆☆",
+        "Boosts Movement Speed by 1 during the Clear weather condition.",
+        "Trade Sky Silk and Sky Dust"
+    ],
+    [
+        "Sky Globe",
+        "てんくうのオーブ Sky Orb",
+        "☆☆☆",
+        "Protects against damage from Electric-type moves.",
+        "Trade Sky Silk, Sky Dust, and Sky Gem"
+    ],
+    [
+        "Gold Silk",
+        "きんいろシフォン Gold Chiffon",
+        "☆",
+        "Raises Sp. Attack by 10 and Sp. Defense 7",
+        "Zero Isle West B13F (Key)"
+    ],
+    [
+        "Psyche Dust",
+        "ねんりきパウダー Mind Powder",
+        "☆",
+        "Raises Attack and Sp. Attack by 10 each",
+        "Payment for completing a job"
+    ],
+    [
+        "Psyche Gem",
+        "サイキックジェム Psychic Gem",
+        "☆☆",
+        "Protects against bad status conditions during the Fog weather condition.",
+        "Trade Gold Silk and Psyche Dust"
+    ],
+    [
+        "Psyche Globe",
+        "サイキックオーブ Psychic Orb",
+        "☆☆☆",
+        "Protects against damage from Dark-type moves.",
+        "Trade Gold Silk, Psyche Dust, and Psyche Gem"
+    ],
+    [
+        "Green Silk",
+        "みどりのシフォン Green Chiffon",
+        "☆",
+        "Raises Attack by 10 and Defense by 7",
+        "Zero Isle North B30F (Key)"
+    ],
+    [
+        "Wonder Dust",
+        "ふしぎなパウダー Mysterious Powder",
+        "☆",
+        "Raises Attack and Sp. Attack by 10",
+        "Payment for completing a job"
+    ],
+    [
+        "Guard Gem",
+        "ガードジェム Guard Gem",
+        "☆☆",
+        "Protects against bad status conditions during the Clear weather condition.",
+        "Trade Green Silk and Wonder Dust"
+    ],
+    [
+        "Defend Globe",
+        "まもりのオーブ Defend Orb",
+        "☆☆☆",
+        "Protects against damage from Flying-type moves.",
+        "Trade Green Silk, Wonder Dust, and Guard Gem"
+    ],
+    [
+        "Gray Silk",
+        "はいいろシフォン Gray Chiffon",
+        "☆",
+        "Raises Attack by 10 and Defense by 7",
+        "Zero Isle West B21F (Key)"
+    ],
+    [
+        "Rock Dust",
+        "いわのパウダー Rock Powder",
+        "☆",
+        "Raises Defense and Sp. Defense by 7 each",
+        "Payment for completing a job"
+    ],
+    [
+        "Stone Gem",
+        "ストーンジェム Stone Gem",
+        "☆☆",
+        "Boosts Movement Speed by 1 during the Sandstorm weather condition.",
+        "Trade Gray Silk and Rock Dust"
+    ],
+    [
+        "Rock Globe",
+        "いわのオーブ Rock Orb",
+        "☆☆☆",
+        "Protects against damage from Steel-type moves.",
+        "Trade Gray Silk, Rock Dust, and Stone Gem"
+    ],
+    [
+        "Purple Silk",
+        "むらさきシフォン Purple Chiffon",
+        "☆",
+        "Raises Attack by 10 and Defense by 7",
+        "Zero Isle West B29F (Key)"
+    ],
+    [
+        "Shady Dust",
+        "あやしいパウダー Eerie Powder",
+        "☆",
+        "Raises Sp. Attack by 10 and Sp. Defense by 7",
+        "Payment for completing a job"
+    ],
+    [
+        "Shadow Gem",
+        "シャドージェム Shadow Gem",
+        "☆☆",
+        "Boosts Movement Speed by 1 during the Fog weather condition.",
+        "Trade Purple Silk and Shady Dust"
+    ],
+    [
+        "Nether Globe",
+        "れいかいのオーブ Spirit Orb",
+        "☆☆☆",
+        "Protects against damage from Ghost-type moves.",
+        "Trade Purple Silk, Shady Dust, and Shadow Gem"
+    ],
+    [
+        "Royal Silk",
+        "こんいろシフォン Deep Blue Chiffon",
+        "☆",
+        "Raises Attack and Sp. Attack by 10",
+        "Zero Isle East B20F (Key)"
+    ],
+    [
+        "Dragon Dust",
+        "りゅうのパウダー Dragon Powder",
+        "☆",
+        "Raises Defense and Sp. Defense by 7 each",
+        "Payment for completing a job"
+    ],
+    [
+        "Dragon Gem",
+        "ドラゴンジェム Dragon Gem",
+        "☆☆",
+        "Protects against bad status conditions during the Clear weather condition.",
+        "Trade Royal Silk and Dragon Dust"
+    ],
+    [
+        "Dragon Globe",
+        "ドラゴンオーブ Dragon Orb",
+        "☆☆☆",
+        "Protects against damage from Dragon-type moves.",
+        "Trade Royal Silk, Dragon Dust, and Dragon Gem"
+    ],
+    [
+        "Black Silk",
+        "くろいシフォン Black Chiffon",
+        "☆",
+        "Raises Attack and Sp. Attack by 10 each",
+        "Zero Isle West B33F (Key)"
+    ],
+    [
+        "Dark Dust",
+        "あくのパウダー Evil Powder",
+        "☆",
+        "Raises Defense and Sp. Defense by 7 each",
+        "Payment for completing a job"
+    ],
+    [
+        "Dark Gem",
+        "ダークジェム Dark Gem",
+        "☆☆",
+        "Protects against bad status conditions during the Fog weather condition.",
+        "Trade Black Silk and Dark Dust"
+    ],
+    [
+        "Dusk Globe",
+        "やみのオーブ Darkness Orb",
+        "☆☆☆",
+        "Protects against damage from Fighting-type moves.",
+        "Trade Black Silk, Dark Dust, and Dark Gem"
+    ],
+    [
+        "Iron Silk",
+        "ぎんいろシフォン Silver Chiffon",
+        "☆",
+        "Raises Attack by 10 and Defense by 7",
+        "Zero Isle North B35F (Key)"
+    ],
+    [
+        "Steel Dust",
+        "はがねのパウダー Steel Powder",
+        "☆",
+        "Raises Defense and Sp. Defense by 7 each",
+        "Payment for completing a job"
+    ],
+    [
+        "Metal Gem",
+        "メタルジェム Metal Gem",
+        "☆☆",
+        "Protects against bad status conditions during the Sandstorm weather condition.",
+        "Trade Iron Silk and Steel Dust"
+    ],
+    [
+        "Steel Globe",
+        "はがねのオーブ Steel Orb",
+        "☆☆☆",
+        "Protects against damage from Ground-type moves.",
+        "Trade Iron Silk, Steel Dust, and Metal Gem"
+    ],
+    [],
+    [],
+    [
+        "Bulba-Claw",
+        "☆",
+        "Raises Attack by 5",
+        "Appraise a box dropped by a defeated foe"
+    ],
+    [
+        "Bulba-Fang",
+        "☆",
+        "Raises Sp. Attack by 5",
+        "Appraise a box dropped by a defeated foe"
+    ],
+    [
+        "Grass-Guard",
+        "☆☆",
+        "Raises Attack and Sp. Attack by 5 each",
+        "Trade Bulba-Claw and Bulba-Fang"
+    ],
+    [
+        "Leafy Tie",
+        "☆☆☆",
+        "Increases maximum HP by 10.",
+        "Trade Bulba-Claw, Bulba-Fang, and Grass-Guard"
+    ],
+    [
+        "Ivy-Claw",
+        "☆",
+        "Raises Attack by 5",
+        "Appraise a box dropped by a defeated foe"
+    ],
+    [
+        "Ivy-Fang",
+        "☆",
+        "Raises Sp. Attack by 5",
+        "Appraise a box dropped by a defeated foe"
+    ],
+    [
+        "Ivy-Crest",
+        "☆☆",
+        "Raises Attack and Sp. Attack by 5 each",
+        "Trade Ivy-Claw and Ivy-Fang"
+    ],
+    [
+        "Plant Torc",
+        "☆☆☆",
+        "HP-draining moves heal the user by all of inflicted damage, rather than just half.",
+        "Trade Ivy-Claw, Ivy-Fang, and Ivy-Crest"
+    ],
+    [
+        "Venus-Claw",
+        "☆",
+        "Raises Attack by 5",
+        "Appraise a box dropped by a defeated foe"
+    ],
+    [
+        "Venus-Fang",
+        "☆",
+        "Raises Sp. Attack by 5",
+        "Appraise a box dropped by a defeated foe"
+    ],
+    [
+        "Venus-Seal",
+        "☆☆",
+        "Raises Attack and Sp. Attack by 5 each",
+        "Trade Venus-Claw and Venus-Fang"
+    ],
+    [
+        "Solar Sash",
+        "☆☆☆",
+        "Converts damage into healing when hit by a Fire-type move.",
+        "Trade Venus-Claw, Venus-Fang, and Venus-Seal"
+    ],
+    [],
+    [
+        "Char-Claw",
+        "☆",
+        "Raises Attack by 5",
+        "Appraise a box dropped by a defeated foe"
+    ],
+    [
+        "Char-Fang",
+        "☆",
+        "Raises Sp. Attack by 5",
+        "Appraise a box dropped by a defeated foe"
+    ],
+    [
+        "Fiery Heart",
+        "☆☆",
+        "Raises Attack and Sp. Attack by 5 each",
+        "Trade Char-Claw and Char-Fang"
+    ],
+    [
+        "Heat Armlet",
+        "☆☆☆",
+        "Increases maximum HP by 10.",
+        "Trade Char-Claw, Char-Fang, and Fiery Heart"
+    ],
+    [
+        "Charme-Claw",
+        "☆",
+        "Raises Attack by 5",
+        "Appraise a box dropped by a defeated foe"
+    ],
+    [
+        "Charme-Fang",
+        "☆",
+        "Raises Sp. Attack by 5",
+        "Appraise a box dropped by a defeated foe"
+    ],
+    [
+        "Charme-Crest",
+        "☆☆",
+        "Raises Attack and Sp. Attack by 5 each",
+        "Trade Charme-Claw and Charme-Fang"
+    ],
+    [
+        "Kindle Scarf",
+        "☆☆☆",
+        "Boosts Movement Speed by 1 during the Sunny weather condition.",
+        "Trade Charme-Claw, Charme-Fang, and Charme-Crest"
+    ],
+    [
+        "Chariz-Claw",
+        "☆",
+        "Raises Attack by 5",
+        "Appraise a box dropped by a defeated foe"
+    ],
+    [
+        "Chariz-Fang",
+        "☆",
+        "Raises Sp. Attack by 5",
+        "Appraise a box dropped by a defeated foe"
+    ],
+    [
+        "Chariz-Seal",
+        "☆☆",
+        "Raises Attack and Sp. Attack by 5 each",
+        "Trade Chariz-Claw and Chariz-Fang"
+    ],
+    [
+        "Flame Bangle",
+        "☆☆☆",
+        "Converts damage into healing when hit by a Water-type move.",
+        "Trade Chariz-Claw, Chariz-Fang, and Chariz-Seal"
+    ],
+    [],
+    [
+        "Squirt-Foam",
+        "☆",
+        "Raises Defense by 3",
+        "Appraise a box dropped by a defeated foe"
+    ],
+    [
+        "Squirt-Card",
+        "☆",
+        "Raises Sp. Defense by 3",
+        "Appraise a box dropped by a defeated foe"
+    ],
+    [
+        "Water-Guard",
+        "☆☆",
+        "Raises Defense and Sp. Defense by 3 each",
+        "Trade Squirt Foam and Squirt-Card"
+    ],
+    [
+        "Aqua Tie",
+        "☆☆☆",
+        "Increases maximum HP by 10.",
+        "Trade Squirt Foam, Squirt-Card, and Water-Guard"
+    ],
+    [
+        "Wartor-Claw",
+        "☆",
+        "Raises Attack by 5",
+        "Appraise a box dropped by a defeated foe"
+    ],
+    [
+        "Wartor-Fang",
+        "☆",
+        "Raises Sp. Attack by 5",
+        "Appraise a box dropped by a defeated foe"
+    ],
+    [
+        "Wartor-Crest",
+        "☆☆",
+        "Raises Attack and Sp. Attack by 5 each",
+        "Trade Wartor-Claw and Wartor-Fang"
+    ],
+    [
+        "BubbleBangle",
+        "☆☆☆",
+        "Halves damage taken from explosions.",
+        "Trade Wartor-Claw, Wartor-Fang, and Wartor-Crest"
+    ],
+    [
+        "Blasto-Claw",
+        "☆",
+        "Raises Attack by 5",
+        "Appraise a box dropped by a defeated foe"
+    ],
+    [
+        "Blasto-Card",
+        "☆",
+        "Raises Sp. Defense by 3",
+        "Appraise a box dropped by a defeated foe"
+    ],
+    [
+        "Blasto-Seal",
+        "☆☆",
+        "Raises Attack by 5 and Sp. Defense by 3",
+        "Trade Blasto-Claw and Blasto-Card"
+    ],
+    [
+        "Hydro Band",
+        "☆☆☆",
+        "Converts damage into healing when hit by an Electric-type move.",
+        "Trade Blasto-Claw, Blasto-Card, and Blasto-Seal"
+    ],
+    [],
+    [
+        "010",
+        "",
+        "Caterpie",
+        "Cater-Belt",
+        "☆☆☆",
+        "Any Berry or Apple eaten will recover an extra 10 HP.",
+        "Swap any 5 exclusive items."
+    ],
+    [
+        "011",
+        "",
+        "Metapod",
+        "Defense Bow",
+        "☆☆☆",
+        "Increases maximum HP by 10.",
+        "Swap any 5 exclusive items."
+    ],
+    [
+        "012",
+        "",
+        "Butterfree",
+        "Glittery Bow",
+        "☆☆☆",
+        "Converts damage into healing when hit by a Rock-type move.",
+        "Swap any 5 exclusive items."
+    ],
+    [],
+    [
+        "013",
+        "",
+        "Weedle",
+        "Weedle Bow",
+        "☆☆☆",
+        "Any Berry or Apple eaten will recover an extra 10 HP.",
+        "Swap any 5 exclusive items."
+    ],
+    [
+        "014",
+        "",
+        "Kakuna",
+        "Kakuna Scarf",
+        "☆☆☆",
+        "Makes thrown or hurled items bounce off the Pokémon.",
+        "Swap any 5 exclusive items."
+    ],
+    [
+        "015",
+        "",
+        "Beedrill",
+        "Charge Scarf",
+        "☆☆☆",
+        "Converts damage into healing when hit by a Rock-type move.",
+        "Swap any 5 exclusive items."
+    ],
+    [],
+    [
+        "016",
+        "",
+        "Pidgey",
+        "Pidgey Bow",
+        "☆☆☆",
+        "Protects against thrown or hurled items.",
+        "Swap any 5 exclusive items."
+    ],
+    [
+        "017",
+        "",
+        "Pidgeotto",
+        "Pidgeo-Scarf",
+        "☆☆☆",
+        "Boosts Evasion by 2 during the Clear weather condition.",
+        "Swap any 5 exclusive items."
+    ],
+    [
+        "018",
+        "",
+        "Pidgeot",
+        "Pidgeot Torc",
+        "☆☆☆",
+        "Converts damage into healing when hit by a Rock-type move.",
+        "Swap any 5 exclusive items."
+    ],
+    [],
+    [
+        "019",
+        "",
+        "Rattata",
+        "Ratta-Scarf",
+        "☆☆☆",
+        "Reflect and Light Screen do not affect this Pokémon's moves.",
+        "Swap any 5 exclusive items."
+    ],
+    [
+        "020",
+        "",
+        "Raticate",
+        "Overcome Bow",
+        "☆☆☆",
+        "Converts damage into healing when hit by a Fighting-type move.",
+        "Swap any 5 exclusive items."
+    ],
+    [],
+    [
+        "021",
+        "",
+        "Spearow",
+        "Quirky Bow",
+        "☆☆☆",
+        "Boosts Evasion by 2 during the Clear weather condition.",
+        "Swap any 5 exclusive items."
+    ],
+    [
+        "022",
+        "",
+        "Fearow",
+        "Wing Scarf",
+        "☆☆☆",
+        "Converts damage into healing when hit by a Rock-type move.",
+        "Swap any 5 exclusive items."
+    ],
+    [],
+    [
+        "023",
+        "",
+        "Ekans",
+        "Leash Bow",
+        "☆☆☆",
+        "May afflict attacking enemies with a Shadow Hold status condition.",
+        "Swap any 5 exclusive items."
+    ],
+    [
+        "024",
+        "",
+        "Arbok",
+        "Shock Ruff",
+        "☆☆☆",
+        "Converts damage into healing when hit by a Psychic-type move.",
+        "Swap any 5 exclusive items."
+    ],
+    [],
+    [
+        "Pichu Hair",
+        "☆",
+        "Raises Defense by 3",
+        "Appraise a box dropped by a defeated foe"
+    ],
+    [
+        "Pichu Card",
+        "☆",
+        "Raises Sp. Defense by 3",
+        "Appraise a box dropped by a defeated foe"
+    ],
+    [
+        "Express Tag",
+        "☆☆",
+        "Raises Attack and Sp. Defense by 3 each",
+        "Trade Pichu Hair and Pichu Card"
+    ],
+    [
+        "Shocker Cape",
+        "☆☆☆",
+        "Adds 2 to base PP of all moves.",
+        "Trade Pichu Hair, Pichu Card, and Express Tag"
+    ],
+    [
+        "Thundershard",
+        "☆☆☆",
+        "Randomly consumes no PP when using a move.",
+        "Randomly obtained when a Pichu hatches from an Egg"
+    ],
+    [
+        "Pikachu Hair",
+        "☆",
+        "Raises Defense by 3",
+        "Appraise a box dropped by a defeated foe"
+    ],
+    [
+        "Pikachu Card",
+        "☆",
+        "Raises Sp. Defense by 3",
+        "Appraise a box dropped by a defeated foe"
+    ],
+    [
+        "Volt Charm",
+        "☆☆",
+        "Raises Defense and Sp. Defense by 3 each",
+        "Trade Pikachu Hair and Pikachu Card"
+    ],
+    [
+        "Volt Torc",
+        "☆☆☆",
+        "Reflect and Light Screen do not affect this Pokémon's moves.",
+        "Trade Pikachu Hair, Pikachu Card, and Volt Charm"
+    ],
+    [
+        "Raichu Hair",
+        "☆",
+        "Raises Defense by 3",
+        "Appraise a box dropped by a defeated foe"
+    ],
+    [
+        "Raichu Card",
+        "☆",
+        "Raises Sp. Defense by 3",
+        "Appraise a box dropped by a defeated foe"
+    ],
+    [
+        "Raichu Crest",
+        "☆☆",
+        "Raises Defense and Sp. Defense by 3 each",
+        "Trade Raichu Hair and Raichu Card"
+    ],
+    [
+        "Zapper Scarf",
+        "☆☆☆",
+        "Converts damage into healing when hit by a Ground-type move.",
+        "Trade Raichu Hair, Raichu Card, and Raichu Crest"
+    ],
+    [],
+    [
+        "027",
+        "",
+        "Sandshrew",
+        "Sand-Scarf",
+        "☆☆☆",
+        "Foes cannot get a critical hit on this Pokémon.",
+        "Swap any 5 exclusive items."
+    ],
+    [
+        "028",
+        "",
+        "Sandslash",
+        "Sandy Torc",
+        "☆☆☆",
+        "Converts damage into healing when hit by an Grass-type move.",
+        "Swap any 5 exclusive items."
+    ],
+    [],
+    [
+        "029",
+        "",
+        "Nidoran♀",
+        "Pointy Scarf",
+        "☆☆☆",
+        "Adds 2 to base PP of all moves.",
+        "Swap any 5 exclusive items."
+    ],
+    [
+        "030",
+        "",
+        "Nidorina",
+        "Return Scarf",
+        "☆☆☆",
+        "Earns the Pokémon 5 exp. points each time it is hit.",
+        "Swap any 5 exclusive items."
+    ],
+    [
+        "031",
+        "",
+        "Nidoqueen",
+        "Impact Torc",
+        "☆☆☆",
+        "Converts damage into healing when hit by a Psychic-type move.",
+        "Swap any 5 exclusive items."
+    ],
+    [],
+    [
+        "032",
+        "",
+        "Nidoran♂",
+        "Halve Scarf",
+        "☆☆☆",
+        "Increases maxiumum HP by 10.",
+        "Swap any 5 exclusive items."
+    ],
+    [
+        "033",
+        "",
+        "Nidorino",
+        "Thorny Scarf",
+        "☆☆☆",
+        "May restore PP of a random move upon taking any kind of damage.",
+        "Swap any 5 exclusive items."
+    ],
+    [
+        "034",
+        "",
+        "Nidoking",
+        "King Sash",
+        "☆☆☆",
+        "Converts damage into healing when hit by a Psychic-type move.",
+        "Swap any 5 exclusive items."
+    ],
+    [],
+    [
+        "Cleffa Dew",
+        "☆",
+        "Raises Sp. Attack by 5",
+        "Appraise a box dropped by a defeated foe"
+    ],
+    [
+        "Cleffa Card",
+        "☆",
+        "Raises Sp. Defense by 3",
+        "Appraise a box dropped by a defeated foe"
+    ],
+    [
+        "Starry Ore",
+        "☆☆",
+        "Raises Sp. Attack by 5 and Sp. Defense by 3",
+        "Trade Cleffa Dew and Cleffa Card"
+    ],
+    [
+        "Comet Ring",
+        "☆☆☆",
+        "May afflict attacking enemies with a Confused status condition.",
+        "Trade Cleffa Dew, Cleffa Card, and Starry Ore"
+    ],
+    [
+        "Fallen Star",
+        "☆☆☆",
+        "Raises the chance of enemies dropping boxes.",
+        "Randomly obtained when a Cleffa hatches from an Egg"
+    ],
+    [
+        "Clef-Claw",
+        "☆",
+        "Raises Attack by 5",
+        "Appraise a box dropped by a defeated foe"
+    ],
+    [
+        "Clef-Fang",
+        "☆",
+        "Raises Sp. Attack by 5",
+        "Appraise a box dropped by a defeated foe"
+    ],
+    [
+        "Moon Jewel",
+        "☆☆",
+        "Raises Attack and Sp. Attack by 5 each",
+        "Trade Clef-Claw and Clef-Fang"
+    ],
+    [
+        "Moon Scarf",
+        "☆☆☆",
+        "Adds 2 to base PP of all moves.",
+        "Trade Clef-Claw, Clef-Fang, and Moon Jewel"
+    ],
+    [
+        "Clefa-Claw",
+        "☆",
+        "Raises Attack by 5",
+        "Appraise a box dropped by a defeated foe"
+    ],
+    [
+        "Clefa-Card",
+        "☆",
+        "Raises Sp. Defense by 3",
+        "Appraise a box dropped by a defeated foe"
+    ],
+    [
+        "Moon Rock",
+        "☆☆",
+        "Raises Attack by 5 and Sp. Defense by 3",
+        "Trade Clefa-Claw and Clefa-Card"
+    ],
+    [
+        "Fairy Bow",
+        "☆☆☆",
+        "Converts damage into healing when hit by a Fighting-type move.",
+        "Trade Clefa-Claw, Clefa-Card, and Moon Rock"
+    ],
+    [],
+    [
+        "Vulpix Tail",
+        "☆",
+        "Raises Defense by 3",
+        "Appraise a box dropped by a defeated foe"
+    ],
+    [
+        "Vulpix Card",
+        "☆",
+        "Raises Sp. Defense by 3",
+        "Appraise a box dropped by a defeated foe"
+    ],
+    [
+        "Vulpix Tag",
+        "☆☆",
+        "Raises Defense and Sp. Defense by 3 each",
+        "Trade Vulpix Tail and Vulpix Card"
+    ],
+    [
+        "Glowing Bow",
+        "☆☆☆",
+        "Special moves are weakened to half their strength.",
+        "Trade Vulpix Tail, Vulpix Card, and Vulpix Tag"
+    ],
+    [
+        "Nine-Hair",
+        "☆",
+        "Raises Defense by 3",
+        "Appraise a box dropped by a defeated foe"
+    ],
+    [
+        "Nine-Card",
+        "☆",
+        "Raises Sp. Defense by 3",
+        "Appraise a box dropped by a defeated foe"
+    ],
+    [
+        "Nine-Seal",
+        "☆☆",
+        "Raises Defense and Sp. Defense by 3 each",
+        "Trade Nine-Hair and Nine-Card"
+    ],
+    [
+        "Afire Collar",
+        "☆☆☆",
+        "Converts damage into healing when hit by a Water-type move.",
+        "Trade Nine-Hair, Nine-Card, and Nine-Seal"
+    ],
+    [],
+    [
+        "Iggly-Dew",
+        "☆",
+        "Raises Sp. Attack by 5",
+        "Appraise a box dropped by a defeated foe"
+    ],
+    [
+        "Iggly-Card",
+        "☆",
+        "Raises Sp. Defense by 3",
+        "Appraise a box dropped by a defeated foe"
+    ],
+    [
+        "Bouncy Charm",
+        "☆☆",
+        "Raises Sp. Attack by 5 and Sp. Defense by 3",
+        "Trade Iggly-Dew and Iggly-Card"
+    ],
+    [
+        "Pretty Bow",
+        "☆☆☆",
+        "Increases maximum HP by 10.",
+        "Trade Iggly-Dew, Iggly-Card, and Bouncy Charm"
+    ],
+    [
+        "Fluff Dust",
+        "☆☆☆",
+        "Raises the chance of enemies dropping boxes.",
+        "Randomly obtained when an Igglybuff hatches from an Egg"
+    ],
+    [
+        "Jiggly-Song",
+        "☆",
+        "Raises Sp. Attack by 5",
+        "Appraise a box dropped by a defeated foe"
+    ],
+    [
+        "Jiggly-Card",
+        "☆",
+        "Raises Sp. Defense by 3",
+        "Appraise a box dropped by a defeated foe"
+    ],
+    [
+        "Slumber Rock",
+        "☆☆",
+        "Raises Sp. Attack by 5 and Sp. Defense by 3",
+        "Trade Jiggly-Song and Jiggly-Card"
+    ],
+    [
+        "Snooze Ring",
+        "☆☆☆",
+        "May afflict attacking enemies with a Sleep status condition.",
+        "Trade Jiggly-Song, Jiggly-Card, and Snooze Rock"
+    ],
+    [
+        "Wiggly-Hair",
+        "☆",
+        "Raises Defense by 3",
+        "Appraise a box dropped by a defeated foe"
+    ],
+    [
+        "Wiggly-Card",
+        "☆",
+        "Raises Sp. Defense by 3",
+        "Appraise a box dropped by a defeated foe"
+    ],
+    [
+        "Buddy Rock",
+        "☆☆",
+        "Raises Defense and Sp. Defense by 3 each",
+        "Trade Wiggly-Hair and Wiggly-Card"
+    ],
+    [
+        "Friend Torc",
+        "☆☆☆",
+        "Converts damage into healing when hit by a Fighting-type move.",
+        "Trade Wiggly-Hair, Wiggly-Card, and Buddy Rock"
+    ],
+    [],
+    [
+        "041",
+        "",
+        "Zubat",
+        "Dodge Bow",
+        "☆☆☆",
+        "Boosts Evasion by 2 during the Cloudy weather condition.",
+        "Swap any 5 exclusive items."
+    ],
+    [
+        "042",
+        "",
+        "Golbat",
+        "Absorb Scarf",
+        "☆☆☆",
+        "HP-draining moves heal the user by all of inflicted damage, rather than just half.",
+        "Swap any 5 exclusive items."
+    ],
+    [
+        "169",
+        "",
+        "Crobat",
+        "Slash Bow",
+        "☆☆☆",
+        "Converts damage into healing when hit by a Rock-type move.",
+        "Swap any 5 exclusive items."
+    ],
+    [],
+    [
+        "043",
+        "",
+        "Oddish",
+        "Odd Bow",
+        "☆☆☆",
+        "May afflict attacking enemies with a Confused status condition.",
+        "Swap any 5 exclusive items."
+    ],
+    [
+        "044",
+        "",
+        "Gloom",
+        "Guard Hat",
+        "☆☆☆",
+        "HP-draining moves heal the user by all of inflicted damage, rather than just half.",
+        "Swap any 5 exclusive items."
+    ],
+    [
+        "045",
+        "",
+        "Vileplume",
+        "Aroma Scarf",
+        "☆☆☆",
+        "Converts damage into healing when hit by a Fire-type move.",
+        "Swap any 5 exclusive items."
+    ],
+    [
+        "182",
+        "",
+        "Bellossom",
+        "Bright Tiara",
+        "☆☆☆",
+        "Protects against bad status conditions during the Sunny weather condition.",
+        "Swap any 5 exclusive items."
+    ],
+    [],
+    [
+        "046",
+        "",
+        "Paras",
+        "Moving Scarf",
+        "☆☆☆",
+        "Pokémon cannot be inflicted with the Paralysis status condition.",
+        "Swap any 5 exclusive items."
+    ],
+    [
+        "047",
+        "",
+        "Parasect",
+        "Firm Hat",
+        "☆☆☆",
+        "Converts damage into healing when hit by a Fire-type move.",
+        "Swap any 5 exclusive items."
+    ],
+    [],
+    [
+        "048",
+        "",
+        "Venonat",
+        "Gaze Goggles",
+        "☆☆☆",
+        "Earns the Pokémon 5 exp. points each time it is hit.",
+        "Swap any 5 exclusive items."
+    ],
+    [
+        "049",
+        "",
+        "Venomoth",
+        "Venomoth Bow",
+        "☆☆☆",
+        "Converts damage into healing when hit by a Rock-type move.",
+        "Swap any 5 exclusive items."
+    ],
+    [],
+    [
+        "050",
+        "",
+        "Diglett",
+        "Diglett Hat",
+        "☆☆☆",
+        "Protects against thrown or hurled items.",
+        "Swap any 5 exclusive items."
+    ],
+    [
+        "051",
+        "",
+        "Dugtrio",
+        "Dugtrio Bow",
+        "☆☆☆",
+        "Converts damage into healing when hit by a Grass-type move.",
+        "Swap any 5 exclusive items."
+    ],
+    [],
+    [
+        "Meowth Claw",
+        "☆",
+        "Raises Attack by 5",
+        "Appraise a box dropped by a defeated foe"
+    ],
+    [
+        "Meowth Fang",
+        "☆",
+        "Raises Sp. Attack by 5",
+        "Appraise a box dropped by a defeated foe"
+    ],
+    [
+        "Coin Charm",
+        "☆☆",
+        "Raises Attack and Sp. Attack by 5 each",
+        "Trade Meowth Claw and Meowth Fang"
+    ],
+    [
+        "Bling Ruff",
+        "☆☆☆",
+        "Increases maximum HP by 10.",
+        "Trade Meowth Claw, Meowth Fang, and Coin Charm"
+    ],
+    [
+        "Persian Claw",
+        "☆",
+        "Raises Attack by 5",
+        "Appraise a box dropped by a defeated foe"
+    ],
+    [
+        "Persian Fang",
+        "☆",
+        "Raises Sp. Attack by 5",
+        "Appraise a box dropped by a defeated foe"
+    ],
+    [
+        "Insight Rock",
+        "☆☆",
+        "Raises Attack and Sp. Attack by 5 each",
+        "Trade Persian Claw and Persian Fang"
+    ],
+    [
+        "Noble Scarf",
+        "☆☆☆",
+        "Converts damage into healing when hit by a Fighting-type move.",
+        "Trade Persian Claw, Persian Fang, and Insight Rock"
+    ],
+    [],
+    [
+        "054",
+        "",
+        "Psyduck",
+        "Psyduck Hat",
+        "☆☆☆",
+        "Boosts Evasion by 2 during the Clear weather condition.",
+        "Swap any 5 exclusive items."
+    ],
+    [
+        "055",
+        "",
+        "Golduck",
+        "Paddle Scarf",
+        "☆☆☆",
+        "Converts damage into healing when hit by an Electric-type move.",
+        "Swap any 5 exclusive items."
+    ],
+    [],
+    [
+        "056",
+        "",
+        "Mankey",
+        "Mankey Torc",
+        "☆☆☆",
+        "May afflict attacking enemies with a Cringe status condition.",
+        "Swap any 5 exclusive items."
+    ],
+    [
+        "057",
+        "",
+        "Primeape",
+        "Nullify Belt",
+        "☆☆☆",
+        "Converts damage into healing when hit by a Psychic-type move.",
+        "Swap any 5 exclusive items."
+    ],
+    [],
+    [
+        "058",
+        "",
+        "Growlithe",
+        "Growl Scarf",
+        "☆☆☆",
+        "The Pokémon earns 1.1× the usual Exp. points.",
+        "Swap any 5 exclusive items."
+    ],
+    [
+        "059",
+        "",
+        "Arcanine",
+        "Legend Bow",
+        "☆☆☆",
+        "Converts damage into healing when hit by a Water-type move.",
+        "Swap any 5 exclusive items."
+    ],
+    [],
+    [
+        "060",
+        "",
+        "Poliwag",
+        "Damp Bow",
+        "☆☆☆",
+        "Boosts Evasion by 2 during the Rain weather condition.",
+        "Swap any 5 exclusive items."
+    ],
+    [
+        "061",
+        "",
+        "Poliwhirl",
+        "Poli-Bow",
+        "☆☆☆",
+        "May afflict attacking enemies with a Confusion status condition.",
+        "Swap any 5 exclusive items."
+    ],
+    [
+        "062",
+        "",
+        "Poliwrath",
+        "Bold Belt",
+        "☆☆☆",
+        "Converts damage into healing when hit by a Flying-type move.",
+        "Swap any 5 exclusive items."
+    ],
+    [
+        "186",
+        "",
+        "Politoed",
+        "Rain Crown",
+        "☆☆☆",
+        "Converts damage into healing when hit by an Electric-type move.",
+        "Swap any 5 exclusive items."
+    ],
+    [],
+    [
+        "063",
+        "",
+        "Abra",
+        "Predict Torc",
+        "☆☆☆",
+        "Prevents the Pokémon's moves from being sealed.",
+        "Swap any 5 exclusive items."
+    ],
+    [
+        "064",
+        "",
+        "Kadabra",
+        "Psychic Torc",
+        "☆☆☆",
+        "May seal attacking enemies' move.",
+        "Swap any 5 exclusive items."
+    ],
+    [
+        "065",
+        "",
+        "Alakazam",
+        "Sparkle Ruff",
+        "☆☆☆",
+        "Converts damage into healing when hit by a Dark-type move.",
+        "Swap any 5 exclusive items."
+    ],
+    [],
+    [
+        "066",
+        "",
+        "Machop",
+        "Impish Band",
+        "☆☆☆",
+        "Foes cannot get a critical hit on this Pokémon.",
+        "Swap any 5 exclusive items."
+    ],
+    [
+        "067",
+        "",
+        "Machoke",
+        "Strong Belt",
+        "☆☆☆",
+        "Reflect and Light Screen do not affect this Pokémon's moves.",
+        "Swap any 5 exclusive items."
+    ],
+    [
+        "068",
+        "",
+        "Machamp",
+        "Machamp Belt",
+        "☆☆☆",
+        "Converts damage into healing when hit by a Psychic-type move.",
+        "Swap any 5 exclusive items."
+    ],
+    [],
+    [
+        "069",
+        "",
+        "Bellsprout",
+        "Bell-Bow",
+        "☆☆☆",
+        "Halves damage taken from explosions.",
+        "Swap any 5 exclusive items."
+    ],
+    [
+        "070",
+        "",
+        "Weepinbell",
+        "Digest Scarf",
+        "☆☆☆",
+        "Any Berry or Apple eaten will recover an extra 10 HP.",
+        "Swap any 5 exclusive items."
+    ],
+    [
+        "071",
+        "",
+        "Victreebel",
+        "Victree-Torc",
+        "☆☆☆",
+        "Converts damage into healing when hit by a Fire-type move.",
+        "Swap any 5 exclusive items."
+    ],
+    [],
+    [
+        "072",
+        "",
+        "Tentacool",
+        "Tangle Bow",
+        "☆☆☆",
+        "May afflict attacking enemies with a Shadow Hold status condition.",
+        "Swap any 5 exclusive items."
+    ],
+    [
+        "073",
+        "",
+        "Tentacruel",
+        "Tenta-Cape",
+        "☆☆☆",
+        "Converts damage into healing when hit by a Psychic-type move.",
+        "Swap any 5 exclusive items."
+    ],
+    [],
+    [
+        "074",
+        "",
+        "Geodude",
+        "Geodude Torc",
+        "☆☆☆",
+        "Doubles the speed of natural HP recovery.",
+        "Swap any 5 exclusive items."
+    ],
+    [
+        "075",
+        "",
+        "Graveler",
+        "Rocky Torc",
+        "☆☆☆",
+        "Reduces damage from explosions to 1.",
+        "Swap any 5 exclusive items."
+    ],
+    [
+        "076",
+        "",
+        "Golem",
+        "Rugged Sash",
+        "☆☆☆",
+        "Converts damage into healing when hit by a Grass-type move.",
+        "Swap any 5 exclusive items."
+    ],
+    [],
+    [
+        "077",
+        "",
+        "Ponyta",
+        "Heated Bow",
+        "☆☆☆",
+        "Boosts Movement Speed by 1 during the Sunny weather condition.",
+        "Swap any 5 exclusive items."
+    ],
+    [
+        "078",
+        "",
+        "Rapidash",
+        "Sunlight Bow",
+        "☆☆☆",
+        "Converts damage into healing when hit by a Water-type move.",
+        "Swap any 5 exclusive items."
+    ],
+    [],
+    [
+        "079",
+        "",
+        "Slowpoke",
+        "Slowpoke Hat",
+        "☆☆☆",
+        "May reduce the Movement Speed of attacking enemies by 1 level when hit.",
+        "Swap any 5 exclusive items."
+    ],
+    [
+        "080",
+        "",
+        "Slowbro",
+        "Slow-Scarf",
+        "☆☆☆",
+        "Converts damage into healing when hit by a Dark-type move.",
+        "Swap any 5 exclusive items."
+    ],
+    [
+        "199",
+        "",
+        "Slowking",
+        "King Cap",
+        "☆☆☆",
+        "Special moves are weakened to half their strength.",
+        "Swap any 5 exclusive items."
+    ],
+    [],
+    [
+        "081",
+        "",
+        "Magnemite",
+        "Magne-Torc",
+        "☆☆☆",
+        "Pokémon cannot be inflicted with the Paralysis status condition.",
+        "Swap any 5 exclusive items."
+    ],
+    [
+        "082",
+        "",
+        "Magneton",
+        "Magneton Bow",
+        "☆☆☆",
+        "Boosts Evasion by 2 during the Cloudy weather condition.",
+        "Swap any 5 exclusive items."
+    ],
+    [
+        "462",
+        "",
+        "Magnezone",
+        "Builder Sash",
+        "☆☆☆",
+        "Converts damage into healing when hit by a Ground-type move.",
+        "Swap any 5 exclusive items."
+    ],
+    [],
+    [
+        "083",
+        "",
+        "Farfetch'd",
+        "Bullseye Bow",
+        "☆☆☆",
+        "Enables Fighting-type moves and Normal-type moves to inflict increased damage on Ghost-type Pokémon.",
+        "Swap any 5 exclusive items."
+    ],
+    [],
+    [
+        "084",
+        "",
+        "Doduo",
+        "Buddy Torc",
+        "☆☆☆",
+        "Hidden Stairs are more likely to appear.",
+        "Swap any 5 exclusive items."
+    ],
+    [
+        "085",
+        "",
+        "Dodrio",
+        "Fight Torc",
+        "☆☆☆",
+        "Converts damage into healing when hit by a Rock-type move.",
+        "Swap any 5 exclusive items."
+    ],
+    [],
+    [
+        "086",
+        "",
+        "Seel",
+        "Gentle Bow",
+        "☆☆☆",
+        "May restore PP of a random move upon taking any kind of damage.",
+        "Swap any 5 exclusive items."
+    ],
+    [
+        "087",
+        "",
+        "Dewgong",
+        "North Torc",
+        "☆☆☆",
+        "Converts damage into healing when hit by a Rock-type move.",
+        "Swap any 5 exclusive items."
+    ],
+    [],
+    [
+        "088",
+        "",
+        "Grimer",
+        "Grimy Scarf",
+        "☆☆☆",
+        "May afflict attacking enemies with a Blinker status condition.",
+        "Swap any 5 exclusive items."
+    ],
+    [
+        "089",
+        "",
+        "Muk",
+        "Slimy Bow",
+        "☆☆☆",
+        "Converts damage into healing when hit by a Psychic-type move.",
+        "Swap any 5 exclusive items."
+    ],
+    [],
+    [
+        "090",
+        "",
+        "Shellder",
+        "Shell Torc",
+        "☆☆☆",
+        "Boosts Evasion by 2 during the Rainy weather condition.",
+        "Swap any 5 exclusive items."
+    ],
+    [
+        "091",
+        "",
+        "Cloyster",
+        "Cover Armor",
+        "☆☆☆",
+        "Converts damage into healing when hit by a Rock-type move.",
+        "Swap any 5 exclusive items."
+    ],
+    [],
+    [
+        "092",
+        "",
+        "Gastly",
+        "Gastly Veil",
+        "☆☆☆",
+        "Boosts Evasion by 2 during the Fog weather condition.",
+        "Swap any 5 exclusive items."
+    ],
+    [
+        "093",
+        "",
+        "Haunter",
+        "Slip Scarf",
+        "☆☆☆",
+        "The user's ranged moves and thrown items pass harmlessly through teammates.",
+        "Swap any 5 exclusive items."
+    ],
+    [
+        "094",
+        "",
+        "Gengar",
+        "Sunglasses",
+        "☆☆☆",
+        "Converts damage into healing when hit by a Ghost-type move.",
+        "Swap any 5 exclusive items."
+    ],
+    [],
+    [
+        "095",
+        "",
+        "Onix",
+        "Trust Brooch",
+        "☆☆☆",
+        "Halves damage taken from explosions.",
+        "Swap any 5 exclusive items."
+    ],
+    [
+        "208",
+        "",
+        "Steelix",
+        "Quartz Torc",
+        "☆☆☆",
+        "Converts damage into healing when hit by a Ground-type move.",
+        "Swap any 5 exclusive items."
+    ],
+    [],
+    [
+        "096",
+        "",
+        "Drowzee",
+        "Drowzee Tie",
+        "☆☆☆",
+        "May afflict attacking enemies with a Sleep status condition.",
+        "Swap any 5 exclusive items."
+    ],
+    [
+        "097",
+        "",
+        "Hypno",
+        "Dream Coin",
+        "☆☆☆",
+        "Converts damage into healing when hit by a Dark-type move.",
+        "Swap any 5 exclusive items."
+    ],
+    [],
+    [
+        "098",
+        "",
+        "Krabby",
+        "Krabby Bow",
+        "☆☆☆",
+        "Doubles the speed of natural HP recovery.",
+        "Swap any 5 exclusive items."
+    ],
+    [
+        "099",
+        "",
+        "Kingler",
+        "Super Sash",
+        "☆☆☆",
+        "Converts damage into healing when hit by an Electric-type move.",
+        "Swap any 5 exclusive items."
+    ],
+    [],
+    [
+        "100",
+        "",
+        "Voltorb",
+        "Ball Scarf",
+        "☆☆☆",
+        "Reduces damage from explosions to 1.",
+        "Swap any 5 exclusive items."
+    ],
+    [
+        "101",
+        "",
+        "Electrode",
+        "Electro-Bow",
+        "☆☆☆",
+        "Converts damage into healing when hit by a Ground-type move.",
+        "Swap any 5 exclusive items."
+    ],
+    [],
+    [
+        "102",
+        "",
+        "Exeggcute",
+        "Repel Scarf",
+        "☆☆☆",
+        "Prevents the Pokémon's moves from being sealed.",
+        "Swap any 5 exclusive items."
+    ],
+    [
+        "103",
+        "",
+        "Exeggutor",
+        "Exeggu-Sash",
+        "☆☆☆",
+        "Converts damage into healing when hit by a Bug-type move.",
+        "Swap any 5 exclusive items."
+    ],
+    [],
+    [
+        "104",
+        "",
+        "Cubone",
+        "Cubone Scarf",
+        "☆☆☆",
+        "Gives Long Toss status.",
+        "Swap any 5 exclusive items."
+    ],
+    [
+        "105",
+        "",
+        "Marowak",
+        "Marowak Torc",
+        "☆☆☆",
+        "Converts damage into healing when hit by a Grass-type move.",
+        "Swap any 5 exclusive items."
+    ],
+    [],
+    [
+        "108",
+        "",
+        "Lickitung",
+        "Licky Scarf",
+        "☆☆☆",
+        "Kecleon Shops appear more often.",
+        "Swap any 5 exclusive items."
+    ],
+    [
+        "463",
+        "",
+        "Lickilicky",
+        "Flabby Belt",
+        "☆☆☆",
+        "Converts damage into healing when hit by a Fighting-type move.",
+        "Swap any 5 exclusive items."
+    ],
+    [],
+    [
+        "109",
+        "",
+        "Koffing",
+        "Koffing Bow",
+        "☆☆☆",
+        "May afflict attacking enemies with a Blinker status condition.",
+        "Swap any 5 exclusive items."
+    ],
+    [
+        "110",
+        "",
+        "Weezing",
+        "Weez-Scarf",
+        "☆☆☆",
+        "Converts damage into healing when hit by a Psychic-type move.",
+        "Swap any 5 exclusive items."
+    ],
+    [],
+    [
+        "111",
+        "",
+        "Rhyhorn",
+        "Solid Shield",
+        "☆☆☆",
+        "Reduces damage from explosions to 1.",
+        "Swap any 5 exclusive items."
+    ],
+    [
+        "112",
+        "",
+        "Rhydon",
+        "Pierce Drill",
+        "☆☆☆",
+        "Reflect and Light Screen do not affect this Pokémon's moves.",
+        "Swap any 5 exclusive items."
+    ],
+    [
+        "464",
+        "",
+        "Rhyperior",
+        "Rhyperi-Torc",
+        "☆☆☆",
+        "Converts damage into healing when hit by a Grass-type move.",
+        "Swap any 5 exclusive items."
+    ],
+    [],
+    [
+        "Happiny Dew",
+        "☆",
+        "Raises Sp. Attack by 5",
+        "Appraise a box dropped by a defeated foe"
+    ],
+    [
+        "Happiny Card",
+        "☆",
+        "Raises Sp. Defense by 3",
+        "Appraise a box dropped by a defeated foe"
+    ],
+    [
+        "Play Tag",
+        "☆☆",
+        "Raises Sp. Attack by 5 and Sp. Defense by 3",
+        "Trade Happiny Dew and Happiny Card"
+    ],
+    [
+        "Nurture Cape",
+        "☆☆☆",
+        "Earns the Pokémon 5 exp. points each time it is hit.",
+        "Trade Happiny Dew, Happiny Card, and Play Tag"
+    ],
+    [
+        "White Jewel",
+        "☆☆☆",
+        "Raises the chance of enemies dropping boxes.",
+        "Randomly obtained when a Happiny hatches from an Egg"
+    ],
+    [
+        "Chansey Song",
+        "☆",
+        "Raises Sp. Attack by 5",
+        "Appraise a box dropped by a defeated foe"
+    ],
+    [
+        "Chansey Card",
+        "☆",
+        "Raises Sp. Defense by 3",
+        "Appraise a box dropped by a defeated foe"
+    ],
+    [
+        "Lucky Charm",
+        "☆☆",
+        "Raises Sp. Attack by 5 and Sp. Defense by 3",
+        "Trade Chansey Song and Chansey Card"
+    ],
+    [
+        "Lucky Scarf",
+        "☆☆☆",
+        "May restore PP of a random move upon taking any kind of damage.",
+        "Trade Chansey Song, Chansey Card, and Lucky Charm"
+    ],
+    [
+        "Blissey Song",
+        "☆",
+        "Raises Sp. Attack by 5",
+        "Appraise a box dropped by a defeated foe"
+    ],
+    [
+        "Blissey Card",
+        "☆",
+        "Raises Sp. Defense by 3",
+        "Appraise a box dropped by a defeated foe"
+    ],
+    [
+        "Amity Rock",
+        "☆☆",
+        "Raises Sp. Attack by 5 and Sp. Defense by 3",
+        "Trade Blissey Song and Blissey Card"
+    ],
+    [
+        "Faith Ring",
+        "☆☆☆",
+        "Converts damage into healing when hit by a Fighting-type move.",
+        "Trade Blissey Song, Blissey Card, and Amity Rock"
+    ],
+    [],
+    [
+        "114",
+        "",
+        "Tangela",
+        "Sticky Bow",
+        "☆☆☆",
+        "May afflict attacking enemies with a Shadow Hold status condition.",
+        "Swap any 5 exclusive items."
+    ],
+    [
+        "465",
+        "",
+        "Tangrowth",
+        "Clinging Bow",
+        "☆☆☆",
+        "Converts damage into healing when hit by a Fire-type move.",
+        "Swap any 5 exclusive items."
+    ],
+    [],
+    [
+        "115",
+        "",
+        "Kangaskhan",
+        "Kang-Apron",
+        "☆☆☆",
+        "Hidden Stairs are more likely to appear.",
+        "Swap any 5 exclusive items."
+    ],
+    [],
+    [
+        "116",
+        "",
+        "Horsea",
+        "Horsea Bow",
+        "☆☆☆",
+        "May afflict attacking enemies with a Blinker status condition.",
+        "Swap any 5 exclusive items."
+    ],
+    [
+        "117",
+        "",
+        "Seadra",
+        "Swirl Scarf",
+        "☆☆☆",
+        "Boosts Movement Speed by 1 during the Rain weather condition.",
+        "Swap any 5 exclusive items."
+    ],
+    [
+        "230",
+        "",
+        "Kingdra",
+        "Tornado Bow",
+        "☆☆☆",
+        "Converts damage into healing when hit by a Dragon-type move.",
+        "Swap any 5 exclusive items."
+    ],
+    [],
+    [
+        "118",
+        "",
+        "Goldeen",
+        "Goldeen Bow",
+        "☆☆☆",
+        "Boosts Movement Speed by 1 during the Rain weather condition.",
+        "Swap any 5 exclusive items."
+    ],
+    [
+        "119",
+        "",
+        "Seaking",
+        "Seaking Bow",
+        "☆☆☆",
+        "Converts damage into healing when hit by an Electric-type move.",
+        "Swap any 5 exclusive items."
+    ],
+    [],
+    [
+        "120",
+        "",
+        "Staryu",
+        "Recover Torc",
+        "☆☆☆",
+        "Doubles the speed of natural HP recovery.",
+        "Swap any 5 exclusive items."
+    ],
+    [
+        "121",
+        "",
+        "Starmie",
+        "Starmie Belt",
+        "☆☆☆",
+        "Converts damage into healing when hit by a Dark-type move.",
+        "Swap any 5 exclusive items."
+    ],
+    [],
+    [
+        "Junior Beam",
+        "☆",
+        "Raises Sp. Attack by 5",
+        "Appraise a box dropped by a defeated foe"
+    ],
+    [
+        "Junior Card",
+        "☆",
+        "Raises Sp. Defense by 3",
+        "Appraise a box dropped by a defeated foe"
+    ],
+    [
+        "Mimic Pebble",
+        "☆☆",
+        "Raises Sp. Attack by 5 and Sp. Defense by 3",
+        "Trade Junior Beam and Junior Card"
+    ],
+    [
+        "Copy Mask",
+        "☆☆☆",
+        "Earns the Pokémon 5 exp. points each time it is hit.",
+        "Trade Junior Beam, Junior Card, and Mimic Pebble"
+    ],
+    [
+        "Purple Jewel",
+        "☆☆☆",
+        "Enables Psychic-type moves to inflict increased damage on Dark-type Pokémon.",
+        "Randomly obtained when a Mime Jr. hatches from an Egg"
+    ],
+    [
+        "Mime Key",
+        "☆",
+        "Raises Defense by 3",
+        "Appraise a box dropped by a defeated foe"
+    ],
+    [
+        "Mime Card",
+        "☆",
+        "Raises Sp. Defense by 3",
+        "Appraise a box dropped by a defeated foe"
+    ],
+    [
+        "Bulwark Rock",
+        "☆☆",
+        "Raises Defense and Sp. Defense by 3 each",
+        "Trade Mime Key and Mime Card"
+    ],
+    [
+        "Barrier Bow",
+        "☆☆☆",
+        "Converts damage into healing when hit by a Dark-type move.",
+        "Trade Mime Key, Mime Card, and Bulwark Rock"
+    ],
+    [],
+    [
+        "Scyther Fang",
+        "☆",
+        "Raises Sp. Attack by 5",
+        "Appraise a box dropped by a defeated foe"
+    ],
+    [
+        "Scyther Card",
+        "☆",
+        "Raises Sp. Defense by 3",
+        "Appraise a box dropped by a defeated foe"
+    ],
+    [
+        "Ambush Rock",
+        "☆☆",
+        "Raises Sp. Attack by 5 and Sp. Defense by 3",
+        "Trade Scyther Fang and Scyther Card"
+    ],
+    [
+        "Strike Ruff",
+        "☆☆☆",
+        "Protects against thrown or hurled items.",
+        "Trade Scyther Fang, Scyther Card, and Ambush Rock"
+    ],
+    [
+        "Scizor Wing",
+        "☆",
+        "Raises Attack by 5",
+        "Appraise a box dropped by a defeated foe"
+    ],
+    [
+        "Scizor Card",
+        "☆",
+        "Raises Sp. Defense by 3",
+        "Appraise a box dropped by a defeated foe"
+    ],
+    [
+        "Steel Charm",
+        "☆☆",
+        "Raises Attack by 5 and Sp. Defense by 3",
+        "Trade Scizor Wing and Scizor Card"
+    ],
+    [
+        "Red Armlet",
+        "☆☆☆",
+        "Converts damage into healing when hit by a Flying-type move.",
+        "Trade Scizor Wing, Scizor Card, and Steel Charm"
+    ],
+    [],
+    [
+        "Smooch-Song",
+        "☆",
+        "Raises Sp. Attack by 5",
+        "Appraise a box dropped by a defeated foe"
+    ],
+    [
+        "Smooch-Card",
+        "☆",
+        "Raises Sp. Defense by 3",
+        "Appraise a box dropped by a defeated foe"
+    ],
+    [
+        "Kiss Charm",
+        "☆☆",
+        "Raises Sp. Attack by 5 and Sp. Defense by 3",
+        "Trade Smooch-Song and Smooch-Card"
+    ],
+    [
+        "Heart Tiara",
+        "☆☆☆",
+        "May afflict attacking enemies of the opposite gender with an Infatuated status condition.",
+        "Trade Smooch-Song, Smooch-Card, and Kiss Charm"
+    ],
+    [
+        "Chic Shard",
+        "☆☆☆",
+        "Enables Psychic-type moves to inflict increased damage on Dark-type Pokémon.",
+        "Randomly obtained when a Smoochum hatches from an Egg"
+    ],
+    [
+        "Jynx Song",
+        "☆",
+        "Raises Sp. Attack by 5",
+        "Appraise a box dropped by a defeated foe"
+    ],
+    [
+        "Jynx Card",
+        "☆",
+        "Raises Sp. Defense by 3",
+        "Appraise a box dropped by a defeated foe"
+    ],
+    [
+        "Frozen Ore",
+        "☆☆",
+        "Raises Sp. Attack by 5 and Sp. Defense by 3",
+        "Trade Jynx Song and Jynx Card"
+    ],
+    [
+        "Ruin Scarf",
+        "☆☆☆",
+        "Converts damage into healing when hit by a Dark-type move.",
+        "Trade Jynx Song, Jynx Card, and Frozen Ore"
+    ],
+    [],
+    [
+        "Elekid Claw",
+        "☆",
+        "Raises Attack by 5",
+        "Appraise a box dropped by a defeated foe"
+    ],
+    [
+        "Elekid Card",
+        "☆",
+        "Raises Sp. Defense by 3",
+        "Appraise a box dropped by a defeated foe"
+    ],
+    [
+        "Jolt Charm",
+        "☆☆",
+        "Raises Attack by 5 and Sp. Defense by 3",
+        "Trade Elekid Claw and Elekid Card"
+    ],
+    [
+        "Current Ring",
+        "☆☆☆",
+        "Adds 2 to base PP of all moves.",
+        "Trade Elekid Claw, Elekid Card, and Jolt Charm"
+    ],
+    [
+        "Yellow Jewel",
+        "☆☆☆",
+        "Increases maximum HP by 10.",
+        "Randomly obtained when an Elekid hatches from an Egg"
+    ],
+    [
+        "Electa-Claw",
+        "☆",
+        "Raises Attack by 5",
+        "Appraise a box dropped by a defeated foe"
+    ],
+    [
+        "Electa-Fang",
+        "☆",
+        "Raises Sp. Attack by 5",
+        "Appraise a box dropped by a defeated foe"
+    ],
+    [
+        "Charge Seal",
+        "☆☆",
+        "Raises Attack and Sp. Attack by 5 each",
+        "Trade Electa-Claw and Electa-Fang"
+    ],
+    [
+        "Volt Bangle",
+        "☆☆☆",
+        "Pokémon cannot be inflicted with the Paralysis status condition.",
+        "Trade Electa-Claw, Electa-Fang, and Volt Bangle"
+    ],
+    [
+        "Electi-Claw",
+        "☆",
+        "Raises Attack by 5",
+        "Appraise a box dropped by a defeated foe"
+    ],
+    [
+        "Electi-Card",
+        "☆",
+        "Raises Sp. Defense by 3",
+        "Appraise a box dropped by a defeated foe"
+    ],
+    [
+        "Voltaic Rock",
+        "☆☆",
+        "Raises Attack by 5 and Sp. Defense by 3",
+        "Trade Electi-Claw and Electi-Card"
+    ],
+    [
+        "Voltaic Band",
+        "☆☆☆",
+        "Converts damage into healing when hit by a Ground-type move.",
+        "Trade Electi-Claw, Electi-Card, and Voltaic Rock"
+    ],
+    [],
+    [
+        "Magby Claw",
+        "☆",
+        "Raises Attack by 5",
+        "Appraise a box dropped by a defeated foe"
+    ],
+    [
+        "Magby Card",
+        "☆",
+        "Raises Sp. Defense by 3",
+        "Appraise a box dropped by a defeated foe"
+    ],
+    [
+        "Ember Jewel",
+        "☆☆",
+        "Raises Attack by 5 and Sp. Defense by 3",
+        "Trade Magby Claw and Magby Card"
+    ],
+    [
+        "Coal Ring",
+        "☆☆☆",
+        "Adds 2 to base PP of all moves.",
+        "Trade Magby Claw, Magby Card, and Ember Jewel"
+    ],
+    [
+        "Red Jewel",
+        "☆☆☆",
+        "Increases maximum HP by 10.",
+        "Randomly obtained when a Magby hatches from an Egg"
+    ],
+    [
+        "Magmar Claw",
+        "☆",
+        "Raises Attack by 5",
+        "Appraise a box dropped by a defeated foe"
+    ],
+    [
+        "Magmar Card",
+        "☆",
+        "Raises Sp. Defense by 3",
+        "Appraise a box dropped by a defeated foe"
+    ],
+    [
+        "Erupt Ore",
+        "☆☆",
+        "Raises Attack by 5 and Sp. Defense by 3",
+        "Trade Magmar Claw and Magmar Card"
+    ],
+    [
+        "Magma Scarf",
+        "☆☆☆",
+        "Boosts Movement Speed by 1 during the Sunny weather condition.",
+        "Trade Magmar Claw, Magmar Card, and Magma Scarf"
+    ],
+    [
+        "Magmor-Claw",
+        "☆",
+        "Raises Attack by 5",
+        "Appraise a box dropped by a defeated foe"
+    ],
+    [
+        "Magmor-Card",
+        "☆",
+        "Raises Sp. Defense by 3",
+        "Appraise a box dropped by a defeated foe"
+    ],
+    [
+        "Vulcan Rock",
+        "☆☆",
+        "Raises Attack by 5 and Sp. Defense by 3",
+        "Trade Magmor-Claw and Magmor-Card"
+    ],
+    [
+        "Burning Torc",
+        "☆☆☆",
+        "Converts damage into healing when hit by a Water-type move.",
+        "Trade Magmor-Claw, Magmor-Card, and Vulcan Rock"
+    ],
+    [],
+    [
+        "127",
+        "",
+        "Pinsir",
+        "Pinsir Sash",
+        "☆☆☆",
+        "Reflect and Light Screen do not affect this Pokémon's moves.",
+        "Swap any 5 exclusive items."
+    ],
+    [],
+    [
+        "128",
+        "",
+        "Tauros",
+        "Rushing Bow",
+        "☆☆☆",
+        "Always counter physical damage at full efficiency.",
+        "Swap any 5 exclusive items."
+    ],
+    [],
+    [
+        "129",
+        "",
+        "Magikarp",
+        "Magikarp Bow",
+        "☆☆☆",
+        "Randomly consumes no PP when using a move.",
+        "Swap any 5 exclusive items."
+    ],
+    [
+        "130",
+        "",
+        "Gyarados",
+        "Tempest Sash",
+        "☆☆☆",
+        "Converts damage into healing when hit by an Electric-type move.",
+        "Swap any 5 exclusive items."
+    ],
+    [],
+    [
+        "Lapras Song",
+        "☆",
+        "Raises Sp. Attack by 5",
+        "Appraise a box dropped by a defeated foe"
+    ],
+    [
+        "Lapras Card",
+        "☆",
+        "Raises Sp. Defense by 3",
+        "Appraise a box dropped by a defeated foe"
+    ],
+    [
+        "Wavy Charm",
+        "☆☆",
+        "Halves damage taken from explosions.",
+        "Trade Lapras Song and Lapras Card"
+    ],
+    [
+        "Mystic Scarf",
+        "☆☆☆",
+        "Converts damage into healing when hit by a Fire-type move.",
+        "Trade Lapras Song, Lapras Card, and Mystic Scarf"
+    ],
+    [],
+    [
+        "132",
+        "",
+        "Ditto",
+        "Ditto Torc",
+        "☆☆☆",
+        "Kecleon Shops appear more often.",
+        "Swap any 5 exclusive items."
+    ],
+    [],
+    [
+        "137",
+        "",
+        "Porygon",
+        "AI Brooch",
+        "☆☆☆",
+        "When hit, it changes type to one that resists the attacking move.",
+        "Swap any 5 exclusive items."
+    ],
+    [
+        "233",
+        "",
+        "Porygon2",
+        "Virtual Bow",
+        "☆☆☆",
+        "The user's ranged moves and thrown items pass harmlessly through teammates.",
+        "Swap any 5 exclusive items."
+    ],
+    [
+        "474",
+        "",
+        "Porygon-Z",
+        "Best Scarf",
+        "☆☆☆",
+        "Converts damage into healing when hit by a Fighting-type move.",
+        "Swap any 5 exclusive items."
+    ],
+    [],
+    [
+        "138",
+        "",
+        "Omanyte",
+        "Spike Brooch",
+        "☆☆☆",
+        "Reflect and Light Screen do not affect this Pokémon's moves.",
+        "Swap any 5 exclusive items."
+    ],
+    [
+        "139",
+        "",
+        "Omastar",
+        "Aged Scarf",
+        "☆☆☆",
+        "Converts damage into healing when hit by a Grass-type move.",
+        "Swap any 5 exclusive items."
+    ],
+    [],
+    [
+        "140",
+        "",
+        "Kabuto",
+        "Kabuto Hat",
+        "☆☆☆",
+        "Pokémon cannot be inflicted with the Confusion status condition.",
+        "Swap any 5 exclusive items."
+    ],
+    [
+        "141",
+        "",
+        "Kabutops",
+        "Kabu-Torc",
+        "☆☆☆",
+        "Converts damage into healing when hit by a Grass-type move.",
+        "Swap any 5 exclusive items."
+    ],
+    [],
+    [
+        "142",
+        "",
+        "Aerodactyl",
+        "Old Brooch",
+        "☆☆☆",
+        "Increases amount of PP foes use, in addition to Aerodactyl's Pressure Ability.",
+        "Swap any 5 exclusive items."
+    ],
+    [],
+    [
+        "Munch-Drool",
+        "☆",
+        "Raises Sp. Attack by 5",
+        "Appraise a box dropped by a defeated foe"
+    ],
+    [
+        "Munch-Claw",
+        "☆",
+        "Raises Attack by 5",
+        "Appraise a box dropped by a defeated foe"
+    ],
+    [
+        "Tummy Charm",
+        "☆☆",
+        "Raises Attack and Sp. Attack by 5 each",
+        "Trade Munch-Drool and Munch-Claw"
+    ],
+    [
+        "Glutton Cape",
+        "☆☆☆",
+        "Increases maximum HP by 10.",
+        "Trade Munch-Drool, Munch-Claw, and Tummy Charm"
+    ],
+    [
+        "Snorlax Gasp",
+        "☆",
+        "Raises Sp. Attack by 5",
+        "Appraise a box dropped by a defeated foe"
+    ],
+    [
+        "Snorlax Fang",
+        "☆",
+        "Raises Attack by 5",
+        "Appraise a box dropped by a defeated foe"
+    ],
+    [
+        "Valor Charm",
+        "☆☆",
+        "Raises Attack and Sp. Attack by 5",
+        "Trade Snorlax Gasp and Snorlax Fang"
+    ],
+    [
+        "Glee Scarf",
+        "☆☆☆",
+        "Converts damage into healing when hit by a Fighting-type move.",
+        "Trade Snorlax Gasp, Snorlax Fang, and Glee Scarf"
+    ],
+    [],
+    [
+        "147",
+        "",
+        "Dratini",
+        "Dragon Sash",
+        "☆☆☆",
+        "Boosts Evasion by 2 during the Fog weather condition.",
+        "Swap any 5 exclusive items."
+    ],
+    [
+        "148",
+        "",
+        "Dragonair",
+        "Aloft Mantle",
+        "☆☆☆",
+        "Adds 2 to base PP of all moves.",
+        "Swap any 5 exclusive items."
+    ],
+    [
+        "149",
+        "",
+        "Dragonite",
+        "Mirage Cape",
+        "☆☆☆",
+        "Converts damage into healing when hit by an Ice-type move.",
+        "Swap any 5 exclusive items."
+    ],
+    [],
+    [],
+    [
+        "Chiko-Claw",
+        "☆",
+        "Raises Attack by 5",
+        "Appraise a box dropped by a defeated foe"
+    ],
+    [
+        "Chiko-Card",
+        "☆",
+        "Raises Sp. Defense by 3",
+        "Appraise a box dropped by a defeated foe"
+    ],
+    [
+        "Dawn Jewel",
+        "☆☆",
+        "Raises Attack by 5 and Sp. Defense by 3",
+        "Trade Chiko-Claw and Chiko-Card"
+    ],
+    [
+        "Fresh Bow",
+        "☆☆☆",
+        "Increases maximum HP by 10.",
+        "Trade Chiko-Claw, Chiko-Card, and Dawn Jewel"
+    ],
+    [
+        "Bayleef Claw",
+        "☆",
+        "Raises Attack by 5",
+        "Appraise a box dropped by a defeated foe"
+    ],
+    [
+        "Bayleef Card",
+        "☆",
+        "Raises Sp. Defense by 3",
+        "Appraise a box dropped by a defeated foe"
+    ],
+    [
+        "Bayleef Seal",
+        "☆☆",
+        "Raises Attack by 5 and Sp. Defense by 3",
+        "Trade Bayleef Claw and Bayleef Card"
+    ],
+    [
+        "Spice Bow",
+        "☆☆☆",
+        "HP-draining moves heal the user by all of inflicted damage, rather than just half.",
+        "Trade Bayleef Claw, Bayleef Card, and Bayleef Seal"
+    ],
+    [
+        "Megani-Claw",
+        "☆",
+        "Raises Attack by 5",
+        "Appraise a box dropped by a defeated foe"
+    ],
+    [
+        "Megani-Card",
+        "☆",
+        "Raises Sp. Defense by 3",
+        "Appraise a box dropped by a defeated foe"
+    ],
+    [
+        "Shiny Charm",
+        "☆☆",
+        "Raises Attack by 5 and Sp. Defense by 3",
+        "Trade Megani-Claw and Megani-Card"
+    ],
+    [
+        "Bright Veil",
+        "☆☆☆",
+        "Converts damage into healing when hit by a Fire-type move.",
+        "Trade Megani-Claw, Megani-Card, and Shiny Charm"
+    ],
+    [],
+    [
+        "Cynda-Hair",
+        "☆",
+        "Raises Sp. Defense by 3",
+        "Appraise a box dropped by a defeated foe"
+    ],
+    [
+        "Cynda-Claw",
+        "☆",
+        "Raises Attack by 5",
+        "Appraise a box dropped by a defeated foe"
+    ],
+    [
+        "Blazing Rock",
+        "☆☆",
+        "Raises Attack by 5 and Sp. Defense by 3",
+        "Trade Cynda-Hair and Cynda-Claw"
+    ],
+    [
+        "Storm Sash",
+        "☆☆☆",
+        "Increases maximum HP by 10.",
+        "Trade Cynda-Hair, Cynda-Claw, and Blazing Rock"
+    ],
+    [
+        "Quila-Hair",
+        "☆",
+        "Raises Defense by 3",
+        "Appraise a box dropped by a defeated foe"
+    ],
+    [
+        "Quila-Card",
+        "☆",
+        "Raises Sp. Defense by 3",
+        "Appraise a box dropped by a defeated foe"
+    ],
+    [
+        "Quila-Crest",
+        "☆☆",
+        "Raises Defense and Sp. Defense by 3 each",
+        "Trade Quila-Hair and Quila-Card"
+    ],
+    [
+        "Volcano Torc",
+        "☆☆☆",
+        "Boosts Movement Speed during the Sunny weather condition.",
+        "Trade Quila-Hair, Quila-Card, and Quila-Crest"
+    ],
+    [
+        "Typhlo-Gasp",
+        "☆",
+        "Raises Sp. Attack by 5",
+        "Appraise a box dropped by a defeated foe"
+    ],
+    [
+        "Typhlo-Fang",
+        "☆",
+        "Raises Attack by 5",
+        "Appraise a box dropped by a defeated foe"
+    ],
+    [
+        "Typhlo-Seal",
+        "☆☆",
+        "Raises Attack and Sp. Attack by 5 each",
+        "Trade Typhlo-Gasp and Typhlo-Fang"
+    ],
+    [
+        "Blast Bangle",
+        "☆☆☆",
+        "Converts damage into healing when hit by a Water-type move.",
+        "Trade Typhlo-Gasp, Typhlo-Fang, and Typhlo-Seal"
+    ],
+    [],
+    [
+        "Totodi-Dew",
+        "☆",
+        "Raises Defense by 3",
+        "Appraise a box dropped by a defeated foe"
+    ],
+    [
+        "Totodi-Fang",
+        "☆",
+        "Raises Sp. Attack by 5",
+        "Appraise a box dropped by a defeated foe"
+    ],
+    [
+        "Water Heart",
+        "☆☆",
+        "Raises Defense by 3 and Sp. Attack by 5",
+        "Trade Totodi-Dew and Totodi-Fang"
+    ],
+    [
+        "Wash Bow",
+        "☆☆☆",
+        "Increases maximum HP by 10.",
+        "Trade Totodi-Dew, Totodi-Fang, and Water Heart"
+    ],
+    [
+        "Croco-Fang",
+        "☆",
+        "Raises Sp. Attack by 5",
+        "Appraise a box dropped by a defeated foe"
+    ],
+    [
+        "Croco-Card",
+        "☆",
+        "Raises Sp. Defense by 3",
+        "Appraise a box dropped by a defeated foe"
+    ],
+    [
+        "Swirl Rock",
+        "☆☆",
+        "Raises Sp. Attack by 5 and Sp. Defense by 3",
+        "Trade Croco-Fang and Croco-Card"
+    ],
+    [
+        "Anger Scarf",
+        "☆☆☆",
+        "Always counter physical damage at 1/4 efficiency.",
+        "Trade Croco-Fang, Croco-Card, and Anger Scarf"
+    ],
+    [
+        "Feral-Claw",
+        "☆",
+        "Raises Attack by 5",
+        "Appraise a box dropped by a defeated foe"
+    ],
+    [
+        "Feral-Fang",
+        "☆",
+        "Raises Sp. Attack by 5",
+        "Appraise a box dropped by a defeated foe"
+    ],
+    [
+        "Feral-Crest",
+        "☆☆",
+        "Raises Attack and Sp. Attack by 5 each",
+        "Trade Feral-Claw and Feral-Fang"
+    ],
+    [
+        "Hydro Jaw",
+        "☆☆☆",
+        "Converts damage into healing when hit by an Electric-type move.",
+        "Trade Feral-Claw, Feral-Fang, and Feral-Crest"
+    ],
+    [],
+    [
+        "161",
+        "",
+        "Sentret",
+        "Sentret Ruff",
+        "☆☆☆",
+        "Boosts Movement Speed by 1 during the Cloudy weather condition.",
+        "Swap any 5 exclusive items."
+    ],
+    [
+        "162",
+        "",
+        "Furret",
+        "Body Collar",
+        "☆☆☆",
+        "Converts damage into healing when hit by a Fighting-type move.",
+        "Swap any 5 exclusive items."
+    ],
+    [],
+    [
+        "163",
+        "",
+        "Hoothoot",
+        "Expose Specs",
+        "☆☆☆",
+        "Enables Fighting-type moves and Normal-type moves to inflict increased damage on Ghost-type Pokémon.",
+        "Swap any 5 exclusive items."
+    ],
+    [
+        "164",
+        "",
+        "Noctowl",
+        "Noctowl Torc",
+        "☆☆☆",
+        "Converts damage into healing when hit by a Rock-type move.",
+        "Swap any 5 exclusive items."
+    ],
+    [],
+    [
+        "165",
+        "",
+        "Ledyba",
+        "Morning Bow",
+        "☆☆☆",
+        "Boosts Movement Speed by 1 during the Clear weather condition.",
+        "Swap any 5 exclusive items."
+    ],
+    [
+        "166",
+        "",
+        "Ledian",
+        "Ledian Bow",
+        "☆☆☆",
+        "Converts damage into healing when hit by a Rock-type move.",
+        "Swap any 5 exclusive items."
+    ],
+    [],
+    [
+        "167",
+        "",
+        "Spinarak",
+        "Spina-Scarf",
+        "☆☆☆",
+        "May reduce the Movement Speed of attacking enemies by 1 level when hit.",
+        "Swap any 5 exclusive items."
+    ],
+    [
+        "168",
+        "",
+        "Ariados",
+        "Ariados Bow",
+        "☆☆☆",
+        "Converts damage into healing when hit by an Rock-type move.",
+        "Swap any 5 exclusive items."
+    ],
+    [],
+    [
+        "170",
+        "",
+        "Chinchou",
+        "Shine Torc",
+        "☆☆☆",
+        "May afflict attacking enemies with a Paralysis status condition.",
+        "Swap any 5 exclusive items."
+    ],
+    [
+        "171",
+        "",
+        "Lanturn",
+        "Lanturn Bow",
+        "☆☆☆",
+        "Converts damage into healing when hit by a Ground-type move.",
+        "Swap any 5 exclusive items."
+    ],
+    [],
+    [
+        "Togepi Dew",
+        "☆",
+        "Raises Sp. Attack by 5",
+        "Appraise a box dropped by a defeated foe"
+    ],
+    [
+        "Togepi Card",
+        "☆",
+        "Raises Sp. Defense by 3",
+        "Appraise a box dropped by a defeated foe"
+    ],
+    [
+        "Pure Heart",
+        "☆☆",
+        "Raises Sp. Attack by 5 and Sp. Defense by 3",
+        "Trade Togepi Dew and Togepi Card"
+    ],
+    [
+        "Angel Scarf",
+        "☆☆☆",
+        "Increases maximum HP by 10.",
+        "Trade Togepi Dew, Togepi Card, and Pure Heart"
+    ],
+    [
+        "Egg Shard",
+        "☆☆☆",
+        "Makes thrown or hurled items bounce off the Pokémon.",
+        "Randomly obtained when a Togepi hatches from an Egg"
+    ],
+    [
+        "Togetic Wing",
+        "☆",
+        "Raises Attack by 5",
+        "Appraise a box dropped by a defeated foe"
+    ],
+    [
+        "Togetic Card",
+        "☆",
+        "Raises Sp. Defense by 3",
+        "Appraise a box dropped by a defeated foe"
+    ],
+    [
+        "Happy Rock",
+        "☆☆",
+        "Raises Attack by 5 and Sp. Defense by 3",
+        "Trade Togetic Wing and Togetic Card"
+    ],
+    [
+        "Luck Brooch",
+        "☆☆☆",
+        "Randomly consumes no PP when using a move.",
+        "Trade Togetic Wing, Togetic Card, and Happy Rock"
+    ],
+    [
+        "Togek-Wing",
+        "☆",
+        "Raises Attack by 5",
+        "Appraise a box dropped by a defeated foe"
+    ],
+    [
+        "Togek-Card",
+        "☆",
+        "Raises Sp. Defense by 3",
+        "Appraise a box dropped by a defeated foe"
+    ],
+    [
+        "Ovation Rock",
+        "☆☆",
+        "Raises Attack by 5 and Sp. Defense by 3",
+        "Trade Togek-Wing and Togek-Card"
+    ],
+    [
+        "Glitter Robe",
+        "☆☆☆",
+        "Converts damage into healing when hit by an Electric-type move.",
+        "Trade Togek-Wing, Togek-Card, and Ovation Rock"
+    ],
+    [],
+    [
+        "177",
+        "",
+        "Natu",
+        "Lively Scarf",
+        "☆☆☆",
+        "Hidden Stairs are more likely to appear.",
+        "Swap any 5 exclusive items."
+    ],
+    [
+        "178",
+        "",
+        "Xatu",
+        "Xatu Bow",
+        "☆☆☆",
+        "Converts damage into healing when hit by a Rock-type move.",
+        "Swap any 5 exclusive items."
+    ],
+    [],
+    [
+        "179",
+        "",
+        "Mareep",
+        "Wool Bow",
+        "☆☆☆",
+        "Protects from the Sleep status condition.",
+        "Swap any 5 exclusive items."
+    ],
+    [
+        "180",
+        "",
+        "Flaaffy",
+        "Fluffy Scarf",
+        "☆☆☆",
+        "Special moves are weakened to half their strength.",
+        "Swap any 5 exclusive items."
+    ],
+    [
+        "181",
+        "",
+        "Ampharos",
+        "Sacred Scarf",
+        "☆☆☆",
+        "Converts damage into healing when hit by a Ground-type move.",
+        "Swap any 5 exclusive items."
+    ],
+    [],
+    [
+        "Azuri-Dew",
+        "☆",
+        "Raises Sp. Attack by 5",
+        "Appraise a box dropped by a defeated foe"
+    ],
+    [
+        "Azuri-Card",
+        "☆",
+        "Raises Sp. Defense by 3",
+        "Appraise a box dropped by a defeated foe"
+    ],
+    [
+        "Fount Charm",
+        "☆☆",
+        "Raises Sp. Attack by 5 and Sp. Defense by 3",
+        "Trade Azuri-Dew and Azuri-Card"
+    ],
+    [
+        "Water Float",
+        "☆☆☆",
+        "Adds 2 to base PP of all moves.",
+        "Trade Azuri-Dew, Azuri-Card, and Fount Charm"
+    ],
+    [
+        "Blue Jewel",
+        "☆☆☆",
+        "Increases maximum HP by 10.",
+        "Randomly obtained when an Azurill hatches from an Egg"
+    ],
+    [
+        "Marill Dew",
+        "☆",
+        "Raises Defense by 3",
+        "Appraise a box dropped by a defeated foe"
+    ],
+    [
+        "Marill Card",
+        "☆",
+        "Raises Sp. Defense by 3",
+        "Appraise a box dropped by a defeated foe"
+    ],
+    [
+        "Surfer Rock",
+        "☆☆",
+        "Raises Defense and Sp. Defense by 3 each",
+        "Trade Marill Dew and Marill Card"
+    ],
+    [
+        "Brine Scarf",
+        "☆☆☆",
+        "May afflict attacking enemies with a Shadow Hold status condition.",
+        "Trade Marill Dew, Marill Card, and Surfer Rock"
+    ],
+    [
+        "Azuma-Dew",
+        "☆",
+        "Raises Defense by 3",
+        "Appraise a box dropped by a defeated foe"
+    ],
+    [
+        "Azuma-Card",
+        "☆",
+        "Raises Sp. Defense by 3",
+        "Appraise a box dropped by a defeated foe"
+    ],
+    [
+        "Stream Charm",
+        "☆☆",
+        "Raises Defense and Sp. Defense by 3 each",
+        "Trade Azuma-Dew and Azuma-Card"
+    ],
+    [
+        "Dotted Scarf",
+        "☆☆☆",
+        "Converts damage into healing when hit by an Electric-type move.",
+        "Trade Azuma-Dew, Azuma-Card, and Stream Charm"
+    ],
+    [],
+    [
+        "Bonsly Dew",
+        "☆",
+        "Raises Sp. Attack by 5",
+        "Appraise a box dropped by a defeated foe"
+    ],
+    [
+        "Bonsly Card",
+        "☆",
+        "Raises Sp. Defense by 3",
+        "Appraise a box dropped by a defeated foe"
+    ],
+    [
+        "Arid Tag",
+        "☆☆",
+        "Raises Sp. Attack by 5 and Sp. Defense by 3",
+        "Trade Bonsly Dew and Bonsly Card"
+    ],
+    [
+        "Teary Cape",
+        "☆☆☆",
+        "Foes cannot get a critical hit on this Pokémon.",
+        "Trade Bonsly Dew, Bonsly Card, and Arid Tag"
+    ],
+    [
+        "Guard Sand",
+        "☆☆☆",
+        "Increases maximum HP by 10.",
+        "Randomly obtained when a Bonsly hatches from an Egg"
+    ],
+    [
+        "Sudo-Sweat",
+        "☆",
+        "Raises Attack by 5",
+        "Appraise a box dropped by a defeated foe"
+    ],
+    [
+        "Sudo-Card",
+        "☆",
+        "Raises Sp. Defense by 3",
+        "Appraise a box dropped by a defeated foe"
+    ],
+    [
+        "Drain Rock",
+        "☆☆",
+        "Raises Attack by 5 and Sp. Defense by 3",
+        "Trade Sudo-Sweat and Sudo-Card"
+    ],
+    [
+        "Fake Torc",
+        "☆☆☆",
+        "Converts damage into healing when hit by a Steel-type move.",
+        "Trade Sudo-Sweat, Sudo-Card, and Drain Rock"
+    ],
+    [],
+    [
+        "187",
+        "",
+        "Hoppip",
+        "Zephyr Bow",
+        "☆☆☆",
+        "Boosts Evasion by 2 during the Sunny weather condition.",
+        "Swap any 5 exclusive items."
+    ],
+    [
+        "188",
+        "",
+        "Skiploom",
+        "Skip-Scarf",
+        "☆☆☆",
+        "Doubles the speed of natural HP recovery.",
+        "Swap any 5 exclusive items."
+    ],
+    [
+        "189",
+        "",
+        "Jumpluff",
+        "Cotton Torc",
+        "☆☆☆",
+        "Converts damage into healing when hit by an Ice-type move.",
+        "Swap any 5 exclusive items."
+    ],
+    [],
+    [
+        "190",
+        "",
+        "Aipom",
+        "Revenge Ruff",
+        "☆☆☆",
+        "This Pokémon's Pickup Ability is more likely to activate.",
+        "Swap any 5 exclusive items."
+    ],
+    [
+        "424",
+        "",
+        "Ambipom",
+        "Ambipom Bow",
+        "☆☆☆",
+        "Converts damage into healing when hit by a Fighting-type move.",
+        "Swap any 5 exclusive items."
+    ],
+    [],
+    [
+        "191",
+        "",
+        "Sunkern",
+        "Hasty Bow",
+        "☆☆☆",
+        "Boosts Evasion by 2 during the Sunny weather condition.",
+        "Swap any 5 exclusive items."
+    ],
+    [
+        "192",
+        "",
+        "Sunflora",
+        "Sun Scarf",
+        "☆☆☆",
+        "Converts damage into healing when hit by an Fire-type move.",
+        "Reward for completing Special Episode 3"
+    ],
+    [],
+    [
+        "193",
+        "",
+        "Yanma",
+        "Chitin Bow",
+        "☆☆☆",
+        "Weather does not damage this Pokémon.",
+        "Swap any 5 exclusive items."
+    ],
+    [
+        "469",
+        "",
+        "Yanmega",
+        "Yanmega Bow",
+        "☆☆☆",
+        "Converts damage into healing when hit by a Rock-type move.",
+        "Swap any 5 exclusive items."
+    ],
+    [],
+    [
+        "194",
+        "",
+        "Wooper",
+        "Wooper Bow",
+        "☆☆☆",
+        "Weather does not damage this Pokémon.",
+        "Swap any 5 exclusive items."
+    ],
+    [
+        "195",
+        "",
+        "Quagsire",
+        "Quag-Torc",
+        "☆☆☆",
+        "Converts damage into healing when hit by a Grass-type move.",
+        "Swap any 5 exclusive items."
+    ],
+    [],
+    [
+        "198",
+        "",
+        "Murkrow",
+        "Murkrow Hat",
+        "☆☆☆",
+        "May seal attacking enemies' move.",
+        "Swap any 5 exclusive items."
+    ],
+    [
+        "430",
+        "",
+        "Honchkrow",
+        "Honch-Cape",
+        "☆☆☆",
+        "Converts damage into healing when hit by an Electric-type move.",
+        "Swap any 5 exclusive items."
+    ],
+    [],
+    [
+        "200",
+        "",
+        "Misdreavus",
+        "Misdrea-Cape",
+        "☆☆☆",
+        "May afflict attacking enemies with a Perish Song status condition.",
+        "Swap any 5 exclusive items."
+    ],
+    [
+        "429",
+        "",
+        "Mismagius",
+        "Magic Hat",
+        "☆☆☆",
+        "Converts damage into healing when hit by a Ghost-type move.",
+        "Swap any 5 exclusive items."
+    ],
+    [],
+    [
+        "201",
+        "",
+        "Unown",
+        "Cryptic Sash",
+        "☆☆☆",
+        "May afflict attacking enemies with a Confusion status condition.",
+        "Swap any 5 exclusive items."
+    ],
+    [],
+    [
+        "Wynaut Tail",
+        "☆",
+        "Raises Defense by 3",
+        "Appraise a box dropped by a defeated foe"
+    ],
+    [
+        "Wynaut Card",
+        "☆",
+        "Raises Sp. Defense by 3",
+        "Appraise a box dropped by a defeated foe"
+    ],
+    [
+        "Grin Charm",
+        "☆☆",
+        "Raises Defense and Sp. Defense by 3 each",
+        "Trade Wynaut Tail and Wynaut Card"
+    ],
+    [
+        "Cheery Scarf",
+        "☆☆☆",
+        "Increases maximum HP by 10.",
+        "Trade Wynaut Tail, Wynaut Card, and Cheery Scarf"
+    ],
+    [
+        "Laugh Dust",
+        "☆☆☆",
+        "Raises the chance of enemies dropping boxes.",
+        "Randomly obtained when a Wynaut hatches from an Egg"
+    ],
+    [
+        "Wobbu-Sweat",
+        "☆",
+        "Raises Attack by 5",
+        "Appraise a box dropped by a defeated foe"
+    ],
+    [
+        "Wobbu-Card",
+        "☆",
+        "Raises Sp. Defense by 3",
+        "Appraise a box dropped by a defeated foe"
+    ],
+    [
+        "Endure Rock",
+        "☆☆",
+        "Raises Attack by 5 and Sp. Defense by 3",
+        "Trade Wobbu-Sweat and Wobbu-Card"
+    ],
+    [
+        "Suffer Scarf",
+        "☆☆☆",
+        "Converts damage into healing when hit by a Dark-type move.",
+        "Trade Wobbu-Sweat, Wobbu-Card, and Endure Rock"
+    ],
+    [],
+    [
+        "203",
+        "",
+        "Girafarig",
+        "Reverse Bow",
+        "☆☆☆",
+        "May afflict attacking enemies with a Confused status condition.",
+        "Swap any 5 exclusive items."
+    ],
+    [],
+    [
+        "204",
+        "",
+        "Pineco",
+        "Robust Bow",
+        "☆☆☆",
+        "Increases maximum HP by 10.",
+        "Swap any 5 exclusive items."
+    ],
+    [
+        "205",
+        "",
+        "Forretress",
+        "Dense Poncho",
+        "☆☆☆",
+        "Converts damage into healing when hit by a Flying-type move.",
+        "Swap any 5 exclusive items."
+    ],
+    [],
+    [
+        "206",
+        "",
+        "Dunsparce",
+        "Escape Scarf",
+        "☆☆☆",
+        "Boosts Movement Speed by 1 during the Cloudy weather condition.",
+        "Swap any 5 exclusive items."
+    ],
+    [],
+    [
+        "207",
+        "",
+        "Gligar",
+        "Takeoff Ruff",
+        "☆☆☆",
+        "Boosts Movement Speed by 1 during the Sandstorm weather condition.",
+        "Swap any 5 exclusive items."
+    ],
+    [
+        "472",
+        "",
+        "Gliscor",
+        "Gliscor Cape",
+        "☆☆☆",
+        "Converts damage into healing when hit by an Ice-type move.",
+        "Swap any 5 exclusive items."
+    ],
+    [],
+    [
+        "209",
+        "",
+        "Snubbull",
+        "Snub-Cape",
+        "☆☆☆",
+        "Randomly consumes no PP when using a move.",
+        "Swap any 5 exclusive items."
+    ],
+    [
+        "210",
+        "",
+        "Granbull",
+        "Stern Sash",
+        "☆☆☆",
+        "Converts damage into healing when hit by a Fighting-type move.",
+        "Swap any 5 exclusive items."
+    ],
+    [],
+    [
+        "211",
+        "",
+        "Qwilfish",
+        "Qwilfish Bow",
+        "☆☆☆",
+        "Makes thrown or hurled items bounce off the Pokémon.",
+        "Swap any 5 exclusive items."
+    ],
+    [],
+    [
+        "213",
+        "",
+        "Shuckle",
+        "Shuckle Bow",
+        "☆☆☆",
+        "Any Berry or Apple eaten will recover an extra 10 HP.",
+        "Swap any 5 exclusive items."
+    ],
+    [],
+    [
+        "214",
+        "",
+        "Heracross",
+        "Horn Torc",
+        "☆☆☆",
+        "Reflect and Light Screen do not affect this Pokémon's moves.",
+        "Swap any 5 exclusive items."
+    ],
+    [],
+    [
+        "Sneasel Claw",
+        "☆",
+        "Raises Attack by 5",
+        "Appraise a box dropped by a defeated foe"
+    ],
+    [
+        "Sneasel Card",
+        "☆",
+        "Raises Sp. Defense by 3",
+        "Appraise a box dropped by a defeated foe"
+    ],
+    [
+        "Dusk Jewel",
+        "☆☆",
+        "Raises Attack by 5 and Sp. Defense by 3",
+        "Trade Sneasel Claw and Sneasel Card"
+    ],
+    [
+        "Cruel Ring",
+        "☆☆☆",
+        "Prevents an Infatuated status condition.",
+        "Trade Sneasel Claw, Sneasel Card, and Dusk Jewel"
+    ],
+    [
+        "Weavile Claw",
+        "☆",
+        "Raises Attack by 5",
+        "Appraise a box dropped by a defeated foe"
+    ],
+    [
+        "Weavile Fang",
+        "☆",
+        "Raises Sp. Attack by 5",
+        "Appraise a box dropped by a defeated foe"
+    ],
+    [
+        "Vile Tag",
+        "☆☆",
+        "Raises Attack and Sp. Attack by 5 each",
+        "Trade Weavile Claw and Weavile Fang"
+    ],
+    [
+        "Ruin Armlet",
+        "☆☆☆",
+        "Converts damage into healing when hit by a Fighting-type move.",
+        "Trade Weavile Claw, Weavile Fang, and Vile Tag"
+    ],
+    [],
+    [
+        "Teddi-Claw",
+        "☆",
+        "Raises Attack by 5",
+        "Appraise a box dropped by a defeated foe"
+    ],
+    [
+        "Teddi-Card",
+        "☆",
+        "Raises Sp. Defense by 3",
+        "Appraise a box dropped by a defeated foe"
+    ],
+    [
+        "Honey Rock",
+        "☆☆",
+        "Raises Attack by 5 and Sp. Defense by 3",
+        "Trade Teddi-Claw and Teddi-Card"
+    ],
+    [
+        "Heal Scarf",
+        "☆☆☆",
+        "Doubles the speed of natural HP recovery.",
+        "Trade Teddi-Claw, Teddi-Card, and Honey Rock"
+    ],
+    [
+        "Ursa-Claw",
+        "☆",
+        "Raises Attack by 5",
+        "Appraise a box dropped by a defeated foe"
+    ],
+    [
+        "Ursa-Fang",
+        "☆",
+        "Raises Sp. Attack by 5",
+        "Appraise a box dropped by a defeated foe"
+    ],
+    [
+        "Calming Rock",
+        "☆☆",
+        "Raises Attack and Sp. Attack by 5 each",
+        "Trade Ursa-Claw and Ursa-Fang"
+    ],
+    [
+        "Hiber Scarf",
+        "☆☆☆",
+        "Converts damage into healing when hit by a Fighting-type move.",
+        "Trade Ursa-Claw, Ursa-Fang, and Calming Rock"
+    ],
+    [],
+    [
+        "218",
+        "",
+        "Slugma",
+        "Lava Bow",
+        "☆☆☆",
+        "The Pokémon earns 1.1× the usual Exp. points.",
+        "Swap any 5 exclusive items."
+    ],
+    [
+        "219",
+        "",
+        "Magcargo",
+        "Torrid Scarf",
+        "☆☆☆",
+        "Converts damage into healing when hit by a Water-type move.",
+        "Swap any 5 exclusive items."
+    ],
+    [],
+    [
+        "220",
+        "",
+        "Swinub",
+        "Frigid Bow",
+        "☆☆☆",
+        "The Pokémon earns 1.1× the usual Exp. points.",
+        "Swap any 5 exclusive items."
+    ],
+    [
+        "221",
+        "",
+        "Piloswine",
+        "Frost Torc",
+        "☆☆☆",
+        "May afflict attacking enemies with a Frozen status condition.",
+        "Swap any 5 exclusive items."
+    ],
+    [
+        "473",
+        "",
+        "Mamoswine",
+        "Glacier Cape",
+        "☆☆☆",
+        "Converts damage into healing when hit by a Steel-type move.",
+        "Swap any 5 exclusive items."
+    ],
+    [],
+    [
+        "222",
+        "",
+        "Corsola",
+        "Eager Brooch",
+        "☆☆☆",
+        "Weather does not damage this Pokémon.",
+        "Swap any 5 exclusive items."
+    ],
+    [],
+    [
+        "223",
+        "",
+        "Remoraid",
+        "Reach Bow",
+        "☆☆☆",
+        "Gives Long Toss status.",
+        "Swap any 5 exclusive items."
+    ],
+    [
+        "224",
+        "",
+        "Octillery",
+        "Psy Bow",
+        "☆☆☆",
+        "Converts damage into healing when hit by an Electric-type move.",
+        "Swap any 5 exclusive items."
+    ],
+    [],
+    [
+        "225",
+        "",
+        "Delibird",
+        "Snow Brooch",
+        "☆☆☆",
+        "Attacks twice in one turn during the Hail weather condition.",
+        "Swap any 5 exclusive items."
+    ],
+    [],
+    [
+        "Mantyke Beam",
+        "☆",
+        "Raises Sp. Attack by 5",
+        "Appraise a box dropped by a defeated foe"
+    ],
+    [
+        "Mantyke Card",
+        "☆",
+        "Raises Sp. Defense by 3",
+        "Appraise a box dropped by a defeated foe"
+    ],
+    [
+        "Waft Rock",
+        "☆☆",
+        "Raises Sp. Attack by 5 and Sp. Defense by 3",
+        "Trade Mantyke Beam and Mantyke Card"
+    ],
+    [
+        "Ocean Bow",
+        "☆☆☆",
+        "Increases maximum HP by 10.",
+        "Trade Mantyke Beam, Mantyke Card, and Waft Rock"
+    ],
+    [
+        "Heal Dew",
+        "☆☆☆",
+        "Increases recovery rate of HP when walking in a dungeon",
+        "Randomly obtained when a Mantyke hatches from an Egg"
+    ],
+    [
+        "Mantine Foam",
+        "☆",
+        "Raises Defense by 3",
+        "Appraise a box dropped by a defeated foe"
+    ],
+    [
+        "Mantine Card",
+        "☆",
+        "Raises Sp. Defense by 3",
+        "Appraise a box dropped by a defeated foe"
+    ],
+    [
+        "Sunset Rock",
+        "☆☆",
+        "Raises Defense and Sp. Defense by 3 each",
+        "Trade Mantine Foam and Mantine Card"
+    ],
+    [
+        "Horizon Bow",
+        "☆☆☆",
+        "Converts damage into healing when hit by an Electric-type move.",
+        "Trade Mantine Foam, Mantine Card, and Sunset Rock"
+    ],
+    [],
+    [
+        "227",
+        "",
+        "Skarmory",
+        "Skar-Cape",
+        "☆☆☆",
+        "Always counter physical damage at full efficiency.",
+        "Swap any 5 exclusive items."
+    ],
+    [],
+    [
+        "228",
+        "",
+        "Houndour",
+        "Dark Choker",
+        "☆☆☆",
+        "May afflict attacking enemies with a Cringe status condition.",
+        "Swap any 5 exclusive items."
+    ],
+    [
+        "229",
+        "",
+        "Houndoom",
+        "Pit Fang",
+        "☆☆☆",
+        "Converts damage into healing when hit by a Fighting-type move.",
+        "Swap any 5 exclusive items."
+    ],
+    [],
+    [
+        "Phanpy Claw",
+        "☆",
+        "Raises Attack by 5",
+        "Appraise a box dropped by a defeated foe"
+    ],
+    [
+        "Phanpy Card",
+        "☆",
+        "Raises Sp. Defense by 3",
+        "Appraise a box dropped by a defeated foe"
+    ],
+    [
+        "Phanpy Tag",
+        "☆☆",
+        "Raises Attack by 5 and Sp. Defense by 3",
+        "Trade Phanpy Claw and Phanpy Card"
+    ],
+    [
+        "Value Ruff",
+        "☆☆☆",
+        "Hidden Stairs are more likely to appear.",
+        "Trade Phanpy Claw, Phanpy Card, and Phanpy Tag"
+    ],
+    [
+        "Donphan Fang",
+        "☆",
+        "Raises Sp. Attack by 5",
+        "Appraise a box dropped by a defeated foe"
+    ],
+    [
+        "Donphan Card",
+        "☆",
+        "Raises Sp. Defense by 3",
+        "Appraise a box dropped by a defeated foe"
+    ],
+    [
+        "Don-Crest",
+        "☆☆",
+        "Raises Sp Attack by 5 and Sp. Defense by 3",
+        "Trade Donphan Fang and Donphan Card"
+    ],
+    [
+        "Armor Scarf",
+        "☆☆☆",
+        "Converts damage into healing when hit by a Grass-type move.",
+        "Trade Donphan Fang, Donphan Card, and Don-Crest"
+    ],
+    [],
+    [
+        "234",
+        "",
+        "Stantler",
+        "Delusion Bow",
+        "☆☆☆",
+        "May afflict attacking enemies with a Confused status condition.",
+        "Swap any 5 exclusive items"
+    ],
+    [],
+    [
+        "235",
+        "",
+        "Smeargle",
+        "Paint Scarf",
+        "☆☆☆",
+        "Hidden Stairs are more likely to appear.",
+        "Swap any 5 exclusive items."
+    ],
+    [],
+    [
+        "241",
+        "",
+        "Miltank",
+        "Milky Scarf",
+        "☆☆☆",
+        "Doubles the speed of natural HP recovery.",
+        "Swap any 5 exclusive items."
+    ],
+    [],
+    [
+        "246",
+        "",
+        "Larvitar",
+        "Larvitar Bow",
+        "☆☆☆",
+        "May afflict attacking enemies with a Cringe status condition.",
+        "Swap any 5 exclusive items."
+    ],
+    [
+        "247",
+        "",
+        "Pupitar",
+        "Pupita-Scarf",
+        "☆☆☆",
+        "Halves damage taken from explosions.",
+        "Swap any 5 exclusive items."
+    ],
+    [
+        "248",
+        "",
+        "Tyranitar",
+        "Crash Claw",
+        "☆☆☆",
+        "Converts damage into healing when hit by a Fighting-type move.",
+        "Swap any 5 exclusive items."
+    ],
+    [],
+    [],
+    [
+        "Treeck-Thorn",
+        "☆",
+        "Raises Attack by 5",
+        "Appraise a box dropped by a defeated foe"
+    ],
+    [
+        "Treeck-Card",
+        "☆",
+        "Raises Sp. Defense by 3",
+        "Appraise a box dropped by a defeated foe"
+    ],
+    [
+        "Forest Ore",
+        "☆☆",
+        "Raises Attack by 5 and Sp. Defense by 3",
+        "Trade Treeck-Thorn and Treeck-Card"
+    ],
+    [
+        "Guard Ring",
+        "☆☆☆",
+        "Increases maximum HP by 10.",
+        "Trade Treeck-Thorn, Treeck-Card, and Forest Ore"
+    ],
+    [
+        "Grovy-Shoot",
+        "☆",
+        "Raises Defense by 3",
+        "Appraise a box dropped by a defeated foe"
+    ],
+    [
+        "Grovy-Card",
+        "☆",
+        "Raises Sp. Defense by 3",
+        "Appraise a box dropped by a defeated foe"
+    ],
+    [
+        "Jungle Tag",
+        "☆☆",
+        "Raises Defense and Sp. Defense by 3 each",
+        "Trade Grovy-Shoot and Grovy-Card"
+    ],
+    [
+        "Grass Blade",
+        "☆☆☆",
+        "Always counter physical damage at 1/4 efficiency",
+        "Trade Grovy-Shoot, Grovy-Card, and Jungle Tag"
+    ],
+    [
+        "Scept-Claw",
+        "☆",
+        "Raises Attack by 5",
+        "Appraise a box dropped by a defeated foe"
+    ],
+    [
+        "Scept-Card",
+        "☆",
+        "Raises Sp. Defense by 3",
+        "Appraise a box dropped by a defeated foe"
+    ],
+    [
+        "Scept-Seal",
+        "☆☆",
+        "Raises Attack by 5 and Sp. Defense by 3",
+        "Trade Scept-Claw and Scept-Card"
+    ],
+    [
+        "Drain Bangle",
+        "☆☆☆",
+        "Converts damage into healing when hit by a Fire-type move.",
+        "Trade Scept-Claw, Scept-Card, and Scept-Seal"
+    ],
+    [],
+    [
+        "Torchic Hair",
+        "☆",
+        "Raises Defense by 3",
+        "Appraise a box dropped by a defeated foe"
+    ],
+    [
+        "Torchic Card",
+        "☆",
+        "Raises Sp. Defense by 3",
+        "Appraise a box dropped by a defeated foe"
+    ],
+    [
+        "Hot Pebble",
+        "☆☆",
+        "Raises Defense and Sp. Defense by 3 each",
+        "Trade Torchic Hair and Torchic Card"
+    ],
+    [
+        "Fire Cape",
+        "☆☆☆",
+        "Increases maximum HP by 10.",
+        "Trade Torchic Hair, Torchic Card, and Hot Pebble"
+    ],
+    [
+        "Combus-Sweat",
+        "☆",
+        "Raises Attack by 5",
+        "Appraise a box dropped by a defeated foe"
+    ],
+    [
+        "Combus-Claw",
+        "☆",
+        "Raises Sp. Attack by 5",
+        "Appraise a box dropped by a defeated foe"
+    ],
+    [
+        "Charge Tag",
+        "☆☆",
+        "Raises Attack and Sp. Attack by 5 each",
+        "Trade Combus-Sweat and Combus-Claw"
+    ],
+    [
+        "Gutsy Band",
+        "☆☆☆",
+        "Boosts Movement Speed by 1 during the Sunny weather condition.",
+        "Trade Combus-Sweat, Combus-Claw, and Charge Tag"
+    ],
+    [
+        "Blazi-Claw",
+        "☆",
+        "Raises Attack by 5",
+        "Appraise a box dropped by a defeated foe"
+    ],
+    [
+        "Blazi-Card",
+        "☆",
+        "Raises Sp. Defense by 3",
+        "Appraise a box dropped by a defeated foe"
+    ],
+    [
+        "Blazi-Seal",
+        "☆☆",
+        "Raises Attack by 5 and Sp. Defense by 3",
+        "Trade Blazi-Claw and Blazi-Card"
+    ],
+    [
+        "Blaze Torc",
+        "☆☆☆",
+        "Converts damage into healing when hit by a Water-type move.",
+        "Trade Blazi-Claw, Blazi-Card, and Blazi-Seal"
+    ],
+    [],
+    [
+        "Mudkip Mud",
+        "☆",
+        "Raises Sp. Attack by 5",
+        "Appraise a box dropped by a defeated foe"
+    ],
+    [
+        "Mudkip Card",
+        "☆",
+        "Raises Sp. Defense by 3",
+        "Appraise a box dropped by a defeated foe"
+    ],
+    [
+        "Mud Jewel",
+        "☆☆",
+        "Raises Sp. Attack by 5 and Sp. Defense by 3",
+        "Trade Mudkip Mud and Mudkip Card"
+    ],
+    [
+        "Speed Scarf",
+        "☆☆☆",
+        "Protects against thrown or hurled items.",
+        "Trade Mudkip Mud, Mudkip Card, and Mud Jewel"
+    ],
+    [
+        "Marsh-Mud",
+        "☆",
+        "Raises Sp. Attack by 5",
+        "Appraise a box dropped by a defeated foe"
+    ],
+    [
+        "Marsh-Card",
+        "☆",
+        "Raises Sp. Defense by 3",
+        "Appraise a box dropped by a defeated foe"
+    ],
+    [
+        "Marsh-Crest",
+        "☆☆",
+        "Raises Sp. Attack by 5 and Sp. Defense by 3",
+        "Trade Marsh-Mud and Marsh-Card"
+    ],
+    [
+        "Marsh Torc",
+        "☆☆☆",
+        "May afflict attacking enemies with a Shadow Hold status condition.",
+        "Trade Marsh-Mud, Marsh-Card, and Marsh-Crest"
+    ],
+    [
+        "Swamp-Mud",
+        "☆",
+        "Raises Sp. Attack by 5",
+        "Appraise a box dropped by a defeated foe"
+    ],
+    [
+        "Swamp-Card",
+        "☆",
+        "Raises Sp. Defense by 3",
+        "Appraise a box dropped by a defeated foe"
+    ],
+    [
+        "Swamp-Seal",
+        "☆☆",
+        "Raises Sp. Attack by 5 and Sp. Defense by 3",
+        "Trade Swamp-Mud and Swamp-Card"
+    ],
+    [
+        "Swamp Bangle",
+        "☆☆☆",
+        "Converts damage into healing when hit by a Grass-type move.",
+        "Trade Swamp-Mud, Swamp-Card, and Swamp-Seal"
+    ],
+    [],
+    [
+        "261",
+        "",
+        "Poochyena",
+        "Pooch-Collar",
+        "☆☆☆",
+        "Boosts Movement Speed by 1 during the Cloudy weather condition.",
+        "Swap any 5 exclusive items."
+    ],
+    [
+        "262",
+        "",
+        "Mightyena",
+        "Dark Fang",
+        "☆☆☆",
+        "Converts damage into healing when hit by a Fighting-type move.",
+        "Swap any 5 exclusive items."
+    ],
+    [],
+    [
+        "263",
+        "",
+        "Zigzagoon",
+        "Merry Scarf",
+        "☆☆☆",
+        "This Pokémon's Pickup Ability is more likely to activate.",
+        "Swap any 5 exclusive items."
+    ],
+    [
+        "264",
+        "",
+        "Linoone",
+        "Linoone Ruff",
+        "☆☆☆",
+        "Converts damage into healing when hit by a Fighting-type move.",
+        "Swap any 5 exclusive items."
+    ],
+    [],
+    [
+        "265",
+        "",
+        "Wurmple",
+        "Wurmple Bow",
+        "☆☆☆",
+        "The Pokémon earns 1.1× the usual Exp. points.",
+        "Swap any 5 exclusive items."
+    ],
+    [
+        "266",
+        "",
+        "Silcoon",
+        "Tough Scarf",
+        "☆☆☆",
+        "Foes cannot get a critical hit on this Pokémon.",
+        "Swap any 5 exclusive items."
+    ],
+    [
+        "267",
+        "",
+        "Beautifly",
+        "Vivid Silk",
+        "☆☆☆",
+        "Converts damage into healing when hit by a Rock-type move.",
+        "Swap any 5 exclusive items."
+    ],
+    [
+        "268",
+        "",
+        "Cascoon",
+        "Guard Bow",
+        "☆☆☆",
+        "Weather does not damage this Pokémon.",
+        "Swap any 5 exclusive items."
+    ],
+    [
+        "269",
+        "",
+        "Dustox",
+        "Dustox Bow",
+        "☆☆☆",
+        "Converts damage into healing when hit by a Psychic-type move.",
+        "Swap any 5 exclusive items."
+    ],
+    [],
+    [
+        "270",
+        "",
+        "Lotad",
+        "Kelp Hat",
+        "☆☆☆",
+        "Increases maximum HP by 10.",
+        "Swap any 5 exclusive items."
+    ],
+    [
+        "271",
+        "",
+        "Lombre",
+        "Jolly Scarf",
+        "☆☆☆",
+        "Boosts Evasion by 2 during the Rainy weather condition.",
+        "Swap any 5 exclusive items."
+    ],
+    [
+        "272",
+        "",
+        "Ludicolo",
+        "Ludicolo Hat",
+        "☆☆☆",
+        "Converts damage into healing when hit by a Bug-type move.",
+        "Swap any 5 exclusive items."
+    ],
+    [],
+    [
+        "273",
+        "",
+        "Seedot",
+        "Seedot Hat",
+        "☆☆☆",
+        "Increases maximum HP by 10.",
+        "Swap any 5 exclusive items."
+    ],
+    [
+        "274",
+        "",
+        "Nuzleaf",
+        "Nuzleaf Bow",
+        "☆☆☆",
+        "Boosts Evasion by 2 during the Sunny weather condition.",
+        "Swap any 5 exclusive items."
+    ],
+    [
+        "275",
+        "",
+        "Shiftry",
+        "Shiftry Belt",
+        "☆☆☆",
+        "Converts damage into healing when hit by a Bug-type move.",
+        "Swap any 5 exclusive items."
+    ],
+    [],
+    [
+        "276",
+        "",
+        "Taillow",
+        "Taillow Bow",
+        "☆☆☆",
+        "Earns the Pokémon 5 exp. points each time it is hit.",
+        "Swap any 5 exclusive items."
+    ],
+    [
+        "277",
+        "",
+        "Swellow",
+        "Midair Scarf",
+        "☆☆☆",
+        "Converts damage into healing when hit by a Rock-type move.",
+        "Swap any 5 exclusive items."
+    ],
+    [],
+    [
+        "278",
+        "",
+        "Wingull",
+        "Wingull Bow",
+        "☆☆☆",
+        "May restore PP of a random move upon taking any kind of damage.",
+        "Swap any 5 exclusive items."
+    ],
+    [
+        "279",
+        "",
+        "Pelipper",
+        "Stock Scarf",
+        "☆☆☆",
+        "Converts damage into healing when hit by an Electric-type move.",
+        "Swap any 5 exclusive items."
+    ],
+    [],
+    [
+        "280",
+        "",
+        "Ralts",
+        "Sensing Hat",
+        "☆☆☆",
+        "Adds 2 to base PP of all moves.",
+        "Swap any 5 exclusive items."
+    ],
+    [
+        "281",
+        "",
+        "Kirlia",
+        "Magical Bow",
+        "☆☆☆",
+        "Enables Psychic-type moves to inflict increased damage on Dark-type Pokémon.",
+        "Swap any 5 exclusive items."
+    ],
+    [
+        "282",
+        "",
+        "Gardevoir",
+        "Caring Scarf",
+        "☆☆☆",
+        "Converts damage into healing when hit by a Dark-type move.",
+        "Swap any 5 exclusive items."
+    ],
+    [
+        "475",
+        "",
+        "Gallade",
+        "Gallant Torc",
+        "☆☆☆",
+        "Converts damage into healing when hit by a Ghost-type move.",
+        "Swap any 5 exclusive items."
+    ],
+    [],
+    [
+        "283",
+        "",
+        "Surskit",
+        "Bliss Scarf",
+        "☆☆☆",
+        "Boosts Movement Speed by 1 during the Rainy weather condition.",
+        "Swap any 5 exclusive items."
+    ],
+    [
+        "284",
+        "",
+        "Masquerain",
+        "Blocking Bow",
+        "☆☆☆",
+        "Converts damage into healing when hit by a Rock-type move.",
+        "Swap any 5 exclusive items."
+    ],
+    [],
+    [
+        "285",
+        "",
+        "Shroomish",
+        "Mobile Bow",
+        "☆☆☆",
+        "Pokémon cannot be inflicted with the Paralysis status condition.",
+        "Swap any 5 exclusive items."
+    ],
+    [
+        "286",
+        "",
+        "Breloom",
+        "Thwart Bow",
+        "☆☆☆",
+        "Converts damage into healing when hit by a Flying-type move.",
+        "Swap any 5 exclusive items."
+    ],
+    [],
+    [
+        "287",
+        "",
+        "Slakoth",
+        "Slak-Scarf",
+        "☆☆☆",
+        "May afflict attacking enemies with a Sleep status condition.",
+        "Swap any 5 exclusive items."
+    ],
+    [
+        "288",
+        "",
+        "Vigoroth",
+        "Vigor Sash",
+        "☆☆☆",
+        "Reflect and Light Screen do not affect this Pokémon's moves.",
+        "Swap any 5 exclusive items."
+    ],
+    [
+        "289",
+        "",
+        "Slaking",
+        "Lazy Ruff",
+        "☆☆☆",
+        "Converts damage into healing when hit by a Fighting-type move.",
+        "Swap any 5 exclusive items."
+    ],
+    [],
+    [
+        "290",
+        "",
+        "Nincada",
+        "Novice Scarf",
+        "☆☆☆",
+        "Doubles the speed of natural HP recovery.",
+        "Swap any 5 exclusive items."
+    ],
+    [
+        "291",
+        "",
+        "Ninjask",
+        "Ninja Ruff",
+        "☆☆☆",
+        "Converts damage into healing when hit by a Rock-type move.",
+        "Swap any 5 exclusive items."
+    ],
+    [
+        "292",
+        "",
+        "Shedinja",
+        "Awe Mantle",
+        "☆☆☆",
+        "Converts damage into healing when hit by a Ghost-type move.",
+        "Swap any 5 exclusive items."
+    ],
+    [],
+    [
+        "293",
+        "",
+        "Whismur",
+        "Good Earring",
+        "☆☆☆",
+        "Adds 2 to base PP of all moves.",
+        "Swap any 5 exclusive items."
+    ],
+    [
+        "294",
+        "",
+        "Loudred",
+        "Nice Bangle",
+        "☆☆☆",
+        "Pokémon cannot be inflicted with the Sleep status condition.",
+        "Swap any 5 exclusive items."
+    ],
+    [
+        "295",
+        "",
+        "Exploud",
+        "Great Torc",
+        "☆☆☆",
+        "Converts damage into healing when hit by a Fighting-type move.",
+        "Swap any 5 exclusive items."
+    ],
+    [],
+    [
+        "296",
+        "",
+        "Makuhita",
+        "Makuhit-Belt",
+        "☆☆☆",
+        "Always counter physical damage at full efficiency.",
+        "Swap any 5 exclusive items."
+    ],
+    [
+        "297",
+        "",
+        "Hariyama",
+        "Thrust Belt",
+        "☆☆☆",
+        "Converts damage into healing when hit by a Psychic-type move.",
+        "Swap any 5 exclusive items."
+    ],
+    [],
+    [
+        "299",
+        "",
+        "Nosepass",
+        "Nose-Torc",
+        "☆☆☆",
+        "Pokémon cannot be inflicted with the Confusion status condition.",
+        "Swap any 5 exclusive items."
+    ],
+    [
+        "476",
+        "",
+        "Probopass",
+        "Probo-Hat",
+        "☆☆☆",
+        "Converts damage into healing when hit by a Fighting-type move.",
+        "Swap any 5 exclusive items."
+    ],
+    [],
+    [
+        "Skitty Fang",
+        "☆",
+        "Raises Sp. Attack by 5",
+        "Appraise a box dropped by a defeated foe"
+    ],
+    [
+        "Skitty Card",
+        "☆",
+        "Raises Sp. Defense by 3",
+        "Appraise a box dropped by a defeated foe"
+    ],
+    [
+        "Smile Pebble",
+        "☆☆",
+        "Raises Sp. Attack by 5 and Sp. Defense by 3",
+        "Trade Skitty Fang and Skitty Card"
+    ],
+    [
+        "Heal Pendant",
+        "☆☆☆",
+        "Doubles the speed of natural HP recovery.",
+        "Trade Skitty Fang, Skitty Card, and Smile Pebble"
+    ],
+    [
+        "Delcat-Hair",
+        "☆",
+        "Raises Sp. Defense by 3",
+        "Appraise a box dropped by a defeated foe"
+    ],
+    [
+        "Delcat-Fang",
+        "☆",
+        "Raises Sp. Attack by 5",
+        "Appraise a box dropped by a defeated foe"
+    ],
+    [
+        "Prim Pebble",
+        "☆☆",
+        "Raises Sp. Attack by 5 and Sp. Defense by 3",
+        "Trade Delcat-Hair and Delcat-Fang"
+    ],
+    [
+        "Guard Collar",
+        "☆☆☆",
+        "Converts damage into healing when hit by a Fighting-type move.",
+        "Trade Delcat-Hair, Delcat-Fang, and Prim Pebble"
+    ],
+    [],
+    [
+        "302",
+        "",
+        "Sableye",
+        "Sable-Scope",
+        "☆☆☆",
+        "May afflict attacking enemies with a Blinker status condition.",
+        "Swap any 5 exclusive items."
+    ],
+    [],
+    [
+        "303",
+        "",
+        "Mawile",
+        "Deceit Mask",
+        "☆☆☆",
+        "May seal attacking enemies' move.",
+        "Swap any 5 exclusive items."
+    ],
+    [],
+    [
+        "304",
+        "",
+        "Aron",
+        "Iron Torc",
+        "☆☆☆",
+        "Foes cannot get a critical hit on this Pokémon.",
+        "Swap any 5 exclusive items."
+    ],
+    [
+        "305",
+        "",
+        "Lairon",
+        "Metal Bangle",
+        "☆☆☆",
+        "Reduces damage from explosions to 1.",
+        "Swap any 5 exclusive items."
+    ],
+    [
+        "306",
+        "",
+        "Aggron",
+        "Iron Helmet",
+        "☆☆☆",
+        "Converts damage into healing when hit by a Fighting-type move.",
+        "Swap any 5 exclusive items."
+    ],
+    [],
+    [
+        "307",
+        "",
+        "Meditite",
+        "Intuit Bow",
+        "☆☆☆",
+        "Boosts Evasion by 2 during the Clear weather condition.",
+        "Swap any 5 exclusive items."
+    ],
+    [
+        "308",
+        "",
+        "Medicham",
+        "Ponder Sash",
+        "☆☆☆",
+        "Converts damage into healing when hit by a Ghost-type move.",
+        "Swap any 5 exclusive items."
+    ],
+    [],
+    [
+        "309",
+        "",
+        "Electrike",
+        "Punish Torc",
+        "☆☆☆",
+        "Always counter physical damage at 1/4 efficiency.",
+        "Swap any 5 exclusive items."
+    ],
+    [
+        "310",
+        "",
+        "Manectric",
+        "Protect Mask",
+        "☆☆☆",
+        "Converts damage into healing when hit by a Ground-type move.",
+        "Swap any 5 exclusive items."
+    ],
+    [],
+    [
+        "Plusle Tail",
+        "☆",
+        "Raises Defense by 3",
+        "Appraise a box dropped by a defeated foe"
+    ],
+    [
+        "Plusle Card",
+        "☆",
+        "Raises Sp. Defense by 3",
+        "Appraise a box dropped by a defeated foe"
+    ],
+    [
+        "Cheer Rock",
+        "☆☆",
+        "The Pokémon earns 1.1× the usual Exp. points.",
+        "Trade Plusle Tail and Plusle Card"
+    ],
+    [
+        "Pulse Bow",
+        "☆☆☆",
+        "May restore PP of a random move upon taking any kind of damage.",
+        "Trade Plusle Tail, Plusle Card, and Cheer Rock"
+    ],
+    [],
+    [
+        "Minun Tail",
+        "☆",
+        "Raises Defense by 3",
+        "Appraise a box dropped by a defeated foe"
+    ],
+    [
+        "Minun Card",
+        "☆",
+        "Raises Sp. Defense by 3",
+        "Appraise a box dropped by a defeated foe"
+    ],
+    [
+        "Volt Heart",
+        "☆☆",
+        "The Pokémon earns 1.1× the usual Exp. points.",
+        "Trade Minun Tail and Minun Card"
+    ],
+    [
+        "Spark Tie",
+        "☆☆☆",
+        "May restore PP of a random move upon taking any kind of damage.",
+        "Trade Minun Tail, Minun Card, and Volt Heart"
+    ],
+    [],
+    [
+        "313",
+        "",
+        "Volbeat",
+        "Neon Scarf",
+        "☆☆☆",
+        "Raises the chance of enemies dropping money.",
+        "Swap any 5 exclusive items."
+    ],
+    [],
+    [
+        "314",
+        "",
+        "Illumise",
+        "Evening Bow",
+        "☆☆☆",
+        "Raises the chance of enemies dropping boxes.",
+        "Swap any 5 exclusive items."
+    ],
+    [],
+    [
+        "406",
+        "",
+        "Budew",
+        "Budew Scarf",
+        "☆☆☆",
+        "May restore PP of a random move upon taking any kind of damage.",
+        "Swap any 5 exclusive items."
+    ],
+    [
+        "315",
+        "",
+        "Roselia",
+        "Thorned Torc",
+        "☆☆☆",
+        "Counters 1/4 of the physical damage a foe does back at the foe.",
+        "Swap any 5 exclusive items."
+    ],
+    [
+        "407",
+        "",
+        "Roserade",
+        "Bouquet Cape",
+        "☆☆☆",
+        "Converts damage into healing when hit by a Fire-type move.",
+        "Swap any 5 exclusive items."
+    ],
+    [],
+    [
+        "316",
+        "",
+        "Gulpin",
+        "Gulpin Bow",
+        "☆☆☆",
+        "Any Berry or Apple eaten will recover an extra 10 HP.",
+        "Swap any 5 exclusive items."
+    ],
+    [
+        "317",
+        "",
+        "Swalot",
+        "Swalot Belt",
+        "☆☆☆",
+        "Converts damage into healing when hit by a Psychic-type move.",
+        "Swap any 5 exclusive items."
+    ],
+    [],
+    [
+        "318",
+        "",
+        "Carvanha",
+        "Carva-Sash",
+        "☆☆☆",
+        "Boosts Movement Speed by 1 during the Rain weather condition.",
+        "Swap any 5 exclusive items."
+    ],
+    [
+        "319",
+        "",
+        "Sharpedo",
+        "Vicious Bow",
+        "☆☆☆",
+        "Converts damage into healing when hit by a Bug-type move.",
+        "Swap any 5 exclusive items."
+    ],
+    [],
+    [
+        "320",
+        "",
+        "Wailmer",
+        "Spout Scarf",
+        "☆☆☆",
+        "May restore PP of a random move upon taking any kind of damage.",
+        "Swap any 5 exclusive items."
+    ],
+    [
+        "321",
+        "",
+        "Wailord",
+        "Huge Bow",
+        "☆☆☆",
+        "Converts damage into healing when hit by an Electric-type move.",
+        "Swap any 5 exclusive items."
+    ],
+    [],
+    [
+        "322",
+        "",
+        "Numel",
+        "Numel Bow",
+        "☆☆☆",
+        "Increases maximum HP by 10.",
+        "Swap any 5 exclusive items."
+    ],
+    [
+        "323",
+        "",
+        "Camerupt",
+        "Erupt Scarf",
+        "☆☆☆",
+        "Converts damage into healing when hit by a Water-type move.",
+        "Swap any 5 exclusive items."
+    ],
+    [],
+    [
+        "324",
+        "",
+        "Torkoal",
+        "Sooty Sash",
+        "☆☆☆",
+        "May afflict attacking enemies with a Burn status condition.",
+        "Swap any 5 exclusive items."
+    ],
+    [],
+    [
+        "325",
+        "",
+        "Spoink",
+        "Spring Bow",
+        "☆☆☆",
+        "Raises the chance of enemies dropping money.",
+        "Swap any 5 exclusive items."
+    ],
+    [
+        "326",
+        "",
+        "Grumpig",
+        "Scheme Scarf",
+        "☆☆☆",
+        "Converts damage into healing when hit by a Dark-type move.",
+        "Swap any 5 exclusive items."
+    ],
+    [],
+    [
+        "327",
+        "",
+        "Spinda",
+        "Hula Bow",
+        "☆☆☆",
+        "Raises the chance of enemies dropping boxes.",
+        "Swap any 5 exclusive items."
+    ],
+    [],
+    [
+        "328",
+        "",
+        "Trapinch",
+        "Desert Bow",
+        "☆☆☆",
+        "Boosts Evasion by 2 during the Sandstorm weather condition.",
+        "Swap any 5 exclusive items."
+    ],
+    [
+        "329",
+        "",
+        "Vibrava",
+        "Vibra Scarf",
+        "☆☆☆",
+        "Pokémon cannot be inflicted with the Sleep status condition.",
+        "Swap any 5 exclusive items."
+    ],
+    [
+        "330",
+        "",
+        "Flygon",
+        "Red Glasses",
+        "☆☆☆",
+        "Converts damage into healing when hit by an Ice-type move.",
+        "Swap any 5 exclusive items."
+    ],
+    [],
+    [
+        "331",
+        "",
+        "Cacnea",
+        "Desert Sash",
+        "☆☆☆",
+        "Boosts Movement Speed by 1 during the Sandstorm weather condition.",
+        "Swap any 5 exclusive items."
+    ],
+    [
+        "332",
+        "",
+        "Cacturne",
+        "Cacturne Hat",
+        "☆☆☆",
+        "Converts damage into healing when hit by a Bug-type move.",
+        "Swap any 5 exclusive items."
+    ],
+    [],
+    [
+        "333",
+        "",
+        "Swablu",
+        "Tuft Bow",
+        "☆☆☆",
+        "Prevents the Pokémon's stats from being lowered by enemies or traps.",
+        "Swap any 5 exclusive items."
+    ],
+    [
+        "334",
+        "",
+        "Altaria",
+        "Cloud Ruff",
+        "☆☆☆",
+        "Converts damage into healing when hit by an Ice-type move.",
+        "Swap any 5 exclusive items."
+    ],
+    [],
+    [
+        "335",
+        "",
+        "Zangoose",
+        "Strong Sash",
+        "☆☆☆",
+        "Always counter physical damage at full efficiency.",
+        "Swap any 5 exclusive items."
+    ],
+    [],
+    [
+        "336",
+        "",
+        "Seviper",
+        "Seviper Bow",
+        "☆☆☆",
+        "May afflict attacking enemies with a Cringe status condition.",
+        "Swap any 5 exclusive items."
+    ],
+    [],
+    [
+        "337",
+        "",
+        "Lunatone",
+        "Lunaton-Torc",
+        "☆☆☆",
+        "May restore PP of a random move upon taking any kind of damage.",
+        "Swap any 5 exclusive items."
+    ],
+    [],
+    [
+        "338",
+        "",
+        "Solrock",
+        "Solrock Bow",
+        "☆☆☆",
+        "Randomly consumes no PP when using a move.",
+        "Swap any 5 exclusive items."
+    ],
+    [],
+    [
+        "339",
+        "",
+        "Barboach",
+        "Soak Scarf",
+        "☆☆☆",
+        "Boosts Evasion by 2 during the Rainy weather condition.",
+        "Swap any 5 exclusive items."
+    ],
+    [
+        "340",
+        "",
+        "Whiscash",
+        "Whiscash Bow",
+        "☆☆☆",
+        "Converts damage into healing when hit by a Grass-type move.",
+        "Swap any 5 exclusive items."
+    ],
+    [],
+    [
+        "341",
+        "",
+        "Corphish",
+        "Bossy Scarf",
+        "☆☆☆",
+        "May afflict attacking enemies with a Cringe status condition.",
+        "Swap any 5 exclusive items."
+    ],
+    [
+        "342",
+        "",
+        "Crawdaunt",
+        "Cower Sash",
+        "☆☆☆",
+        "Converts damage into healing when hit by a Bug-type move.",
+        "Swap any 5 exclusive items."
+    ],
+    [],
+    [
+        "343",
+        "",
+        "Baltoy",
+        "Bal-Brooch",
+        "☆☆☆",
+        "May seal attacking enemies' move.",
+        "Swap any 5 exclusive items."
+    ],
+    [
+        "344",
+        "",
+        "Claydol",
+        "Claydol Torc",
+        "☆☆☆",
+        "Converts damage into healing when hit by a Dark-type move.",
+        "Swap any 5 exclusive items."
+    ],
+    [],
+    [
+        "345",
+        "",
+        "Lileep",
+        "Bind Scarf",
+        "☆☆☆",
+        "May afflict attacking enemies with a Shadow Hold status condition.",
+        "Swap any 5 exclusive items."
+    ],
+    [
+        "346",
+        "",
+        "Cradily",
+        "Cradily Bow",
+        "☆☆☆",
+        "Converts damage into healing when hit by a Steel-type move.",
+        "Swap any 5 exclusive items."
+    ],
+    [],
+    [
+        "347",
+        "",
+        "Anorith",
+        "Guard Claw",
+        "☆☆☆",
+        "Increases maximum HP by 10.",
+        "Swap any 5 exclusive items."
+    ],
+    [
+        "348",
+        "",
+        "Armaldo",
+        "Rigid Cape",
+        "☆☆☆",
+        "Converts damage into healing when hit by a Water-type move.",
+        "Swap any 5 exclusive items."
+    ],
+    [],
+    [
+        "349",
+        "",
+        "Feebas",
+        "Admire Scarf",
+        "☆☆☆",
+        "Raises the chance of enemies dropping money.",
+        "Swap any 5 exclusive items."
+    ],
+    [
+        "350",
+        "",
+        "Milotic",
+        "Grace Scarf",
+        "☆☆☆",
+        "Converts damage into healing when hit by an Electric-type move.",
+        "Swap any 5 exclusive items."
+    ],
+    [],
+    [
+        "Cast-Dew",
+        "☆",
+        "Raises Defense by 3",
+        "Appraise a box dropped by a defeated foe"
+    ],
+    [
+        "Cast-Card",
+        "☆",
+        "Raises Sp. Defense by 3",
+        "Appraise a box dropped by a defeated foe"
+    ],
+    [
+        "Cloud Rock",
+        "☆☆",
+        "Reduces damage from explosions to 1.",
+        "Trade Cast-Dew and Cast-Card"
+    ],
+    [
+        "Weather Cape",
+        "☆☆☆",
+        "Prevents all status conditions during the Clear weather condition.",
+        "Trade Cast-Dew, Cast-Card, and Cloud Rock"
+    ],
+    [],
+    [
+        "352",
+        "",
+        "Kecleon",
+        "Kecleon Torc",
+        "☆☆☆",
+        "Kecleon Shops appear more often.",
+        "Swap any 5 exclusive items."
+    ],
+    [],
+    [
+        "353",
+        "",
+        "Shuppet",
+        "Shuppet Cape",
+        "☆☆☆",
+        "Boosts Evasion by 2 during the Cloudy weather condition.",
+        "Swap any 5 exclusive items."
+    ],
+    [
+        "354",
+        "",
+        "Banette",
+        "Ominous Torc",
+        "☆☆☆",
+        "Converts damage into healing when hit by a Ghost-type move.",
+        "Swap any 5 exclusive items."
+    ],
+    [],
+    [
+        "355",
+        "",
+        "Duskull",
+        "Duskull Ruff",
+        "☆☆☆",
+        "Protects from the Sleep status condition.",
+        "Swap any 5 exclusive items."
+    ],
+    [
+        "356",
+        "",
+        "Dusclops",
+        "Illusion Bow",
+        "☆☆☆",
+        "May afflict attacking enemies with a Sleep status condition.",
+        "Swap any 5 exclusive items."
+    ],
+    [
+        "477",
+        "",
+        "Dusknoir",
+        "Unlucky Sash",
+        "☆☆☆",
+        "Converts damage into healing when hit by a Ghost-type move.",
+        "Swap any 5 exclusive items."
+    ],
+    [],
+    [
+        "357",
+        "",
+        "Tropius",
+        "Tropius Bow",
+        "☆☆☆",
+        "May afflict attacking enemies with a Poison, Paralysis, or Sleep status condition.",
+        "Swap any 5 exclusive items."
+    ],
+    [],
+    [
+        "433",
+        "",
+        "Chingling",
+        "Ching-Torc",
+        "☆☆☆",
+        "Kecleon Shops appear more often.",
+        "Swap any 5 exclusive items."
+    ],
+    [
+        "358",
+        "",
+        "Chimecho",
+        "Chime-Scarf",
+        "☆☆☆",
+        "Converts damage into healing when hit by a Dark-type move.",
+        "Swap any 5 exclusive items."
+    ],
+    [],
+    [
+        "359",
+        "",
+        "Absol",
+        "Perish Torc",
+        "☆☆☆",
+        "May afflict attacking enemies with a Perish Song status condition.",
+        "Swap any 5 exclusive items."
+    ],
+    [],
+    [
+        "361",
+        "",
+        "Snorunt",
+        "Chilly Hat",
+        "☆☆☆",
+        "May afflict attacking enemies with a Frozen status condition.",
+        "Swap any 5 exclusive items."
+    ],
+    [
+        "362",
+        "",
+        "Glalie",
+        "Hail Scarf",
+        "☆☆☆",
+        "Converts damage into healing when hit by a Fire-type move.",
+        "Swap any 5 exclusive items."
+    ],
+    [
+        "478",
+        "",
+        "Froslass",
+        "Froslass Bow",
+        "☆☆☆",
+        "Converts damage into healing when hit by a Dark-type move.",
+        "Swap any 5 exclusive items."
+    ],
+    [],
+    [
+        "363",
+        "",
+        "Spheal",
+        "Sleet Bow",
+        "☆☆☆",
+        "May afflict attacking enemies with a Frozen status condition.",
+        "Swap any 5 exclusive items."
+    ],
+    [
+        "364",
+        "",
+        "Sealeo",
+        "Safe Scarf",
+        "☆☆☆",
+        "Boosts Movement Speed by 1 during the Hail weather condition.",
+        "Swap any 5 exclusive items."
+    ],
+    [
+        "365",
+        "",
+        "Walrein",
+        "Walrein Torc",
+        "☆☆☆",
+        "Converts damage into healing when hit by an Electric-type move.",
+        "Swap any 5 exclusive items."
+    ],
+    [],
+    [
+        "366",
+        "",
+        "Clamperl",
+        "Clam-Brooch",
+        "☆☆☆",
+        "Halves damage taken from explosions.",
+        "Swap any 5 exclusive items."
+    ],
+    [
+        "367",
+        "",
+        "Huntail",
+        "Deep Torc",
+        "☆☆☆",
+        "Converts damage into healing when hit by a Grass-type move.",
+        "Swap any 5 exclusive items."
+    ],
+    [
+        "368",
+        "",
+        "Gorebyss",
+        "Gore-Scarf",
+        "☆☆☆",
+        "Converts damage into healing when hit by an Electric-type move.",
+        "Swap any 5 exclusive items."
+    ],
+    [],
+    [
+        "369",
+        "",
+        "Relicanth",
+        "Reli-Torc",
+        "☆☆☆",
+        "Prevents the Pokémon's moves from being sealed.",
+        "Swap any 5 exclusive items."
+    ],
+    [],
+    [
+        "370",
+        "",
+        "Luvdisc",
+        "Luvdisc Torc",
+        "☆☆☆",
+        "May afflict attacking enemies with an Infatuation status condition.",
+        "Swap any 5 exclusive items."
+    ],
+    [],
+    [
+        "371",
+        "",
+        "Bagon",
+        "Crag Helmet",
+        "☆☆☆",
+        "Foes cannot get a critical hit on this Pokémon.",
+        "Swap any 5 exclusive items."
+    ],
+    [
+        "372",
+        "",
+        "Shelgon",
+        "Outlast Bow",
+        "☆☆☆",
+        "Reduces damage from explosions to 1.",
+        "Swap any 5 exclusive items."
+    ],
+    [
+        "373",
+        "",
+        "Salamence",
+        "Sala-Cape",
+        "☆☆☆",
+        "Converts damage into healing when hit by an Ice-type move.",
+        "Swap any 5 exclusive items."
+    ],
+    [],
+    [
+        "374",
+        "",
+        "Beldum",
+        "Beldum Torc",
+        "☆☆☆",
+        "Reduces damage from explosions to 1.",
+        "Swap any 5 exclusive items."
+    ],
+    [
+        "375",
+        "",
+        "Metang",
+        "Metang Scarf",
+        "☆☆☆",
+        "Enables Psychic-type moves to inflict increased damage on Dark-type Pokémon.",
+        "Swap any 5 exclusive items."
+    ],
+    [
+        "376",
+        "",
+        "Metagross",
+        "Meta-Torc",
+        "☆☆☆",
+        "Converts damage into healing when hit by a Ground-type move.",
+        "Swap any 5 exclusive items."
+    ],
+    [],
+    [],
+    [
+        "Lucky Leaf",
+        "☆",
+        "Raises Defense by 3",
+        "Appraise a box dropped by a defeated foe"
+    ],
+    [
+        "Turtwig Card",
+        "☆",
+        "Raises Sp. Defense by 3",
+        "Appraise a box dropped by a defeated foe"
+    ],
+    [
+        "Sprout Rock",
+        "☆☆",
+        "Raises Defense and Sp. Defense by 3 each",
+        "Trade Lucky Leaf and Turtwig Card"
+    ],
+    [
+        "Leafy Hat",
+        "☆☆☆",
+        "Increases maximum HP by 10.",
+        "Trade Lucky Leaf, Turtwig Card, and Sprout Rock"
+    ],
+    [
+        "Grotle Twig",
+        "☆",
+        "Raises Defense by 3",
+        "Appraise a box dropped by a defeated foe"
+    ],
+    [
+        "Grotle Claw",
+        "☆",
+        "Raises Attack by 5",
+        "Appraise a box dropped by a defeated foe"
+    ],
+    [
+        "Grotle Crest",
+        "☆☆",
+        "Raises Attack by 5 and Defense by 3",
+        "Trade Grotle Twig and Grotle Claw"
+    ],
+    [
+        "Woody Scarf",
+        "☆☆☆",
+        "HP-draining moves heal the user by all of inflicted damage, rather than just half.",
+        "Trade Grotle Twig, Grotle Claw, and Grotle Crest"
+    ],
+    [
+        "Tort-Claw",
+        "☆",
+        "Raises Sp. Attack by 5",
+        "Appraise a box dropped by a defeated foe"
+    ],
+    [
+        "Tort-Horn",
+        "☆",
+        "Raises Attack by 5",
+        "Appraise a box dropped by a defeated foe"
+    ],
+    [
+        "Tort-Seal",
+        "☆☆",
+        "Raises Attack and Sp. Attack by 5 each",
+        "Trade Tort-Claw and Tort-Horn"
+    ],
+    [
+        "Forest Torc",
+        "☆☆☆",
+        "Converts damage into healing when hit by a Grass-type move.",
+        "Trade Tort-Claw, Tort-Horn, and Tort-Seal"
+    ],
+    [],
+    [
+        "Chim-Hair",
+        "☆",
+        "Raises Sp. Defense by 3",
+        "Appraise a box dropped by a defeated foe"
+    ],
+    [
+        "Chim-Fang",
+        "☆",
+        "Raises Sp. Attack by 5",
+        "Appraise a box dropped by a defeated foe"
+    ],
+    [
+        "Nimble Charm",
+        "☆☆",
+        "Raises Sp. Attack by 5 and Sp. Defense by 3",
+        "Trade Chim-Hair and Chim-Fang"
+    ],
+    [
+        "Ember Cap",
+        "☆☆☆",
+        "May afflict attacking enemies with a Burn status condition.",
+        "Trade Chim-Hair, Chim-Fang, and Nimble Charm"
+    ],
+    [
+        "Monfer-Hair",
+        "☆",
+        "Raises Sp. Defense by 3",
+        "Appraise a box dropped by a defeated foe"
+    ],
+    [
+        "Monfer-Fang",
+        "☆",
+        "Raises Sp. Attack by 5",
+        "Appraise a box dropped by a defeated foe"
+    ],
+    [
+        "Monfer-Crest",
+        "☆☆",
+        "Raises Sp. Attack by 5 and Sp. Defense by 3",
+        "Trade Monfer-Hair and Monfer-Fang"
+    ],
+    [
+        "Burst Sash",
+        "☆☆☆",
+        "Boosts Movement Speed by 1 during the Sunny weather condition.",
+        "Trade Monfer-Hair, Monfer-Fang, and Monfer-Crest"
+    ],
+    [
+        "Infern-Hair",
+        "☆",
+        "Raises Sp. Defense by 3",
+        "Appraise a box dropped by a defeated foe"
+    ],
+    [
+        "Infern-Fang",
+        "☆",
+        "Raises Sp. Attack by 5",
+        "Appraise a box dropped by a defeated foe"
+    ],
+    [
+        "Infern-Seal",
+        "☆☆",
+        "Raises Sp. Attack by 5 and Sp. Defense by 3",
+        "Trade Infern-Hair and Infern-Fang"
+    ],
+    [
+        "Blazing Ruff",
+        "☆☆☆",
+        "Converts damage into healing when hit by a Water-type move.",
+        "Trade Infern-Hair, Infern-Fang, and Infern-Seal"
+    ],
+    [],
+    [
+        "Piplup Foam",
+        "☆",
+        "Raises Defense by 3",
+        "Appraise a box dropped by a defeated foe"
+    ],
+    [
+        "Piplup Card",
+        "☆",
+        "Raises Sp. Defense by 3",
+        "Appraise a box dropped by a defeated foe"
+    ],
+    [
+        "Sea Ore",
+        "☆☆",
+        "Raises Defense and Sp. Defense by 3 each",
+        "Trade Piplup Foam and Piplup Card"
+    ],
+    [
+        "Water Cape",
+        "☆☆☆",
+        "Increases maximum HP by 10.",
+        "Trade Piplup Foam, Piplup Card, and Sea Ore"
+    ],
+    [
+        "Prin-Foam",
+        "☆",
+        "Raises Defense by 3",
+        "Appraise a box dropped by a defeated foe"
+    ],
+    [
+        "Prin-Card",
+        "☆",
+        "Raises Sp. Defense by 3",
+        "Appraise a box dropped by a defeated foe"
+    ],
+    [
+        "Prin-Crest",
+        "☆☆",
+        "Raises Defense and Sp. Defense by 3 each",
+        "Trade Prin-Foam and Prin-Card"
+    ],
+    [
+        "Aqua Blade",
+        "☆☆☆",
+        "Always counter physical damage at 1/4 efficiency.",
+        "Trade Prin-Foam, Prin-Card, and Prin-Crest"
+    ],
+    [
+        "Empol-Claw",
+        "☆",
+        "Raises Sp. Attack by 5",
+        "Appraise a box dropped by a defeated foe"
+    ],
+    [
+        "Empol-Horn",
+        "☆",
+        "Raises Attack by 5",
+        "Appraise a box dropped by a defeated foe"
+    ],
+    [
+        "Empol-Seal",
+        "☆☆",
+        "Raises Attack and Sp. Attack by 5 each",
+        "Trade Empol-Claw and Empol-Horn"
+    ],
+    [
+        "Marine Crown",
+        "☆☆☆",
+        "Converts damage into healing when hit by a Ground-type move.",
+        "Trade Empol-Claw, Empol-Horn, and Empol-Seal"
+    ],
+    [],
+    [
+        "396",
+        "",
+        "Starly",
+        "Starly Bow",
+        "☆☆☆",
+        "May afflict attacking enemies with a Confused status condition.",
+        "Swap any 5 exclusive items"
+    ],
+    [
+        "397",
+        "",
+        "Staravia",
+        "Regret Torc",
+        "☆☆☆",
+        "Foes cannot get a critical hit on this Pokémon.",
+        "Swap any 5 exclusive items"
+    ],
+    [
+        "398",
+        "",
+        "Staraptor",
+        "Guts Sash",
+        "☆☆☆",
+        "Converts damage into healing when hit by a Rock-type move.",
+        "Swap any 5 exclusive items"
+    ],
+    [],
+    [
+        "Bidoof Tooth",
+        "☆",
+        "Raises Attack by 5",
+        "Appraise a box dropped by a defeated foe"
+    ],
+    [
+        "Bidoof Card",
+        "☆",
+        "Raises Sp. Defense by 3",
+        "Appraise a box dropped by a defeated foe"
+    ],
+    [
+        "Fall Charm",
+        "☆☆",
+        "Raises Attack by 5 and Sp. Defense by 3",
+        "Trade Bidoof Tooth and Bidoof Card"
+    ],
+    [
+        "Stolid Scarf",
+        "☆☆☆",
+        "Protects from the Infatuated status condition.",
+        "Trade Bidoof Tooth, Bidoof Card, and Fall Charm"
+    ],
+    [
+        "Biba-Tooth",
+        "☆",
+        "Raises Attack by 5",
+        "Appraise a box dropped by a defeated foe"
+    ],
+    [
+        "Biba-Card",
+        "☆",
+        "Raises Sp. Defense by 3",
+        "Appraise a box dropped by a defeated foe"
+    ],
+    [
+        "River Charm",
+        "☆☆",
+        "Raises Attack by 5 and Sp. Defense by 3",
+        "Trade Biba-Tooth and Biba-Card"
+    ],
+    [
+        "Dam Scarf",
+        "☆☆☆",
+        "Converts damage into healing when hit by an Electric-type move.",
+        "Trade Biba-Tooth, Biba-Card, and River Charm"
+    ],
+    [],
+    [
+        "401",
+        "",
+        "Kricketot",
+        "Still Bow",
+        "☆☆☆",
+        "Increases maximum HP by 10.",
+        "Swap any 5 exclusive items"
+    ],
+    [
+        "402",
+        "",
+        "Kricketune",
+        "Kricke-Torc",
+        "☆☆☆",
+        "Converts damage into healing when hit by a Flying-type move.",
+        "Swap any 5 exclusive items"
+    ],
+    [],
+    [
+        "Shinx Claw",
+        "☆",
+        "Raises Attack by 5",
+        "Appraise a box dropped by a defeated foe"
+    ],
+    [
+        "Shinx Fang",
+        "☆",
+        "Raises Sp. Attack by 5",
+        "Appraise a box dropped by a defeated foe"
+    ],
+    [
+        "Flash Tag",
+        "☆☆",
+        "Raises Attack and Sp. Attack by 5 each",
+        "Trade Shinx Claw and Shinx Fang"
+    ],
+    [
+        "Energy Scarf",
+        "☆☆☆",
+        "Adds 2 to base PP of all moves.",
+        "Trade Shinx Claw, Shinx Fang, and Flash Tag"
+    ],
+    [
+        "Luxio Claw",
+        "☆",
+        "Raises Attack by 5",
+        "Appraise a box dropped by a defeated foe"
+    ],
+    [
+        "Luxio Fang",
+        "☆",
+        "Raises Sp. Attack by 5",
+        "Appraise a box dropped by a defeated foe"
+    ],
+    [
+        "Spark Tag",
+        "☆☆",
+        "Raises Attack and Sp. Attack by 5 each",
+        "Trade Luxio Claw and Luxio Fang"
+    ],
+    [
+        "Spark Scarf",
+        "☆☆☆",
+        "May afflict attacking enemies with a Paralysis status condition.",
+        "Trade Luxio Claw, Luxio Fang, and Spark Tag"
+    ],
+    [
+        "Luxray Claw",
+        "☆",
+        "Raises Attack by 5",
+        "Appraise a box dropped by a defeated foe"
+    ],
+    [
+        "Luxray Fang",
+        "☆",
+        "Raises Sp. Attack by 5",
+        "Appraise a box dropped by a defeated foe"
+    ],
+    [
+        "Glare Tag",
+        "☆☆",
+        "Raises Attack and Sp. Attack by 5 each",
+        "Trade Luxray Claw and Luxray Fang"
+    ],
+    [
+        "Glare Sash",
+        "☆☆☆",
+        "Converts damage into healing when hit by a Ground-type move.",
+        "Trade Luxray Claw, Luxray Fang, and Glare Tag"
+    ],
+    [],
+    [
+        "408",
+        "",
+        "Cranidos",
+        "Hard Helmet",
+        "☆☆☆",
+        "Ignores Reflect and Light Screen.",
+        "Swap any 5 exclusive items"
+    ],
+    [
+        "409",
+        "",
+        "Rampardos",
+        "Skull Helmet",
+        "☆☆☆",
+        "Converts damage into healing when hit by a Steel-type move.",
+        "Swap any 5 exclusive items"
+    ],
+    [],
+    [
+        "410",
+        "",
+        "Shieldon",
+        "Rebound Bow",
+        "☆☆☆",
+        "Makes thrown or hurled items bounce off the Pokémon.",
+        "Swap any 5 exclusive items"
+    ],
+    [
+        "411",
+        "",
+        "Bastiodon",
+        "Block Brooch",
+        "☆☆☆",
+        "Converts damage into healing when hit by a Fighting-type move.",
+        "Swap any 5 exclusive items"
+    ],
+    [],
+    [
+        "412",
+        "",
+        "Burmy",
+        "Straw Cape",
+        "☆☆☆",
+        "Increases maximum HP by 10.",
+        "Swap any 5 exclusive items"
+    ],
+    [
+        "413",
+        "",
+        "Wormadam",
+        "Worma-Bow",
+        "☆☆☆",
+        "May afflict attacking enemies with a Poisoned, a Paralysis, or a Sleep status condition.",
+        "Swap any 5 exclusive items"
+    ],
+    [
+        "414",
+        "",
+        "Mothim",
+        "Mothim Bow",
+        "☆☆☆",
+        "Converts damage into healing when hit by a Rock-type move.",
+        "Swap any 5 exclusive items"
+    ],
+    [],
+    [
+        "415",
+        "",
+        "Combee",
+        "Nectar Bow",
+        "☆☆☆",
+        "Foes are more likely to drop boxes.",
+        "Swap any 5 exclusive items"
+    ],
+    [
+        "416",
+        "",
+        "Vespiquen",
+        "Vespi-Torc",
+        "☆☆☆",
+        "Converts damage into healing when hit by a Rock-type move.",
+        "Swap any 5 exclusive items"
+    ],
+    [],
+    [
+        "Pachi-Tooth",
+        "☆",
+        "Raises Attack by 5",
+        "Appraise a box dropped by a defeated foe"
+    ],
+    [
+        "Pachi-Card",
+        "☆",
+        "Raises Sp. Defense by 3",
+        "Appraise a box dropped by a defeated foe"
+    ],
+    [
+        "Rouse Charm",
+        "☆☆",
+        "Raises Attack by 5 and Sp. Defense by 3",
+        "Trade Pachi-Tooth and Pachi-Card"
+    ],
+    [
+        "Miracle Bow",
+        "☆☆☆",
+        "Converts damage into healing when hit by a Ground-type move.",
+        "Trade Pachi-Tooth, Pachi-Card, and Rouse Charm"
+    ],
+    [],
+    [
+        "Buizel Fang",
+        "☆",
+        "Raises Sp. Attack by 5",
+        "Appraise a box dropped by a defeated foe"
+    ],
+    [
+        "Buizel Card",
+        "☆",
+        "Raises Sp. Defense by 3",
+        "Appraise a box dropped by a defeated foe"
+    ],
+    [
+        "Swimmer Rock",
+        "☆☆",
+        "Raises Sp. Attack by 5 and Sp. Defense by 3",
+        "Trade Buizel Fang and Buizel Card"
+    ],
+    [
+        "Screw Torc",
+        "☆☆☆",
+        "Boosts Movement Speed by 1 during the Rain weather condition.",
+        "Trade Buizel Fang, Buizel Card, and Swimmer Rock"
+    ],
+    [
+        "Float-Fang",
+        "☆",
+        "Raises Sp. Attack by 5",
+        "Appraise a box dropped by a defeated foe"
+    ],
+    [
+        "Float-Card",
+        "☆",
+        "Raises Sp. Defense by 3",
+        "Appraise a box dropped by a defeated foe"
+    ],
+    [
+        "Rescue Rock",
+        "☆☆",
+        "Raises Sp. Attack by 5 and Sp. Defense by 3",
+        "Trade Float-Fang and Float-Card"
+    ],
+    [
+        "Float Aid",
+        "☆☆☆",
+        "Converts damage into healing when hit by an Electric-type move.",
+        "Trade Float-Fang, Float-Card, and Rescue Rock"
+    ],
+    [],
+    [
+        "Cherubi Seed",
+        "☆",
+        "Raises Defense by 3",
+        "Appraise a box dropped by a defeated foe"
+    ],
+    [
+        "Cherubi Card",
+        "☆",
+        "Raises Sp. Defense by 3",
+        "Appraise a box dropped by a defeated foe"
+    ],
+    [
+        "Cute Ore",
+        "☆☆",
+        "Raises Defense and Sp. Defense by 3 each",
+        "Trade Cherubi Seed and Cherubi Card"
+    ],
+    [
+        "Charm Bow",
+        "☆☆☆",
+        "Increases maximum HP by 10.",
+        "Trade Cherubi Seed, Cherubi Card, and Cute Ore"
+    ],
+    [
+        "Cherrim Dew",
+        "☆",
+        "Raises Defense by 3",
+        "Appraise a box dropped by a defeated foe"
+    ],
+    [
+        "Cherrim Card",
+        "☆",
+        "Raises Sp. Defense by 3",
+        "Appraise a box dropped by a defeated foe"
+    ],
+    [
+        "Sweet Aroma",
+        "☆☆",
+        "Raises Defense and Sp. Defense by 3 each",
+        "Trade Cherrim Dew and Cherrim Card"
+    ],
+    [
+        "Petal Dress",
+        "☆☆☆",
+        "Converts damage into healing when hit by a Fire-type move.",
+        "Trade Cherrim Dew, Cherrim Card, and Petal Dress"
+    ],
+    [],
+    [
+        "422",
+        "",
+        "Shellos",
+        "Awake Bow",
+        "☆☆☆",
+        "Boosts Movement Speed by 1 during the Rainy weather condition.",
+        "Swap any 5 exclusive items"
+    ],
+    [
+        "423",
+        "",
+        "Gastrodon",
+        "Gastro-Torc",
+        "☆☆☆",
+        "Converts damage into healing when hit by a Grass-type move.",
+        "Swap any 5 exclusive items"
+    ],
+    [],
+    [
+        "Drifloo-Gasp",
+        "☆",
+        "Raises Sp. Attack by 5",
+        "Appraise a box dropped by a defeated foe"
+    ],
+    [
+        "Drifloo-Card",
+        "☆",
+        "Raises Sp. Defense by 3",
+        "Appraise a box dropped by a defeated foe"
+    ],
+    [
+        "Wind Heart",
+        "☆☆",
+        "Raises Sp. Attack by 5 and Sp. Defense by 3",
+        "Trade Drifloo-Gasp and Drifloo-Card"
+    ],
+    [
+        "Draft Ring",
+        "☆☆☆",
+        "Protects against thrown or hurled items.",
+        "Trade Drifloo-Gasp, Drifloo-Card, and Wind Heart"
+    ],
+    [
+        "Drifbli-Gasp",
+        "☆",
+        "Raises Sp. Attack by 5",
+        "Appraise a box dropped by a defeated foe"
+    ],
+    [
+        "Drifbli-Card",
+        "☆",
+        "Raises Sp. Defense by 3",
+        "Appraise a box dropped by a defeated foe"
+    ],
+    [
+        "Easy Charm",
+        "☆☆",
+        "Raises Sp. Attack by 5 and Sp. Defense by 3",
+        "Trade Drifbli-Gasp and Drifbli-Card"
+    ],
+    [
+        "Breeze Scarf",
+        "☆☆☆",
+        "Converts damage into healing when hit by a Ghost-type move.",
+        "Trade Drifbli-Gasp, Drifbli-Card, and Easy Charm"
+    ],
+    [],
+    [
+        "427",
+        "",
+        "Buneary",
+        "Defrost Ruff",
+        "☆☆☆",
+        "Protects the Pokémon from a Frozen status.",
+        "Swap any 5 exclusive items"
+    ],
+    [
+        "428",
+        "",
+        "Lopunny",
+        "Allure Coat",
+        "☆☆☆",
+        "Converts damage into healing when hit by a Fighting-type move.",
+        "Swap any 5 exclusive items"
+    ],
+    [],
+    [
+        "431",
+        "",
+        "Glameow",
+        "Glameow Bow",
+        "☆☆☆",
+        "May afflict attacking enemies with an Infatuated status condition.",
+        "Swap any 5 exclusive items"
+    ],
+    [
+        "432",
+        "",
+        "Purugly",
+        "Scary Belt",
+        "☆☆☆",
+        "Converts damage into healing when hit by a Fighting-type move.",
+        "Swap any 5 exclusive items"
+    ],
+    [],
+    [
+        "434",
+        "",
+        "Stunky",
+        "Stinky Scarf",
+        "☆☆☆",
+        "May afflict attacking enemies with a Cringe status condition.",
+        "Swap any 5 exclusive items"
+    ],
+    [
+        "435",
+        "",
+        "Skuntank",
+        "Stench Sash",
+        "☆☆☆",
+        "Converts damage into healing when hit by a Ground-type move.",
+        "Swap any 5 exclusive items"
+    ],
+    [],
+    [
+        "436",
+        "",
+        "Bronzor",
+        "Image Brooch",
+        "☆☆☆",
+        "May afflict attacking enemies with a Blinker status condition.",
+        "Swap any 5 exclusive items"
+    ],
+    [
+        "437",
+        "",
+        "Bronzong",
+        "Mirror Torc",
+        "☆☆☆",
+        "Converts damage into healing when hit by a Ghost-type move.",
+        "Swap any 5 exclusive items"
+    ],
+    [],
+    [
+        "441",
+        "",
+        "Chatot",
+        "Chatot Scarf",
+        "☆☆☆",
+        "May make the Pokémon bounce received moves back at the attacker.",
+        "Swap any 5 exclusive items"
+    ],
+    [],
+    [
+        "442",
+        "",
+        "Spiritomb",
+        "Shadow Veil",
+        "☆☆☆",
+        "Prevents Spiritomb's moves from being sealed.",
+        "Zero Isle North B22F (Key)"
+    ],
+    [],
+    [
+        "Gible Fang",
+        "☆",
+        "Raises Sp. Attack by 5",
+        "Appraise a box dropped by a defeated foe"
+    ],
+    [
+        "Gible Card",
+        "☆",
+        "Raises Sp. Defense by 3",
+        "Appraise a box dropped by a defeated foe"
+    ],
+    [
+        "Dragon Jewel",
+        "☆☆",
+        "Raises Sp. Attack by 5 and Sp. Defense by 3",
+        "Trade Gible Fang and Gible Card"
+    ],
+    [
+        "Dragon Tie",
+        "☆☆☆",
+        "Increases maximum HP by 10.",
+        "Trade Gible Fang, Gible Card, and Dragon Jewel"
+    ],
+    [
+        "Gabite Claw",
+        "☆",
+        "Raises Attack by 5",
+        "Appraise a box dropped by a defeated foe"
+    ],
+    [
+        "Gabite Fang",
+        "☆",
+        "Raises Sp. Attack by 5",
+        "Appraise a box dropped by a defeated foe"
+    ],
+    [
+        "Star Rock",
+        "☆☆",
+        "Raises Attack and Sp. Attack by 5 each",
+        "Trade Gabite Claw and Gabite Fang"
+    ],
+    [
+        "Meteor Torc",
+        "☆☆☆",
+        "Reflect and Light Screen do not affect this Pokémon's moves.",
+        "Trade Gabite Claw, Gabite Fang, and Star Rock"
+    ],
+    [
+        "Gar-Claw",
+        "☆",
+        "Raises Attack by 5",
+        "Appraise a box dropped by a defeated foe"
+    ],
+    [
+        "Gar-Fang",
+        "☆",
+        "Raises Sp. Attack by 5",
+        "Appraise a box dropped by a defeated foe"
+    ],
+    [
+        "Speed Tag",
+        "☆☆",
+        "Raises Attack and Sp. Attack by 5 each",
+        "Trade Gar-Claw and Gar-Fang"
+    ],
+    [
+        "Mach Scarf",
+        "☆☆☆",
+        "Converts damage into healing when hit by a Dragon-type move.",
+        "Trade Gar-Claw, Gar-Fang, and Speed Tag"
+    ],
+    [],
+    [
+        "Riolu Tail",
+        "☆",
+        "Raises Defense by 3",
+        "Appraise a box dropped by a defeated foe"
+    ],
+    [
+        "Riolu Card",
+        "☆",
+        "Raises Sp. Defense by 3",
+        "Appraise a box dropped by a defeated foe"
+    ],
+    [
+        "Valiant Rock",
+        "☆☆",
+        "Raises Defense and Sp. Defense by 3 each",
+        "Trade Riolu Tail and Riolu Card"
+    ],
+    [
+        "Emit Ring",
+        "☆☆☆",
+        "Enables Fighting-type moves and Normal-type moves to inflict increased damage on Ghost-type Pokémon.",
+        "Trade Riolu Tail, Riolu Card, and Valiant Rock"
+    ],
+    [
+        "Brave Dust",
+        "☆☆☆",
+        "Raises the chance of enemies dropping boxes.",
+        "Randomly obtained when a Riolu hatches from an Egg"
+    ],
+    [
+        "Lucario Fang",
+        "☆",
+        "Raises Sp. Attack by 5",
+        "Appraise a box dropped by a defeated foe"
+    ],
+    [
+        "Lucario Card",
+        "☆",
+        "Raises Sp. Defense by 3",
+        "Appraise a box dropped by a defeated foe"
+    ],
+    [
+        "Pledge Rock",
+        "☆☆",
+        "Raises Sp. Attack by 5 and Sp. Defense by 3",
+        "Trade Lucario Fang and Lucario Card"
+    ],
+    [
+        "Ravage Ring",
+        "☆☆☆",
+        "Converts damage into healing when hit by a Psychic-type move.",
+        "Trade Lucario Fang, Lucario Card, and Pledge Rock"
+    ],
+    [],
+    [
+        "449",
+        "",
+        "Hippopotas",
+        "Thick Scarf",
+        "☆☆☆",
+        "Boosts Evasion by 2 during the Sandstorm weather condition.",
+        "Swap any 5 exclusive items"
+    ],
+    [
+        "450",
+        "",
+        "Hippowdon",
+        "Grit Veil",
+        "☆☆☆",
+        "Converts damage into healing when hit by a Grass-type move.",
+        "Swap any 5 exclusive items"
+    ],
+    [],
+    [
+        "451",
+        "",
+        "Skorupi",
+        "Skorupi Bow",
+        "☆☆☆",
+        "May afflict attacking enemies with a Shadow Hold status condition.",
+        "Swap any 5 exclusive items"
+    ],
+    [
+        "452",
+        "",
+        "Drapion",
+        "Dust Scarf",
+        "☆☆☆",
+        "Converts damage into healing when hit by a Ground-type move.",
+        "Swap any 5 exclusive items"
+    ],
+    [],
+    [
+        "453",
+        "",
+        "Croagunk",
+        "Croa-Torc",
+        "☆☆☆",
+        "Foes are more likely to drop boxes.",
+        "Swap any 5 exclusive items"
+    ],
+    [
+        "454",
+        "",
+        "Toxicroak",
+        "Toxi-Belt",
+        "☆☆☆",
+        "Converts damage into healing when hit by a Psychic-type move.",
+        "Swap any 5 exclusive items"
+    ],
+    [],
+    [
+        "455",
+        "",
+        "Carnivine",
+        "Carni-Bow",
+        "☆☆☆",
+        "Any Berry or Apple eaten will recover an extra 10 HP.",
+        "Swap any 5 exclusive items."
+    ],
+    [],
+    [
+        "456",
+        "",
+        "Finneon",
+        "Swim Bow",
+        "☆☆☆",
+        "Boosts Movement Speed by 1 during the Rainy weather condition.",
+        "Swap any 5 exclusive items."
+    ],
+    [
+        "457",
+        "",
+        "Lumineon",
+        "Lumi-Torc",
+        "☆☆☆",
+        "Converts damage into healing when hit by an Electric-type move.",
+        "Swap any 5 exclusive items."
+    ],
+    [],
+    [
+        "459",
+        "",
+        "Snover",
+        "Snowy Torc",
+        "☆☆☆",
+        "Attacks twice in one turn during the Hail weather condition.",
+        "Swap any 5 exclusive items."
+    ],
+    [
+        "460",
+        "",
+        "Abomasnow",
+        "Frozen Cape",
+        "☆☆☆",
+        "Converts damage into healing when hit by a Fire-type move.",
+        "Swap any 5 exclusive items."
+    ],
+    [],
+    [
+        "479",
+        "",
+        "Rotom",
+        "Plasma Veil",
+        "☆☆☆",
+        "May afflict attacking enemies with a Paralysis status condition.",
+        "Deep Spacial Rift B9F (Key)"
+    ],
+    [],
+    [],
+    [
+        "Tyro-Sweat",
+        "☆",
+        "Raises Attack by 5",
+        "Appraise a box dropped by a defeated foe"
+    ],
+    [
+        "Tyro-Card",
+        "☆",
+        "Raises Sp. Attack by 5",
+        "Appraise a box dropped by a defeated foe"
+    ],
+    [
+        "Muscle Charm",
+        "☆☆",
+        "Gives the Pokémon Long Toss status.",
+        "Trade Tyro-Sweat and Tyro-Card"
+    ],
+    [
+        "Pep Sash",
+        "☆☆☆",
+        "Earns the Pokémon 5 exp. points each time it is hit.",
+        "Trade Tyro-Sweat, Tyro-Card, and Muscle Charm"
+    ],
+    [
+        "Heroic Medal",
+        "☆☆☆",
+        "Enables Fighting-type moves and Normal-type moves to inflict increased damage on Ghost-type Pokémon.",
+        "Randomly obtained when a Tyrogue hatches from an Egg"
+    ],
+    [
+        "106",
+        "",
+        "Hitmonlee",
+        "Counter Ruff",
+        "☆☆☆",
+        "Always counter physical damage at full efficiency.",
+        "Trade Tyro-Sweat, Tyro-Card, and Muscle Charm"
+    ],
+    [
+        "107",
+        "",
+        "Hitmonchan",
+        "Victory Belt",
+        "☆☆☆",
+        "May seal attacking enemies' move.",
+        "Trade Tyro-Sweat, Tyro-Card, and Muscle Charm"
+    ],
+    [
+        "237",
+        "",
+        "Hitmontop",
+        "Power Bangle",
+        "☆☆☆",
+        "Reflect and Light Screen do not affect this Pokémon's moves.",
+        "Trade Tyro-Sweat, Tyro-Card, and Muscle Charm"
+    ],
+    [],
+    [
+        "Eevee Tail",
+        "☆",
+        "Raises Defense by 3",
+        "Appraise a box dropped by a defeated foe"
+    ],
+    [
+        "Eevee Card",
+        "☆",
+        "Raises Sp. Defense by 3",
+        "Appraise a box dropped by a defeated foe"
+    ],
+    [
+        "Evolve Charm",
+        "☆☆",
+        "Earns the Pokémon bonus exp.",
+        "Trade Eevee Tail and Eevee Card"
+    ],
+    [
+        "Prism Ruff",
+        "☆☆☆",
+        "Weather does not damage this Pokémon.",
+        "Trade Eevee Tail, Eevee Card, and Evolve Charm"
+    ],
+    [
+        "134",
+        "",
+        "Vaporeon",
+        "Aqua Collar",
+        "☆☆☆",
+        "May afflict attacking enemies with a Cringe status condition.",
+        "Trade Eevee Tail, Eevee Card, and Evolve Charm"
+    ],
+    [
+        "135",
+        "",
+        "Jolteon",
+        "Volt Collar",
+        "☆☆☆",
+        "May afflict attacking enemies with a Paralysis status condition.",
+        "Trade Eevee Tail, Eevee Card, and Evolve Charm"
+    ],
+    [
+        "136",
+        "",
+        "Flareon",
+        "Fire Collar",
+        "☆☆☆",
+        "May afflict attacking enemies with a Burn status condition.",
+        "Trade Eevee Tail, Eevee Card, and Evolve Charm"
+    ],
+    [
+        "196",
+        "",
+        "Espeon",
+        "Light Collar",
+        "☆☆☆",
+        "May afflict attacking enemies with a Confused status condition.",
+        "Trade Eevee Tail, Eevee Card, and Evolve Charm"
+    ],
+    [
+        "197",
+        "",
+        "Umbreon",
+        "Dusk Collar",
+        "☆☆☆",
+        "May afflict attacking enemies with a Blinker status condition.",
+        "Trade Eevee Tail, Eevee Card, and Evolve Charm"
+    ],
+    [
+        "470",
+        "",
+        "Leafeon",
+        "Virid Collar",
+        "☆☆☆",
+        "May afflict attacking enemies with a Poisoned, a Paralysis, or a Sleep status condition.",
+        "Trade Eevee Tail, Eevee Card, and Evolve Charm"
+    ],
+    [
+        "471",
+        "",
+        "Glaceon",
+        "Icy Collar",
+        "☆☆☆",
+        "May afflict attacking enemies with a Frozen status condition.",
+        "Trade Eevee Tail, Eevee Card, and Evolve Charm"
+    ],
+    [],
+    [],
+    [
+        "144",
+        "",
+        "Articuno",
+        "Freeze Veil",
+        "☆☆☆",
+        "May leave Articuno with 1 HP after being hit by a fatal blow.",
+        "Zero Isle North B19F (Key)"
+    ],
+    [],
+    [
+        "145",
+        "",
+        "Zapdos",
+        "Thunder Veil",
+        "☆☆☆",
+        "May leave Zapdos with 1 HP after being hit by a fatal blow.",
+        "Zero Isle North B19F (Key)"
+    ],
+    [],
+    [
+        "146",
+        "",
+        "Moltres",
+        "Fire Veil",
+        "☆☆☆",
+        "May leave Moltres with 1 HP after being hit by a fatal blow.",
+        "Zero Isle North B19F (Key)"
+    ],
+    [],
+    [
+        "150",
+        "",
+        "Mewtwo",
+        "Havoc Robe",
+        "☆☆☆",
+        "Increases amount of PP foes use, in addition to Mewtwo's Pressure Ability.",
+        "Zero Isle West B17F (Key)"
+    ],
+    [],
+    [
+        "151",
+        "",
+        "Mew",
+        "Life Ring",
+        "☆☆☆",
+        "Protects Mew from status conditions.",
+        "Zero Isle West B17F (Key)"
+    ],
+    [],
+    [
+        "243",
+        "",
+        "Raikou",
+        "Bolt Fang",
+        "☆☆☆",
+        "Reflect and Light Screen do not affect Raikou's moves.",
+        "Zero Isle South B25F (Key)"
+    ],
+    [],
+    [
+        "244",
+        "",
+        "Entei",
+        "Flare Fang",
+        "☆☆☆",
+        "Reflect and Light Screen do not affect Entei's moves.",
+        "Zero Isle South B25F (Key)"
+    ],
+    [],
+    [
+        "245",
+        "",
+        "Suicune",
+        "Aqua Mantle",
+        "☆☆☆",
+        "Special moves are weakened to half their strength on Suicune.",
+        "Zero Isle South B25F (Key)"
+    ],
+    [],
+    [
+        "249",
+        "",
+        "Lugia",
+        "Silver Veil",
+        "☆☆☆",
+        "Increases amount of PP foes use, in addition to Lugia's Pressure Ability.",
+        "Deep Miracle Sea B3F (Key)"
+    ],
+    [],
+    [
+        "250",
+        "",
+        "Ho-Oh",
+        "Rainbow Veil",
+        "☆☆☆",
+        "Status conditions are reflected from Ho-Oh back to the user.",
+        "Zero Isle South B25F (Key)"
+    ],
+    [],
+    [
+        "251",
+        "",
+        "Celebi",
+        "Chrono Veil",
+        "☆☆☆",
+        "Restores 1 PP to all of Celebi's moves when it reaches another floor.",
+        "Zero Isle South B15F (Key)"
+    ],
+    [],
+    [
+        "377",
+        "",
+        "Regirock",
+        "Rock Sash",
+        "☆☆☆",
+        "Physical moves are weakened to half their strength on Regirock.",
+        "Concealed Ruins B29F (Key)"
+    ],
+    [],
+    [
+        "378",
+        "",
+        "Regice",
+        "Ice Sash",
+        "☆☆☆",
+        "Physical moves are weakened to half their strength on Regice.",
+        "Concealed Ruins B29F (Key)"
+    ],
+    [],
+    [
+        "379",
+        "",
+        "Registeel",
+        "Steel Sash",
+        "☆☆☆",
+        "Physical moves are weakened to half their strength on Registeel.",
+        "Concealed Ruins B29F (Key)"
+    ],
+    [],
+    [
+        "380",
+        "",
+        "Latias",
+        "Heart Brooch",
+        "☆☆☆",
+        "May inflict Latias with an Invisible status condition when attacked.",
+        "Zero Isle West B17F (Key)"
+    ],
+    [],
+    [
+        "381",
+        "",
+        "Latios",
+        "Eon Veil",
+        "☆☆☆",
+        "May increase Latios' Movement Speed by 1 when attacked.",
+        "Zero Isle West B17F (Key)"
+    ],
+    [],
+    [
+        "382",
+        "",
+        "Kyogre",
+        "Seabed Veil",
+        "☆☆☆",
+        "Kyogre can attack twice in one turn during the Rain weather condition.",
+        "Deep Miracle Sea B3F (Key)"
+    ],
+    [],
+    [
+        "383",
+        "",
+        "Groudon",
+        "Terra Ring",
+        "☆☆☆",
+        "Groudon can attack twice in one turn during the Sunny weather condition.",
+        "Zero Isle West B25F (Key)"
+    ],
+    [],
+    [
+        "384",
+        "",
+        "Rayquaza",
+        "SkyHigh Veil",
+        "☆☆☆",
+        "Rayquaza can attack twice in one turn during the Clear weather condition.",
+        "Deep Spacial Rift B9F (Key)"
+    ],
+    [],
+    [
+        "385",
+        "",
+        "Jirachi",
+        "Wish Mantle",
+        "☆☆☆",
+        "Completely restores Jirachi's HP when entering a new floor.",
+        "Zero Isle South B15F (Key)"
+    ],
+    [],
+    [
+        "386",
+        "",
+        "Deoxys",
+        "Revive Robe",
+        "☆☆☆",
+        "Increases amount of PP foes use, in addition to Deoxys' Pressure Ability.",
+        "Zero Isle North B22F (Key)"
+    ],
+    [],
+    [
+        "480",
+        "",
+        "Uxie",
+        "Edify Robe",
+        "☆☆☆",
+        "If Uxie is attacked when it has little health, it may warp to a different area on the same floor.",
+        "Zero Isle East B15F (Key)"
+    ],
+    [],
+    [
+        "481",
+        "",
+        "Mesprit",
+        "Charity Robe",
+        "☆☆☆",
+        "If Mesprit is attacked when it has little health, it may warp to a different area on the same floor.",
+        "Zero Isle East B15F (Key)"
+    ],
+    [],
+    [
+        "482",
+        "",
+        "Azelf",
+        "Hope Robe",
+        "☆☆☆",
+        "If Azelf is attacked when it has little health, it may warp to a different area on the same floor.",
+        "Zero Isle East B15F (Key)"
+    ],
+    [],
+    [
+        "483",
+        "",
+        "Dialga",
+        "Time Shield",
+        "☆☆☆",
+        "Physical moves are weakened to half their strength on Dialga.",
+        "Zero Isle South B15F (Key)"
+    ],
+    [],
+    [
+        "484",
+        "",
+        "Palkia",
+        "Air Blade",
+        "☆☆☆",
+        "Boosts damage Palkia inflicts by 1.5 times.",
+        "Deep Miracle Sea B3F (Key)"
+    ],
+    [],
+    [
+        "485",
+        "",
+        "Heatran",
+        "Searing Ring",
+        "☆☆☆",
+        "Completely restores Heatran's HP when entering a new floor.",
+        "Zero Isle West B25F (Key)"
+    ],
+    [],
+    [
+        "486",
+        "",
+        "Regigigas",
+        "Ancient Ring",
+        "☆☆☆",
+        "Protects Regigigas from status conditions.",
+        "Concealed Ruins B29F (Key)"
+    ],
+    [],
+    [
+        "487",
+        "",
+        "Giratina",
+        "Nether Veil",
+        "☆☆☆",
+        "May afflict attacking foes with a Constricted status condition.",
+        "Zero Isle West B25F (Key)"
+    ],
+    [],
+    [
+        "488",
+        "",
+        "Cresselia",
+        "Lunar Veil",
+        "☆☆☆",
+        "When moves that increase stats are used on Cresselia, the rest of the party also gets the effects.",
+        "Deep Spacial Rift B9F (Key)"
+    ],
+    [],
+    [
+        "Phione Song",
+        "☆",
+        "Raises Defense by 3",
+        "Appraise a box dropped by a defeated foe"
+    ],
+    [
+        "Phione Card",
+        "☆",
+        "Raises Sp. Defense by 3",
+        "Appraise a box dropped by a defeated foe"
+    ],
+    [
+        "Wave Jewel",
+        "☆☆",
+        "Raises Defense and Sp. Defense by 3 each",
+        "Trade Phione Song and Phione Card"
+    ],
+    [
+        "Ripple Cape",
+        "☆☆☆",
+        "Recover 20HP per turn when on a water tile.",
+        "Trade Phione Song, Phione Card, and Wave Jewel"
+    ],
+    [
+        "Marine Cache",
+        "☆☆☆",
+        "Heals status conditions when Phione enters a water terrain.",
+        "Obtained from an event distribution Wonder Mail missionTD or swap any 5 exclusive itemsS"
+    ],
+    [],
+    [
+        "490",
+        "",
+        "Manaphy",
+        "Tidal Cape",
+        "☆☆☆",
+        "Recover 20HP per turn when on a water tile.",
+        "Obtained from an event distribution Wonder Mail missionTD or swap any 5 exclusive itemsS"
+    ],
+    [],
+    [
+        "491",
+        "",
+        "Darkrai",
+        "Eclipse Robe",
+        "☆☆☆",
+        "May afflict attacking enemies with a Nightmare status condition.",
+        "Zero Isle North B22F (Key)"
+    ],
+    [],
+    [
+        "492",
+        "",
+        "Shaymin",
+        "Purify Veil",
+        "☆☆☆",
+        "Cures allies' poisoned or badly poisoned conditions and restores 10HP to Shaymin (Explorers of Sky only).",
+        "Swap any 5 exclusive items."
+    ],
+    [],
+    [
+        "Tidal Cape",
+        "Rescue Magikarp at Crystal Crossing B7F",
+        "\nDelibird",
+        "H+F6 S3-1 CY5R\n4F5Y 9=96 -MCW"
+    ],
+    [
+        "Marine Cache",
+        "Rescue Feebas at Brine Cave B7F",
+        "\nFeebas",
+        "KW+& 3+69 Y4J=\nJ2R3 KSJS P8N9"
+    ],
+    [
+        "",
+        "",
+        "",
+        ""
+    ],
+    [
+        "Fire Dust",
+        "Fiery Globe",
+        "Dragon Dust",
+        "Dragon Globe"
+    ],
+    [
+        "",
+        "This section is incomplete.\nPlease feel free to edit this section to add missing information and complete it.\nReason: needs Korean name for exclusive item (if any)"
+    ],
+    [
+        "Language\tTitle\n Danish\tEksklusive ting*\n French\tObjet Exclusif\n German\tExklusive Item\n Italian\tStrumenti esclusivi\n Spanish\tObjeto exclusivo\n Swedish\tPokémon-exklusivt föremål*\n",
+        " Danish",
+        "Eksklusive ting*",
+        " French",
+        "Objet Exclusif",
+        " German",
+        "Exklusive Item",
+        " Italian",
+        "Strumenti esclusivi",
+        " Spanish",
+        "Objeto exclusivo",
+        " Swedish",
+        "Pokémon-exklusivt föremål*",
+        ""
+    ],
+    [],
+    [
+        " Danish",
+        "Eksklusive ting*"
+    ],
+    [
+        " French",
+        "Objet Exclusif"
+    ],
+    [
+        " German",
+        "Exklusive Item"
+    ],
+    [
+        " Italian",
+        "Strumenti esclusivi"
+    ],
+    [
+        " Spanish",
+        "Objeto exclusivo"
+    ],
+    [
+        " Swedish",
+        "Pokémon-exklusivt föremål*"
+    ],
+    [
+        ""
+    ],
+    [
+        "Language\tTitle\n French\tTroquer\n German\tTausch\n Italian\tPer cambiTD\nScambiaS\n Korean\t트레이드\n Spanish\tTrueques\n",
+        " French",
+        "Troquer",
+        " German",
+        "Tausch",
+        " Italian",
+        "Per cambiTD\nScambiaS",
+        " Korean",
+        "트레이드",
+        " Spanish",
+        "Trueques",
+        ""
+    ],
+    [],
+    [
+        " French",
+        "Troquer"
+    ],
+    [
+        " German",
+        "Tausch"
+    ],
+    [
+        " Italian",
+        "Per cambiTD\nScambiaS"
+    ],
+    [
+        " Korean",
+        "트레이드"
+    ],
+    [
+        " Spanish",
+        "Trueques"
+    ],
+    [
+        ""
+    ],
+    [
+        "Pokémon Mystery Dungeon series items\n\nConsumables:\tFood • Gummis • Seeds • Berries • Health drinks\n\nHeld items:\tGlasses • Scarves • Recruitment-affecting items\nMiracle and Wonder Chests • Seven Treasures\nSpace Globe • IQ Booster • Flags • Looplets\n\nObjects:\tWonder Orbs • Throwing items • HMs • Used TMs • TMs • Keys\nLink Box • Gabite Scale • Gracidea • Friend Gifts • Devices\nEmeras • Progress Devices • Wands • Djinn's Bottle\n\nSpecial:\tRescue Team Starter Set • Toolbox • Exploration Team Kit\nTreasure Bag • Treasure Collection • Mystery Dungeon evolutionary items\nTeleport Gem • Colored Wings • Wishing Stone • Music Box • Vortex Stone\nTreasure Boxes • Mystery Part • Secret Slab • Exclusive items\nRelic Fragment • Wonder Egg • Lost Loot • Sky Gift\nLookalike Items • Prize Tickets • Gates to Infinity exclusive items\nManuals • Entercards • Lucha Token • Connection Orb",
+        "Pokémon Mystery Dungeon series items\n\nConsumables:\tFood • Gummis • Seeds • Berries • Health drinks\n\nHeld items:\tGlasses • Scarves • Recruitment-affecting items\nMiracle and Wonder Chests • Seven Treasures\nSpace Globe • IQ Booster • Flags • Looplets\n\nObjects:\tWonder Orbs • Throwing items • HMs • Used TMs • TMs • Keys\nLink Box • Gabite Scale • Gracidea • Friend Gifts • Devices\nEmeras • Progress Devices • Wands • Djinn's Bottle\n\nSpecial:\tRescue Team Starter Set • Toolbox • Exploration Team Kit\nTreasure Bag • Treasure Collection • Mystery Dungeon evolutionary items\nTeleport Gem • Colored Wings • Wishing Stone • Music Box • Vortex Stone\nTreasure Boxes • Mystery Part • Secret Slab • Exclusive items\nRelic Fragment • Wonder Egg • Lost Loot • Sky Gift\nLookalike Items • Prize Tickets • Gates to Infinity exclusive items\nManuals • Entercards • Lucha Token • Connection Orb",
+        "Food • Gummis • Seeds • Berries • Health drinks",
+        "",
+        "Glasses • Scarves • Recruitment-affecting items\nMiracle and Wonder Chests • Seven Treasures\nSpace Globe • IQ Booster • Flags • Looplets",
+        "",
+        "Wonder Orbs • Throwing items • HMs • Used TMs • TMs • Keys\nLink Box • Gabite Scale • Gracidea • Friend Gifts • Devices\nEmeras • Progress Devices • Wands • Djinn's Bottle",
+        "",
+        "Rescue Team Starter Set • Toolbox • Exploration Team Kit\nTreasure Bag • Treasure Collection • Mystery Dungeon evolutionary items\nTeleport Gem • Colored Wings • Wishing Stone • Music Box • Vortex Stone\nTreasure Boxes • Mystery Part • Secret Slab • Exclusive items\nRelic Fragment • Wonder Egg • Lost Loot • Sky Gift\nLookalike Items • Prize Tickets • Gates to Infinity exclusive items\nManuals • Entercards • Lucha Token • Connection Orb"
+    ],
+    [
+        "Pokémon Mystery Dungeon series items\n\nConsumables:\tFood • Gummis • Seeds • Berries • Health drinks\n\nHeld items:\tGlasses • Scarves • Recruitment-affecting items\nMiracle and Wonder Chests • Seven Treasures\nSpace Globe • IQ Booster • Flags • Looplets\n\nObjects:\tWonder Orbs • Throwing items • HMs • Used TMs • TMs • Keys\nLink Box • Gabite Scale • Gracidea • Friend Gifts • Devices\nEmeras • Progress Devices • Wands • Djinn's Bottle\n\nSpecial:\tRescue Team Starter Set • Toolbox • Exploration Team Kit\nTreasure Bag • Treasure Collection • Mystery Dungeon evolutionary items\nTeleport Gem • Colored Wings • Wishing Stone • Music Box • Vortex Stone\nTreasure Boxes • Mystery Part • Secret Slab • Exclusive items\nRelic Fragment • Wonder Egg • Lost Loot • Sky Gift\nLookalike Items • Prize Tickets • Gates to Infinity exclusive items\nManuals • Entercards • Lucha Token • Connection Orb",
+        "Food • Gummis • Seeds • Berries • Health drinks",
+        "",
+        "Glasses • Scarves • Recruitment-affecting items\nMiracle and Wonder Chests • Seven Treasures\nSpace Globe • IQ Booster • Flags • Looplets",
+        "",
+        "Wonder Orbs • Throwing items • HMs • Used TMs • TMs • Keys\nLink Box • Gabite Scale • Gracidea • Friend Gifts • Devices\nEmeras • Progress Devices • Wands • Djinn's Bottle",
+        "",
+        "Rescue Team Starter Set • Toolbox • Exploration Team Kit\nTreasure Bag • Treasure Collection • Mystery Dungeon evolutionary items\nTeleport Gem • Colored Wings • Wishing Stone • Music Box • Vortex Stone\nTreasure Boxes • Mystery Part • Secret Slab • Exclusive items\nRelic Fragment • Wonder Egg • Lost Loot • Sky Gift\nLookalike Items • Prize Tickets • Gates to Infinity exclusive items\nManuals • Entercards • Lucha Token • Connection Orb"
+    ],
+    [],
+    [
+        "Food • Gummis • Seeds • Berries • Health drinks"
+    ],
+    [
+        ""
+    ],
+    [
+        "Glasses • Scarves • Recruitment-affecting items\nMiracle and Wonder Chests • Seven Treasures\nSpace Globe • IQ Booster • Flags • Looplets"
+    ],
+    [
+        ""
+    ],
+    [
+        "Wonder Orbs • Throwing items • HMs • Used TMs • TMs • Keys\nLink Box • Gabite Scale • Gracidea • Friend Gifts • Devices\nEmeras • Progress Devices • Wands • Djinn's Bottle"
+    ],
+    [
+        ""
+    ],
+    [
+        "Rescue Team Starter Set • Toolbox • Exploration Team Kit\nTreasure Bag • Treasure Collection • Mystery Dungeon evolutionary items\nTeleport Gem • Colored Wings • Wishing Stone • Music Box • Vortex Stone\nTreasure Boxes • Mystery Part • Secret Slab • Exclusive items\nRelic Fragment • Wonder Egg • Lost Loot • Sky Gift\nLookalike Items • Prize Tickets • Gates to Infinity exclusive items\nManuals • Entercards • Lucha Token • Connection Orb"
+    ],
+    [
+        "",
+        "This article is part of both Project Sidegames and Project ItemDex, Bulbapedia projects that, together, aim to write comprehensive articles on items in the sidegames.",
+        ""
+    ]
+]

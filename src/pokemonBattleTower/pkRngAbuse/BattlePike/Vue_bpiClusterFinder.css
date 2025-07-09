@@ -1,0 +1,10 @@
+.hasPokemonToInclude {
+  color:green;
+}
+.notHasPokemonToInclude {
+  color:red;
+}
+.inLongestStreak {
+  font-weight: bold;
+  background:rgba(0,0,0,0.5);
+}

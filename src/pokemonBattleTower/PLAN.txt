@@ -1,0 +1,24 @@
+Emerald
+  article about rng
+  manual battle assitant: damage calc + possible mon checker
+     on website and standalone
+  automatic battle assitant
+     on website and standalone
+
+Platinum
+  article about rng
+  rng manip: find easiest streak
+  generate pmon rating: internal only
+
+  not needed (for tower at least):
+    manual battle assitant: damage calc + possible mon checker
+    automatic battle assitant
+
+Black2
+  article about rng
+  rng manip: find easiest streak
+  generate pmon rating: internal only
+
+
+
+

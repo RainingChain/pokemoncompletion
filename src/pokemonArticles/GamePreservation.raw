@@ -1,0 +1,61 @@
+<h2>Pokémon Game Preservation</h2>
+
+<p>
+Gist: The list of Pokémon games, with their preservation status. Only games requiring a server are listed.
+</p>
+
+<h3>Lost Games</h3>
+<div>Those games could only be played online, and their servers were shutdown permanently. It is now near impossible to preserve them.</div>
+<ul>
+  <li>Pokémon Dream World. Discontinued on January 14, 2014.</li>
+  <li>Pokémon Trading Card Game Online (PC). Discontinued on June 5, 2023.</li>
+  <li>Pokémate (Mobile). Discontinued on January 31, 2008.</li>
+  <li>Pokémon Duel (Mobile). Discontinued on October 31, 2019</li>
+  <li>Pokémon Medallion Battle (Facebook). Discontinued on February 29, 2024.</li>
+  <li>Pokémon Tower Battle. Discontinued in 2020?</li>
+</ul>
+
+<h3>Games at Risk of Being Lost</h3>
+<div>Those games can only be played online. Once their server will shutdown, they will be lost forever.</div>
+<ul>
+  <li>Pokémon Café ReMix</li>
+  <li>Pokémon Sleep</li>
+  <li>Pokémon Smile</li>
+  <li>Pokémon GO (Mobile)</li>
+  <li>Pokémon Trading Card Game Live (PC)</li>
+  <li>Pokémon Trading Card Game Pocket (Mobile)</li>
+  <li>Pokémon UNITE</li>
+</ul>
+<br>
+<h3>Preserved Games</h3>
+<p>Those games technically require a server at some point to be played, but there is a way to play them offline.</p>
+
+<h4>Pokémon Shuffle (3DS)</h4>
+<div style="padding-left:10px">
+  <h5>Online-only features:</h5>
+  <ul>
+    <li>Access to Special stages (Competitive stage, Daily Pokémon, Escalation battle, Great Challenge, High-Speed Challenge, One Chance a Day!, Pokémon Safari, Resource events, Special Challenge, UB Challenge).</li>
+    <li>Number of catchable Pokémon: offline 584, online 975.</li>
+    <li>Number of obtainable Mega Stone Pokémon: offline 34, online 48.</li>
+    <li>Maximum Trainer Rank: offline 22, online 30.</li>
+    <li>Number of completable Mission cards: offline 18, online 19.</li>
+  </ul>
+
+  <h5>Preservation Status: <span style="color:green">Preserved</span></h5>
+  <p>
+    A <a href="/completion/shuffle/dlc">mod</a> for the game file (.cia) has been created that adds access to all the Special stages.
+  </p>
+</div>
+
+<h4>Pokémon Magikarp Jump (Mobile)</h4>
+<div style="padding-left:10px">
+  <h5>Online-only features:</h5>
+  <ul>
+    <li>Starting a new game.</li>
+  </ul>
+
+  <h5>Preservation Status: <span style="color:green">Preserved</span></h5>
+  <p>
+    A save data file has been conserved, right after starting a new game after connecting to the server. Contact RainingChain on <a target="_blank" rel="noopener" href="https://discord.gg/FZf9WNZZ"> Scripters War Discord</a> for more info.
+  </p>
+</div>

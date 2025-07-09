@@ -1,0 +1,39 @@
+
+//a.split('\n').map(a => ({id:+a.split('\t')[0], name:a.split('\t')[1]})).map(a => JSON.stringify(a)).join(',\r\n')
+
+/*
+.map(a => `${a.name}\t${a.id}`).join('\n')
+
+Routes
+Route
+
+(Route \d+, )(\d)
+$1Route $2
+
+(\d)Route
+$1 Route
+
+, and (\d+)
+, Route $1
+
+(\d+) and (\d+)
+$1 and Route $2
+
+
+a.forEach(a2 => {
+  b2 = b.find(b2 => b2.id === a2.id);
+  if(!b2)
+    return;
+
+  a2.location = a2.location || b2.location;
+  if(a2.obtainable === undefined)
+    return;
+
+  o = a2.obtainable;
+  delete a2.obtainable;
+  a2.obtainable = o;
+});
+
+JSON.stringify(a).replace(/\},/g, '},\n');
+
+*/

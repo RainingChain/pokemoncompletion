@@ -1,0 +1,37 @@
+.pkAssistant {
+  --iconSize:48;
+  padding-right: 5px;
+  padding-left: 5px;
+}
+
+.smaller-pk-icons {
+  --iconSize:24;
+}
+
+.playerColor {
+  color:rgb(153, 205, 223);
+}
+
+.trainerColor {
+  color:rgb(255, 178, 147);
+}
+
+.smallBtn {
+  padding:2px 5px;
+  margin:0px;
+}
+
+.checkbox {
+  margin-bottom:10px;
+  cursor:pointer;
+}
+.checkbox * {
+  cursor:pointer;
+}
+.div-section { margin-bottom:10px }
+
+input[type=checkbox] {
+  width:18px;
+  height:18px;
+}
+

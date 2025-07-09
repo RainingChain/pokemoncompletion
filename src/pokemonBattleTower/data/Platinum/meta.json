@@ -1,0 +1,12 @@
+{
+"gen":4,
+"gameName":"Platinum",
+"semiDangerousMoves":["Fake Out","Protect","Detect","Endure","Taunt","SelfDestruct","Self-Destruct","Explosion","Trick","Trick Room","Curse"],
+"dangerousMoves":["Minimize","Double Team","Swagger","Confuse Ray","Thunder Wave","Destiny Bond","Encore","Flatter"],
+"ohkoMoves":[
+  "Guillotine","Sheer Cold","Fissure","Horn Drill"
+],
+"dangerousItems":[
+  "Quick Claw", "Focus Band","BrightPowder", "Lax Incense"
+]
+}

@@ -1,0 +1,196 @@
+{{> ../../common/header.hbs}}
+
+<body class="darkTheme">
+<div id="nav-slot"></div>
+
+<style>
+.table {
+  border-spacing:0px;
+}
+.table td {
+  border:0.5px solid white;
+  padding:4px;
+}
+.table tr:first-child {
+  font-weight:bold;
+}
+.pokemon-title a {
+  color:rgba(200,200,200,1);
+  text-decoration: none !important;
+}
+.pokemon-title span:first-of-type {
+  color:rgba(200,200,200,1);
+}
+
+.pokemon-title a:hover {
+  opacity:0.8;
+  text-decoration: underline !important;
+}
+
+</style>
+
+<div class="root-container">
+  <h2 class="pokemon-title">
+    <a href="/VersionCompatibility"><span>Pokémon Version Compatibility</span></a><span>▸</span><span>Generation II</span>
+  </h2>
+  <p>This page lists all Pokémon Generation II game versions and accessories for all consoles. It also explains what game versions are compatible.</p>
+
+  <h4>GB Console & Games</h4>
+  <div>Check <a href="./GenI">Pokémon Generation I Version Compatibility</a> page.</div>
+  <br>
+
+  <h4>GBC Console</h4>
+  <ul>
+    <li><span class="bold">Game Boy Color console:</span> They are same world-wide and can play any game versions.</li>
+    <li><span class="bold">Game Boy Advance console:</span> They are same world-wide and can play any game versions (and trade). However, the Game Boy Advance doesn't support infrared features such as Mystery Gift. To trade with Generation 2 games, a GBC game link cable must be used (GBA game link cable will not work).</li>
+  </ul>
+
+  <h4>GBC Accessories</h4>
+  <ul>
+    <li><span class="bold">Game link cables:</span> They are the same world-wide and can be used on any game versions and consoles.</li>
+    <li><span class="bold">Mobile Game Boy Adapter:</span> Only works on Japanese Pokémon Crystal and NTSC-J (Japan) Pokémon Stadium 2 games.</li>
+  </ul>
+
+  <h4>GBC Game Versions</h4>
+  <h5>Pokémon Gold and Silver</h5>
+  <div>Each have 7 versions based on language:</div>
+  <ul>
+    <li>
+      English (The US, Canada, UK, Australia retail boxes are different, but the GBC cartridge content is the same.)
+    </li>
+    <li>Japanese</li>
+    <li>French</li>
+    <li>Italian</li>
+    <li>Spanish</li>
+    <li>German</li>
+    <li>Korean</li>
+  </ul>
+
+  <h5>Pokémon Crystal</h5>
+  <div>Has 6 versions based on language:</div>
+  <ul>
+    <li>English</li>
+    <li>Japanese</li>
+    <li>French</li>
+    <li>Italian</li>
+    <li>Spanish</li>
+    <li>German</li>
+  </ul>
+
+  <h4>GBC-GBC Interactions</h4>
+  <ul>
+    <li>
+      <span class="bold">Trade, Link Battle, and Mystery Gift:</span>
+      <ul>
+        <li>The games are split in 3 compatibility groups: Japanese, Korean and English/French/Italian/Spanish/German.</li>
+        <li>Games can only trade, battle and perform Mystery Gift with games of the same group.</li>
+        <li>
+          <table class="table">
+            <tr><td>↓ GBC \ GBC →</td><td>Japanese</td><td>English/French/Italian/Spanish/German</td><td>Korean</td></tr>
+
+            <tr><td>Japanese</td><td>Yes</td><td></td><td></td></tr>
+            <tr><td>English<br>French<br>Italian<br>Spanish<br>German</td><td></td><td>Yes</td><td></td></tr>
+            <tr><td>Korean</td><td></td><td></td><td>Yes</td></tr>
+        </li>
+      </ul>
+    </li>
+  </ul>
+
+  <h4>GB-GBC Interactions</h4>
+  <div>Game Boy games (Red, Blue, Green, Yellow) can trade with GBC games (Gold, Silver, Crystal) with restrictions.</div>
+  <div>The mechanism for trading between Generation 1 and Generation 2 games is called Time Capsule.</div>
+  <ul>
+    <li>
+      <span class="bold">Trade:</span>
+      <ul>
+        <li>The games are split in 3 compatibility groups: Japanese, Korean and English/French/Italian/Spanish/German.</li>
+        <li>Games can only trade with games of the same group.</li>
+        <li>
+          <table class="table">
+            <tr><td>↓ GB \ GBC →</td><td>Japanese</td><td>English/French/Italian/Spanish/German</td><td>Korean</td></tr>
+
+            <tr><td>Japanese</td><td>Yes</td><td></td><td></td></tr>
+            <tr><td>English<br>French<br>Italian<br>Spanish<br>German</td><td></td><td>Yes</td><td></td></tr>
+          </table>
+        </li>
+      </ul>
+    </li>
+    <li><span class="bold">Link Battle:</span> Not possible using two handlheld consoles. Battle is possible by connecting a Generation 1 and a Generation 2 games with Transfer Paks and Pokémon Stadium 2 on the N64 (See N64 Compatibility section).</li>
+  </ul>
+
+  <h4>Pokémon Pikachu GS 2 Console</h4>
+  <div>Has 2 versions:</div>
+  <ul>
+    <li>Japanese</li>
+    <li>International</li>
+  </ul>
+
+  <div>It can communicate with Pokémon Gold, Silver and Crystal.</div>
+  <div>
+    <table class="table">
+      <tr><td>↓ Pokémon Pikachu GS 2 \ GBC →</td><td>Japanese</td><td>English/French/Italian/Spanish/German</td><td>Korean</td></tr>
+
+      <tr><td>Japanese</td><td>Yes</td><td></td><td></td></tr>
+      <tr><td>International</td><td></td><td>Yes</td><td></td></tr>
+    </table>
+  </div>
+  <br>
+  <h4>N64 Console</h4>
+  <div>N64 has 4 versions based on region.</div>
+  <ul>
+    <li><span class="bold">NTSC-J:</span> Japan</li>
+    <li><span class="bold">NTSC-U:</span> The Americas and Asia</li>
+    <li><span class="bold">PAL:</span> Europe and Oceania</li>
+    <li><span class="bold">NTSC-C:</span> China
+      <ul><li>The N64 console was rebranded as iQue in China. No N64 Pokémon games exist for that console version.</li></ul></li>
+  </ul>
+  <div>In South Korea, the N64 console was rebranded as Hyundai Comboy 64. It has the same features and compatibility as the NTSC-J sold in Japan.</div>
+  <br>
+
+  <h4>N64 Accessories</h4>
+  <ul>
+    <li><span class="bold">Transfer Pak for Nintendo 64:</span> They are the same world-wide and can be used on any game versions and consoles.</li>
+  </ul>
+
+  <h4>N64 Game Versions</h4>
+  <div>A N64 game is specific to a region and can only be played on a N64 of that region. N64 Pokémon games only has 1 specific unchangeable language.</div>
+  <br>
+
+  <h5>Pokémon Stadium 2</h5>
+  <div>8 versions exist. It is known as Gold and Silver in Japan.</div>
+  <ul>
+    <li>NTSC-J Japanese</li>
+    <li>NTSC-J English</li>
+    <li>NTSC-U English</li>
+    <li>PAL English</li>
+    <li>PAL German</li>
+    <li>PAL French</li>
+    <li>PAL Spanish</li>
+    <li>PAL Italian</li>
+  </ul>
+
+  <h4>N64-GBC Interactions</h4>
+  <div>
+    <ul>
+      <li>GB games (Pokémon Red, Blue, Yellow, Green) and GBC games (Gold, Siler, Crystal) can connect to Pokémon Stadium 2 on N64 using the Transfer Pak.</li>
+      <li>GBC games (Gold, Siler, Crystal) can't connect to Pokémon Stadium 1.</li>
+      <li>Pokémon Stadium 2 games are split in 2 compatibility groups: NTSC-J and NTSC-U/PAL.</li>
+
+      <li>
+        <table class="table">
+          <tr><td>↓ N64 \ GBC →</td><td>Japanese</td><td>English/French/Italian/Spanish/German</td><td>Korean</td></tr>
+
+          <tr><td>NTSC-J Japanese</td><td>Yes</td><td></td><td></td></tr>
+          <tr><td>NTSC-J English</td><td></td><td>Yes</td><td></td></tr>
+          <tr><td>NTSC-U English</td><td></td><td>Yes</td><td></td></tr>
+          <tr><td>PAL English<br>PAL German<br>PAL French<br>PAL Spanish<br>PAL Italian
+            </td><td></td><td>Yes</td><td></td></tr>
+      </li>
+    </ul>
+  </div>
+
+</div>
+
+  
+
+{{> ../../common/footer.hbs}}

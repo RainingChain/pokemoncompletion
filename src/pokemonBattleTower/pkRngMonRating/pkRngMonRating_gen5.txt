@@ -1,0 +1,499 @@
+
+import Vue from "vue";
+
+import "../../common/css/common.css";
+import "../../common/css/globalStyle.css";
+
+import withRender from "./pkRngMonRating.vue";
+
+import { Vue_nav } from "../../common/views/nav";
+Vue_nav.createAndMount();
+
+import { Vue_analytics } from "../../common/views/analytics";
+Vue_analytics.createAndMount();
+
+import * as Smogon from '@smogon/calc';
+import { Move, Pokemon, calculate } from '@smogon/calc';
+import pokemons from "../data/black2_pokemons.json";
+import trainers from "../data/black2_trainers.json";
+(<any>window).Smogon = Smogon;
+type RawPokemon = Omit<typeof pokemons[0],'evs'> //for typescript perf
+type Trainer = typeof trainers[0];
+const GEN = 5;
+
+const DEBUG = window.location.href.includes('localhost');
+
+const MIN_DMG_PCT = 0.50;
+
+const deepCloneify = function<T>(f:T){
+  //(<any>f).clone = function(){ return Vue_pokemonBattleTower_methods.deepClone(this); };
+  return f;
+}
+
+const dangerousMoves = new Set(["Glare","Stun Spore","Thunder Wave","Body Slam","Thunder","Thunderbolt","ThunderPunch","Bounce","Discharge","Force Palm","Spark","Thunder Fang","Tri Attack","Zap Cannon","Yawn","Spore","Attract","Autotomize","Hypnosis","Lovely Kiss","Sing","Sleep Powder","Blizzard","Ice Beam","Ice Fang","Ice Punch","Confuse Ray","Dizzy Punch","DynamicPunch","Flatter","Hurricane","Psybeam","Rock Climb","Signal Beam","Supersonic","Swagger","Sweet Kiss","Teeter Dance","Water Pulse","Trick","Trick Room","Toxic","Cotton Guard","Memento","Minimize","Sand-Attack","Struggle Bug","BubbleBeam","Bulldoze","Electroweb","Icy Wind","Mud Shot","Rock Tomb","Scary Face","String Shot","Low Sweep","Flash","Leaf Tornado","Mirror Shot","Mud Bomb","Muddy Water","Night Daze","Power Split","Sheer Cold","Fissure","GrassWhistle","Double Team","Horn Drill"]);
+
+class Vue_pokemon_data {
+  static createTrainerPk(raw:RawPokemon,ability:string,abilityIdx:number){
+    const vuePk = new Vue_pokemon_data();
+    vuePk.spk = deepCloneify(new Pokemon(GEN, raw.species,{
+      ivs:{hp:31,atk:31,def:31,spa:31,spd:31,spe:31}, //BAD, not always 31 in battle institute
+      nature:raw.nature,
+      level:50,
+      evs:(<any>raw).evs,
+      item: raw.item,
+      moves: raw.moves,
+      ability,
+    }));
+
+    vuePk.pkMoves = raw.moves.map(m => deepCloneify(new Move(GEN, m, {isCrit:true})));
+
+    vuePk.battleTowerId = raw.id;
+    vuePk.name = vuePk.spk.name;
+    vuePk.abilityIdx = abilityIdx;
+    vuePk.ability = vuePk.spk.ability || '';
+    vuePk.nature = vuePk.spk.nature;
+    return vuePk;
+  }
+  static createSelfPk(pk:Pokemon, hasHack=false){
+    const vuePk = new Vue_pokemon_data();
+    vuePk.spk = pk;
+    vuePk.nature = pk.nature;
+    vuePk.pkMoves = pk.moves.map(m => deepCloneify(new Move(GEN, m, {isCrit:false})));
+    vuePk.battleTowerId = null;
+    vuePk.name = vuePk.spk.name;
+    vuePk.hasHack = hasHack;
+    return vuePk;
+
+  }
+  name = '';
+  nature = '';
+  battleTowerId:null | number = null;
+  abilityIdx = 0;
+  ability = '';
+  pkMoves:Move[] = [];
+  hasHack = false;
+  spk:Pokemon;
+  getDesc(){
+    return `${this.hasHack ? 'HACK ' : ''}${this.name}, ${this.nature}, ${this.spk.item}, ${this.pkMoves.map(m => m.name)}`
+  }
+}
+
+enum CantOhkoReason {
+  item = "item",
+  spd = "spd",
+  dmg = "dmg",
+  ability = "ability",
+  speedBoost = "speedBoost",
+}
+enum DangerousReason {
+  move = "move",
+  dmg = "dmg",
+  item = "item",
+}
+const only29Wins = false;
+class PokemonHelper {
+  constructor(){
+    this.initSelfPks();
+    const pk29Wins = new Set<number>();
+    trainers.forEach(t => {
+      if(only29Wins && t.set !== 5)
+        return;
+      t.pokemons.forEach(pkId => pk29Wins.add(pkId));
+    });
+    pokemons.forEach(rpk => {
+      if(!pk29Wins.has(rpk.id))
+        return null!;
+      rpk.ability.forEach((ab,i) => {
+        this.trainerPks.push(Vue_pokemon_data.createTrainerPk(rpk, ab ? ab : rpk.ability[0], i));
+      });
+    })
+  }
+  selfPks:Vue_pokemon_data[] = [];
+  trainerPks:Vue_pokemon_data[] = [];
+  initSelfPks(){
+    const MORE_SPD_LESS_ATK = 'Timid';
+    const MORE_SPD_LESS_SPA = 'Jolly';
+    const MORE_ATK_LESS_SPA = 'Adamant';
+    const MORE_SPA_LESS_ATK = 'Modest';
+
+    const getMoveCombinations = function(movesAlways:string[],movesMaybe:string[]){
+      if(!movesMaybe.length)
+        return [movesAlways];
+      const getBit = function(num:number,index:number){
+        return (num & (1 << index)) !== 0;
+      };
+      const get1BitCount = function(v:number){
+        v = v - ((v >> 1) & 0x55555555);
+        v = (v & 0x33333333) + ((v >> 2) & 0x33333333);
+        return ((v + (v >> 4) & 0xF0F0F0F) * 0x1010101) >> 24;
+      }
+      const maybeCountWanted = 4 - movesAlways.length;
+      const moveCombinations:string[][] = [];
+      for(let i = 0; i < 2 ** movesMaybe.length; i++){
+        if(get1BitCount(i) !== maybeCountWanted)
+          continue;
+        const curr:string[] = [...movesAlways];
+        for(let j = 0; j < movesMaybe.length; j++){
+          if(getBit(i, j))
+            curr.push(movesMaybe[j]);
+        }
+        moveCombinations.push(curr);
+      }
+      return moveCombinations;
+    }
+    const newPks = function(name:string, isAtk:boolean,item:string,movesAlways:string[],movesMaybe:string[]=[], extra:any={},hasHack=false){
+      const movesCombi = getMoveCombinations(movesAlways,movesMaybe);
+      const pks:Vue_pokemon_data[] = [];
+      movesCombi.forEach(moves2 => {
+        const addPk = function(nature:string, evsAtk:number, evsSpa:number, evsHp:number){
+          const pk = Vue_pokemon_data.createSelfPk(new Pokemon(GEN, name,{
+            ivs:{hp:31,atk:31,def:31,spa:31,spd:31,spe:31},
+            nature,
+            level:50,
+            evs:{atk:evsAtk, spa:evsSpa, spe:252, hp:evsHp},
+            item,
+            moves: moves2,
+            ...extra,
+          }), hasHack);
+          pks.push(pk);
+        };
+        if(isAtk){
+          addPk(MORE_SPD_LESS_SPA, 252, 0, 4);
+          addPk(MORE_ATK_LESS_SPA, 252, 0, 4);
+        } else {
+          addPk(MORE_SPD_LESS_ATK, 0, 252, 4);
+          addPk(MORE_SPA_LESS_ATK, 0, 252, 4);
+        }
+      });
+      return pks;
+    };
+
+
+    const pks = [
+      Vue_pokemon_data.createSelfPk(new Pokemon(GEN, 'Togekiss',{
+        ivs:{hp:31,atk:31,def:31,spa:31,spd:31,spe:31},
+        nature:MORE_SPA_LESS_ATK,
+        level:50,
+        evs:{spa:252, spe:0},
+        item:'Choice Scarf',
+        moves: ['Air Slash'],
+      }), false),
+      //...newPks('Terrakion', true, 'Life Orb', ['Close Combat', "Earthquake","X-Scissor","Aerial Ace"]), //499
+      //...newPks('Terrakion', true, 'Life Orb', ['Close Combat', "Earthquake",],[ "X-Scissor","Poison Jab", "Iron Head", "Aerial Ace"]),
+
+      //...newPks('Azelf', false, 'Life Orb', ['Psychic', "Flamethrower", "Grass Knot" ,"Thunderbolt"]), //376
+      //...newPks('Azelf', false, 'Life Orb', ['Psychic', "Flamethrower"],["Shadow Ball", "Grass Knot","Psyshock","Thunderbolt", "Signal Beam","Ice Punch", "Energy Ball"]),
+
+      //--------------
+      //...newPks('Garchomp', true, 'Life Orb', ['Outrage','Earthquake', 'Flamethrower', "Poison Jab"]),
+      //...newPks('Garchomp', true, 'Life Orb', ['Dragon Claw','Earthquake', 'Flamethrower', "Poison Jab"]), // 332
+      //...newPks('Garchomp', true, 'Life Orb', ['Dragon Claw','Earthquake'],['Brick Break','Flamethrower', "Crunch", "Iron Head", "Poison Jab", "Shadow Claw", "Surf"]),
+      //...newPks('Garchomp', true, 'Choice Band', ['Earthquake'],[]),
+      //...newPks('Garchomp', true, 'Lum Berry', ['Outrage','Earthquake'],['Brick Break','Flamethrower', "Crunch", "Iron Head", "Poison Jab", "Shadow Claw", "Surf"]),
+      //--------------
+
+      //...newPks('Haxorus', true, 'Life Orb', ['Dragon Claw', "Earthquake", "Low Kick", "X-Scissor"],[],{ability:"Mold Breaker"}), //296
+      //...newPks('Haxorus', true, 'Life Orb', ['Dragon Claw', "Earthquake"],["Low Kick", "X-Scissor", "Surf", "Shadow Claw", "Poison Jab", "Brick Break"],{},true),
+      //...newPks('Haxorus', true, 'Life Orb', ['Dragon Claw', "Earthquake"],["Low Kick", "X-Scissor", "Surf", "Shadow Claw", "Poison Jab", "Brick Break"],{ability:"Mold Breaker"}),
+
+      //...newPks('Archeops', true, 'Life Orb', ['Acrobatics', "Earthquake", "Crunch","Ancient Power"]), //313
+      //...newPks('Archeops', true, '', ['Acrobatics', "Earthquake"],["Earth Power","Dragon Claw", "Shadow Claw","Crunch", "Ancient Power"]),
+      //...newPks('Archeops', true, 'Life Orb', ['Acrobatics', "Earthquake"],["Earth Power","Dragon Claw", "Shadow Claw","Crunch", "Ancient Power"]),
+      //...newPks('Archeops', true, 'Flying Gem', ['Acrobatics', "Earthquake"],["Earth Power","Dragon Claw", "Shadow Claw","Crunch", "Ancient Power"], undefined, true),
+
+
+      //...newPks('Salamence', true, 'Life Orb', ['Dragon Claw',"Earthquake", "Aerial Ace", "Flamethrower"]), //279
+      //...newPks('Salamence', true, 'Life Orb', ['Dragon Claw',"Earthquake",], ["Brick Break", "Shadow Claw", "Aerial Ace", "Flamethrower","Crunch"]),
+
+      //...newPks('Chandelure', false, 'Life Orb', ["Shadow Ball", "Flamethrower", "Energy Ball", "Dark Pulse"]),  //314
+
+      //...newPks('Chandelure', false, 'Life Orb', ["Shadow Ball", "Flamethrower"],["Energy Ball", "Dark Pulse", "Hidden Power"],{ivs:{hp:31,atk:31,def:31,spa:30,spd:30,spe:31},}), // 151, HP ground
+
+      /*...newPks('Volcarona', false, 'Life Orb', ["Bug Buzz", "Flamethrower", "Giga Drain", "Psychic"],[],{
+        ivs:{hp:0,atk:0,def:0,spa:27,spd:0,spe:31}
+      }), //401*/
+      /*...newPks('Volcarona', false, 'Focus Sash', ["Bug Buzz", "Flamethrower", "Giga Drain", "Psychic"],[],{
+        ivs:{hp:0,atk:0,def:0,spa:27,spd:0,spe:31} //IV i got ingame from breeding
+      }), //401*/
+      //...newPks('Volcarona', false, 'Life Orb', ["Bug Buzz", "Flamethrower", "Giga Drain", "Psychic"]), //401
+      //...newPks('Volcarona', false, 'Life Orb', ["Bug Buzz", "Flamethrower"],["Giga Drain", "Psychic", "Hidden Power"],{ivs:{hp:31,atk:31,def:31,spa:30,spd:30,spe:31},}),
+
+      //...newPks('Latios', false, 'Life Orb', ["Psychic", "Grass Knot", "Ice Beam", "Surf"]), // 400
+      //...newPks('Latios', false, 'Life Orb', ["Psychic"],["Dragon Pulse", "Energy Ball", "Hidden Power", "Grass Knot", "Ice Beam", "Psyshock", "Shadow Ball", "Surf","Thunderbolt"],{ivs:{hp:31,atk:31,def:31,spa:30,spd:30,spe:31},}),
+
+      //...newPks('Lucario', true, 'Life Orb', ["Close Combat", "Earthquake", "Ice Punch", "Thunder Punch"]), //329
+      //...newPks('Lucario', true, 'Life Orb', ["Close Combat", "Earthquake"], ["Crunch", "Aura Sphere", "Dark Pulse","Dragon Pulse", "Flash Cannon", "Ice Punch", "Low Kick", "Poison Jab", "Shadow Ball", "Shadow Claw", "Thunder Punch", "Water Pulse"]),
+    ];
+    this.selfPks = pks;
+  }
+  static dangerousItems:string[] = [
+    //"BrightPowder", "Quick Claw", "Lax Incense"
+  ];
+  static ohkoPreventItems:string[] = [
+    //"Focus Sash", "Focus Band",
+  ];
+  getAllOhkoInfos(){
+    const arr = this.selfPks.map((pk,idx) => {
+      return {
+        idx,
+        ...this.getOhkoInfos(pk),
+      }
+    });
+    arr.sort((a,b) => {
+      return b.ohkoGuaranteedCount - a.ohkoGuaranteedCount;
+    });
+    return arr;
+  }
+  getNonDangerousTrainerPks(selfPk:Vue_pokemon_data,keepAll=false){
+    let detailed = this.trainerPks.map(tpk => {
+      return {
+        name:tpk.name,
+        id:tpk.battleTowerId,
+        abilityIdx:tpk.abilityIdx,
+        moves:tpk.spk.moves.join(','),
+        ...this.isDangerousTrainerPk(selfPk, tpk)
+      }
+    });
+    if(!keepAll)
+      detailed = detailed.filter(a => a.reason === null);
+    return detailed;
+  }
+  getOhkoInfos(selfPk:Vue_pokemon_data){
+    const detailed = this.trainerPks.map(tpk => {
+      const cantReason = this.canSelfPkOhkoTrainerPk(selfPk, tpk);
+      return {cantReason, id:tpk.battleTowerId, abilityIdx:tpk.abilityIdx, trainerPkName: tpk.name, ability:tpk.spk.ability};
+    });
+    const cantReasonCountMap = new Map<CantOhkoReason | null, number>();
+    let ohkoGuaranteedCount = 0;
+    detailed.forEach(info => {
+      if(info.cantReason.reasonId === null){
+        ohkoGuaranteedCount++;
+        return;
+      }
+      const reasonId = info.cantReason.reasonId;
+      const val = cantReasonCountMap.get(reasonId) || 0;
+      cantReasonCountMap.set(reasonId, val + 1);
+    });
+    const cantDmgDetails = detailed.filter(d => d.cantReason.reasonId === CantOhkoReason.dmg);
+    return {
+      desc:selfPk.getDesc(),
+      ohkoGuaranteedCount,
+      cantDmgDetails,
+      cantReasonCountMap,
+      detailed,
+    }
+  }
+  isDangerousTrainerPk(selfPk:Vue_pokemon_data, trainerPk:Vue_pokemon_data){
+    const highestDmg = this.getHighestDmgMove(trainerPk, selfPk, true);
+    const highestDmgTxt = `${Math.ceil(highestDmg.dmgPct * 100)}% ${highestDmg.move}`;
+    if(highestDmg.dmgPct > 0.68)
+      return {reason:DangerousReason.dmg, info:highestDmgTxt};
+
+    if(PokemonHelper.dangerousItems.includes(trainerPk.spk.item!))
+      return {reason:DangerousReason.item, info: trainerPk.spk.item!};
+    const dangerMove = trainerPk.pkMoves.find(m => {
+      return dangerousMoves.has(m.name);
+    });
+    if(dangerMove)
+      return {reason:DangerousReason.move, info: dangerMove.name};
+
+    return {reason:null, info:highestDmgTxt};
+  }
+  canSelfPkOhkoTrainerPk(selfPk:Vue_pokemon_data, trainerPk:Vue_pokemon_data){
+    const item = trainerPk.spk.item!;
+    if(PokemonHelper.ohkoPreventItems.includes(item) || PokemonHelper.dangerousItems.includes(item))
+      return {reasonId:CantOhkoReason.item, item};
+    if(selfPk.spk.ability !== 'Mold Breaker' && trainerPk.spk.ability === "Sturdy")
+      return {reasonId:CantOhkoReason.ability, info:'sturdy'};
+
+    if(selfPk.spk.evs.atk > 0 && trainerPk.spk.ability === "Intimidate")
+      return {reasonId:CantOhkoReason.ability, info:'intimidate'};
+
+    if(trainerPk.spk.ability === 'Speed Boost' && trainerPk.spk.moves.some(m => ['Protect','Detect','Endure'].includes(m)))
+      return {reasonId:CantOhkoReason.speedBoost, info:'speedBoost'};
+
+    const cantSpd = this.getCantOutSpd(selfPk, trainerPk);
+    if(cantSpd)
+      return cantSpd;
+    const dmgInfo = this.getDmgInfo(selfPk, trainerPk);
+    return dmgInfo;
+  }
+  getCantOutSpd(selfPk:Vue_pokemon_data, trainerPk:Vue_pokemon_data){
+    const spd = this.getSpd(selfPk);
+    const spd2 = this.getSpd(trainerPk);
+    if(spd > spd2)
+      return null;
+    return {reasonId:CantOhkoReason.spd, info:`Spd: ${spd} vs ${spd2}`};
+  }
+  getSpd(pk:Vue_pokemon_data){
+    const mult = pk.spk.item === 'Choice Scarf' ? 1.5 : 1;
+    return Math.floor(pk.spk.stats.spe) * mult;
+  }
+  getDmgInfo(selfPk:Vue_pokemon_data, trainerPk:Vue_pokemon_data){
+    const highestDmgInfo = this.getHighestDmgMove(selfPk, trainerPk, false);
+    const info = `${Math.floor(highestDmgInfo.dmgPct * 100)}% Dmg : ${highestDmgInfo.move}`;
+    return {reasonId:highestDmgInfo.dmgPct >= MIN_DMG_PCT ? null : CantOhkoReason.dmg, info, dmgPct:highestDmgInfo.dmgPct};
+  }
+  getHighestDmgMove(atker:Vue_pokemon_data, defender:Vue_pokemon_data, highestRoll:boolean){
+    const best = {dmgPct:0, move:''};
+    atker.pkMoves.forEach(m => {
+      const dmgPct = this.getDmgPct(atker, defender, m, highestRoll);
+      if(dmgPct > best.dmgPct){
+        best.dmgPct = dmgPct;
+        best.move = m.name;
+      }
+    });
+    return best;
+  }
+  getDmgPct(atker:Vue_pokemon_data, defender:Vue_pokemon_data, move:Smogon.Move, highestRoll:boolean){
+    const res = calculate(GEN, atker.spk, defender.spk, move);
+    const dmg = (function(){
+      const d = res.damage;
+      if(typeof d === 'number')
+        return d;
+      if(d.length === 2){
+        const d2 = <number[]>d[highestRoll ? 1 : 0];
+        return d2[highestRoll ? d2.length - 1 : 0];
+      }
+      return <number>d[highestRoll ? d.length - 1 : 0];
+    })();
+    return dmg / defender.spk.maxHP(true);
+  }
+
+  static deepClone<T> (objRaw:T, recursionLvl=0):T {
+    if(objRaw === null || typeof objRaw !== 'object')
+      return objRaw;
+    if(recursionLvl > 50)
+      return undefined!;
+
+    const obj:any = objRaw;
+
+    if(Array.isArray(obj)){
+      const temp:any = [];
+      for(let i = 0; i < obj.length; i++){
+        if(obj[i] === null || typeof obj[i] !== 'object')  //reduce function call
+          temp[i] = obj[i];
+        else
+          temp[i] = this.deepClone(obj[i], recursionLvl + 1);
+      }
+      return temp;
+    } else if(obj instanceof Map){
+      return <any>new Map(obj);
+    } else if(obj instanceof Set){
+      return <any>new Set(obj);
+    }
+    const temp = Object.create(Object.getPrototypeOf(obj));
+
+    for(const key in obj){
+      if(obj[key] === null || typeof obj[key] !== 'object')  //reduce function call
+        temp[key] = obj[key];
+      else
+        temp[key] = this.deepClone(obj[key], recursionLvl + 1);
+    }
+    return temp;
+  }
+  validateStreak(selfPkIdx:number,str:string){
+    //(t293,p861,a0,r1|p894,a0,r1|p821,a1,r1|) (t207,p841,a1,r1|p879,a1,r1|p895,a0,r1|) (t231,p795,a0,r1|p577,a0,r1|p790,a0,r1|) (t222,p684,a1,r1|p727,a0,r1|p715,a0,r1|) (t214,p844,a0,r1|p828,a1,r1|p740,a1,r1|) (t215,p875,a0,r1|p837,a1,r1|p801,a0,r1|) (t268,p529,a0,r1|p362,a1,r1|p455,a1,r1|)
+    const selfPk = this.selfPks[selfPkIdx];
+    const infos = this.getOhkoInfos(selfPk);
+    const pokes = str.trim().match(/p\d+,a\d/g);
+    if(!pokes)
+      return;
+    return Array.from(pokes).map((a,i) => {
+      const m = a.match(/p(\d+),a(\d)/);
+      if(!m)
+        return null;
+      const id = +m[1];
+      const abIdx = +m[2];
+      const info = infos.detailed.find(p => p.id === id && p.abilityIdx === abIdx)!;
+      const tpk = this.trainerPks.find(p => p.battleTowerId === id && p.abilityIdx === abIdx)!;
+      const isDangerous = this.isDangerousTrainerPk(selfPk, tpk);
+      const info2 = <any>{i:i,...info,isDangerous};
+      info2.item = tpk.spk.item!;
+      info2.moves = this.trainerPks.find(p => p.battleTowerId === id)!.pkMoves.map(a => a.name);
+      return JSON.stringify(info2);
+    }).join('\n');
+  }
+  getAllBattleSubwaySelfPokemon(){
+    const list = this.selfPks.map((a,i) => this.getBattleSubwaySelfPokemon(i));
+    let str = '[\n';
+    list.forEach(el => {
+      str += el + ',\n';
+    });
+    str += '\n]\n';
+    return str;
+  }
+  getBattleSubwaySelfPokemon(idx:number){
+    const selfPk = this.selfPks[idx];
+    const info = this.getOhkoInfos(selfPk);
+    const ratings:number[][] = [];
+    const nonDangerous = this.getNonDangerousTrainerPks(selfPk);
+    const ohkos = info.detailed.filter(a => a.cantReason.reasonId === null);
+    /*nonDangerous.forEach(n => {
+      if(ohkos.find(o => o.id === n.id && o.abilityIdx === n.abilityIdx))
+        return;
+      ratings.push([n.id!, n.abilityIdx, 0.55]);
+    });
+
+    ohkos.forEach(o => {
+      ratings.push([o.id!, o.abilityIdx, 1]);
+    });
+    */
+    info.detailed.forEach(o => {
+      const pk = this.trainerPks.find(pk => pk.battleTowerId === o.id && pk.abilityIdx === o.abilityIdx);
+      if (!pk)
+        return;
+      const o2 = <any>o;
+      if(o2.cantReason.dmgPct === undefined)
+        return;
+
+      let score = 1;
+      const pct = o2.cantReason.dmgPct;
+      if (pct >= 1)
+        score = 1;
+      else if (pct >= 0.75)
+        score = 0.9;
+      else if (pct >= 0.5)
+        score = 0.75;
+      else if (pct >= 0.4)
+        score = 0.5;
+      else if (pct >= 0.33)
+        score = 0.25;
+      else if (pct >= 0.25)
+        score = -1;
+      else if (pct >= 0.20)
+        score = -2;
+      else
+        score = -10;
+
+      if((pk.spk.types.includes('Ground') && pk.spk.types.includes('Rock')) ||
+         (pk.spk.types.includes('Ground') && pk.spk.types.includes('Water')) ||
+         (pk.spk.types.includes('Rock') && pk.spk.types.includes('Water')))
+        score = 1;
+
+      if(score < 0.75 && pk.pkMoves.some(m => ['Toxic','Stealth Rock','Will-O-Wisp'].includes(m.name)))
+        score = -10;
+
+      ratings.push([o.id!, o.abilityIdx, score]);
+    });
+
+    return `{
+  "name":"${selfPk.name}","item":"${selfPk.spk.item}", "description":"${info.desc}", "speed":${this.getSpd(selfPk)},
+  "ratings":${JSON.stringify(ratings)}
+}`;
+  }
+}
+
+(<any>window).PokemonHelper = PokemonHelper;
+(<any>window).ph = new PokemonHelper();
+
+//ph.getAllOhkoInfos()
+//ph.getBattleSubwaySelfPokemon(0)
+
+//npm run c-d -- --content=pokemon --deleteDist=false
+
+document.addEventListener("DOMContentLoaded",async function(){
+  const v = new Vue(withRender({}));
+  (<any>window).v = v;
+  v.$mount('#pkRngMonRating-slot');
+});

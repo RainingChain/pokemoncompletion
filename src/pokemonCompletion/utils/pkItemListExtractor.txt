@@ -1,0 +1,58 @@
+
+
+let a:any;
+
+byGames = {};
+a.gameList.forEach(id => {
+  let poks = [];
+  a.pokemon.forEach(p => {
+    let loc = p.location[id];
+    if(loc === undefined)
+      return;
+    let p2 = {
+      name:p.pokemon,
+      id:p.id,
+      obtainable:p.obtainable[id],
+      location:loc,
+    }
+    poks.push(p2);
+  });
+  let game = {
+    name:id,
+    conflict:a.conflict[id],
+    missable:a.missable[id],
+    tmHm:a.tmHm[id],
+    pokemons:poks,
+  }
+  byGames[id] = game;
+});
+
+
+getStr = function(id){
+  let strByLine = function(arr=[]){
+    if(arr.length === 0)
+      return '[]';
+    let str = '[\n'
+    let els = arr.map(el => {
+      return ' ' + JSON.stringify(el);
+    }).join(', \n');
+    return str + els + '\n]';
+  }
+  let g = byGames[id];
+  let str = `{
+"name":"${g.name}",
+"missable":"${g.missable}",
+"conflict":${strByLine(g.conflict)},
+"tmHm":${strByLine(g.tmHm)},
+"pokemons":${strByLine(g.pokemons)}
+}
+`;
+  return str;
+}
+
+
+strs = {}
+for(i in byGames)
+  strs[i] = getStr(i);
+
+

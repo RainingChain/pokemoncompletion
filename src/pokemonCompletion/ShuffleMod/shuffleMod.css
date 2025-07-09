@@ -1,0 +1,34 @@
+
+:root {
+	--clight: #f5f6f7;
+	--cmed:  #d1d1d1;
+	--clink: #07c;
+	--cemph: #022;
+}
+
+label.button, button:not([disabled]):hover {
+	filter: brightness(92%);
+  color: var(--cemph);
+  border-color: var(--cemph);
+}
+
+/* forms and inputs  */
+textarea, input:not([type=range]), label.button, button, select {
+	border-radius: 4px;
+	border: 1.5px solid var(--cmed);
+	padding: 0.4em 0.8em;
+	background-color: var(--clight);
+}
+input:not([type=checkbox]):not([type=radio]) {
+	display: block;
+	width: 100%;
+	margin: 0 0 1rem;
+}
+button, label.button, select {
+	margin: .5em;
+	border: 1.5px solid var(--clink);
+}
+button, label.button { padding: 0.4em 1em; letter-spacing: 0.1em; }
+textarea:hover, input:not([type=checkbox]):not([type*='ra']):hover, select:hover{
+  border: 1.5px solid var(--cemph);
+}

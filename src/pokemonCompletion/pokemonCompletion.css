@@ -1,0 +1,334 @@
+
+/** for debugging. to highlight misspelled locations
+a.sobreLink:not(:hover) {
+  color:black !important;
+}
+*/
+
+.genericMap-marker {
+  background-image:url(./icons/pokemonCompletionIconSheet.png); /* overwrite *IconSheet.css */
+  box-sizing: content-box;
+  transform-origin:0% 0%;
+}
+
+
+.leaflet-map-pane .genericMap-marker.cat-default {
+  border:2px solid rgba(255,0,0,1);
+  background-color:rgba(255,0,0,0.5);
+}
+
+.leaflet-map-pane .genericMap-marker.cat-cyan {
+  border:2px solid rgba(0,255,255,1);
+  background-color:rgba(0,255,255,0.5);
+}
+.leaflet-map-pane .genericMap-marker {
+  border-radius:6px;
+}
+.leaflet-map-pane .genericMap-marker.icon-64x64 {
+  border-radius:12px;
+}
+
+.leaflet-map-pane .genericMap-marker.cat-pink {
+  border:2px solid rgba(255,0,255,1);
+  background-color:rgba(255,0,255,0.5);
+}
+.leaflet-map-pane .genericMap-marker.cat-orange {
+  border:2px solid rgba(255,122,122,1);
+  background-color:rgba(255,122,122,0.5);
+}
+
+
+.leaflet-control-container {
+	--iconSize:24; /**hardcoded in pokemonMap.ts*/
+	--iconScale:1 !important;
+}
+
+.mapLink-marker {
+	--iconSize:12; /**hardcoded in pokemonMap.ts*/
+}
+
+:root {
+	--iconSize:32;
+	--iconScale:1;
+  --mapLabelFontSizeScale:1;
+}
+.leaflet-map-pane {
+	--iconSize:20;
+}
+.map-zoom-6 {
+	--iconScale:2;
+  --mapLabelFontSizeScale:1.5;
+}
+.map-zoom-5 {
+	--iconScale:1.75;
+}
+.map-zoom-4 {
+	--iconScale:1.5;
+}
+.map-zoom-3 {
+	--iconScale:1.25;
+}
+.map-zoom-2 {
+	--iconScale:1;
+}
+.map-zoom-1 {
+	--iconScale:0.75;
+  --mapLabelFontSizeScale:0.75;
+}
+.map-zoom-0 {
+	--iconScale:0.5;
+  --mapLabelFontSizeScale:0.75;
+}
+
+.home-gameLogo {
+  transform-origin:0% 0%;
+  position:absolute;
+  transform:translate(0,-5px) scale3d(0.5,0.5, 1);
+  width: 32px;
+  height: 32px;
+  margin-right: 3px;
+}
+
+.icon-10x10 {
+  transform-origin:0% 0%;
+  transform:scale3d(calc(var(--iconSize) / 10 * var(--iconScale)), calc(var(--iconSize) / 10 * var(--iconScale)), 1);
+  image-rendering: crisp-edges;
+  image-rendering: -webkit-optimize-contrast;
+	image-rendering: pixelated;
+}
+.icon-16x16 {
+  transform-origin:0% 0%;
+  transform:scale3d(calc(var(--iconSize) / 16 * var(--iconScale)), calc(var(--iconSize) / 16 * var(--iconScale)), 1);
+  image-rendering: crisp-edges;
+  image-rendering: -webkit-optimize-contrast;
+	image-rendering: pixelated;
+}
+.icon-16x32 {
+  transform-origin:0% 0%;
+  transform:scale3d(calc(var(--iconSize) / 16 * var(--iconScale)), calc(var(--iconSize) / 32 * var(--iconScale)), 1);
+}
+.icon-32x16 {
+  transform-origin:0% 0%;
+  transform:scale3d(calc(var(--iconSize) / 32 * var(--iconScale)), calc(var(--iconSize) / 16 * var(--iconScale)), 1);
+}
+.icon-24x24 {
+  transform-origin:0% 0%;
+  transform:scale3d(calc(var(--iconSize) / 24 * var(--iconScale)), calc(var(--iconSize) / 24 * var(--iconScale)), 1);
+}
+.icon-32x32 {
+  transform-origin:0% 0%;
+  transform:scale3d(calc(var(--iconSize) / 32 * var(--iconScale)), calc(var(--iconSize) / 32 * var(--iconScale)), 1);
+}
+.icon-48x48 {
+  transform-origin:0% 0%;
+  transform:scale3d(calc(var(--iconSize) / 48 * var(--iconScale)), calc(var(--iconSize) / 48 * var(--iconScale)), 1);
+}
+.icon-48x64 {
+  transform-origin:0% 0%;
+  transform:scale3d(calc(var(--iconSize) / 48 * var(--iconScale)), calc(var(--iconSize) / 64 * var(--iconScale)), 1);
+}
+.icon-48x32 {
+  transform-origin:0% 0%;
+  transform:scale3d(calc(var(--iconSize) / 48 * var(--iconScale)), calc(var(--iconSize) / 32 * var(--iconScale)), 1);
+}
+.icon-32x48 {
+  transform-origin:0% 0%;
+  transform:scale3d(calc(var(--iconSize) / 32 * var(--iconScale)), calc(var(--iconSize) / 48 * var(--iconScale)), 1);
+}
+.icon-64x64 {
+  transform-origin:0% 0%;
+  transform:scale3d(calc(var(--iconSize) / 64 * var(--iconScale)), calc(var(--iconSize) / 64 * var(--iconScale)), 1);
+}
+.icon-64x32 {
+  transform-origin:0% 0%;
+  transform:scale3d(calc(var(--iconSize) / 64 * var(--iconScale)), calc(var(--iconSize) / 32 * var(--iconScale)), 1);
+}
+.icon-32x64 {
+  transform-origin:0% 0%;
+  transform:scale3d(calc(var(--iconSize) / 32 * var(--iconScale)), calc(var(--iconSize) / 64 * var(--iconScale)), 1);
+}
+.leaflet-popup-content {
+  margin-left: 13px !important; /*save a bit of space*/
+}
+
+.mapLabel {
+  background-color:rgba(0,0,0,0.75);
+  text-align:left;
+  white-space: nowrap;
+  font-size:calc(12px * var(--mapLabelFontSizeScale));
+  z-index:100000 !important;
+}
+
+.flyToPin {
+  width:20px;
+  text-align:center;
+  border:1px solid rgba(255,255,255,0.5);
+  cursor:pointer;
+}
+.flyToPin:hover {
+  opacity:0.8;
+}
+
+.icon-highlighted {
+  border:10px solid yellow !important;
+  opacity:1 !important;
+}
+.icon-highlighted.icon-64x64 {
+  border:20px solid yellow !important;
+  opacity:1 !important;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+.checkbox {
+  margin-bottom:10px;
+  cursor:pointer;
+}
+.checkbox * {
+  cursor:pointer;
+}
+.checkbox-container label {
+  display:block;
+  margin-bottom:5px;
+}
+.checkbox-container * {
+  cursor:pointer;
+}
+.settingsUl * {
+  cursor: pointer;
+}
+.settingsUl li {
+  margin-bottom:10px;
+}
+.radioLi label {
+  margin-right:10px;
+}
+
+.div-section {
+  margin-bottom:20px
+}
+
+input[type=checkbox] {
+  width:18px;
+  height:18px;
+}
+
+.flex {
+  display:flex;
+}
+
+a.sobreLink:not(:hover) {
+  text-decoration-style: dotted !important;
+  color:white;
+}
+
+.collectableComplete {
+  color:#006400;
+  font-weight:bold;
+}
+
+.externalLinkIcon img {
+  transform: scale(1.4,1.4);
+}
+
+.cs-red {
+  color: #FF9999;;
+  text-shadow: 0.1em  0.1em 0 #000;
+}
+
+.cs-orange {
+	color: #f0ad4e;
+  text-shadow: 0.1em  0.1em 0 #000;
+}
+.cs-green {
+  color: #99FF99;
+  text-shadow: 0.1em  0.1em 0 #000;
+}
+
+.children-has-padding div {
+  padding-bottom:5px;
+  padding-top:5px;
+}
+
+.clickable, .clickable * {
+	cursor:pointer;
+  pointer-events:all;
+}
+
+:root, html[data-theme='light'] {
+	--clight: #f5f6f7;
+	--cmed:  #d1d1d1;
+	--clink: #07c;
+	--cemph: #022;
+}
+
+label.button, button:not([disabled]):hover {
+	filter: brightness(92%);
+  color: var(--cemph);
+  border-color: var(--cemph);
+}
+
+/* forms and inputs  */
+textarea, input:not([type=range]), label.button, button, select {
+	border-radius: 4px;
+	border: 1.5px solid var(--cmed);
+	padding: 0.4em 0.8em;
+	background-color: var(--clight);
+}
+input:not([type=checkbox]):not([type=radio]) {
+	display: block;
+	width: 100%;
+	margin: 0 0 1rem;
+}
+button, label.button, select {
+	margin: .5em;
+	border: 1.5px solid var(--clink);
+}
+button, label.button { padding: 0.4em 1em; letter-spacing: 0.1em; }
+textarea:hover, input:not([type=checkbox]):not([type*='ra']):hover, select:hover{
+  border: 1.5px solid var(--cemph);
+}
+textarea:focus, input:not([type=checkbox]):not([type*='ra']):focus{
+	border: 1.5px solid var(--clink);
+	box-shadow: 0 0 5px var(--clink);
+}
+
+
+@media (max-width: 768px) {
+  .noPaddingIfSmallDevice {
+    padding-left: 0px !important;
+  }
+  .hiddenIfSmallDevice {
+    display:none;
+  }
+}
+
+.dangerBtn {
+  background-color:rgb(255,150,150);
+  border-color:red;
+}
+
+.pk-root-container {
+  position: relative;
+  margin-left: auto;
+  margin-right: auto;
+  padding-right: 2.5vw;
+  padding-left: 2.5vw;
+  padding-bottom:15px;
+  max-width:100%;
+  width:95vw;
+}
+
+.pk-root-container.compactView {
+  margin-left: 0;
+  margin-right: 0;
+  padding-right: 5px;
+  padding-left: 5px;
+}
+
+.compactView .td-location {
+   white-space: nowrap;
+   overflow: hidden;
+}

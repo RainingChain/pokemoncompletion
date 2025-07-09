@@ -1,0 +1,60 @@
+{
+  "gameType":"Doubles",
+  "pokemons":[
+    {"name":"Aron", "options":{
+      "ivs":{"hp":21,"atk":10,"def":30,"spa":6,"spd":9,"spe":13},
+      "nature":"Quiet",
+      "evs":{"hp":0,"atk":0,"def":0,"spa":0,"spd":0,"spe":0},
+      "level":1,
+      "item": "Berry Juice",
+      "ability":"Sturdy",
+      "moves": ["Protect","Endeavor","Toxic","Rock Slide"]
+    }},
+    {"name":"Slowbro", "options":{
+      "ivs":{"hp":30,"atk":24,"def":31,"spa":28,"spd":30,"spe":6},
+      "nature":"Sassy",
+      "evs":{"hp":252,"atk":0,"def":4,"spa":0,"spd":252,"spe":0},
+      "level":50,
+      "item": "Leftovers",
+      "ability":"Oblivious",
+      "moves": ["Flamethrower","Trick Room","Scald","Heal Pulse"]
+    }},
+    {"name":"Clawitzer", "options":{
+      "ivs":{"hp":30,"atk":12,"def":31,"spa":31,"spd":31,"spe":0},
+      "nature":"Quiet",
+      "evs":{"hp":252,"atk":0,"def":4,"spa":252,"spd":0,"spe":0},
+      "level":50,
+      "item": "Life Orb",
+      "ability":"Mega Launcher",
+      "moves": ["Water Pulse","Dark Pulse","Aura Sphere","Ice Beam"]
+    }},
+    {"name":"Hariyama", "options":{
+      "ivs":{"hp":30,"atk":31,"def":31,"spa":19,"spd":31,"spe":0},
+      "nature":"Brave",
+      "evs":{"hp":0,"atk":252,"def":157,"spa":1,"spd":100,"spe":0},
+      "level":50,
+      "item": "Flame Orb",
+      "ability":"Guts",
+      "moves": ["Fake Out","Knock Off","Wide Guard","Close Combat"]
+    }},
+    {"name":"Mawile", "options":{
+      "ivs":{"hp":30,"atk":31,"def":31,"spa":9,"spd":29,"spe":0},
+      "nature":"Brave",
+      "evs":{"hp":0,"atk":252,"def":157,"spa":1,"spd":100,"spe":0},
+      "level":50,
+      "item": "Mawilite",
+      "ability":"Intimidate",
+      "moves": ["Iron Head","Power-Up Punch","Feint Attack","Play Rough"]
+    }},
+    {"name":"Carbink", "options":{
+      "ivs":{"hp":30,"atk":31,"def":31,"spa":28,"spd":25,"spe":6},
+      "nature":"Quiet",
+      "evs":{"hp":252,"atk":0,"def":198,"spa":252,"spd":60,"spe":0},
+      "level":50,
+      "item": "Mental Herb",
+      "ability":"Sturdy",
+      "moves": ["Trick Room","Stealth Rock","Moonblast","Rock Slide"]
+    }}
+  ]
+}
+

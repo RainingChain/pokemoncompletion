@@ -1,0 +1,145 @@
+{{> ../../common/header.hbs}}
+
+<body class="darkTheme">
+<div id="nav-slot"></div>
+
+<style>
+.table {
+  border-spacing:0px;
+}
+.table td {
+  border:0.5px solid white;
+  padding:4px;
+}
+.table tr:first-child {
+  font-weight:bold;
+}
+.pokemon-title a {
+  color:rgba(200,200,200,1);
+  text-decoration: none !important;
+}
+.pokemon-title span:first-of-type {
+  color:rgba(200,200,200,1);
+}
+
+.pokemon-title a:hover {
+  opacity:0.8;
+  text-decoration: underline !important;
+}
+
+</style>
+
+<div class="root-container">
+  <h2 class="pokemon-title">
+    <a href="/VersionCompatibility"><span>Pokémon Version Compatibility</span></a><span>▸</span><span>Generation I</span>
+  </h2>
+  <p>This page lists all Pokémon Generation I game versions and accessories for all consoles. It also explains what game versions are compatible.</p>
+
+  <h4>GB Console</h4>
+  <ul>
+    <li><span class="bold">Game Boy consoles:</span> They are same world-wide and can play any game versions.</li>
+  </ul>
+
+  <h4>GB Accessories</h4>
+  <ul>
+    <li><span class="bold">Game link cables:</span> They are the same world-wide and can be used on any game versions and consoles.</li>
+  </ul>
+
+  <h4>GB Game Versions</h4>
+  <div>GB game versions depend on language.</div>
+  <div>The same game was sold in multiple regions. For example, the US, Canada, UK, Australia retail boxes are different, but the GB English cartridge content is the same.</div>
+  <ul>
+    <li><span class="bold">Pokémon Green (Japan)</span>: Japanese.</li>
+    <li><span class="bold">Pokémon Red (Japan)</span>: Japanese.</li>
+    <li><span class="bold">Pokémon Blue (Japan)</span>: Japanese.</li>
+    <li><span class="bold">Pokémon Red (International)</span>: English, Spanish, French, Italian, German.
+      <ul><li>The game is slightly different than Pokémon Red (Japan). </li>
+      </ul></li>
+    <li><span class="bold">Pokémon Blue (International)</span>: English, Spanish, French, Italian, German.
+      <ul><li>The game is slightly different than Pokémon Red (Japan). </li></ul></li>
+    <li><span class="bold">Pokémon Yellow (International)</span>: Japanese, English, Spanish, French, Italian, German.
+      <ul><li>The game is slightly different than Pokémon Blue (Japan). </li></ul></li>
+  </ul>
+
+  <br>
+  <h4>GB-GB Interactions</h4>
+  <ul>
+    <li>
+      <span class="bold">Trade & Link Battle:</span>
+      <ul>
+        <li>The games are split in 2 compatibility groups: Japanese and English/French/Italian/Spanish/German.</li>
+        <li>Games can only trade with games of the same group.</li>
+        <li>
+          <table class="table">
+            <tr><td>↓ GB \ GB →</td><td>Japanese</td><td>English/French/Italian/Spanish/German</td></tr>
+
+            <tr><td>Japanese</td><td>Yes</td><td></td></tr>
+            <tr><td>English<br>French<br>Italian<br>Spanish<br>German</td><td></td><td>Yes</td></tr>
+        </li>
+      </ul>
+    </li>
+  </ul>
+
+  <h4>N64 Console</h4>
+  <div>N64 has 4 versions based on region.</div>
+  <ul>
+    <li><span class="bold">NTSC-J:</span> Japan</li>
+    <li><span class="bold">NTSC-U:</span> The Americas and Asia</li>
+    <li><span class="bold">PAL:</span> Europe and Oceania</li>
+    <li><span class="bold">NTSC-C:</span> China
+      <ul><li>The N64 console was rebranded as iQue in China. No N64 Pokémon games exist for that console version.</li></ul></li>
+  </ul>
+  <div>In South Korea, the N64 console was rebranded as Hyundai Comboy 64. It has the same features and compatibility as the NTSC-J sold in Japan.</div>
+  <br>
+
+  <h4>N64 Accessories</h4>
+  <ul>
+    <li><span class="bold">Transfer Pak for Nintendo 64:</span> They are the same world-wide and can be used on any game versions and consoles.</li>
+  </ul>
+
+  <h4>N64 Game Versions</h4>
+  <div>A N64 game is specific to a region and can only be played on a N64 of that region. N64 Pokémon games only has 1 specific unchangeable language.</div>
+  <br>
+  <h5>Pokémon Stadium (Japan)</h5>
+  <div>Only 1 version exists.</div>
+  <ul>
+    <li>NTSC-J Japanese</li>
+  </ul>
+
+  <h5>Pokémon Stadium 1</h5>
+  <div>8 versions exist. It is known as Pokémon Stadium 2 in Japan.</div>
+  <ul>
+    <li>NTSC-J Japanese</li>
+    <li>NTSC-J English</li>
+    <li>NTSC-U English</li>
+    <li>PAL English</li>
+    <li>PAL German</li>
+    <li>PAL French</li>
+    <li>PAL Spanish</li>
+    <li>PAL Italian</li>
+  </ul>
+
+  <h4>N64-GB Interactions</h4>
+  <div>
+    <ul>
+      <li>GB games (Pokémon Red, Blue, Yellow, Green) can connect to Pokémon Stadium (Japan) and Pokémon Stadium 1 on N64 using the Transfer Pak.</li>
+      <li>N64 games are split in 2 compatibility groups: NTSC-J and NTSC-U/PAL.</li>
+
+      <li>
+        <table class="table">
+          <tr><td>↓ N64 \ GB →</td><td>Japanese</td><td>English/French/Italian/Spanish/German</td></tr>
+
+          <tr><td>NTSC-J Japanese</td><td>Yes</td><td></td></tr>
+          <tr><td>NTSC-J English</td><td></td><td>Yes</td></tr>
+          <tr><td>NTSC-U English</td><td></td><td>Yes</td></tr>
+          <tr><td>PAL English<br>PAL German<br>PAL French<br>PAL Spanish<br>PAL Italian
+            </td><td></td><td>Yes</td></tr>
+      </li>
+    </ul>
+  </div>
+
+</div>
+
+  
+
+{{> ../../common/footer.hbs}}

@@ -1,0 +1,182 @@
+data=04SEP!00000028SEP!F2ED23108FA3DCC2C1BBCCBEBFD0C9C3CCFF0202CCBDFFFFFFFFFF003AC70000F74F48D2272CFDD27DB1FFD2D74E55D27DE4FFD27D4EFFD2234EA4D3784F3DD2775AF0D77D744DF382B100ED7D4EFFD20000000032FFA400A4004C007400640091009C00SEP!F579CE088FA3DCC2C4D3C8D2FF020000E0000202CCBDFFFFFFFFFF0073A6000085DA12CA85DA12CA7ADA12CA06DA9FCA323213CA7A2512CA7AE0A0EB8525EDF57ADA12CA24DA28CAF4DA2BCB70D018DE0000000032FFAC00AC003F0037007300B7007300SEP!423D0A678FA3DCC2CDC6C9D1C5C3C8C1FF000202CCBDFFFFFFFFFF00B8A60000CDA464843261299ACD9ED6A50A9E0DA58576D7A5CD61D6A5D49F80A5F49E88A5C78AD9AFCD9E29A5329ED6A5CD9ED6A50000000032FFAA00AA00550084003200A7008200SEP!9277C062302D8510C6BBCEC3C9CDFF0330140202CCBDFFFFFFFFFF00D6C50000A213F77B1FE4BB5DA2DA44F23A5BC87205DB4772A2A54572F35B1072F95B1B72AD555178BE5A45965E5A4572A25A45720000000032FF9E009E005E005C009E00C8007E00SEP!BDB2235583C0B586CDD1BBC7CABFCCCEFF000202CCBDFFFFFFFFFF0016C0000058F68ABFB27296D33E7296D323735ED3D9BD97D33E8D96D33E6213F2CF8D0DFE3EF297D36772ACD30772D2D3347899C70000000032FFB500B500A1007200510078006A00SEP!966BA47F302D8510C7BFCEBBC1CCC9CDCDFF0202CCBDFFFFFFFFFF009F3600008AB821BBA646216FA646216F5146146EFF46B86FA94C2B6A36479B6FD634236FA6B9216FA64BA44E9DB19E57A6C6206F0000000032FF9F009F00CA00950075005E006D00SEP!98015E005C009E00C8007E00510155005B015E00BDBEFE2F06060606060606061A100E000F0F140A9E0032FF9E008D00C6BBCEC3C9CDFF030B000000CCBDFFFFFFFFFFFFA78102009277C0620000000000000000302D8510SEP!8A014C007400640091009C005E005B010501C200FFFFFF3F06060606060606061C0E0E000A140F05A40032FFA400B700C1BBCCBEBFD0C9C3CCFF0000CCBDFFFFFFFFFFFF5A620200F2ED231000000000000000008FA3DCC2SEP!00FDSEP!02SEP!02SEP!00SEP!0000SEP!00SEP!0000SEP!0054SEP!00FDFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFSEP!ewogImlzVXNpbmdEZWFkQmF0dGVyeSI6dHJ1ZSwKICJ3aW5TdHJlYWsiOjg0LAogIkZyYW1lc0JlZm9yZVRyYWluZXJTZWxlY3Rpb25fV2l0aG91dEVsZXZhdG9yIjoyNTc2LAogIkZyYW1lc0JldHdlZW5UcmFpbmVyQW5kMXN0UG9rZW1vbl9XaXRob3V0U3BlZWNoIjo4MSwKICJDdXJyZW50Q3ljbGVBdDFzdFBva2Vtb24iOjIwNjk4MSwKIAogIkZyYW1lc0JlZm9yZVRyYWluZXJTZWxlY3Rpb25fV2l0aEVsZXZhdG9yIjoyNzczLAogIkZyYW1lc0JldHdlZW5UcmFpbmVyQW5kMXN0UG9rZW1vbl9XaXRoU3BlZWNoIjoxMTgsCiAiZ2VuZXJhdGVkVHJhaW5lciI6WyJKYXlsaW4iLDI1M10sCiAiZ2VuZXJhdGVkTW9ucyI6WwogIFsiR2FyZGV2b2lyIDciLDgxNCwyNzA3OTAxMzBdLAogIFsiSnlueCA0Iiw2NjUsMTQ3NzQ5MzY1XSwKICBbIlNsb3draW5nIDIiLDUwNiwxNzI4NzI0MjkwXQogXSwKICJzZWN0aW9uUm5nQW5kQ3ljbGVBdFN0YXJ0QW5kQWN0aW9uQ3ljbGVDb3VudCI6WwogIFsiTW9uSUQxIiwyODkyLDIwNjk4MSw4MzFdLAogIFsiTW9uTkFUMSIsMjg5MywyMDc4MTIsOTk2XSwKICBbIk1vbk5BVDEiLDI4OTUsMjA4ODA4LDEwMDJdLAogIFsiTW9uTkFUMSIsMjg5NywyMDk4MTAsMTAzNV0sCiAgWyJNb25OQVQxIiwyODk5LDIxMDg0NSw5NjRdLAogIFsiTW9uTkFUMSIsMjkwMSwyMTE4MDksOTc3XSwKICBbIk1vbk5BVDEiLDI5MDMsMjEyNzg2LDk4NF0sCiAgWyJNb25OQVQxIiwyOTA1LDIxMzc3MCw5NzVdLAogIFsiTW9uTkFUMSIsMjkwNywyMTQ3NDUsMTA5NV0sCiAgWyJNb25OQVQxIiwyOTA5LDIxNTg0MCw5ODVdLAogIFsiTW9uTkFUMSIsMjkxMSwyMTY4MjUsOTg5XSwKICBbIk1vbk5BVDEiLDI5MTMsMjE3ODE0LDk2N10sCiAgWyJNb25OQVQxIiwyOTE1LDIxODc4MSw5OTddLAogIFsiTW9uTkFUMSIsMjkxNywyMTk3NzgsMTAyM10sCiAgWyJNb25OQVQxIiwyOTE5LDIyMDgwMSwxMDE5XSwKICBbIk1vbk5BVDEiLDI5MjEsMjIxODIwLDE3NTE2NDNdLAogIFsiTW9uSUQyIiwyOTMwLDI3Mjc3MCwyNjQyMl0sCiAgWyJNb25OQVQyIiwyOTMyLDYzNDEzLDk3NF0sCiAgWyJNb25OQVQyIiwyOTM0LDY0Mzg3LDk3OV0sCiAgWyJNb25OQVQyIiwyOTM2LDY1MzY2LDE4MDQ5NzFdLAogIFsiTW9uSUQzIiwyOTQ1LDIyODkyOSw1MzYyNF0sCiAgWyJNb25OQVQzIiwyOTQ3LDQ2Njk2LDk4OF0sCiAgWyJNb25OQVQzIiwyOTQ5LDQ3Njg0LDk5OF0sCiAgWyJNb25OQVQzIiwyOTUxLDQ4NjgyLDk4OF0sCiAgWyJNb25OQVQzIiwyOTUzLDQ5NjcwLDEwMTZdLAogIFsiTW9uTkFUMyIsMjk1NSw1MDY4NiwxMDEzXSwKICBbIk1vbk5BVDMiLDI5NTcsNTE2OTksOTgxXSwKICBbIk1vbk5BVDMiLDI5NTksNTI2ODAsMTAzOF0sCiAgWyJNb25OQVQzIiwyOTYxLDUzNzE4LDEwMDddLAogIFsiTW9uTkFUMyIsMjk2Myw1NDcyNSwxMDA5XSwKICBbIk1vbk5BVDMiLDI5NjUsNTU3MzQsOTYwXSwKICBbIk1vbk5BVDMiLDI5NjcsNTY2OTQsMTAwNl0sCiAgWyJNb25OQVQzIiwyOTY5LDU3NzAwLDBdCl0sCiAicm5nRnJhbWVBbmRWYmxhbmtDeWNsZUNvdW50IjpbCiAgWzI5MjMsMzE2MDJdLAogIFsyOTI0LDMxNTA4XSwKICBbMjkyNSwzMTM5Ml0sCiAgWzI5MjYsMzA0OTldLAogIFsyOTI3LDMxMzg4XSwKICBbMjkyOCw1NzEzNV0sCiAgWzI5MjksNTIwNTNdLAogIFsyOTMxLDQ1MTIyXSwKICBbMjkzOCw0Mjg2MF0sCiAgWzI5MzksNDQ5OTldLAogIFsyOTQwLDQ0OTA4XSwKICBbMjk0MSw0NDkwMl0sCiAgWzI5NDIsNTE0MTRdLAogIFsyOTQzLDQ5ODI3XSwKICBbMjk0NCw0NTk0OV0sCiAgWzI5NDYsNDUwMzldLAogIFsyOTcxLDQ0ODYyXSwKICBbMjk3Miw0NDkwOF0sCiAgWzI5NzMsNDQ5MTZdLAogIFsyOTc0LDQyODg5XSwKICBbMjk3NSw1ODc1NV0sCiAgWzI5NzYsNTIwMzddLAogIFsyOTc3LDUxOTkyXSwKICBbMjk3OCw1MjEwMl0sCiAgWzI5NzksNDMwMThdXSwKICJtb2R1bG8iOiJNb25JRDEsMTQyODQwMjg3NyAldSAyNCw4OCw2MDI1MyAldSAxMDAsMSwyNTM3MiAlcyA5MiwxLDE2NTY3ODA2OTAgJXUgMjQsODgsMjE0MTQ4MTg3OCAldSAyNCw4OCx8TW9uTkFUMSwyNzA3OTAxMzAgJXUgMjUsMTEsMjcwNzkwMTMwICV1IDI0LDE2MzYsfE1vbklEMiwyNzA3OTAxMzAgJXUgMjQsMjQsMzcyMSAlcyA5MiwxLHxNb25OQVQyLDE0Nzc0OTM2NSAldSAyNCwxNTk2LDE0Nzc0OTM2NSAldSAyNSwxMSx8TW9uSUQzLDIxNTQ5ICVzIDkyLDEsMTQ3NzQ5MzY1ICV1IDI0LDI0LDI3MDc5MDEzMCAldSAyNCwyNCx8Igp9Cg==
+
+
+
+
+
+data=04SEP00000001SEP8B5FBD6BD15020BAC0C6D3C1C9C8FF0220740202CCBDFFFFFFFFFF00A1520000030FCCD06F0F57D1500092D45A352FF0A5F0626E5A0F9DD15AA59D7BF00F9DD15A0F9DD1140E5BD12AC59CD15AF09DD10000000032FF9B009B008D0064008D0079006400SEP3B6DD3F1D15020BAC6BBCEC3C9CDFF08007D0202CCBDFFFFFFFFFF0039D60000BB3CA54BB13C9A4BE529E75FEA07416A15C20C74EA3DF34B403D594BEA97F34BEA3DF34B723C404BB05FF14BEAC2F34B0000000032FFB000B000630079008200A5009700SEP554AC2A5D15020BAC5C3C8C1BECCBBFF00000202CCBDFFFFFFFFFF000F420000621A481FCCF2E31F84E5E21F8420503E7BE51D20841AE21F2E1A481F84B0E21F841AE21F2B1ADA1FD91B291F8B1FF6150000000032FFAB00AB007E008800690067008800SEP9277C062302D8510C6BBCEC3C9CDFF0330140202CCBDFFFFFFFFFF00D6C50000A213F77B1FE4BB5DA2DA44F23A5BC87205DB4772A2A54572F35B1072F95B1B72AD555178BE5A45965E5A4572A25A45720000000032FF9E009E005E005C009E00C8007E00SEPBDB2235583C0B586CDD1BBC7CABFCCCEFF000202CCBDFFFFFFFFFF00FBC4000058F68ABFB27296D33E7296D323735ED3D9BD97D33E8D96D33E6213F2CF8D0DFE3EF297D30472AFD36772B8D3347D9CC70000000032FFB500B500A1007200510078006A00SEP966BA47F302D8510C7BFCEBBC1CCC9CDCDFF0202CCBDFFFFFFFFFF009F3600008AB821BBA646216FA646216F5146146EFF46B86FA94C2B6A36479B6FD634236FA6B9216FA64BA44E9DB19E57A6C6206F0000000032FF9F009F00CA00950075005E006D00SEP98015E005C009E00C8007E00510155005B015E00BDBEFE2F06060606060606061A100E000F0F140A9E0032FF9E008D00C6BBCEC3C9CDFF030B000000CCBDFFFFFFFFFFFFA78102009277C0620000000000000000302D8510SEP4E018D0064008D0079006400590051013500CA00FFFFFFBF06060606060606061A0410000A0F0F059B0032FF9B00C600C0C6D3C1C9C8FF030B000000CCBDFFFFFFFFFFFF70CA01008B5FBD6B0000000000000000D15020BASEP00EBSEP02SEP02SEP00SEP0000SEP00SEP0000SEP0039SEP00D900EBFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFSEPFFFF0801FFFF0061FFFF0000FFFF0000FFFF0007FFFF0000FFFF000BFFFF0000FFFF0000
+
+
+
+
+
+
+
+
+
+
+
+
+
+57
+Wilson
+
+2050,-1,103,-1,0,-1,0,-1,5,-1,0,-1,7,-1,0,-1,0	Dev
+Nidoking 4@Lum Berry : Megahorn, Sludge Bomb, Earthquake, Thunder
+Shuckle 1@Chesto Berry : Rollout, Defense Curl, Sleep Talk, Rest
+Steelix 3@Quick Claw (Sturdy) : Earthquake, Body Slam, Rock Slide, Explosion
+
+
+{"version":1,"frameRangeInputs":[[-1,1848,2970],[-1,63,100],[-1,0,0],[-1,5,5],[-1,0,0],[-1,7,7],[-1,0,0],[-1,0,0]],"isLvl50":true,"winStreak":"57","trainerNameFilter":"Dev","trainersBattled":["Wilson","abbie","bradley","","",""],"algoMode":"node","displayCredits":false,"displayImportExport":true,"nodeInputType":"advancedMode","pokemonsFilter":[{"input":"Nidoking","item":"","moves":["Megahorn","","",""],"ability":"0","gender":"unknown"},{"input":"Steelix","item":"","moves":["","","",""],"ability":"unknown","gender":"unknown"},{"input":"","item":"","moves":["","","",""],"ability":"0","gender":"male"}],"probabilityDistributionStr_trainer":"1,3,6,6,3,1","probabilityDistributionStr_start2ndBattle":"1,3,6,6,3,1","probabilityDistributionStr_cycleAtMon1Id":"1,1,1,2,1,5,4,1,3","cycleCountRangeAtMon1Id":["175000","250000"],"includesFramesStartSpeech":false,"includesFramesInElevator":false,"frameRangeInputs_vblankP2_1stBattle":["2600","3000"],"probabilityDistributionStr_start1stBattle":"1,3,6,6,3,1"}
+
+
+
+
+{"version":1,"frameRangeInputs":[[-1,1848,1858],[-1,63,69],[-1,0,0],[-1,5,5],[-1,0,0],[-1,7,7],[-1,0,0],[-1,0,0]],"isLvl50":true,"winStreak":"57","trainerNameFilter":"Dev","trainersBattled":["Wilson","abbie","bradley","","",""],"algoMode":"node","displayCredits":false,"displayImportExport":true,"nodeInputType":"x60","pokemonsFilter":[{"input":"Nidoking","item":"","moves":["Megahorn","","",""],"ability":"0","gender":"unknown"},{"input":"Steelix","item":"","moves":["Rock Slide","","",""],"ability":"1","gender":"female"},{"input":"Shuckle","item":"","moves":["Rollout","Defense Curl","",""],"ability":"0","gender":"male"}],"probabilityDistributionStr_trainer":"1,3,6,6,3,1","probabilityDistributionStr_start":"1,3,6,6,3,1","probabilityDistributionStr_cycleAtMon1Id":"1,1,1,2,1,5,4,1,3","cycleCountRangeAtMon1Id":["175000","250000"]}
+
+
+{"version":1,"frameRangeInputs":[[-1,2050,2050],[-1,103,103],[-1,0,0],[-1,5,5],[-1,0,0],[-1,7,7],[-1,0,0],[-1,0,0]],"isLvl50":true,"winStreak":"57","trainerNameFilter":"Dev","trainersBattled":["Wilson","abbie","bradley","","",""],"algoMode":"node","displayCredits":false,"displayImportExport":true,"nodeInputType":"advancedMode","pokemonsFilter":[{"input":"Nidoking","item":"","moves":["Megahorn","","",""],"ability":"0","gender":"unknown"},{"input":"Shuckle","item":"","moves":["Rollout","","",""],"ability":"0","gender":"unknown"},{"input":"Steelix","item":"Quick Claw","moves":["Earthquake","Body Slam","",""],"ability":"1","gender":"unknown"}],"probabilityDistributionStr_trainer":"1,3,6,6,3,1","probabilityDistributionStr_start":"1,3,6,6,3,1","probabilityDistributionStr_cycleAtMon1Id":"1,1,1,2,1,5,4,1,3","cycleCountRangeAtMon1Id":["175000","250000"],"includesFramesStartSpeech":true,"includesFramesInElevator":true}
+
+ S=2050 (1853+E197),T=103 (66+M37),N1=5,N2=7,N3=8
+
+
+
+
+
+
+no$gba
+win streak:3
+seed: 82d95cdd
+
+Anne
+Lombre, male
+Delibird, female
+tentacool, make
+
+{"version":1,"frameRangeInputs":[[-1,1848,2970],[-1,50,150],[-1,0,0],[-1,5,5],[-1,0,0],[-1,7,7],[-1,0,0],[-1,0,0]],"isLvl50":true,"winStreak":"3","trainerNameFilter":"Anne","trainersBattled":["","","","","",""],"algoMode":"node","displayCredits":false,"displayImportExport":true,"nodeInputType":"advancedMode","pokemonsFilter":[{"input":"Lombre","item":"","moves":["","","",""],"ability":"unknown","gender":"male"},{"input":"Delibird","item":"","moves":["","","",""],"ability":"unknown","gender":"female"},{"input":"","item":"","moves":["","","",""],"ability":"unknown","gender":"unknown"}],"probabilityDistributionStr_trainer":"1,3,6,6,3,1","probabilityDistributionStr_start2ndBattle":"1,3,6,6,3,1","probabilityDistributionStr_cycleAtMon1Id":"1,1,1,2,1,5,4,1,3","cycleCountRangeAtMon1Id":["0","280000"],"includesFramesStartSpeech":false,"includesFramesInElevator":false,"frameRangeInputs_vblankP2_1stBattle":["2400","4000"],"probabilityDistributionStr_start1stBattle":"1,3,6,6,3,1"}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Reese
+{"version":1,"calibrationResultsStr":"","algoMode":"node","objectiveMode":"calibration","displayImportExport":true,"frameRangeInputs":[[-1,2050,2050],[-1,103,103],[-1,0,0],[-1,0,0],[-1,5,5],[-1,0,0],[-1,7,7],[-1,0,0],[-1,0,0]],"isLvl50":true,"winStreak":"57","trainerNameFilter":"Reese","trainersBattled":["Wilson","","","","",""],"pokemonsFilter":[{"input":"Regice","item":"","moves":["Amnesia","","",""],"ability":"0"},{"input":"Entei","item":"","moves":["Fire Blast","Solar Beam","Sunny Day",""],"ability":"0"},{"input":"Regirock","item":"","moves":["Rock Slide","","",""],"ability":"0"}]}
+Start=[2070, 2087], Trainer=[115, 132]. Detailed=[[2070,132],[2087,115]]
+
+
+Maddox
+{"version":1,"calibrationResultsStr":"","algoMode":"node","objectiveMode":"calibration","displayImportExport":true,"frameRangeInputs":[[-1,2050,2050],[-1,103,103],[-1,0,0],[-1,0,0],[-1,5,5],[-1,0,0],[-1,7,7],[-1,0,0],[-1,0,0]],"isLvl50":true,"winStreak":"58","trainerNameFilter":"Maddox","trainersBattled":["Wilson","Reese","","","",""],"pokemonsFilter":[{"input":"Aerodactyl","item":"","moves":["Double-Edge","","",""],"ability":"0","gender":"female"},{"input":"Latias","item":"","moves":["Ice Beam","","",""],"ability":"0","gender":"unknown"},{"input":"Charizard","item":"","moves":["Scary Face","","",""],"ability":"0","gender":"male"}]}
+Start=[2072, 2072], Trainer=[115, 115]. Detailed=[[2072,115]]
+
+Peter
+{"version":1,"calibrationResultsStr":"","algoMode":"node","objectiveMode":"calibration","displayImportExport":true,"frameRangeInputs":[[-1,2050,2050],[-1,103,103],[-1,0,0],[-1,0,0],[-1,5,5],[-1,0,0],[-1,7,7],[-1,0,0],[-1,0,0]],"isLvl50":true,"winStreak":"59","trainerNameFilter":"Peter","trainersBattled":["Wilson","Reese","Maddox","","",""],"pokemonsFilter":[{"input":"Quagsire","item":"","moves":["curse","","",""],"ability":"0","gender":"male"},{"input":"Milotic","item":"","moves":["Mirror Coat","","",""],"ability":"0","gender":"female"},{"input":"Feraligatr","item":"","moves":["Rain Dance","","",""],"ability":"0","gender":"male"}]}
+Start=[2091, 2091], Trainer=[111, 111]. Detailed=[[2091,111]]
+
+Anya
+{"version":1,"calibrationResultsStr":"","algoMode":"node","objectiveMode":"calibration","displayImportExport":true,"frameRangeInputs":[[-1,2050,2050],[-1,103,103],[-1,0,0],[-1,0,0],[-1,5,5],[-1,0,0],[-1,7,7],[-1,0,0],[-1,0,0]],"isLvl50":true,"winStreak":"60","trainerNameFilter":"Anya","trainersBattled":["Wilson","Reese","Maddox","Peter","",""],"pokemonsFilter":[{"input":"Jolteon","item":"","moves":["Protect","Thunderbolt","",""],"ability":"0","gender":"male"},{"input":"Vaporeon","item":"","moves":["Ice Beam","Acid Armor","",""],"ability":"0","gender":"female"},{"input":"Umbreon","item":"","moves":["Shadow Ball","","",""],"ability":"0","gender":"male"}]}
+[[2089,88]]
+
+Oscar
+{"version":1,"calibrationResultsStr":"","algoMode":"node","objectiveMode":"calibration","displayImportExport":true,"frameRangeInputs":[[-1,2050,2050],[-1,103,103],[-1,0,0],[-1,0,0],[-1,5,5],[-1,0,0],[-1,7,7],[-1,0,0],[-1,0,0]],"isLvl50":true,"winStreak":"61","trainerNameFilter":"Oscar","trainersBattled":["Wilson","Reese","Maddox","Peter","Anya",""],"pokemonsFilter":[{"input":"flygon","item":"","moves":["Dragon Claw","","",""],"ability":"1","gender":"male"},{"input":"Blissey","item":"","moves":["Ice Beam","Calm Mind","",""],"ability":"unknown","gender":"unknown"},{"input":"Charizard","item":"","moves":["Overheat","Earthquake","",""],"ability":"0","gender":"male"}]}
+
+[[2070,132],[2087,115]]
+[[2072,115]]
+[[2091,111]]
+[[2089,117]]
+[[2034,142],[2058,118],[2071,105],[2012,93]]
+
+{"version":1,"frameRangeInputs":[[-1,2050,2050],[-1,103,103],[-1,0,0],[-1,0,0],[-1,5,5],[-1,0,0],[-1,7,7],[-1,0,0],[-1,0,0]],"isLvl50":true,"winStreak":"61","trainerNameFilter":"Oscar","trainersBattled":["Wilson","Reese","Maddox","Peter","Anya",""],"calibrationResultsStr":"[2012164], [2034142], [2058118], [2071105], [2198136]","pokemonsFilter":[{"input":"flygon","item":"","moves":["Dragon Claw","","",""],"ability":"unknown","gender":"male"},{"input":"Blissey","item":"","moves":["Ice Beam","Calm Mind","",""],"ability":"unknown","gender":"unknown"},{"input":"Charizard","item":"","moves":["Overheat","Earthquake","",""],"ability":"0","gender":"male"}]}
+
+
+2050,-1,103,-1,0,-1,0,-1,5,-1,0,-1,7,-1,0,-1,0	Dev
+Nidoking 4@Lum Berry : Megahorn, Sludge Bomb, Earthquake, Thunder
+Shuckle 1@Chesto Berry : Rollout, Defense Curl, Sleep Talk, Rest
+Steelix 3@Quick Claw (Sturdy) : Earthquake, Body Slam, Rock Slide, Explosion
+
+0-2050 (+2050) advanceBeforeTrainer
+2050-2051 (+1) GetRandomScaledFrontierTrainerId-3
+2051-2154 (+103) TRAINER vblankP2
+2154-2154 (+0) FillTrainerParty start
+2154-2156 (+2) OT Generation
+2156-2156 (+0) MON1ID start
+2156-2157 (+1) MON1ID FillTrainerParty-ChoseMon
+2157-2157 (+0) MON1NAT start
+2157-2249 (+92) NaturePid
+2249-2254 (+5) MON1NAT vblankP2
+2254-2254 (+0) MON1NAT end
+2254-2254 (+0) MON2ID start
+2254-2255 (+1) MON2ID FillTrainerParty-ChoseMon
+2255-2256 (+1) MON2ID FillTrainerParty-ChoseMon
+2256-2256 (+0) MON2NAT start
+2256-2262 (+6) NaturePid
+2262-2269 (+7) MON2NAT vblankP2
+2269-2269 (+0) MON2NAT end
+2269-2269 (+0) MON3ID start
+2269-2270 (+1) MON3ID FillTrainerParty-ChoseMon
+2270-2270 (+0) MON3NAT start
+2270-2272 (+2) NaturePid
+2272-2272 (+0) MON3NAT end
+
+{"frameRangeInputs":[[-1,2050,2050],[-1,103,103],[-1,0,0],[-1,0,0],[-1,5,5],[-1,0,0],[-1,7,7],[-1,0,0],[-1,0,0]],"isLvl50":true,"winStreak":"57","trainerNameFilter":"","trainersBattled":["Wilson","","","","",""],"pokemonsFilter":[{"input":"","item":"","moves":["","","",""],"ability":"unknown"},{"input":"","item":"","moves":["","","",""],"ability":"unknown"},{"input":"","item":"","moves":["","","",""],"ability":"unknown"}]}
+
+
+-------------
+const [gen, res] = await v.generateNodeRes(230617, v.generateNodeRes_fixedVblanks("2249,56424,2250,55394,2251,56505,2252,56498,2253,55644,2262,52878,2263,52029,2264,57678,2265,53559,2266,54914,2267,53665,2268,53525,2272,52522,2273,53733,2274,61176,2275,53107,2276,45177,2277,44267,2278,45356,2279,44955,2280,44939,"))
+  res[0].getShortDesc()
+  gen.graph.getResultNodes()[0].getVblankP1_P2()
+
+
+{"RngAvdCountAtTrainer":2050,"RngAvdCountAtMon1ID":2156,"CurrentCycleAtMon1ID":230617,"vblanks":"2249,56424,2250,55394,2251,56505,2252,56498,2253,55644,2262,52878,2263,52029,2264,57678,2265,53559,2266,54914,2267,53665,2268,53525,2272,52522,2273,53733,2274,61176,2275,53107,2276,45177,2277,44267,2278,45356,2279,44955,2280,44939,","vblanks2":"56424,55394,56505,56498,55644,52878,52029,57678,53559,54914,53665,53525,52522,53733,61176,53107,45177,44267,45356,44955,44939,","random":"MonID1,2156,230617,2157,231393,776,MonNAT1,2157,231393,2159,232397,1004,MonNAT1,2159,232397,2161,233386,989,MonNAT1,2161,233386,2163,234357,971,MonNAT1,2163,234357,2165,235348,991,MonNAT1,2165,235348,2167,236336,988,MonNAT1,2167,236336,2169,237328,992,MonNAT1,2169,237328,2171,238320,992,MonNAT1,2171,238320,2173,239286,966,MonNAT1,2173,239286,2175,240281,995,MonNAT1,2175,240281,2177,241280,999,MonNAT1,2177,241280,2179,242243,963,MonNAT1,2179,242243,2181,243263,1020,MonNAT1,2181,243263,2183,244237,974,MonNAT1,2183,244237,2185,245283,1046,MonNAT1,2185,245283,2187,246263,980,MonNAT1,2187,246263,2189,247274,1011,MonNAT1,2189,247274,2191,248252,978,MonNAT1,2191,248252,2193,249229,977,MonNAT1,2193,249229,2195,250193,964,MonNAT1,2195,250193,2197,251192,999,MonNAT1,2197,251192,2199,252165,973,MonNAT1,2199,252165,2201,253163,998,MonNAT1,2201,253163,2203,254139,976,MonNAT1,2203,254139,2205,255130,991,MonNAT1,2205,255130,2207,256197,1067,MonNAT1,2207,256197,2209,257202,1005,MonNAT1,2209,257202,2211,258179,977,MonNAT1,2211,258179,2213,259169,990,MonNAT1,2213,259169,2215,260179,1010,MonNAT1,2215,260179,2217,261130,951,MonNAT1,2217,261130,2219,262132,1002,MonNAT1,2219,262132,2221,263116,984,MonNAT1,2221,263116,2223,264093,977,MonNAT1,2223,264093,2225,265099,1006,MonNAT1,2225,265099,2227,266069,970,MonNAT1,2227,266069,2229,267093,1024,MonNAT1,2229,267093,2231,268102,1009,MonNAT1,2231,268102,2233,269386,1284,MonNAT1,2233,269386,2235,270381,995,MonNAT1,2235,270381,2237,271405,1024,MonNAT1,2237,271405,2239,272432,1027,MonNAT1,2239,272432,2241,273420,988,MonNAT1,2241,273420,2243,274444,1024,MonNAT1,2243,274444,2245,275458,1014,MonNAT1,2245,275458,2247,276435,977,MonNAT1,2247,276435,2254,217708,1065288,MonID2,2254,217708,2255,218376,668,MonID2,2255,218376,2256,245466,27090,MonNAT2,2256,245466,2258,246493,1027,MonNAT2,2258,246493,2260,247474,981,MonNAT2,2260,247474,2269,170973,1511529,MonID3,2269,170973,2270,224851,53878,MonNAT3,2270,224851,","modulo":"MonID1,1656780690 %u 24,88,2141481878 %u 24,88,15809 %s 78,1,1428402877 %u 24,88,56190 %u 100,1,|MonNAT1,-1612026965 %u 24,952,-1612026965 %u 25,11,|MonID2_Retry,37046 %s 78,1,|MonID2,7030 %s 78,1,-1612026965 %u 24,24,|MonNAT2,2129362152 %u 24,1344,2129362152 %u 25,11,|MonID3,-1612026965 %u 24,24,40681 %s 78,1,2129362152 %u 24,24,|"}
+
+2215 - 2006 == 9. 9 - 2 = 7
+
+
+MonNAT1,
+
+start 2208,238756,
+
+2208,40634,
+2209,40501,
+2210,39580,
+2211,40489,
+2212,40488,
+2213,62323,
+2214,56404
+
+1_936_645,
+
+
+320419
+
+end   2215,209127,
+
+40634 +
+40501 +
+39580 +
+40489 +
+40488 +
+62323 +
+56404
+
+
+Using the new emu:currentCycle(), I log the number of cycles between two addresses (totalCycle = 320419.
+
+I'm trying to understand what's wrong

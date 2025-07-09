@@ -1,0 +1,618 @@
+<h2 id="h">Pokémon Emerald: Battle Tower RNG Manipulation</h2>
+
+<h3 id="h">Summary</h3>
+<p>
+How RNG works in Emerald Battle Tower and how the <a href="/BattleFacilities/Emerald/RngManipulation">Emerald Battle Tower RNG Manipulation Tool</a> exploits it.
+
+</p>
+
+<!--
+Array.from(document.querySelectorAll('h2,h3,h4,h5,h6,h7')).map((h,i) => {
+return `<li style="margin-left:${(+h.tagName.slice(1) - 2) * 20}px"><a href="#h${i}">${h.innerText}</a></li>`;
+}).join('\n');
+-->
+
+<h3 id="h">Table of Contents</h3>
+<div>
+  <ul>
+<li style="margin-left:0px"><a href="#h3">1. First version of the RNG manipulation tool: Naive Approach</a></li>
+<li style="margin-left:20px"><a href="#h4">1.1 Opponent Team Generation Algorithm</a></li>
+<li style="margin-left:20px"><a href="#h5">1.2 RNG Manipulation Basics</a></li>
+<li style="margin-left:20px"><a href="#h6">1.3 Estimating Frames Before Trainer</a></li>
+<li style="margin-left:20px"><a href="#h7">1.4 Estimating Frames Between Trainer And 1st Pokémon</a></li>
+<li style="margin-left:20px"><a href="#h8">1.5 Outcome</a></li>
+<li style="margin-left:0px"><a href="#h9">2. Second version of the RNG manipulation tool: V-Blanks by Section</a></li>
+<li style="margin-left:20px"><a href="#h10">2.1 What are V-Blank Interrupts?</a></li>
+<li style="margin-left:20px"><a href="#h11">2.2 RNG Manipulation considering V-Blank Interrupts</a></li>
+<li style="margin-left:20px"><a href="#h12">2.3 Optimizing V-Blanks During Pokémon Generation Retries</a></li>
+<li style="margin-left:40px"><a href="#h13">2.3.1 Determining the Different Outcomes for Pokémon Generation</a></li>
+<li style="margin-left:40px"><a href="#h14">2.3.2 How Helpful That Pokémon Generation Optimization Is</a></li>
+<li style="margin-left:20px"><a href="#h15">2.4 Optimizing V-Blank After Pokémon Generation</a></li>
+<li style="margin-left:40px"><a href="#h16">2.4.1 Impact of PID on Cycle Count</a></li>
+<li style="margin-left:40px"><a href="#h17">2.4.2 Impact of Pokémon Preset on Cycle Count</a></li>
+<li style="margin-left:0px"><a href="#h18">3. Third version of the RNG manipulation tool: Cycle Simulator</a></li>
+<li style="margin-left:20px"><a href="#h19">3.1 How to Reduce Possibilities Even More</a></li>
+<li style="margin-left:20px"><a href="#h20">3.2 Data Required</a></li>
+<li style="margin-left:20px"><a href="#h21">3.3 Cycles Per V-blanks</a></li>
+<li style="margin-left:20px"><a href="#h22">3.4 Algo Summary</a></li>
+<li style="margin-left:20px"><a href="#h23">3.5 Algo Execution Example</a></li>
+<li style="margin-left:20px"><a href="#h24">3.6 Supporting Uncommon Results</a></li>
+<li style="margin-left:20px"><a href="#h25">3.7 Calculating Probabilities</a></li>
+<li style="margin-left:40px"><a href="#h26">3.7.1 Probability Distribution for V-Blanks from Player Inputs</a></li>
+<li style="margin-left:40px"><a href="#h27">3.7.2 Probability Distribution for Current Cycle At 1st Pokémon Selection</a></li>
+<li style="margin-left:40px"><a href="#h28">3.7.3 Probability Distribution for Cycles Per V-blank</a></li>
+<li style="margin-left:20px"><a href="#h29">3.8 Apply Probabilities</a></li>
+<li style="margin-left:20px"><a href="#h30">3.9. Useful Scripts</a></li>
+<li style="margin-left:20px"><a href="#h31">4. Final Result</a></li>
+<li style="margin-left:20px"><a href="#h32">5. Credits</a></li>
+  </ul>
+</div>
+
+
+
+<h2 id="h3">1. First version of the RNG manipulation tool: Naive Approach</h2>
+
+<h3 id="h4">1.1 Opponent Team Generation Algorithm</h3>
+<p>
+By itself, the algorithm used to generate the opponent team is quite simple.
+<ul>
+    <li>Select a random trainer that hasn't been battled yet in the current challenge series.</li>
+    <li>Select a random Pokémon Preset (species, nature, item and moveset) from a pool of predefined Pokémon presets.</li>
+    <li>Generate the Pokémon which also assigns a random ability and gender.</li>
+    <li>Select a 2nd random Pokémon which is compatible with the first one (doesn't share the same species, nor item as the first one).</li>
+    <li>Generate the 2nd Pokémon.</li>
+    <li>Select the 3rd Pokémon while ensuring compability.</li>
+    <li>Generate the 3rd Pokémon.</li>
+</ul>
+</p>
+
+<h3 id="h5">1.2 RNG Manipulation Basics</h3>
+<p>
+In Emerald, RNG updates every frame. Forcing a specific battle requires frame-perfect button presses, which is very difficult. Unlike wild Pokémon encounters that can be attempted multiple times, the Battle Frontier can only be attempted once. In short, RNG manipulation in Emerald Battle Frontier can't be used to force a specific battle.
+</p>
+
+<p>
+A less risky and easier RNG manipulation is to be able to predict the entire opponent team, based on the trainer and their first Pokémon. With this extra knowledge, the battle becomes a lot easier.
+</p>
+
+<p>
+In theory, there are only two unknown variables at play:
+<ul>
+  <li>Number of frames before the trainer is selected</li>
+  <li>Number of frames between the trainer and the selection of the first Pokémon</li>
+</ul>
+</p>
+
+<h3 id="h6">1.3 Estimating Frames Before Trainer</h3>
+<p>
+The trainer is selected upon entering the battle map. The number of frames before reaching the map depends on the time spent in the Battle Tower elevator, which depends on the current win streak. The more win streak you have, the higher up you go, and the more time you spend in the elevator.
+</p>
+
+<p>
+Here's the number of frames in the elevator by win streak:
+<ul>
+  <li>Win streak 0-6: 53</li>
+  <li>Win streak 7-13: 80</li>
+  <li>Win streak 14-20: 107</li>
+  <li>Win streak 21-27: 128</li>
+  <li>Win streak 28-34: 155</li>
+  <li>Win streak 35-41: 176</li>
+  <li>Win streak 42-48: 176</li>
+  <li>Win streak 49-55: 191</li>
+  <li>Win streak 56+: 197</li>
+</ul>
+
+<p>
+Considering this, we can accurately predict the frame when the trainer is selected with autofire (pressing A every frame). Without autofire (pressing A about 5 times per second), the additional frames is between 120 and 180 (~2-3 seconds slower than TAS).
+</p>
+
+
+<h3 id="h7">1.4 Estimating Frames Between Trainer And 1st Pokémon</h3>
+<p>The first Pokémon is selected upon starting the battle, upon pressing A after the trainer greeting message. The number of frames for the greeting message depends on trainer. Every trainer has a different message, with variable length.<p>
+
+<p>
+The shortest message is "FUFUFU..." by Joel which takes 17 frames. The longest is "MY SECRET POWER IS OVERWHELMING TO POKEMON" by Jamison which takes 49 frames. It's about 0.88 frames per letter.
+</p>
+
+<h3 id="h8">1.5 Outcome</h3>
+<p>
+I applied each step of the generation algorithm perfectly. And the results were... totally wrong... For a mysterious reason, the Pokémon team predicted by the tool didn't match at all the ones when playing the game.
+</p>
+<p>
+After debugging the assembly, I discovered that the Random() function was called way more often than expected. The reason: v-blank interrupts.
+</p>
+
+<hr>
+<h2 id="h9">2. Second version of the RNG manipulation tool: V-Blanks by Section</h2>
+<h3 id="h10">2.1 What are V-Blank Interrupts?</h3>
+<p>
+A V-blank interrupt is the mechanism used by the GBA to refresh the screen. It is triggered every 1/60th of a second independently from regular game logic execution.
+</p>
+
+<p>
+When a V-blank interrupt occurs, the regular game program execution is paused, v-blank associated code is executed, then the regular game program resumes.
+</p>
+
+<p>
+In Pokémon Emerald, the v-blank associated code updates the RNG frame by 1. This means that every 1/60th of a second, the RNG frame updates by 1.
+</p>
+
+<p>
+Every single program operation has an impact on v-blank interrupts. Two GBAs with different saves that boot the game and press the buttons at the same time will not result in the exact same outcome. This is because loading and saving the savefile take a variable number of operations.
+</p>
+
+<p>
+In short, it's impossible to precisely determine when v-blank interrupts will occur in the context of the Battle Frontier.
+</p>
+
+<h3 id="h11">2.2 RNG Manipulation considering V-Blank Interrupts</h3>
+<p>
+Here is the list of important RNG steps:
+<ul>
+    <li>Trainer</li>
+    <li>1st Pokémon Preset</li>
+    <li>1st Pokémon Generation (Nature)</li>
+    <li>2nd Pokémon Preset</li>
+    <li>2nd Pokémon Generation (Nature)</li>
+    <li>3rd Pokémon Preset</li>
+    <li>3rd Pokémon Generation (Nature)</li>
+</ul>
+</p>
+
+<p>
+V-blanks can occur between steps, or during the retry attempts of a step.
+</p>
+
+<p>
+For the tool to return accurate results, we need to estimate as accurately as possible the number of v-blanks occuring between and during each step.
+</p>
+
+<p>
+The V-blanks occuring before 1st Pokémon Preset don't really matter, because it depends on the player input. We already add a buffer to take into consideration the variability.
+</p>
+
+<p>
+According to my tests, the following is the range of V-blanks for each step:
+<table>
+  <tr><th>Step</th><th style="padding-right:10px">V-Blank Count</th><th># of Possible Outcomes</th></tr>
+  <tr>
+    <td>During 1st Pokémon Preset retries: </td>   <td> 0-1 </td>  <td>2</td>
+  </tr>
+  <tr>
+    <td>Between 1st Pokémon Preset and 1st Pokémon Generation: </td>   <td> 0-1 </td>  <td>2</td>
+  </tr>
+  <tr>
+    <td>During 1st Pokémon Generation retries</td>   <td>0-1</td>   <td>~100†</td>
+  </tr>
+  <tr>
+    <td>Between 1st Pokémon Generation and 2nd Pokémon Preset</td>  <td>0-16</td>   <td>17</td>
+  </tr>
+
+  <tr>
+    <td>During 2nd Pokémon Preset retries: </td>   <td> 0-1 </td>  <td>2</td>
+  </tr>
+  <tr>
+    <td>Between 2nd Pokémon Preset and 2nd Pokémon Generation: </td>   <td> 0-1 </td>  <td>2</td>
+  </tr>
+  <tr>
+    <td>During 2nd Pokémon Generation retries</td>   <td>0-1</td>   <td>~100†</td>
+  </tr>
+  <tr>
+    <td>Between 2nd Pokémon Generation and 3rd Pokémon Preset</td>  <td>0-16</td>   <td>17</td>
+  </tr>
+
+  <tr>
+    <td>During 3rd Pokémon Preset retries: </td>   <td> 0-1 </td>  <td>2</td>
+  </tr>
+  <tr>
+    <td>Between 3rd Pokémon Preset and 3rd Pokémon Generation: </td>   <td> 0-1 </td>  <td>2</td>
+  </tr>
+  <tr>
+    <td>During 3rd Pokémon Generation retries</td>   <td>0-1</td>   <td>~100†</td>
+  </tr>
+</table>
+</p>
+
+<p>
+The overall number of possibilities is: 2 * 2 * 100 * 17 * 2 * 2 * 100 * 17 * 2 * 2 * 100 = <span style="font-weight:bold">18_496_000_000 !</span>
+</p>
+
+<p>
+Note † : The reason why Pokémon Generation retries generate so much possibilities will be explained later.
+</p>
+
+
+
+<p>
+Obviously, it's impossible to brute force this number of possibilities. There's no point in having a tool that displays 18_496_000_000 possible trainer teams. We need to optimize certain sections by understanding why the v-blank varies so much.
+</p>
+
+<h3 id="h12">2.3 Optimizing V-Blanks During Pokémon Generation Retries</h3>
+
+<p>
+Pokémon Generation has a very variable number of RNG calls. In Generation 3, the nature is determined by using the formula (PID modulo 25) where PID is the personality ID. To create a Pokémon with a specific nature, the game generates a random PID until it results in the wanted nature. In average, it takes 25 attempts to create a valid PID. In some cases, it can take many many more (100+).
+</p>
+
+<p>
+A v-blank can occur at any time during those RNG calls. If there are 100 RNG calls, then there are 100 possible outcomes (v-blank at 1st retry, v-blank at 2nd retry, v-blank at 3rd retry etc.)
+</p>
+
+<p>
+Fortunately, in most cases, the exact moment when the v-blank occurs doesn't impact the end result. We need to take advantage of that fact to optimize the RNG manipulation.
+</p>
+
+<h4 id="h13">2.3.1 Determining the Different Outcomes for Pokémon Generation</h4>
+<p>
+We want determine the list of different outcomes for the nature generation. Note that each nature generation attempt calls RNG twice (PID has 32 bits, and Random() returns 16 random bits).
+</p>
+
+<p>
+For example, nature generation starts at RNG frame 1000 and the wanted nature is Brave. We make the list of all frames after 1000 that result in the Brave nature, for example frames 1005, 1015, 1018, 1027, 1039, and 1050.
+</p>
+
+<p>
+From those values, we can determine the following:
+<ul>
+    <li>If the v-blank occurs between RNG frame 1000 to 1004, the valid PID will be generated on frame 1005.</li>
+    <li>If the v-blank occurs between RNG frame 1006 to 1014, the valid PID will be generated on frame 1015.</li>
+    <li>If the v-blank occurs between RNG frame 1016 to 1018, the valid PID will be generated on frame 1027.</li>
+    <li>If the v-blank occurs later than RNG frame 1018, the valid PID will be generated on frame 1018.</li>
+</ul>
+</p>
+
+<p>
+As you can notice, v-blank occuring after RNG frame 1018 doesn't matter, because the valid PID would already be found at this point.
+</p>
+
+<p>
+The number of different outcomes is 2 + (the number of odd RNG frames resulting in valid PID before the first valid even RNG frame). With the example above (1005, 1015, 1018, 1027, 1039, 1050), we get 4 different outcomes (1000 to 1004 for 1005, 1006 to 1014 for 1015, 1016 to 1018 for 1027, later than 1018 for 1018).
+</p>
+
+<h4 id="h14">2.3.2 How Helpful That Pokémon Generation Optimization Is</h4>
+<p>
+In average, the average number of different outcomes for nature generation is 3. (The average the number of odd RNG frames resulting in valid PID before the first valid even RNG frame is 1.)
+</p>
+
+<p>
+Another easy optimization is to ignore nature generation for the 3rd Pokémon, because it only impacts its ability and gender, which are not that important.
+</p>
+
+<p>
+In short, with this optimization, the average number of possible outcomes caused by Nature Generation retries was reduced from 100^3 (1_000_000) to 3^2 (9).
+</p>
+
+
+
+<h3 id="h15">2.4 Optimizing V-Blank After Pokémon Generation</h3>
+<p>
+The number of v-blanks between selecting the PID of the 1st Pokémon and selecting the Pokémon preset of the 2nd Pokémon is also very variable. It ranges between 0 to 16 v-blanks.
+</p>
+
+<p>
+Unlike v-blanks occuring during Pokémon Generation, every v-blank after Pokémon Generation results in a different outcome.
+</p>
+
+<p>
+Reminder: The number of v-blanks is directly related to the number of processor cycles which is related to the instructions performed. For some reasons, the number of instructions performed greatly vary depending on the Pokémon generated.
+</p>
+
+<p>
+The number of cycles (instructions) during Pokémon Generation depends on:
+<ul>
+  <li>The PID of the Pokémon</li>
+  <li>The Pokémon preset (species + moves + nature)</li>
+</ul>
+</p>
+
+<h4 id="h16">2.4.1 Impact of PID on Cycle Count</h4>
+<p>
+The reason why PID has an impact on cycle count is because Pokémon Emerald was compiled with a compiler that has a <a href="https://github.com/gcc-mirror/gcc/blob/master/libgcc/config/lm32/_umodsi3.c">poorly-optimized modulo operator code.</a> The modulo operator takes between 10 and 900 cycles.
+</p>
+
+<p>
+In theory, taking 10 or 900 cycles shouldn't have a big impact on v-blank count. Reminder: V-blanks occur every 280_896 cycles. To cause a difference of 16 v-blanks, you would need to call the modulo function on the PID thousands of times! It makes no sense to call the modulo operator that many times when creating a Pokémon, right?!
+</p>
+
+<p>
+Well, it turns out that the game does indeed call the modulo operator thousands of times (x2924 times to be exact for Level 100 Roselia 1).
+</p>
+
+<p>
+The reason it is being called so much is because the Pokémon data structure is always encrypted in the RAM. Every access to read or write a Pokémon attribute must decrypt the data structure. And to decrypt the data structure, 4 calls to (PID % 24) are performed.
+</p>
+
+<p>
+This means the number of times Pokémon attributes are accessed impacts the number of cycles. The number of accesses depends on the Pokémon preset.
+</p>
+
+<h4 id="h17">2.4.2 Impact of Pokémon Preset on Cycle Count</h4>
+<p>
+The Pokémon preset in the Battle Frontier includes:
+<ul>
+  <li>Pokémon species</li>
+  <li>Moveset</li>
+  <li>Nature</li>
+  <li>Item</li>
+  <li>EV</li>
+</ul>
+</p>
+
+<p>
+The number of accesses to Pokémon attributes depend on:
+<ul>
+  <li>Level-up learnset (depends on Pokémon species)</li>
+  <li>Pokémon Level (normally 50 or 100)</li>
+  <li>Battle Frontier Moveset (whether the moves in the Battle Frontier are the same as the level-up learnset or not)</li>
+  <li>The number of non-zero EV (varies between 2 and 3 in the Battle Frontier)</li>
+  <li>Whether the species has 1 or 2 abilities.
+    <ul>
+      <li>Note: Even if Granbull, Vibrava and Flygon only have 1 ability, internally they have 2 abilities (twice the same ability).</li>
+    </ul>
+  </li>
+</ul>
+</p>
+
+<p>
+I was able to extract the number of modulo calls and cycle count for each Pokémon preset. Using this data, the tool can determine the number of cycles of a Pokémon generation for a given PID and level.
+</p>
+
+<p>
+Let say that the number of cycles for Level 50 Jynx with a given PID is 2_500_000. (2_500_000 cycles) / (280_896 cycles / vblank) = 8.9 vblanks. This means generating that Pokémon will cause 8 or 9 v-blanks. If the current cycle when Pokémon generation starts is below 28_089 (90% of 280_896), there will be 8 v-blanks. If it is above or equal to 28_089, there will be 9 v-blanks.
+</p>
+
+
+<p>
+In short, with this optimization, the number of average number of possible outcomes caused by Pokémon Generation was reduced from 17^3 (4913) to 2^3 (8).
+</p>
+
+<p>
+The total number of possible teams is now relatively small, but we can do even better by simulating cycles!
+</p>
+
+<hr>
+<h2 id="h18">3. Third version of the RNG manipulation tool: Cycle Simulator</h2>
+<h3 id="h19">3.1 How to Reduce Possibilities Even More</h3>
+<p>
+So far, we only tried to reduce possibilities of each step taken individually. We can reduce it even further by considering how the steps interact with eachother.
+</p>
+
+<p>
+For example, generating the Pokémon Nature has taken 100 retries without any v-blank occuring. Afterwards, the number of v-blanks for Pokémon generation is estimated at ~8.9.
+</p>
+
+<p>
+So far, we assumed that Pokémon generation would result in 8 or 9 v-blanks. (If the current cycle is below 28_089, there will be 8 v-blanks. If it is above 28_089, there will be 9 v-blanks.)
+</p>
+
+<p>
+In reality, it's impossible for the current cycle to be below 28_089 cycle when Pokémon generation starts, because in the previous step, generating the Pokémon Nature has taken 100 retries without any v-blank occuring. Those 100 retries already rose the current cycles far above 28_089.
+</p>
+
+<p>
+To improve the accuracy, we need a new RNG manipulation algorithm that simulates cycle count for all steps.
+</p>
+
+<h3 id="h20">3.2 Data Required</h3>
+<p>
+For this new algorithm, we need the number of cycles of every step and each of its outcomes. Some steps have many possible outcomes. Here's the list of steps and outcomes:
+
+<ul>
+  <li>1st Pokémon Preset : <ul>
+    <li>Success</li>
+    <li>Failure because of invalid Pokémon preset for level 50</li>
+  </ul></li>
+  <li>1st Pokémon Generation : <ul>
+    <li>Success</li>
+    <li>Failure because invalid nature</li>
+  </ul></li>
+  <li>2nd Pokémon Preset : <ul>
+    <li>Success</li>
+    <li>Failure because of invalid Pokémon preset for level 50</li>
+    <li>Failure because of same species as 1st Pokémon</li>
+    <li>Failure because of same item as 1st Pokémon</li>
+  </ul></li>
+  <li>2nd Pokémon Generation : <ul>
+    <li>Success</li>
+    <li>Failure because invalid nature</li>
+  </ul></li>
+  <li>3rd Pokémon Preset : <ul>
+    <li>Success</li>
+    <li>Failure because of invalid Pokémon preset for level 50</li>
+    <li>Failure because of same species as 1st Pokémon</li>
+    <li>Failure because of same species as 2nd Pokémon</li>
+    <li>Failure because of same item as 1st Pokémon</li>
+    <li>Failure because of same item as 2nd Pokémon</li>
+  </ul></li>
+  <li>3rd Pokémon Generation : <ul>
+    <li>Success</li>
+    <li>Failure because invalid nature</li>
+  </ul></li>
+</ul>
+</p>
+
+<p>
+For the same outcome, the number of cycles also depends on the RNG state at the time of the call. For example, the number of cycles for "Failure because invalid nature" depends on the cycles for the operation (PID % 25) which depends on the value of the last Random() call. Fortunately, we are able to accurately calculate it.
+</p>
+
+<h3 id="h21">3.3 Cycles Per V-blanks</h3>
+<p>
+The v-blank interrupt function occurs every 280_896 cycles. In the v-blank function, two main things occur: updating what's displayed on the screen and updating the audio. In the case of Battle Tower, there's nothing to update visually, so that duration is constant. But the number of cycles to update the sound is highly variable (between 35_000 and 65_000 cycles depending on where the audio track is).
+</p>
+
+<p>
+When the cycle counter reaches 280_896, the cyle counter is reset, regular program execution is stopped, and the v-blank function is called. Once the v-blank function is done, regular program execution resumes. The cycle counter when the regular program execution resumes is between a 35_000 and 65_000 range.
+</p>
+
+<p>
+In the previous sections, I simplified the problem when calculating the number of v-blanks for Pokémon generation.
+If generating a Pokémon takes 2_500_000 cycles excluding v-blanks, the number of v-blanks is actually between 10 and 12 (not between 8 and 9) because of the cycles taken by the v-blank themselves. This extra variability makes it even harder to accurately determine the outcome.
+</p>
+
+<p>
+Additionally, v-blank interrupts are not the only possible interrupts. There are also Vcount interrupts which work similarly, but they only run for 120 cycles in the Battle Frontier.
+</p>
+
+
+
+<h3 id="h22">3.4 Algo Summary</h3>
+<p>
+With all the data collected, we need an algorithm to simulate cycles and calculate possible teams.
+</p>
+<p>
+In short, for every starting state possible, the algo applies the generation steps. When a v-blank occurs, it takes into consideration all possible v-blank durations.
+</p>
+
+<p>
+A starting state is composed of three values:
+<ul>
+  <li>RNG state when selecting the trainer</li>
+  <li>RNG state when selecting the 1st Pokémon</li>
+  <li>Current cycle count (value between 0 and 280_895) when selecting the 1st Pokémon</li>
+</ul>
+</p>
+
+<h3 id="h23">3.5 Algo Execution Example</h3>
+<p>
+For example, the starting state is {RNG_Trainer=2050, RNG_1st_Pokémon=2132, Cycle_Count_1st_Pokémon=250_000}. RNG_Trainer=2050 results in the trainer Dev being selected. RNG_1st_Pokémon=2132 results in the Pokémon Nidoking 1 being selected. The selection took 10_000 cycles. We are now at {RNG=2133,cycle=260_000}.
+</p>
+
+<p>
+We attempt to generate a PID that results in the Adamant nature. The first attempt is a failure (nature was Brave) and took 5_000 cycles. The state is now {RNG=2135,cycle=265_000}. The second attempt is also a failure (nature was Modest) and took 20_896 cycles. The state is now {RNG=2137,cycle=285_896}.
+</p>
+
+<p>
+Because the cycle is above 280_896, a v-blank occurs. The v-blank takes between 35_000 and 65_000 cycles. The tool selects a random number in that range, for example 40_000 cycles. The state is now {RNG=2138,cycle=45_000}.
+</p>
+
+<p>
+A 3rd attempt for nature generation is a success (nature is Adamant). The generation of the Pokémon takes 2_500_000 cycles. The state is now {RNG=2140,cycle=2_545_000}. Because the cycle is above 280_896, v-blanks occur (x9 times). The state is now {RNG=2140,cycle=16_936 + 9 v-blanks}. The tool selects a random number of cycles that the x9 v-blanks took themselves to update the screen/audio, for example 375_000 cycles. The state is now {RNG=2149,cycle=386_936}. Because the cycle is above 280_896, an additional v-blank occurs {RNG=2149,cycle=106_040 + 1 v-blank}. The tool selects a random number of cycles for the v-blank (ex: 43_960 cycles). The state becomes {RNG=2150,cycle=150_000}.
+</p>
+
+<p>
+We repeat this process until all 3 Pokémon are generated.
+</p>
+
+<h3 id="h24">3.6 Supporting Uncommon Results</h3>
+<p>
+A problem with the implementation above is that only 1 final outcome is generated, based on the random number of cycles per v-blank used. To generate multiple possible outcomes, the algo must be ran multiple times. It's unclear how many times the algo must be ran to ensure that all possible outcomes have been found.
+</p>
+
+<p>
+To overcome this problem, the strategy is to always explore two branches: the lower bound and the upper bound. For example, if v-blank cycles are between 35_000 and 65_000, we will explore the outcome given that v-blank cycles is 35_000, then explore the outcome for 65_000. This ensures all possible outcomes are explored. Note: Additional tweaks were also added to explore different outcomes for cycles in-between the bounds.
+</p>
+
+
+<h3 id="h25">3.7 Calculating Probabilities</h3>
+<p>
+So far, we were only interested in knowning the possible teams. In most cases, there are over 100 possible teams, but some of them are a lot more probable then others (often one with 50%+ chance). It is a lot more useful to players if we can identify the most probable teams.
+</p>
+
+<p>
+For accurate probabilities, we need the distribution probabilities for all randomized ranges.
+<ul>
+  <li>Number of v-blanks before selecting the trainer</li>
+  <li>Number of v-blanks between selecting the trainer and selecting the 1st Pokémon</li>
+  <li>Current cycle when selecting the 1st Pokémon</li>
+  <li>Number of cycles per v-blank</li>
+</ul>
+</p>
+
+<h4 id="h26">3.7.1 Probability Distribution for V-Blanks from Player Inputs</h4>
+<p>
+This covers v-blanks before selecting the trainer and before the 1st Pokémon.
+</p>
+
+<p>
+Assuming the player presses A every 12 frames (x5 times per second), the average frame delay per press is between 0 and 12 (average of ~6). It takes 9 A-presses from the game booting to selecting the trainer.
+<ul>
+  <li>In the best case, there will be 0 total frame delay compared to frame-perfect inputs (TAS).</li>
+  <li>In the average average case, there will be 54 total frame delay.</li>
+  <li>In the worst case, there will be 108 total frame delay.</li>
+</ul>
+</p>
+
+<p>
+In reality, it's a bit more complex than that, because there's a fixed delay between optimal inputs. Having a slower but better tuned mashing speed may result in better results. For example, in a text transition, a minimal delay of 15 frames is required between two inputs. Mashing once every 14 frames will trigger the text after 28 frames. Mashing once every 16 frames (slower than before) will trigger the text after 16 frames. In short, it's hard to estimate the real delay based on calculations alone. Actual in-game testing was required. Note: This is a simplified example with made-up numbers.
+</p>
+
+<p>
+Still, we can make some assumptions. The probability distribution of the frame delay should follow a pyramid-like curve, with the average case being a lot more probable than the extremity. It is similar to the probability distribution when summing two random dices (obtaining 7 is a lot more common than obtaining 12).
+</p>
+
+<p>
+The distribution can be approximated as 1,1,3,8,8,3,1,1. A value near the average region is about x8 more like than in the extremity region.
+</p>
+
+<p>
+The same logic can be applied for estimating the frame delay for the trainer greeting message, before selecting the 1st Pokémon.
+</p>
+
+<h4 id="h27">3.7.2 Probability Distribution for Current Cycle At 1st Pokémon Selection</h4>
+<p>
+The current cycle count is the number of cycles since the last v-blank. It is a value between 0 and 280_895. It impacts when the next v-blank will occur and can greatly change the end result.
+</p>
+
+<p>
+According to my tests, its value range between 185_000 and 235_000, with the range 210_000 to 215_000 being the most likely.
+</p>
+
+
+<h4 id="h28">3.7.3 Probability Distribution for Cycles Per V-blank</h4>
+<p>
+Even though a v-blank takes between 35_000 and 65_000 cycles, not all values have the same chance of occuring. For example, a v-blank taking between [50_000, 55_000] cycles is x5 more likely than a v-blank taking between [35_000, 40_000] cycles.
+</p>
+
+<p>
+Furthermore, the range of x10 consecutive v-blanks is a lot smaller than 10 times the range of a single v-blank (350_000 to 650_000). The reason is that multiple consecutive "long" v-blanks are impossible.
+</p>
+
+<p>
+For example, the v-blank takes 65_000 cycles only when the audio reaches the end of the song and loops back to the beginning of the song. This means it's impossible to reach 130_000 cycles in 2 consecutive v-blanks, because the audio can't loop twice consecutively. Note: Audio looping is not the real reason for long v-blanks. This is only a supposition to illustrate the idea.
+</p>
+
+<p>
+By collecting data of many consecutive v-blanks, it is possible to have a better approximation when multiple consecutive v-blanks occur. For example, the actual range for x10 consecutive v-blank is between 374_000 and 574_000.
+</p>
+
+<p>
+Additional research could be done to better understand the number of cycles of the function SoundMain() called in the v-blank interrupt function.
+</p>
+
+
+<h3 id="h29">3.8 Apply Probabilities</h3>
+<p>
+The easiest way to simulate probabilities in complex multi-step logic is to run simulations. The more simulations, the better the accuracy.
+</p>
+
+<p>
+Even though we could simply run simulations of the entire Pokémon team generation, it wouldn't be very efficient. This is because about 99% of teams generated are invalid because they don't match the trainer and Pokémon the player is facing in-game.
+</p>
+
+<p>
+A better way is to split the algorithm in two parts: determining the possible valid team outcomes, then calculating probabilities only on the "paths" that lead to valid outcomes.
+</p>
+
+<h3 id="h30">3.9 Useful Scripts</h3>
+<p>
+Those scripts must be used on the latest <span style="font-weight:bold">dev</span> version of the <a href="https://mgba.io/downloads.html#development-downloads">mGBA emulator</a>.
+</p>
+<ul>
+  <li><a href="{{SCRIPT1}}">Script</a> to display general frame and cycle information for a team generation</li>
+  <li><a href="{{SCRIPT2}}">Script</a> to extract the number of cycles and modulo operations for all 882 possible Pokémon preset</li>
+  <li><a href="{{SCRIPT3}}">Script</a> to extract the number of frames for all 300 Trainer greeting speeches</li>
+  <li><a href="{{SCRIPT4}}">Script</a> to extract the number of frames for each possible elevator floor</li>
+</ul>
+
+<h2 id="h31">4. Final Result</h2>
+<p>Here's the <a href="/BattleFacilities/Emerald/RngManipulation">Emerald Battle Tower RNG Manipulation Tool</a>.</p>
+<p>
+<img src="{{IMG}}">
+</p>
+<p>Here's the <a href="/BattleFacilities/Emerald/Assistant">Emerald Battle Frontier Assistant</a> which fills the input for the RNG Manipulation tool automatically.</p>
+
+
+<h2 id="h32">5. Credits</h2>
+<p>Author: RainingChain</p>
+<p>Special thanks to Shao for support and providing the functions to calculate cycle count for the modulo operator.</p>
+<p>Special thanks to mGBA team for the mGBA emulator.</p>
+
