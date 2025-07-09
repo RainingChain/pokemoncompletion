@@ -1,3 +1,100 @@
 
 image error in /completion/MysteryDungeonRescueTeam
 
+This PC\Pixel 4a\Internal shared storage\Emulators\3DS\sdmc\Nintendo 3DS\00000000000000000000000000000000\00000000000000000000000000000000\title\00040000\00141000\data\00000001
+
+
+---------------
+RNG
+  Gen3:
+    largest
+    training course gen3
+    update RC site with links to pokemonrng (missing stationnary...)
+    standalone emerald assistant
+    mention held item (lucky egg)
+    method3
+
+
+  Gen4:
+    play hg
+      understand how hgss rng works
+      get perfect shedinja
+      write article
+
+-------------------
+ranger
+  play 100%
+    capture challenge
+    pokemon
+    mission egg? maybe bug.
+    max level
+-------------------
+platinum:
+  validator issues
+    bug:
+      Link Multi Battles Battle Tower (Multi with other player)
+
+  play 100%
+    ranger for manaphy
+    get jp roselia
+    hg
+      reach battle tower
+      berry juice
+      Pokéathlon Dome
+      mew event
+    wifi
+      35 wins
+    battle frontier tool
+
+  -----
+
+  battle facilities helper
+
+  C:\rc\rainingchain\src\pokemonCompletion\research\VersionCompatibility_Gen4.hbs
+    add ranger info
+    can ranger JP trade to english? => also impact  Platinum.json
+
+-------------------
+pokemon quest
+  create json + tool
+
+
+-------------------
+pmd sky
+  pkcompletionist
+  guide
+
+  unlocated elements: cleanup
+
+
+-------------------
+black2
+  wares
+  requirements
+  map
+
+-------------------
+pokemon shuffle
+  must get 0.11 to do real stuff
+
+
+
+-------------------
+Gen3:
+  wireless. wait for mgba (2027)
+
+
+
+-------------------
+pokewalker:
+  transfer mon from ds to pw
+    mark pokemon in ds as transferred
+    add pokemon to pw
+
+  transfer mon from pw to ds
+    remove pokemon from pw
+    randomly generate ev/pid for new pokemon
+    add pokemon to ds
+
+  transfer item from pw to ds
+
