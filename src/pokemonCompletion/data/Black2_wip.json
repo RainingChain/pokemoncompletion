@@ -108,6 +108,331 @@
   {"name":"Black Tower","alias":[]},
   {"name":"Nature Preserve","alias":[]}
 ],
+"simpleRequirements":[
+  ["Ruby", "$Ruby_EN", "$Ruby_JP"],
+  ["Sapphire", "$Sapphire_EN","$Sapphire_JP"],
+  ["Emerald", "$Emerald_EN", "$Emerald_JP"],
+  ["LeafGreen", "$LeafGreen_EN","$LeafGreen_JP"],
+  ["FireRed","$FireRed_EN","$FireRed_JP"],
+  ["FL","FireRed","LeafGreen"],
+  ["DualFireRed","FireRed"],
+  ["DualLeafGreen","LeafGreen"],
+  ["DualRuby","Ruby"],
+  ["DualSapphire","Sapphire"],
+  ["DualEmerald","Emerald"],
+  ["DualAny","DualFireRed","DualLeafGreen","DualRuby","DualSapphire","DualEmerald"],
+  ["RS","Ruby","Sapphire"],
+  ["RSE","RS","Emerald"],
+  ["RS_JP", "$Ruby_JP","$Sapphire_JP"],
+  ["RS_EN", "$Ruby_EN","$Sapphire_EN"],
+  ["DP_JP", "$Diamond_JP","$Pearl_JP"],
+  ["DP_EN", "$Diamond_EN","$Pearl_EN"],
+  ["RangerShadow","$RangerShadow"],
+  ["RangerGuardian","$RangerGuardian"],
+
+  ["Colosseum", "$Colosseum_US","$Colosseum_JP"],
+  ["XD", "$XD_US","$XD_JP"],
+  ["AnyGen3_EN", "RS_EN","$Emerald_EN","$LeafGreen_EN","$FireRed_EN"],
+  ["AnyGen3_JP", "RS_JP","$Emerald_JP","$LeafGreen_JP","$FireRed_JP"],
+
+  ["AnyGen3", "AnyGen3_EN","AnyGen3_JP"],
+  ["AnyGen4_EN","$Diamond_EN","$Pearl_EN","$HeartGold_EN","$SoulSilver_EN","Platinum2_EN"],
+  ["TradeGen3", "AnyGen3_EN","AnyGen3_JP"],
+  ["TradeGen4", "DP","HS","Platinum2"],
+  ["Trade", "TradeGen3","TradeGen4"],
+
+  ["Diamond", "$Diamond_JP","$Diamond_EN"],
+  ["Pearl", "$Pearl_JP","$Pearl_EN"],
+  ["HeartGold", "$HeartGold_JP", "$HeartGold_EN"],
+  ["SoulSilver", "$SoulSilver_JP", "$SoulSilver_EN"],
+  ["EvolveTrade", "Trade"],
+  ["EvolveTrade4", "TradeGen4"],
+  ["PokeWalker", "$PokeWalker"],
+  ["DP","Diamond","Pearl"],
+  ["DPP","DP","Platinum2"],
+  ["HS","HeartGold","SoulSilver"],
+
+  ["Lugia","HS","XD"],
+  ["HoOh","HS","Colosseum"],
+  ["PBR","$BattleRevolution_US","$BattleRevolution_JP"],
+
+  ["MultiplayerDPP","DPP"],
+  ["SecretKey", "$SecretKey_Event"],
+  ["OaksLetter","$OaksLetter_Event"],
+  ["MemberCard","$MemberCard_Event"],
+  ["AnyGen4_JP","$Diamond_JP","$Pearl_JP","$Platinum_JP"],
+
+  ["Gracidea","Shaymin"],
+  ["Arceus","$ArceusRowap_Event"],
+
+  ["Shaymin","OaksLetter","$Shaymin_RangerGuardian_Event","$ShayminMicle_Event"],
+  ["MicleBerry","$ShayminMicle_Event"],
+
+  ["RowapBerry","$ArceusRowap_Event"],
+
+  ["EnigmaBerry","PBR","eReader_AnyBerry"],
+
+  ["JabocaBerry","$CelebiJaboca_Event"],
+  ["SoulDew","EonTicket","PBR"],
+  ["NintendoWifi","$NintendoWifi"],
+  ["LucarioDoll","$LucarioDoll_Event"],
+  ["CustapBerry","$EnteiCustap_Event"],
+
+  ["eReader_AnyBerry", "$eReader_AnyBerry_EN", "$eReader_AnyBerry_JP"],
+
+  ["CountryRibbon","$PokemonFestaRibbons_RSE_Event"],
+  ["WorldRibbon","$PokemonFestaRibbons_RSE_Event"],
+
+  ["ClassicRibbon","$ShayminMicle_Event","$ArceusRowap_Event","$CelebiJaboca_Event","$EnteiCustap_Event"],
+  ["PremierRibbon","$MewPremierRibbon_HGSS_Event"],
+  ["ForeignDexEntries","$ForeignDexEntries"]
+],
+"requirements":[
+  {"id":"Multiplayer", "waresByType":[
+    {"type":"emulator", "formula":[["$EmuMultiplayer"]]},
+    {"type":["consoleEN"], "formula":[["GTE($ConsoleDS,2)"]]}
+  ]},
+  {"id":"Platinum2", "waresByType":[
+    {"type":"emulator", "formula":[["Multiplayer"]]},
+    {"type":["consoleEN"], "formula":[["GTE($Platinum_EN,$Platinum_JP,2)"]]}
+  ]},
+  {"id":"Platinum2_EN", "waresByType":[
+    {"type":"emulator", "formula":[["Multiplayer"]]},
+    {"type":["consoleEN"], "formula":[["GTE($Platinum_EN,2)"]]}
+  ]},
+  {"id":"Mew", "waresByType":[
+    {"type":["emulator","consoleEN"], "formula":[["MyPokemonRanch"],["$Mew_Event"]]}
+  ]},
+  {"id":"Celebi", "waresByType":[
+    {"type":["emulator","consoleEN"], "formula":[["$Celebi_Event"],["$ColosseumBonusDisc_JP"]]}
+  ]},
+  {"id":"EonTicket", "waresByType":[
+    {"type":["emulator","consoleEN"], "formula":[["$eReader_EonTicket"]]}
+  ]},
+  {"id":"Jirachi", "note":"Summer 2010 Jirachi English Wi-Fi 5 June 26 to July 16, 2010", "waresByType":[
+    {"type":["emulator","consoleEN"], "formula":[["$ColosseumBonusDisc_US"],["$Jirachi_Event"]]}
+  ]},
+  {"id":"Deoxys", "waresByType":[
+    {"type":["emulator", "consoleEN"], "formula":[["DP","$Deoxys_DP_Event"],["Emerald","$AuroraTicketEvent_Gen3"],["FL","$AuroraTicketEvent_Gen3"],["$Deoxys_RangerGuardian_Event"]]}
+  ]},
+
+  {"id":"MyPokemonRanch", "waresByType":[
+    {"type":["emulator", "consoleEN"], "formula":[["$MyPokemonRanch_US","DP_EN"],["$MyPokemonRanch_JP","$MyPokemonRanchUpdate_JP","$Platinum_JP"],["$MyPokemonRanch_JP","DP_JP"]]}
+  ]},
+
+  {"id":"Phione", "waresByType":[
+    {"type":["emulator", "consoleEN"], "formula":[["MyPokemonRanch"],["Manaphy"]]}
+  ]},
+  {"id":"Manaphy", "waresByType":[
+    {"type":["emulator", "consoleEN"], "formula":[["$Ranger_EN","DP_EN"],["$Manaphy_RangerShadow_Event","RangerShadow"],["$Manaphy_RangerGuardian_Event","RangerGuardian"],["$Manaphy_DP_Event"]]}
+  ]},
+
+  {"id":"MemberCard", "waresByType":[
+    {"type":["emulator", "consoleEN"], "formula":[["$MemberCard_Event"]]}
+  ]},
+  {"id":"Darkrai", "waresByType":[
+    {"type":["emulator", "consoleEN"], "formula":[["MemberCard"],["$Darkrai_RangerShadow","RangerShadow"],["$Darkrai_DP_Event", "DP"]]}
+  ]},
+
+  {"id":"BrickMail", "waresByType":[
+    {"type":["emulator", "consoleEN"], "formula":[["$BrickMail_DP_Event","DP_JP"]]}
+  ]},
+  {"id":"TradeGen3ToGen3", "waresByType":[
+    {"type":["emulator"], "formula":[["$EmuGbaMultiplayer"]]},
+    {"type":["consoleEN"], "formula":[["$GbaLinkCable"]]}
+  ]},
+  {"id":"TransferGen3JPToGen4US", "waresByType":[
+    {"type":["emulator"], "formula":[["AnyGen3_EN","TradeGen3ToGen3"],["AnyGen4_JP"]]},
+    {"type":["consoleEN"], "formula":[["AnyGen3_EN","TradeGen3ToGen3"],["AnyGen4_JP"]]}
+  ]},
+  {"id":"AllMaleFemaleForms", "note":"probably possible by fighting only trainers", "waresByType":[
+    {"type":["emulator", "consoleEN"], "formula":[["NationalDex"]]}
+  ]},
+  {"id":"Geonet", "waresByType":[
+    {"type":["emulator", "consoleEN"], "formula":[["AnyGen4_EN"]]}
+  ]},
+  {"id":"NintendoWifiBattle", "waresByType":[
+    {"type":["consoleEN","emulator"], "formula":[["$NintendoWifi","MultiplayerDPP"]]}
+  ]},
+  {"id":"RandSorE", "waresByType":[
+    {"type":["emulator", "consoleEN"], "formula":[
+      ["Ruby","Sapphire"],
+      ["Emerald"]
+    ]}
+  ]},
+  {"id":"RandSorE", "waresByType":[
+    {"type":["emulator", "consoleEN"], "formula":[["Ruby","Sapphire"],["Emerald"]]}
+  ]},
+  {"id":"DorP", "waresByType":[
+    {"type":["emulator", "consoleEN"], "formula":[["Diamond"],["Pearl"]]}
+  ]},
+  {"id":"DPorPt", "waresByType":[
+    {"type":["emulator", "consoleEN"], "formula":[["Diamond","Pearl"],["Platinum2"]]}
+  ]},
+  {"id":"LorForHorS", "waresByType":[
+    {"type":["emulator", "consoleEN"], "formula":[["LeafGreen"],["FireRed"],["HeartGold"],["SoulSilver"]]}
+  ]},
+  {"id":"XDandColorHorS", "waresByType":[
+    {"type":["emulator", "consoleEN"], "formula":[["XD","Colosseum"],["HeartGold"],["SoulSilver"]]}
+  ]},
+  {"id":"NationalDex", "waresByType":[
+    {"type":["emulator", "consoleEN"], "formula":[
+      ["RandSorE","DorP","DPorPt","LorForHorS"]
+    ]}
+  ]},
+  {"id":"OverripePoffin", "waresByType":[
+    {"type":["emulator"], "formula":[["DPP"]]},
+    {"type":["consoleEN"], "formula":[["GTE($ConsoleDS,3)", "GTE($Platinum_EN,$Pearl_EN,$Diamond_EN,$Platinum_JP,$Pearl_JP,$Diamond_JP,3)"]]}
+  ]},
+  {"id":"ForeignDexEntries", "waresByType":[
+    {"type":["emulator", "consoleEN"], "formula":[["$ForeignDexEntries"]]}
+  ],
+  "info":[
+    "144 Articuno LGPtHS",
+    "145 Zapdos LGPtHS",
+    "146 Moltres LGPtHS",
+    "150 Mewtwo LGHS",
+    "151 Mew MyPkmRanch",
+    "201 Unown LGDPPtHS",
+    "243 Raikou LGColHS",
+    "244 Entei LGColHS",
+    "245 Suicune LGColHS",
+    "249 Lugia XDHS",
+    "250 Ho-Oh ColHS",
+    "251 Celebi JP(Col),Event(RSEDPPtHS)",
+    "377 Regirock RSE",
+    "378 Regice RSE",
+    "379 Registeel RSE",
+    "380 Latias SE",
+    "381 Latios RE",
+    "382 Kyogre SEH",
+    "383 Groudon RES",
+    "384 Rayquaza RSEHS",
+    "385 Jirachi JP(Event DPPtHS),Col",
+    "386 Deoxys Event DPRSELF",
+    "480 Uxie DPPt",
+    "481 Mesprit DPPt",
+    "482 Azelf DPPt",
+    "483 Dialga DPt",
+    "484 Palkia PPt",
+    "485 Heatran DPPt",
+    "486 Regigigas RSE",
+    "487 Giratina DPPt",
+    "488 Cresselia DPPt",
+    "491 Darkrai Event(DPPt)",
+    "492 Shaymin Event(DPPt)",
+    "493 Arceus Event(DPPt)"
+  ]}
+
+],
+"waresByType":[
+  {"type":"emulator","name":"Emulator (EN)","aliases":[
+    ["$ArceusRowap_Event","$EventTool"],
+    ["$ShayminMicle_Event","$EventTool"],
+    ["$CelebiJaboca_Event","$EventTool"],
+    ["$MewPremierRibbon_HGSS_Event","$EventTool"],
+    ["$PokemonFestaRibbons_RSE_Event","$EventTool"],
+    ["$SecretKey_Event","$EventTool"],
+    ["$OaksLetter_Event","$EventTool"],
+    ["$MemberCard_Event","$EventTool"],
+    ["$BrickMail_DP_Event","$EventTool"],
+
+    ["$Deoxys_DP_Event","$EventTool"],
+    ["$EnteiCustap_Event","$EventTool"],
+    ["$LucarioDoll_Event","$EventTool_JP"],
+
+    ["$Manaphy_RangerShadow_Event","$EventTool_Optional"],
+    ["$Darkrai_RangerShadow_Event","$EventTool_Optional"],
+    ["$Manaphy_RangerGuardian_Event","$EventTool_Optional"],
+    ["$Deoxys_RangerGuardian_Event","$EventTool_Optional"],
+    ["$Shaymin_RangerGuardian_Event","$EventTool_Optional"],
+    ["$Jirachi_Event","$EventTool_Optional"],
+    ["$Darkrai_DP_Event","$EventTool_Optional"],
+    ["$Manaphy_DP_Event","$EventTool_Optional"],
+
+    ["$Celebi_Event","$EventTool_Optional"],
+    ["$AuroraTicketEvent_Gen3","$EventTool_Optional"]
+  ],"warnings":[
+  ],"list":[
+    {"id":"$EmuDS","name":"Emulator for DS", "minCount":1},
+    {"id":"$EmuMultiplayer","name":"Emulator supports DS multiplayer?","indent":1, "url":["melonDS","https://melonds.kuribo64.net/"], "fullCompl":1},
+    {"id":"$EmuDualSlot","name":"Emulator supports GBA slot?","indent":1, "url":["melonDS","https://melonds.kuribo64.net/"], "fullCompl":1},
+    {"id":"$Black2_EN","name":"Game: Pokémon Black 2 (EN)","indent":1, "minCount":1},
+    {"id":"$Black_EN","name":"Game: Pokémon Black (EN)","indent":1},
+    {"id":"$White2_EN","name":"Game: Pokémon White 2 (EN)","indent":1},
+    {"id":"$White_EN","name":"Game: Pokémon White (EN)","indent":1},
+    {"id":"$Platinum_EN","name":"Game: Pokémon Platinum (EN)","indent":1, "fullCompl":1},
+    {"id":"$Diamond_EN","name":"Game: Pokémon Diamond (EN)","indent":1, "fullCompl":1, "preReqs":[["Multiplayer"]]},
+    {"id":"$Pearl_EN","name":"Game: Pokémon Pearl (EN)","indent":1, "preReqs":[["Multiplayer"]]},
+    {"id":"$HeartGold_EN","name":"Game: Pokémon HeartGold (EN)","indent":1, "fullCompl":1, "preReqs":[["Multiplayer"]]},
+    {"id":"$SoulSilver_EN","name":"Game: Pokémon SoulSilver (EN)","indent":1, "preReqs":[["Multiplayer"]]},
+
+    {"id":"$Ranger_EN","name":"Game: Pokémon Ranger (EN)","indent":1,"fullCompl":1, "preReqs":[["Multiplayer"]]},
+    {"id":"$RangerShadow","name":"Game: Pokémon Ranger: Shadows of Almia","indent":1, "preReqs":[["Multiplayer"]],"desc":"This game can only obtain tradable Pokémon from discontinued events."},
+    {"id":"$RangerGuardian","name":"Game: Pokémon Ranger: Guardian Signs","indent":1, "preReqs":[["Multiplayer"]],"desc":"This game can only obtain tradable Pokémon from discontinued events."},
+
+    {"id":"$Platinum_JP","name":"Game: Pokémon Platinum (JP)","indent":1, "preReqs":[["Multiplayer"]]},
+    {"id":"$Diamond_JP","name":"Game: Pokémon Diamond (JP)","indent":1, "preReqs":[["Multiplayer"]]},
+    {"id":"$Pearl_JP","name":"Game: Pokémon Pearl (JP)","indent":1, "fullCompl":1, "preReqs":[["Multiplayer"]]},
+    {"id":"$HeartGold_JP","name":"Game: Pokémon HeartGold (JP)","indent":1, "preReqs":[["Multiplayer"]]},
+    {"id":"$SoulSilver_JP","name":"Game: Pokémon SoulSilver (JP)","indent":1, "preReqs":[["Multiplayer"]]},
+
+    [
+      {"id":"$EmuPokewalker","name":"Emulator for PokéWalker","desc":"No PokéWalker emulators with DS connnectivity exist yet.", "indent":1, "preReqs":[["HS"]]},
+      {"id":"$Pokewalker","name":"Game: PokéWalker","indent":1, "preReqs":[["HS"]]}
+    ],
+
+    [
+      {"id":"$Wifi","name":"Emulator supports Wifi","desc":"","indent":1,"fullCompl":1},
+      {"id":"$NintendoWifi","name":"Simulator of Nintendo Wi-Fi Connection","desc":"","url":["DWC Network Server", "https://github.com/barronwaffles/dwc_network_server_emulator"],"indent":1,"fullCompl":1}
+    ],
+
+    {"id":"$EmuGba","name":"Emulator for GBA","fullCompl":1,"preReqs":[["$EmuDualSlot"]]},
+    {"id":"$EmuGbaMultiplayer","name":"Emulator supports link cables?","indent":1, "url":["mGBA","https://mgba.io/"], "fullCompl":1},
+    {"id":"$Emerald_EN","name":"Game: Pokémon Emerald (EN)","fullCompl":1,"indent":1},
+    {"id":"$Ruby_EN","name":"Game: Pokémon Ruby (EN)","indent":1},
+    {"id":"$Sapphire_EN","name":"Game: Pokémon Sapphire (EN)","fullCompl":1,"indent":1},
+    {"id":"$FireRed_EN","name":"Game: Pokémon FireRed (EN)","fullCompl":1,"indent":1},
+    {"id":"$LeafGreen_EN","name":"Game: Pokémon LeafGreen (EN)","fullCompl":1,"indent":1},
+
+    {"id":"$Emerald_JP","name":"Game: Pokémon Emerald (JP)","indent":1,"preReqs":[["TransferGen3JPToGen4US"]]},
+    {"id":"$Ruby_JP","name":"Game: Pokémon Ruby (JP)","indent":1,"fullCompl":1,"preReqs":[["TransferGen3JPToGen4US"]]},
+    {"id":"$Sapphire_JP","name":"Game: Pokémon Sapphire (JP)","indent":1,"preReqs":[["TransferGen3JPToGen4US"]]},
+    {"id":"$FireRed_JP","name":"Game: Pokémon FireRed (JP)","indent":1,"preReqs":[["TransferGen3JPToGen4US"]]},
+    {"id":"$LeafGreen_JP","name":"Game: Pokémon LeafGreen (JP)","indent":1,"preReqs":[["TransferGen3JPToGen4US"]]},
+
+    {"id":"$eReader","name":"GBA Emulator supports eReader?","fullCompl":1,"indent":1,"preReqs":[["RS_EN"],["RS_JP","AnyGen4_JP"]]},
+    {"id":"$eReader_EN","name":"Game: e-Reader (EN)","preReqs":[["RS_EN"]], "indent":2, "fullCompl":1},
+    {"id":"$eReader_AnyBerry_EN","name":"Data: Any e-Reader Berry Card (EN)","indent":3, "desc":"Ex: Pokémon Battle e: Series 1 - Freezing Ray - 08-K001 - Pumkin Berry","fullCompl":1},
+    {"id":"$eReader_EonTicket","name":"Data: Eon Ticket Card","indent":3,"fullCompl":1},
+
+    {"id":"$eReader_JP","name":"Game: e-Reader e+ (JP)","preReqs":[["RS_JP","AnyGen4_JP"]], "indent":2},
+    {"id":"$eReader_AnyBerry_JP","name":"Data: Any e-Reader Berry Card (JP)","indent":3, "desc":"Ex: Pokémon Battle e: Series 1 - Freezing Ray - 08-K001 - Pumkin Berry"},
+
+    {"id":"$EmuGameCube","name":"Emulator for Game Cube", "desc":"Must support GBA connectivity.", "url":["Dolphin","https://dolphin-emu.org/"], "fullCompl":1,"preReqs":[["AnyGen3"]]},
+    {"id":"$Colosseum_US","name":"Game: Pokémon Colosseum (US)","indent":1,"preReqs":[["AnyGen3_EN"]]},
+    {"id":"$ColosseumBonusDisc_US","name":"Game: Pokémon Colosseum Bonus Disc (US)","indent":1, "fullCompl":1,"preReqs":[["RS"]]},
+    {"id":"$XD_US","name":"Game: Pokémon XD (US)","indent":1},
+
+    [
+      {"id":"$Colosseum_JP","name":"Game: Pokémon Colosseum (Japan)","indent":1, "fullCompl":1,"preReqs":[["AnyGen3_JP"]]},
+      {"id":"$ColosseumBonusDisc_JP","name":"Game: Pokémon Colosseum Bonus Disc (Japan)","indent":1, "fullCompl":1}
+    ],
+    {"id":"$XD_JP","name":"Game: Pokémon XD (JP)","indent":1,"preReqs":[["AnyGen3_JP"]]},
+
+    {"id":"$EmuWii","name":"Emulator for WII", "desc":"No WII emulators with DS connectivity exist yet.", "fullCompl":1},
+    {"id":"$MyPokemonRanch_US","name":"Game: My Pokémon Ranch (US)", "fullCompl":1,"indent":1,"preReqs":[["DP_EN"]]},
+    {"id":"$BattleRevolution_US","name":"Game: Pokémon Battle Revolution (US)", "indent":1},
+    {"id":"$MyPokemonRanch_JP","name":"Game: My Pokémon Ranch (JP)", "indent":1,"preReqs":[["AnyGen4_JP"]]},
+    {"id":"$MyPokemonRanchUpdate_JP","name":"Update: My Pokémon Ranch 1.1 (JP)", "indent":2},
+    {"id":"$BattleRevolution_JP","name":"Game: Pokémon Battle Revolution (JP)","indent":1,"preReqs":[["AnyGen4_JP"]]},
+    {"id":"$ForeignDexEntries","name":"Many games in all languages", "fullCompl":1,"indent":1,"preReqs":[["Multiplayer","$EmuGba"]],"url":["Foreign Pokédex Entries Requirements", "./Platinum/ForeignPokedexEntries",""]},
+
+    {"id":"$EventTool","name":"Event Simulator","desc":"Found in the Savefile (.sav) Utilities section in this page","fullCompl":1},
+    {"id":"$EventTool_Optional","name":"Permit optional events?", "desc":"Permit events giving gifts obtainabled without events", "indent":1},
+    {"id":"$EventTool_JP","name":"Cheat: Permit JP events on US games?", "desc":"This is normally impossible without hacks.", "indent":1}
+  ]}
+],
 "categories":[
  {"id":"pokemon","name":"Pokémon","urlSuffix":"_(Pok%C3%A9mon)#Game_locations","showId":true,"conflicts":[
   [["Tepig","Pignite","Emboar"], ["Snivy","Servine","Serperior"], ["Oshawott","Dewott","Samurott"]],
