@@ -5,9 +5,9 @@ import * as fs from "fs/promises";
 - each category must contains a line ending with "list":[
 - each collectable must be in a single line
 */
-
+/*
 setTimeout(async () => {
-  await func(`C:\\rc\\rainingchain\\src\\pokemonCompletion\\data\\Shuffle.json`, (col, cat) => {
+  await func(`C:\\Users\\Samuel\\source\\repos\\pokemoncompletion\\src\\pokemonCompletion\\data\\Shuffle.json`, (col, cat) => {
     if(cat === 'pokemon'){
       if(col.id !== "-1")
         return;
@@ -19,28 +19,21 @@ setTimeout(async () => {
       delete col.id;
       return {id:"" + id, ...col};
     }
-    /*const em = eme.categories.find(c => c.id === cat);
-    if(!em)
-      return null;
-
-    const emel = em.list.find(a => a.name === col.name);
-    if(emel && emel.iconUrl)
-      col.iconUrl = emel.iconUrl;
-    return col;*/
   });
 }, 1);
+*/
 
 if(true){
 setTimeout(async () => {
-  const plat = await readJson(`C:\\rc\\rainingchain\\src\\pokemonCompletion\\data\\Platinum.json`);
-  await func(`C:\\rc\\rainingchain\\src\\pokemonCompletion\\data\\Black2_wip.json`, (col, cat) => {
+  const plat = await readJson(`C:\\Users\\Samuel\\source\\repos\\pokemoncompletion\\src\\pokemonCompletion\\data\\Platinum.json`);
+  await func(`C:\\Users\\Samuel\\source\\repos\\pokemoncompletion\\src\\pokemonCompletion\\data\\Black2_wip.json`, (col, cat) => {
     /*if(cat === 'pokemon'){
       const p = plat.categories[0].list.find(m => m.name === col.name);
       if (p)
         col.iconUrl = p.iconUrl;
       return col;
     }*/
-    const em = eme.categories.find(c => c.id === cat);
+    const em = plat.categories.find(c => c.id === cat);
     if(!em)
       return null;
 
@@ -56,8 +49,8 @@ setTimeout(async () => {
 
 if(false){
 setTimeout(async () => {
-  const pmdSky = await readJson(`C:\\rc\\rainingchain\\src\\pokemonCompletion\\data\\tmp\\skyItemFromDungeon.json`);
-  await func(`C:\\rc\\rainingchain\\src\\pokemonCompletion\\data\\PmdSky.json`, (col, cat) => {
+  const pmdSky = await readJson(`C:\\Users\\Samuel\\source\\repos\\pokemoncompletion\\src\\pokemonCompletion\\data\\tmp\\skyItemFromDungeon.json`);
+  await func(`C:\\Users\\Samuel\\source\\repos\\pokemoncompletion\\src\\pokemonCompletion\\data\\PmdSky.json`, (col, cat) => {
     if(cat === 'item'){
       const ov = pmdSky.find(a => a.name === col.name);
       if (ov){
@@ -81,9 +74,9 @@ setTimeout(async () => {
 //add "pos" to .json
 if(false){
 setTimeout(async () => {
-  const overwrite = JSON.parse(await fs.readFile(`C:\\rc\\rainingchain\\src\\pokemonCompletion\\data\\tmp\\Platinum_pos.json`,'utf8'));
+  const overwrite = JSON.parse(await fs.readFile(`C:\\Users\\Samuel\\source\\repos\\pokemoncompletion\\src\\pokemonCompletion\\data\\tmp\\Platinum_pos.json`,'utf8'));
 
-  await func(`C:\\rc\\rainingchain\\src\\pokemonCompletion\\data\\Platinum.json`, (col, cat) => {
+  await func(`C:\\Users\\Samuel\\source\\repos\\pokemoncompletion\\src\\pokemonCompletion\\data\\Platinum.json`, (col, cat) => {
 
     const ovs = overwrite.filter(a => {
       return a.c === cat && a.pos && a.n === col.name;
