@@ -127,8 +127,6 @@
   ["RS_EN", "$Ruby_EN","$Sapphire_EN"],
   ["DP_JP", "$Diamond_JP","$Pearl_JP"],
   ["DP_EN", "$Diamond_EN","$Pearl_EN"],
-  ["RangerShadow","$RangerShadow"],
-  ["RangerGuardian","$RangerGuardian"],
 
   ["Colosseum", "$Colosseum_US","$Colosseum_JP"],
   ["XD", "$XD_US","$XD_JP"],
@@ -157,19 +155,18 @@
   ["PBR","$BattleRevolution_US","$BattleRevolution_JP"],
 
   ["MultiplayerDPP","DPP"],
-  ["SecretKey", "$SecretKey_Event"],
   ["OaksLetter","$OaksLetter_Event"],
   ["MemberCard","$MemberCard_Event"],
   ["AnyGen4_JP","$Diamond_JP","$Pearl_JP","$Platinum_JP"],
 
   ["Gracidea","Shaymin"],
   ["Arceus","$ArceusRowap_Event"],
+  ["Victini","$Victini_Event"],
 
-  ["Shaymin","OaksLetter","$Shaymin_RangerGuardian_Event","$ShayminMicle_Event"],
+  ["Shaymin","OaksLetter","$ShayminMicle_Event"],
   ["MicleBerry","$ShayminMicle_Event"],
 
-  ["RowapBerry","$ArceusRowap_Event"],
-
+  ["RowapBerry","$ArceusRowap_Event"],  
   ["EnigmaBerry","PBR","eReader_AnyBerry"],
 
   ["JabocaBerry","$CelebiJaboca_Event"],
@@ -185,7 +182,9 @@
 
   ["ClassicRibbon","$ShayminMicle_Event","$ArceusRowap_Event","$CelebiJaboca_Event","$EnteiCustap_Event"],
   ["PremierRibbon","$MewPremierRibbon_HGSS_Event"],
-  ["ForeignDexEntries","$ForeignDexEntries"]
+  ["ForeignDexEntries","$ForeignDexEntries"],
+  
+  ["Deoxys","$Deoxys_Event"]
 ],
 "requirements":[
   {"id":"Multiplayer", "waresByType":[
@@ -210,10 +209,10 @@
     {"type":["emulator","consoleEN"], "formula":[["$eReader_EonTicket"]]}
   ]},
   {"id":"Jirachi", "note":"Summer 2010 Jirachi English Wi-Fi 5 June 26 to July 16, 2010", "waresByType":[
-    {"type":["emulator","consoleEN"], "formula":[["$ColosseumBonusDisc_US"],["$Jirachi_Event"]]}
+    {"type":["emulator","consoleEN"], "formula":[["$ColosseumBonusDisc_US"]]}
   ]},
   {"id":"Deoxys", "waresByType":[
-    {"type":["emulator", "consoleEN"], "formula":[["DP","$Deoxys_DP_Event"],["Emerald","$AuroraTicketEvent_Gen3"],["FL","$AuroraTicketEvent_Gen3"],["$Deoxys_RangerGuardian_Event"]]}
+    {"type":["emulator", "consoleEN"], "formula":[["$Deoxys_Event"]]}
   ]},
 
   {"id":"MyPokemonRanch", "waresByType":[
@@ -224,14 +223,14 @@
     {"type":["emulator", "consoleEN"], "formula":[["MyPokemonRanch"],["Manaphy"]]}
   ]},
   {"id":"Manaphy", "waresByType":[
-    {"type":["emulator", "consoleEN"], "formula":[["$Ranger_EN","DP_EN"],["$Manaphy_RangerShadow_Event","RangerShadow"],["$Manaphy_RangerGuardian_Event","RangerGuardian"],["$Manaphy_DP_Event"]]}
+    {"type":["emulator", "consoleEN"], "formula":[["$Ranger_EN","DP_EN"],["$Manaphy_DP_Event"]]}
   ]},
 
   {"id":"MemberCard", "waresByType":[
     {"type":["emulator", "consoleEN"], "formula":[["$MemberCard_Event"]]}
   ]},
   {"id":"Darkrai", "waresByType":[
-    {"type":["emulator", "consoleEN"], "formula":[["MemberCard"],["$Darkrai_RangerShadow","RangerShadow"],["$Darkrai_DP_Event", "DP"]]}
+    {"type":["emulator", "consoleEN"], "formula":[["MemberCard"],["$Darkrai_DP_Event", "DP"]]}
   ]},
 
   {"id":"BrickMail", "waresByType":[
@@ -332,21 +331,16 @@
     ["$CelebiJaboca_Event","$EventTool"],
     ["$MewPremierRibbon_HGSS_Event","$EventTool"],
     ["$PokemonFestaRibbons_RSE_Event","$EventTool"],
-    ["$SecretKey_Event","$EventTool"],
     ["$OaksLetter_Event","$EventTool"],
     ["$MemberCard_Event","$EventTool"],
     ["$BrickMail_DP_Event","$EventTool"],
 
-    ["$Deoxys_DP_Event","$EventTool"],
     ["$EnteiCustap_Event","$EventTool"],
     ["$LucarioDoll_Event","$EventTool_JP"],
 
-    ["$Manaphy_RangerShadow_Event","$EventTool_Optional"],
-    ["$Darkrai_RangerShadow_Event","$EventTool_Optional"],
-    ["$Manaphy_RangerGuardian_Event","$EventTool_Optional"],
-    ["$Deoxys_RangerGuardian_Event","$EventTool_Optional"],
-    ["$Shaymin_RangerGuardian_Event","$EventTool_Optional"],
-    ["$Jirachi_Event","$EventTool_Optional"],
+    ["$Deoxys_Event","$EventTool"],
+    ["$Victini_Event","$EventTool"],
+
     ["$Darkrai_DP_Event","$EventTool_Optional"],
     ["$Manaphy_DP_Event","$EventTool_Optional"],
 
@@ -368,8 +362,6 @@
     {"id":"$SoulSilver_EN","name":"Game: Pokémon SoulSilver (EN)","indent":1, "preReqs":[["Multiplayer"]]},
 
     {"id":"$Ranger_EN","name":"Game: Pokémon Ranger (EN)","indent":1,"fullCompl":1, "preReqs":[["Multiplayer"]]},
-    {"id":"$RangerShadow","name":"Game: Pokémon Ranger: Shadows of Almia","indent":1, "preReqs":[["Multiplayer"]],"desc":"This game can only obtain tradable Pokémon from discontinued events."},
-    {"id":"$RangerGuardian","name":"Game: Pokémon Ranger: Guardian Signs","indent":1, "preReqs":[["Multiplayer"]],"desc":"This game can only obtain tradable Pokémon from discontinued events."},
 
     {"id":"$Platinum_JP","name":"Game: Pokémon Platinum (JP)","indent":1, "preReqs":[["Multiplayer"]]},
     {"id":"$Diamond_JP","name":"Game: Pokémon Diamond (JP)","indent":1, "preReqs":[["Multiplayer"]]},
@@ -927,7 +919,7 @@
   {"name":"Giratina","id":"487","obtainable":0,"location":"Trade from Platinum","iconUrl":"pokemon/p487.png","reqs":[["Platinum_EN"]]},
   {"name":"Cresselia","id":"488","obtainable":1,"location":"Marvelous Bridge","iconUrl":"pokemon/p488.png"},
   {"name":"Phione","id":"489","obtainable":0,"location":"Trade from My Pokémon Ranch (transfer 250 Pokémon), Breed Manaphy","iconUrl":"pokemon/p489.png","reqs":["Phione"]},
-  {"name":"Manaphy","id":"490","obtainable":0,"location":"Trade from Pokémon Ranger to Pokémon Diamond/Pearl to Platinum, which obtained it from mission Recover the Precious Egg! unlocked with password P8M2-9D6F-43H7. Trade from Pokémon Ranger: Shadows of Almia (event). Trade from Pokémon Ranger: Guardian Signs (event).","iconUrl":"pokemon/p490.png","reqs":["Manaphy"]},
+  {"name":"Manaphy","id":"490","obtainable":0,"location":"Trade from Pokémon Ranger to Pokémon Diamond/Pearl to Black 2, which obtained it from mission Recover the Precious Egg! unlocked with password P8M2-9D6F-43H7.","iconUrl":"pokemon/p490.png","reqs":["Manaphy"]},
   {"name":"Darkrai","id":"491","obtainable":0,"location":"Newmoon Island (requires Member Card obtained from event), Trade from Pokémon Ranger: Shadows of Almia which obtained it from mission Liberate the Tower! unlocked with event.","iconUrl":"pokemon/p491.png","reqs":["Darkrai"]},
   {"name":"Shaymin","id":"492","obtainable":0,"location":"Flower Paradise (requires Oak's Letter obtained from event)","iconUrl":"pokemon/p492.png","reqs":["Shaymin"]},
   {"name":"Arceus","id":"493","obtainable":0,"location":"Event (Ex: Toys R Us Arceus November 7 to 15, 2009)","iconUrl":"pokemon/p493.png","reqs":["Arceus"]},
@@ -1123,10 +1115,10 @@
   {"name":"Castform - Fire","href":"Castform","location":"Battle when Sunny Day is active","iconUrl":"pokemon/p351.png"},
   {"name":"Castform - Water","href":"Castform","location":"Battle when Rain is active","iconUrl":"pokemon/p351.png"},
   {"name":"Castform - Ice","href":"Castform","location":"Battle when Hail is active","iconUrl":"pokemon/p351.png"},
-  {"name":"Deoxys - Normal","obtainable":0,"location":"Event","iconUrl":"pokemon/p386.png"},
-  {"name":"Deoxys - Attack","obtainable":0,"location":"Event","iconUrl":"pokemon/p386.png"},
-  {"name":"Deoxys - Defense","obtainable":0,"location":"Event","iconUrl":"pokemon/p386.png"},
-  {"name":"Deoxys - Speed","obtainable":0,"location":"Event","iconUrl":"pokemon/p386.png"},
+  {"name":"Deoxys - Normal","reqs":["Deoxys"],"location":"Nacrene City (interact with meteorite with Deoxys obtained from event)","iconUrl":"pokemon/p386.png"},
+  {"name":"Deoxys - Attack","reqs":["Deoxys"],"location":"Nacrene City (interact with meteorite with Deoxys obtained from event)","iconUrl":"pokemon/p386.png"},
+  {"name":"Deoxys - Defense","reqs":["Deoxys"],"location":"Nacrene City (interact with meteorite with Deoxys obtained from event)","iconUrl":"pokemon/p386.png"},
+  {"name":"Deoxys - Speed","reqs":["Deoxys"],"location":"Nacrene City (interact with meteorite with Deoxys obtained from event)","iconUrl":"pokemon/p386.png"},
   {"name":"Burmy - Plant Cloak","obtainable":0,"location":"Trade from Diamond, Pearl, Platinum, HearGold, SoulSilver","iconUrl":"pokemon/p412.png","reqs":["DPPt","HS"]},
   {"name":"Burmy - Sandy Cloak","obtainable":0,"location":"Trade from Diamond, Pearl, Platinum, HearGold, SoulSilver","iconUrl":"pokemon/p412.png","reqs":["DPPt","HS"]},
   {"name":"Burmy - Trash Cloak","obtainable":0,"location":"Trade from Diamond, Pearl, Platinum, HearGold, SoulSilver","iconUrl":"pokemon/p412.png","reqs":["DPPt","HS"]},
@@ -1550,7 +1542,7 @@
   {"id":"213","name":"BrightPowder","location":"Route 4W2, Anville Town, Battle Subway/PWT (12 BP)","iconUrl":"item/Bright_Powder.png"},
   {"id":"214","name":"White Herb","location":"Battle Subway/PWT (16 BP)","iconUrl":"item/White_Herb.png"},
   {"id":"215","name":"Macho Brace","location":"Nimbasa City (eastern gate)","iconUrl":"item/Macho_Brace.png"},
-  {"id":"216","name":"Exp. Share","location":"Castelia City (Battle Company), Icirrus City (Pokémon Fan Club Chairman), Floccesy Town (held by gift GibleB2/DratiniW2)","iconUrl":"item/Exp_Share.png"},
+  {"id":"216","name":"Exp. Share","location":"Castelia City (Battle Company), Icirrus City (Pokémon Fan Club Chairman), Floccesy Town (held by gift Gible)","iconUrl":"item/Exp_Share.png"},
   {"id":"217","name":"Quick Claw","location":"Skyarrow Bridge, Held by wild Sandshrew, wild Sandslash, wild Sneasel, and wild Zangoose (5% chance each)","iconUrl":"item/Quick_Claw.png"},
   {"id":"218","name":"Soothe Bell","location":"Nimbasa City","iconUrl":"item/Soothe_Bell.png"},
   {"id":"219","name":"Mental Herb","location":"Held by wild Sewaddle, wild Swadloon, and wild Leavanny (5% chance each) found in Route 12 and Route 20","iconUrl":"item/Mental_Herb.png"},
