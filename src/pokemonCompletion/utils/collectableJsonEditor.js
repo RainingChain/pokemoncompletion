@@ -27,20 +27,29 @@ if(true){
 setTimeout(async () => {
   const plat = await readJson(`C:\\Users\\Samuel\\source\\repos\\pokemoncompletion\\src\\pokemonCompletion\\data\\Platinum.json`);
   await func(`C:\\Users\\Samuel\\source\\repos\\pokemoncompletion\\src\\pokemonCompletion\\data\\Black2_wip.json`, (col, cat) => {
-    /*if(cat === 'pokemon'){
+    if(cat === 'pokemon' && col.obtainable === 0){
       const p = plat.categories[0].list.find(m => m.name === col.name);
-      if (p)
-        col.iconUrl = p.iconUrl;
-      return col;
-    }*/
-    const em = plat.categories.find(c => c.id === cat);
+      if (p){
+        if (p.reqs){
+          col.location = p.location;
+          col.reqs = p.reqs;
+        } else {
+          col.location = 'Trade from Platinum';
+          col.reqs = [["Platinum_EN"]];
+        }
+        return col;
+      }
+      return null;
+    }
+
+    /*const em = plat.categories.find(c => c.id === cat);
     if(!em)
       return null;
 
     const emel = em.list.find(a => a.name === col.name);
     if(emel && emel.iconUrl)
       col.iconUrl = emel.iconUrl;
-    return col;
+    return col;*/
   });
 }, 1);
 }
