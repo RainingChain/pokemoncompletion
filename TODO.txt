@@ -4,6 +4,14 @@ image error in /completion/MysteryDungeonRescueTeam
 This PC\Pixel 4a\Internal shared storage\Emulators\3DS\sdmc\Nintendo 3DS\00000000000000000000000000000000\00000000000000000000000000000000\title\00040000\00141000\data\00000001
 
 
+-------------------
+black2
+  wares
+  requirements
+  map
+
+  add black/white/white2 based on .json
+
 ---------------
 RNG
   Gen3:
@@ -66,12 +74,6 @@ pmd sky
 
   unlocated elements: cleanup
 
-
--------------------
-black2
-  wares
-  requirements
-  map
 
 -------------------
 pokemon shuffle

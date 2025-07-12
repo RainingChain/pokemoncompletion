@@ -26,13 +26,14 @@ setTimeout(async () => {
 if(true){
 setTimeout(async () => {
   const plat = await readJson(`C:\\Users\\Samuel\\source\\repos\\pokemoncompletion\\src\\pokemonCompletion\\data\\Platinum.json`);
-  await func(`C:\\Users\\Samuel\\source\\repos\\pokemoncompletion\\src\\pokemonCompletion\\data\\Black2_wip.json`, (col, cat) => {
+  await func(`C:\\Users\\Samuel\\source\\repos\\pokemoncompletion\\src\\pokemonCompletion\\data\\Black2.json`, (col, cat) => {
     if(cat === 'pokemon'){
-      const p = plat.categories.find(c => c.name == "pokemon").list.find(m => m.name === col.name);
+      const p = plat.categories.find(c => c.id == "pokemon").list.find(m => m.name === col.name);
       if (!p)
         return null;
 
-      if(col.location === 'Evolve ' + col.name && p.location.startsWith('Evolve ' + col.name))
+      if(col.location.match(/^Evolve \w+$/) 
+         && p.location.match(/^Evolve \w+/))
         col.location = p.location;
       return col;
     }

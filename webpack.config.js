@@ -128,6 +128,7 @@ let commonConfig = ({production}) => ({
   ],
   resolve:{
     symlinks:false,
+    fallback:{process:false},
     modules: [__dirname, 'node_modules'],
     extensions: [ '.ts', '.js', '.vue' ],  //priority order. import "hey" imports hey.ts
   },
