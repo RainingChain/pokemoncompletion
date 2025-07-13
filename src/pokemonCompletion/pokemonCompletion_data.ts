@@ -1003,7 +1003,7 @@ export class GameData {
       });
 
       if(html.includes('><') || html.match(/\w<a /)) // mean a comma or space is missing
-        (<any>window)['c' + 'onsole'].log(col.name);
+        (<any>window)['c' + 'onsole'].log('bad html', col.name);
 
       if (html.includes(`###`))
         console.error('invalid locationHtml');
