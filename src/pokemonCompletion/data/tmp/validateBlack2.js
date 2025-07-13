@@ -1801,6 +1801,8 @@ const list = [
 "99 - Kingler.json",
 ].filter(a => a.includes('.json'));
 
+const black2 = JSON.parse((await fs.readFile('C:\\Users\\Samuel\\source\\repos\\pokemoncompletion\\src\\pokemonCompletion\\data\\Black2.json', 'utf8')).trim());
+
 let str = await Promise.all(list.map(async el => {
     const json = JSON.parse((await fs.readFile(root + '/' + el, 'utf8')).trim());
     const isGood = (l) => {        
@@ -1827,6 +1829,10 @@ let str = await Promise.all(list.map(async el => {
     const goodList = list.filter(el2 => {
         return isGood(json.locations.find(l => l.game === el2));
     });
+    const badList = list.filter(el2 => {
+        return !isGood(json.locations.find(l => l.game === el2));
+    });
+
 
 
     let goodListForReqs = goodList.slice(0);
@@ -1834,6 +1840,10 @@ let str = await Promise.all(list.map(async el => {
     const includes = (arr) => arr.every(a => goodList.includes(a));
     const filter = (arr) => goodListForReqs.filter(a => !arr.includes(a));
 
+    if (includes(["Black","White"])){
+        goodListForReqs.push("BW");
+        goodListForReqs = filter(["Black","White"]);
+    }
     if (includes(["Diamond","Pearl","Platinum"])){
         goodListForReqs.push("DPPt");
         goodListForReqs = filter(["Diamond","Pearl","Platinum"]);
@@ -1851,10 +1861,26 @@ let str = await Promise.all(list.map(async el => {
         goodListForReqs = filter(["Ruby","Sapphire","Emerald"]);
     }
     goodListForReqs = goodListForReqs.map(a => a.replace(' ',''));
-    return el + ' : ' + `,"location":"Trade from ${goodList.join(', ')}","reqs":${JSON.stringify(goodListForReqs)}},`;
 
+    const existing = black2.categories[0].list.find(a => a.id === el.split(' ')[0]);
+    if (!existing)
+        return console.log('!existing', el.split(' ')[0]);
 
-    //NO_PROD validate if missing or extra
+    if (existing.obtainable === 0){
+        goodList.forEach(good => {
+            let toFind = good === "White 2" ? "XXX" : good;
+            if (!existing.location.replace('White 2','XXX').includes(toFind))
+                console.log(el, 'missing good', good);
+        });
+        badList.forEach(bad => {
+            let toFind = bad === "White 2" ? "XXX" : bad;
+            if (existing.location.replace('White 2','XXX').includes(toFind))
+                console.log(el, 'extrenous bad', bad);
+        });
+        
+        const ex = (existing.reqs ?? []).sort().toString();
+        const exp = goodListForReqs.sort().toString();
+        if (ex !== exp)
+            console.log(el, 'diff reqs', ex, ' |||' , exp);
+    }
 }));
-
-fs.writeFile(root + '\\result.json', str.join('\n'));

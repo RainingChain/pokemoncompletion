@@ -100,9 +100,15 @@ export class Formula {
   evaluate(getFunc:(id:string) => number){
     if(!this.list)
       return true;
-    return this.list.some(crits => {
-      return crits.every(crit => crit.evaluate(getFunc));
-    });
+    
+    try {
+      return this.list.some(crits => {
+        return crits.every(crit => crit.evaluate(getFunc));
+      });
+    } catch(err){
+      console.log(err, this.getIdsReferenced());
+      return false;
+    }
   }
 
   getIdsReferenced(){
