@@ -70,23 +70,6 @@
 
   ]
 },
-"unsupportedEvents":[
-  {"id":"Manaphy_RangerShadow_Event","name":"Manaphy (Ranger Shadow)","fullName":"Pokémon Ranger Shadows of Almia: Recover the Manaphy Egg! Mission",
-    "when":"November 10, 2008 to January 31, 2009","where":"Nintendo Wi-Fi Connection","optional":true,
-    "url":"https://bulbapedia.bulbagarden.net/wiki/Ranger_Net#Recover_the_Manaphy_Egg.21"},
-  {"id":"Darkrai_RangerShadow_Event","name":"Darkrai (Ranger Shadow)","fullName":"Pokémon Ranger Shadows of Almia: Liberate the Tower! Mission",
-    "when":"December 1, 2008 to January 31, 2009","where":"Nintendo Wi-Fi Connection","optional":true,
-    "url":"https://bulbapedia.bulbagarden.net/wiki/Ranger_Net#Liberate_the_Tower.21"},
-  {"id":"Manaphy_RangerGuardian_Event","name":"Manaphy (Ranger Guardian)","fullName":"Pokémon Ranger Guardian Signs: Protect the Blue Sphere! Mission",
-    "when":"October 4, 2010 to January 11, 2011","where":"Nintendo Wi-Fi Connection","optional":true,
-    "url":"https://bulbapedia.bulbagarden.net/wiki/Ranger_Net#Protect_the_Blue_Sphere.21"},
-  {"id":"Deoxys_RangerGuardian_Event","name":"Deoxys (Ranger Guardian)","fullName":"Pokémon Ranger Guardian Signs: Deoxys and the Odd Temple Mission",
-    "when":"October 4, 2010 to January 11, 2011","where":"Nintendo Wi-Fi Connection","optional":true,
-    "url":"https://bulbapedia.bulbagarden.net/wiki/Ranger_Net#Deoxys_and_the_Odd_Temple"},
-  {"id":"Shaymin_RangerGuardian_Event","name":"Shaymin (Ranger Guardian)","fullName":"Pokémon Ranger Guardian Signs: Rescue the Lost Shaymin Mission",
-    "when":"November 15, 2010 to January 11, 2011","where":"Nintendo Wi-Fi Connection","optional":true,
-    "url":"https://bulbapedia.bulbagarden.net/wiki/Ranger_Net#Rescue_the_Lost_Shaymin.21"}
-],
 "interactiveMap":{
   "maxZoom":4,
   "digitalZoom":1,
@@ -218,6 +201,7 @@
   "Check <a href='/VersionCompatibility/GenIV' target='_blank' rel='noopener'>Generation IV Version Compability Page</a>"
 ],
 "requirements":[
+  "------Game-------",
   ["Ruby", "$Ruby_EN", "$Ruby_JP"],
   ["Sapphire", "$Sapphire_EN","$Sapphire_JP"],
   ["Emerald", "$Emerald_EN", "$Emerald_JP"],
@@ -230,8 +214,6 @@
   ["RS_EN", "$Ruby_EN","$Sapphire_EN"],
   ["DP_JP", "$Diamond_JP","$Pearl_JP"],
   ["DP_EN", "$Diamond_EN","$Pearl_EN"],
-  ["RangerShadow","$RangerShadow"],
-  ["RangerGuardian","$RangerGuardian"],
   ["Colosseum", "$Colosseum_US","$Colosseum_JP"],
   ["XD", "$XD_US","$XD_JP"],
   ["Diamond", "$Diamond_JP","$Diamond_EN"],
@@ -239,7 +221,7 @@
   ["HeartGold", "$HeartGold_JP", "$HeartGold_EN"],
   ["SoulSilver", "$SoulSilver_JP", "$SoulSilver_EN"],
   ["DP","Diamond","Pearl"],
-  ["DPP","DP","Platinum2"],
+  ["DPPt","DP","Platinum2"],
   ["HS","HeartGold","SoulSilver"],
   ["PBR","$BattleRevolution_US","$BattleRevolution_JP"],
   {"id":"Platinum2", "waresByType":[
@@ -255,11 +237,26 @@
   ["AnyGen3_JP", "RS_JP","$Emerald_JP","$LeafGreen_JP","$FireRed_JP"],
   ["AnyGen3", "AnyGen3_EN","AnyGen3_JP"],
   ["AnyGen4_EN","$Diamond_EN","$Pearl_EN","$HeartGold_EN","$SoulSilver_EN","Platinum2_EN"],
+  ["DPPt_JP","$Diamond_JP","$Pearl_JP","$Platinum_JP"],
   ["AnyGen4_JP","$Diamond_JP","$Pearl_JP","$HeartGold_JP","$SoulSilver_JP","$Platinum_JP"],
   ["AnyGen4","AnyGen4_JP","AnyGen4_EN"],
 
+  {"id":"MyPokemonRanch", "formula":[
+    ["$MyPokemonRanch_US"],
+    ["$MyPokemonRanch_JP","$MyPokemonRanchUpdate_JP","$Platinum_JP"],
+    ["$MyPokemonRanch_JP","DP_JP"]]
+  },
+  "------Simple Hardware-------",
   ["NintendoWifi","$NintendoWifi"],
+  ["PokeWalker", "$PokeWalker"],
+  ["eReader_AnyBerry", "$eReader_AnyBerry_EN", "$eReader_AnyBerry_JP"],
+  ["EonTicket","$eReader_EonTicket"],
   
+  "------Events-------",
+  ["SecretKey", "$SecretKey_Event"],
+  ["OaksLetter","$OaksLetter_Event"],
+  ["MemberCard","$MemberCard_Event"],
+
   "------Inter-Game Interactions-------",
   ["DualFireRed","FireRed"],
   ["DualLeafGreen","LeafGreen"],
@@ -268,29 +265,50 @@
   ["DualEmerald","Emerald"],
   ["DualAny","DualFireRed","DualLeafGreen","DualRuby","DualSapphire","DualEmerald"],
   
+  {"id":"MultiplayerGen4", "waresByType":[
+    {"type":"emulator", "formula":[["$EmuMultiplayer"]]},
+    {"type":["consoleEN"], "formula":[["GTE($ConsoleDS,2)"]]}
+  ]},
+
   {"id":"TradeGen3ToGen3", "waresByType":[
     {"type":["emulator"], "formula":[["$EmuGbaMultiplayer","GTE(AnyGen3,2)"]]},
     {"type":["consoleEN"], "formula":[["$GbaLinkCable","GTE(AnyGen3,2)"]]}
   ]},
-  {"id":"TransferGen3JPToGen4US", "formula":[["AnyGen3_EN","TradeGen3ToGen3"],["AnyGen4_JP"]], "notes":"assumes the JP game is owned"},
+  {"id":"TransferGen3JPToGen4US", "formula":[
+    ["AnyGen3_EN","TradeGen3ToGen3"],
+    ["AnyGen4_JP"]
+  ], "notes":"assumes the JP game is owned"},
   ["TradeGen4ToGen4", "AnyGen4"],
 
   ["EvolveTradeAnyGen", "TradeGen3ToGen3","TradeGen4ToGen4"],
   ["EvolveTradeGen4OrMore", "TradeGen4ToGen4"],
-  ["PokeWalker", "$PokeWalker"],
-  ["MultiplayerDPP","DPP"],
+  ["MultiplayerDPPt","DPPt"],
 
 
-  "------Events-------",
-  ["SecretKey", "$SecretKey_Event"],
-  ["OaksLetter","$OaksLetter_Event"],
-  ["MemberCard","$MemberCard_Event"],
   
-  "------Pokemon & Items-------",
+  "------Collectable-------",
   ["Lugia","HS","XD"],
   ["HoOh","HS","Colosseum"],
   ["Arceus","$ArceusRowap_Event"],
-  ["Shaymin","OaksLetter","$Shaymin_RangerGuardian_Event","$ShayminMicle_Event"],
+  ["Shaymin","OaksLetter","$ShayminMicle_Event"],
+  ["Mew","MyPokemonRanch", "$Mew_Event"],
+  ["Celebi","$Celebi_Event", "$ColosseumBonusDisc_JP"],
+  ["Jirachi","$ColosseumBonusDisc_US","$Jirachi_Event"],
+  ["Phione","MyPokemonRanch", "Manaphy"],
+  {"id":"Deoxys","formula":[
+    ["DP","$Deoxys_DP_Event"],
+    ["Emerald","$AuroraTicketEvent_Gen3"],
+    ["FL","$AuroraTicketEvent_Gen3"]
+  ]},
+  {"id":"Manaphy", "formula":[
+    ["$Ranger_EN","DP_EN"],
+    ["$Manaphy_DP_Event", "DP"]
+  ]},
+  {"id":"Darkrai", "formula":[
+    ["MemberCard"],
+    ["$Darkrai_DP_Event", "DP"]
+  ]},
+
   ["Gracidea","Shaymin"],
   ["MicleBerry","$ShayminMicle_Event"],
   ["RowapBerry","$ArceusRowap_Event"],
@@ -299,133 +317,33 @@
   ["SoulDew","EonTicket","PBR"],
   ["LucarioDoll","$LucarioDoll_Event"],
   ["CustapBerry","$EnteiCustap_Event"],
-
-  ["eReader_AnyBerry", "$eReader_AnyBerry_EN", "$eReader_AnyBerry_JP"],
-
   ["CountryRibbon","$PokemonFestaRibbons_RSE_Event"],
   ["WorldRibbon","$PokemonFestaRibbons_RSE_Event"],
-
   ["ClassicRibbon","$ShayminMicle_Event","$ArceusRowap_Event","$CelebiJaboca_Event","$EnteiCustap_Event"],
   ["PremierRibbon","$MewPremierRibbon_HGSS_Event"],
   ["ForeignDexEntries","$ForeignDexEntries"],
 
-  ["Mew","MyPokemonRanch", "$Mew_Event"],
-  ["Celebi","$Celebi_Event", "$ColosseumBonusDisc_JP"],
-  ["EonTicket","$eReader_EonTicket"],
-
-  ["Jirachi","$ColosseumBonusDisc_US","$Jirachi_Event"],
-
-  ["Phione","MyPokemonRanch", "Manaphy"],
-
-  {"id":"MultiplayerGen4", "waresByType":[
-    {"type":"emulator", "formula":[["$EmuMultiplayer"]]},
-    {"type":["consoleEN"], "formula":[["GTE($ConsoleDS,2)"]]}
-  ]},
-
-  {"id":"Deoxys","formula":[["DP","$Deoxys_DP_Event"],["Emerald","$AuroraTicketEvent_Gen3"],["FL","$AuroraTicketEvent_Gen3"],["$Deoxys_RangerGuardian_Event"]]},
-
-  {"id":"MyPokemonRanch", "formula":[
-    ["$MyPokemonRanch_US","DP_EN"],
-    ["$MyPokemonRanch_JP","$MyPokemonRanchUpdate_JP","$Platinum_JP"],
-    ["$MyPokemonRanch_JP","DP_JP"]]
-  },
-
-  {"id":"Manaphy", "formula":[
-    ["$Ranger_EN","DP_EN"],
-    ["$Manaphy_RangerShadow_Event","RangerShadow"],
-    ["$Manaphy_RangerGuardian_Event","RangerGuardian"],
-    ["$Manaphy_DP_Event"]
-  ]},
-
-  ["MemberCard","$MemberCard_Event"],
   ["AllMaleFemaleForms","NationalDex"],
   ["Geonet","AnyGen4_EN"],
-
-  ["DorP","Diamond","Pearl"],
   
-  {"id":"Darkrai", "waresByType":[
-    {"type":["emulator", "consoleEN"], "formula":[["MemberCard"],["$Darkrai_RangerShadow","RangerShadow"],["$Darkrai_DP_Event", "DP"]]}
-  ]},
-
-  {"id":"BrickMail", "waresByType":[
-    {"type":["emulator", "consoleEN"], "formula":[["$BrickMail_DP_Event","DP_JP"]]}
-  ]},
+  {"id":"BrickMail", "formula":[["$BrickMail_DP_Event","DP_JP"]]},
   
-  {"id":"NintendoWifiBattle", "waresByType":[
-    {"type":["consoleEN","emulator"], "formula":[["$NintendoWifi","MultiplayerDPP"]]}
-  ]},
-  {"id":"RandSorE", "waresByType":[
-    {"type":["emulator", "consoleEN"], "formula":[
-      ["Ruby","Sapphire"],
-      ["Emerald"]
-    ]}
-  ]},
-  {"id":"RandSorE", "waresByType":[
-    {"type":["emulator", "consoleEN"], "formula":[["Ruby","Sapphire"],["Emerald"]]}
-  ]},
+  {"id":"NintendoWifiBattle", "formula":[["$NintendoWifi","MultiplayerDPPt"]]},
 
-  {"id":"DPorPt", "waresByType":[
-    {"type":["emulator", "consoleEN"], "formula":[["Diamond","Pearl"],["Platinum2"]]}
-  ]},
-  {"id":"LorForHorS", "waresByType":[
-    {"type":["emulator", "consoleEN"], "formula":[["LeafGreen"],["FireRed"],["HeartGold"],["SoulSilver"]]}
-  ]},
-  {"id":"XDandColorHorS", "waresByType":[
-    {"type":["emulator", "consoleEN"], "formula":[["XD","Colosseum"],["HeartGold"],["SoulSilver"]]}
-  ]},
-  {"id":"NationalDex", "waresByType":[
-    {"type":["emulator", "consoleEN"], "formula":[
-      ["RandSorE","DorP","DPorPt","LorForHorS"]
-    ]}
-  ]},
-  {"id":"TradeGen3ToGen3", "waresByType":[
-    {"type":["emulator"], "formula":[["AnyGen3","TradeGen3ToGen3"]]},
-    {"type":["consoleEN"], "formula":[
-      ["GTE(AnyGen3, 2)","TradeGen3ToGen3"]
-    ]}
-  ]},
   {"id":"OverripePoffin", "waresByType":[
-    {"type":["emulator"], "formula":[["DPP"]]},
+    {"type":["emulator"], "formula":[["DPPt"]]},
     {"type":["consoleEN"], "formula":[["GTE($ConsoleDS,3)", "GTE($Platinum_EN,$Pearl_EN,$Diamond_EN,$Platinum_JP,$Pearl_JP,$Diamond_JP,3)"]]}
   ]},
-  {"id":"ForeignDexEntries", "waresByType":[
-    {"type":["emulator", "consoleEN"], "formula":[["$ForeignDexEntries"]]}
-  ],
-  "info":[
-    "144 Articuno LGPtHS",
-    "145 Zapdos LGPtHS",
-    "146 Moltres LGPtHS",
-    "150 Mewtwo LGHS",
-    "151 Mew MyPkmRanch",
-    "201 Unown LGDPPtHS",
-    "243 Raikou LGColHS",
-    "244 Entei LGColHS",
-    "245 Suicune LGColHS",
-    "249 Lugia XDHS",
-    "250 Ho-Oh ColHS",
-    "251 Celebi JP(Col),Event(RSEDPPtHS)",
-    "377 Regirock RSE",
-    "378 Regice RSE",
-    "379 Registeel RSE",
-    "380 Latias SE",
-    "381 Latios RE",
-    "382 Kyogre SEH",
-    "383 Groudon RES",
-    "384 Rayquaza RSEHS",
-    "385 Jirachi JP(Event DPPtHS),Col",
-    "386 Deoxys Event DPRSELF",
-    "480 Uxie DPPt",
-    "481 Mesprit DPPt",
-    "482 Azelf DPPt",
-    "483 Dialga DPt",
-    "484 Palkia PPt",
-    "485 Heatran DPPt",
-    "486 Regigigas RSE",
-    "487 Giratina DPPt",
-    "488 Cresselia DPPt",
-    "491 Darkrai Event(DPPt)",
-    "492 Shaymin Event(DPPt)",
-    "493 Arceus Event(DPPt)"
+
+  "------NationalDex-------",
+  {"id":"NationalDex", "formula":[["RandSorE","DorP","DPorPt","LorForHorS"]]},
+  {"id":"RandSorE", "formula":[["Ruby","Sapphire"], ["Emerald"]]},
+  ["DorP","Diamond","Pearl"],
+  {"id":"DPorPt", "formula":[["Diamond","Pearl"],["Platinum2"]]},
+  {"id":"LorForHorS", "formula":[["LeafGreen"],["FireRed"],["HeartGold"],["SoulSilver"]]},
+  "------NationalDex end-------",
+  
+  {"id":"ForeignDexEntries", "formula":[["$ForeignDexEntries"]],"info":[ "144 Articuno LGPtHS", "145 Zapdos LGPtHS", "146 Moltres LGPtHS", "150 Mewtwo LGHS", "151 Mew MyPkmRanch", "201 Unown LGDPPtHS", "243 Raikou LGColHS", "244 Entei LGColHS", "245 Suicune LGColHS", "249 Lugia XDHS", "250 Ho-Oh ColHS", "251 Celebi JP(Col),Event(RSEDPPtHS)", "377 Regirock RSE", "378 Regice RSE", "379 Registeel RSE", "380 Latias SE", "381 Latios RE", "382 Kyogre SEH", "383 Groudon RES", "384 Rayquaza RSEHS", "385 Jirachi JP(Event DPPtHS),Col", "386 Deoxys Event DPRSELF", "480 Uxie DPPt", "481 Mesprit DPPt", "482 Azelf DPPt", "483 Dialga DPt", "484 Palkia PPt", "485 Heatran DPPt", "486 Regigigas RSE", "487 Giratina DPPt", "488 Cresselia DPPt", "491 Darkrai Event(DPPt)", "492 Shaymin Event(DPPt)", "493 Arceus Event(DPPt)"
   ]}
 
 ],
@@ -446,11 +364,6 @@
     ["$EnteiCustap_Event","$EventTool"],
     ["$LucarioDoll_Event","$EventTool_JP"],
 
-    ["$Manaphy_RangerShadow_Event","$EventTool_Optional"],
-    ["$Darkrai_RangerShadow_Event","$EventTool_Optional"],
-    ["$Manaphy_RangerGuardian_Event","$EventTool_Optional"],
-    ["$Deoxys_RangerGuardian_Event","$EventTool_Optional"],
-    ["$Shaymin_RangerGuardian_Event","$EventTool_Optional"],
     ["$Jirachi_Event","$EventTool_Optional"],
     ["$Darkrai_DP_Event","$EventTool_Optional"],
     ["$Manaphy_DP_Event","$EventTool_Optional"],
@@ -469,9 +382,7 @@
     {"id":"$SoulSilver_EN","name":"Game: Pokémon SoulSilver (EN)","indent":1, "preReqs":[["MultiplayerGen4"]]},
 
     {"id":"$Ranger_EN","name":"Game: Pokémon Ranger (EN)","indent":1,"fullCompl":1, "preReqs":[["MultiplayerGen4"]]},
-    {"id":"$RangerShadow","name":"Game: Pokémon Ranger: Shadows of Almia","indent":1, "preReqs":[["MultiplayerGen4"]],"desc":"This game can only obtain tradable Pokémon from discontinued events."},
-    {"id":"$RangerGuardian","name":"Game: Pokémon Ranger: Guardian Signs","indent":1, "preReqs":[["MultiplayerGen4"]],"desc":"This game can only obtain tradable Pokémon from discontinued events."},
-
+    
     {"id":"$Platinum_JP","name":"Game: Pokémon Platinum (JP)","indent":1, "preReqs":[["MultiplayerGen4"]]},
     {"id":"$Diamond_JP","name":"Game: Pokémon Diamond (JP)","indent":1, "preReqs":[["MultiplayerGen4"]]},
     {"id":"$Pearl_JP","name":"Game: Pokémon Pearl (JP)","indent":1, "fullCompl":1, "preReqs":[["MultiplayerGen4"]]},
@@ -489,7 +400,7 @@
     ],
 
     {"id":"$EmuGba","name":"Emulator for GBA","fullCompl":1,"preReqs":[["$EmuDualSlot"]]},
-    {"id":"$EmuGbaMultiplayer","name":"Emulator supports link cables?","indent":1, "url":["mGBA","https://mgba.io/"], "fullCompl":1},
+    {"id":"$EmuGbaMultiplayer","name":"Emulator supports link cables?","indent":1, "url":["mGBA","https://mgba.io/"], "fullCompl":0},
     {"id":"$Emerald_EN","name":"Game: Pokémon Emerald (EN)","fullCompl":1,"indent":1},
     {"id":"$Ruby_EN","name":"Game: Pokémon Ruby (EN)","indent":1},
     {"id":"$Sapphire_EN","name":"Game: Pokémon Sapphire (EN)","fullCompl":1,"indent":1},
@@ -524,7 +435,7 @@
     {"id":"$EmuWii","name":"Emulator for WII", "desc":"No WII emulators with DS connectivity exist yet.", "fullCompl":1},
     {"id":"$MyPokemonRanch_US","name":"Game: My Pokémon Ranch (US)", "fullCompl":1,"indent":1,"preReqs":[["DP_EN"]]},
     {"id":"$BattleRevolution_US","name":"Game: Pokémon Battle Revolution (US)", "indent":1},
-    {"id":"$MyPokemonRanch_JP","name":"Game: My Pokémon Ranch (JP)", "indent":1,"preReqs":[["AnyGen4_JP"]]},
+    {"id":"$MyPokemonRanch_JP","name":"Game: My Pokémon Ranch (JP)", "indent":1,"preReqs":[["DPPt_JP"]]},
     {"id":"$MyPokemonRanchUpdate_JP","name":"Update: My Pokémon Ranch 1.1 (JP)", "indent":2},
     {"id":"$BattleRevolution_JP","name":"Game: Pokémon Battle Revolution (JP)","indent":1,"preReqs":[["AnyGen4_JP"]]},
     {"id":"$ForeignDexEntries","name":"Many games in all languages", "fullCompl":1,"indent":1,"preReqs":[["MultiplayerGen4","$EmuGba"]],"url":["Foreign Pokédex Entries Requirements", "./Platinum/ForeignPokedexEntries",""]},
@@ -545,9 +456,7 @@
     {"id":"$SoulSilver_EN","name":"Game: Pokémon SoulSilver (EN)","indent":1, "preReqs":[["MultiplayerGen4"]]},
 
     {"id":"$Ranger_EN","name":"Game: Pokémon Ranger (EN)","indent":1,"fullCompl":1, "preReqs":[["MultiplayerGen4"]]},
-    {"id":"$RangerShadow","name":"Game: Pokémon Ranger: Shadows of Almia","indent":1, "preReqs":[["MultiplayerGen4"]],"desc":"This game can only obtain tradable Pokémon from discontinued events."},
-    {"id":"$RangerGuardian","name":"Game: Pokémon Ranger: Guardian Signs","indent":1, "preReqs":[["MultiplayerGen4"]],"desc":"This game can only obtain tradable Pokémon from discontinued events."},
-
+    
     {"id":"$Platinum_JP","name":"Game: Pokémon Platinum (JP)","indent":1, "preReqs":[["MultiplayerGen4"]]},
     {"id":"$Diamond_JP","name":"Game: Pokémon Diamond (JP)","indent":1, "preReqs":[["MultiplayerGen4"]]},
     {"id":"$Pearl_JP","name":"Game: Pokémon Pearl (JP)","indent":1, "fullCompl":1, "preReqs":[["MultiplayerGen4"]]},
@@ -624,11 +533,6 @@
     {"id":"$Deoxys_DP_Event","name":"Deoxys","desc":"Ex: GameStop stores from June 20 to 22, 2008 on Pokémon Diamond/Pearl","indent":1,"preReqs":[["DP"]]},
     {"id":"$EnteiCustap_Event","name":"Entei holding Custap Berry","desc":"Ex: Zoroark: Master of Illusions 2011 Movie Promo from January 17 to 23, 2011","indent":1},
     {"id":"$LucarioDoll_Event","name":"Event giving Lucario Doll","desc":"Ex: Waku Waku Lucario Fair from May 1 to 31, 2009 (Japan only)","indent":1,"preReqs":[["$Platinum_JP"]]},
-    {"id":"$Manaphy_RangerShadow_Event","name":"Manaphy (Ranger Shadow)","desc":"Nintendo Wi-Fi Connection from November 10, 2008 to January 31, 2009","indent":1,"preReqs":[["$RangerShadow"]]},
-    {"id":"$Darkrai_RangerShadow_Event","name":"Darkrai (Ranger Shadow)","desc":"Nintendo Wi-Fi Connection from December 1, 2008 to January 31, 2009","indent":1,"preReqs":[["$RangerShadow"]]},
-    {"id":"$Manaphy_RangerGuardian_Event","name":"Manaphy (Ranger Guardian)","desc":"Nintendo Wi-Fi Connection from October 4, 2010 to January 11, 2011","indent":1,"preReqs":[["$RangerGuardian"]]},
-    {"id":"$Deoxys_RangerGuardian_Event","name":"Deoxys (Ranger Guardian)","desc":"Nintendo Wi-Fi Connection from October 4, 2010 to January 11, 2011","indent":1,"preReqs":[["$RangerGuardian"]]},
-    {"id":"$Shaymin_RangerGuardian_Event","name":"Shaymin (Ranger Guardian)","desc":"Nintendo Wi-Fi Connection from November 15, 2010 to January 11, 2011","indent":1,"preReqs":[["$RangerGuardian"]]},
     {"id":"$Jirachi_Event","name":"Jirachi","desc":"Ex: GameStop Jirachi from February 27 to March 13, 2010","indent":1},
     {"id":"$Darkrai_DP_Event","name":"Darkrai","desc":"Ex: The Rise of Darkrai 2008 DVD Promo from June 20 to 22, 2008 on Pokémon Diamond/Pearl","indent":1,"preReqs":[["DP"]]},
     {"id":"$Manaphy_DP_Event","name":"Manaphy","desc":"Ex: Pokémon Ranger and the Temple of the Sea 2007 DVD Promo from September 29, 2007 on Pokémon Diamond/Pearl","indent":1,"preReqs":[["DP"]]},
@@ -736,8 +640,6 @@
   {"name":"FireRed","exclude":["Dual-slot FireRed"]},
   {"name":"XD"},
   {"name":"Colosseum"},
-  {"name":"Pokémon Ranger: Shadows of Almia","alias":["Pokémon Ranger: Shadows of Almia"]},
-  {"name":"Pokémon Ranger: Guardian Signs","alias":["Pokémon Ranger: Guardian Signs"]},
 
   {"name":"Diamond"},
   {"name":"Pearl"},
@@ -1195,7 +1097,7 @@
   {"name":"Mime Jr.","id":"439","location":"Trophy Garden","iconUrl":"pokemon/p439.png","pos":[[7042.2,7820.9]]},
   {"name":"Happiny","id":"440","location":"Trophy Garden","iconUrl":"pokemon/p440.png","pos":[[7042.2,7820.9]]},
   {"name":"Chatot","id":"441","location":"Route 213, Route 222, Trade Buizel in Eterna City","iconUrl":"pokemon/p441.png","pos":[[4380.4,5121.5],[7843,10074.6],[7343,11473.6]]},
-  {"name":"Spiritomb","id":"442","location":"Route 209 (requires multiplayer). PokéWalker (Quiet Cave)","reqs":[["MultiplayerDPP"],["PokeWalker"]],"iconUrl":"pokemon/p442.png","pos":[[6530.4,8682.5]]},
+  {"name":"Spiritomb","id":"442","location":"Route 209 (requires multiplayer). PokéWalker (Quiet Cave)","reqs":[["MultiplayerDPPt"],["PokeWalker"]],"iconUrl":"pokemon/p442.png","pos":[[6530.4,8682.5]]},
   {"name":"Gible","id":"443","location":"Wayward Cave","iconUrl":"pokemon/p443.png","pos":[[5629.2,5470.9]]},
   {"name":"Gabite","id":"444","location":"Victory Road","iconUrl":"pokemon/p444.png","pos":[[6161.4,14912.5]]},
   {"name":"Garchomp","id":"445","location":"Evolve Gabite (Level 48)","iconUrl":"pokemon/p445.png"},
@@ -1243,7 +1145,7 @@
   {"name":"Giratina","id":"487","location":"Distortion World (Origin Forme), Turnback Cave (Altered Forme)","iconUrl":"pokemon/p487.png","pos":[[8795.2,13808.3],[432.5,15153]]},
   {"name":"Cresselia","id":"488","location":"Roaming Sinnoh","iconUrl":"pokemon/p488.png"},
   {"name":"Phione","id":"489","location":"Trade from My Pokémon Ranch (transfer 250 Pokémon), Breed Manaphy","reqs":["Phione"],"iconUrl":"pokemon/p489.png"},
-  {"name":"Manaphy","id":"490","location":"Trade from Pokémon Ranger to Pokémon Diamond/Pearl to Platinum, which obtained it from mission Recover the Precious Egg! unlocked with password P8M2-9D6F-43H7. Trade from Pokémon Ranger: Shadows of Almia (event). Trade from Pokémon Ranger: Guardian Signs (event).","reqs":["Manaphy"],"iconUrl":"pokemon/p490.png"},
+  {"name":"Manaphy","id":"490","location":"Trade from Pokémon Ranger to Pokémon Diamond/Pearl to Platinum, which obtained it from mission Recover the Precious Egg! unlocked with password P8M2-9D6F-43H7.","reqs":["Manaphy"],"iconUrl":"pokemon/p490.png"},
   {"name":"Darkrai","id":"491","location":"Newmoon Island (requires Member Card obtained from event), Trade from Pokémon Ranger: Shadows of Almia which obtained it from mission Liberate the Tower! unlocked with event.","reqs":["Darkrai"],"iconUrl":"pokemon/p491.png","pos":[[2327.4,1187.5]]},
   {"name":"Shaymin","id":"492","location":"Flower Paradise (requires Oak's Letter obtained from event)","reqs":["Shaymin"],"iconUrl":"pokemon/p492.png","pos":[[174.4,14143.5]]},
   {"name":"Arceus","id":"493","location":"Event (Ex: Toys R Us Arceus November 7 to 15, 2009)","reqs":["Arceus"],"iconUrl":"pokemon/p493.png"}
@@ -2802,7 +2704,7 @@
   {"name":"Pikachu Doll","location":"Underground","iconUrl":"decoration3/DollPikachu.png"},
   {"name":"Ball Ornament","obtainable":-1},
   {"name":"Beauty Cup","location":"Hearthome City (from Mr. Goods after completing Beauty Contest Master Rank)","iconUrl":"decoration4/Beauty_Cup.png","pos":[[6427.2,7118.8]]},
-  {"name":"Blue Crystal","location":"Hearthome City (from Mr. Goods after meeting 100 people in the Underground)","reqs":["MultiplayerDPP"],"iconUrl":"decoration4/Blue_Crystal.png","pos":[[6427.2,7118.8]]},
+  {"name":"Blue Crystal","location":"Hearthome City (from Mr. Goods after meeting 100 people in the Underground)","reqs":["MultiplayerDPPt"],"iconUrl":"decoration4/Blue_Crystal.png","pos":[[6427.2,7118.8]]},
   {"name":"Bonsly Doll","location":"Veilstone Department Store","iconUrl":"decoration4/Bonsly_Doll.png","pos":[[5105.5,10777.1]]},
   {"name":"Bronze Trophy","location":"Hearthome City (from Mr. Goods after winning 20 consecutive battles at the Battle Tower)","iconUrl":"decoration4/Bronze_Trophy.png","pos":[[6427.2,7118.8]]},
   {"name":"Buizel Doll","location":"Veilstone Department Store","iconUrl":"decoration4/Buizel_Doll.png","pos":[[5105.5,10777.1]]},
@@ -2811,7 +2713,7 @@
   {"name":"Clever Cup","location":"Hearthome City (from Mr. Goods after completing Smart Contest Master Rank)","iconUrl":"decoration4/Clever_Cup.png","pos":[[6427.2,7118.8]]},
   {"name":"Cool Cup","location":"Hearthome City (from Mr. Goods after completing Cool Contest Master Rank)","iconUrl":"decoration4/Cool_Cup.png","pos":[[6427.2,7118.8]]},
   {"name":"Cute Cup","location":"Hearthome City (from Mr. Goods after completing Cute Contest Master Rank)","iconUrl":"decoration4/Cute_Cup.png","pos":[[6427.2,7118.8]]},
-  {"name":"Glitter Gem","location":"Eterna City (from Underground Man after capturing 50 flags which requires multiplayer)","reqs":["MultiplayerDPP"],"iconUrl":"decoration4/Glitter_Gem.png"},
+  {"name":"Glitter Gem","location":"Eterna City (from Underground Man after capturing 50 flags which requires multiplayer)","reqs":["MultiplayerDPPt"],"iconUrl":"decoration4/Glitter_Gem.png"},
   {"name":"Globe","location":"Hearthome City (from Mr. Goods after connecting to Nintendo Wi-Fi Connection)","reqs":["NintendoWifi"],"iconUrl":"decoration4/Globe.png","pos":[[6427.2,7118.8]]},
   {"name":"Gold Trophy","location":"Hearthome City (from Mr. Goods after winning 100 consecutive Single battles at the Battle Tower)","iconUrl":"decoration4/Gold_Trophy.png","pos":[[6427.2,7118.8]]},
   {"name":"Great Trophy","obtainable":-1},
@@ -2822,15 +2724,15 @@
   {"name":"Mantyke Doll","location":"Veilstone Department Store","iconUrl":"decoration4/Mantyke_Doll.png","pos":[[5105.5,10777.1]]},
   {"name":"Mime Jr. Doll","location":"Veilstone Department Store","iconUrl":"decoration4/Mime_Jr_Doll.png","pos":[[5105.5,10777.1]]},
   {"name":"Munchlax Doll","location":"Veilstone Department Store","iconUrl":"decoration4/Munchlax_Doll.png","pos":[[5105.5,10777.1]]},
-  {"name":"Mystic Gem","location":"Eterna City (from Underground Man after capturing 10 flags which requires multiplayer)","reqs":["MultiplayerDPP"],"iconUrl":"decoration4/Mystic_Gem.png"},
-  {"name":"Pink Crystal","location":"Hearthome City (from Mr. Goods after giving 100 goods in the Underground to other players)","reqs":["MultiplayerDPP"],"iconUrl":"decoration4/Pink_Crystal.png","pos":[[6427.2,7118.8]]},
-  {"name":"Pretty Gem","location":"Eterna City (from Underground Man after capturing 1 flag which requires multiplayer)","reqs":["MultiplayerDPP"],"iconUrl":"decoration4/Pretty_Gem.png"},
+  {"name":"Mystic Gem","location":"Eterna City (from Underground Man after capturing 10 flags which requires multiplayer)","reqs":["MultiplayerDPPt"],"iconUrl":"decoration4/Mystic_Gem.png"},
+  {"name":"Pink Crystal","location":"Hearthome City (from Mr. Goods after giving 100 goods in the Underground to other players)","reqs":["MultiplayerDPPt"],"iconUrl":"decoration4/Pink_Crystal.png","pos":[[6427.2,7118.8]]},
+  {"name":"Pretty Gem","location":"Eterna City (from Underground Man after capturing 1 flag which requires multiplayer)","reqs":["MultiplayerDPPt"],"iconUrl":"decoration4/Pretty_Gem.png"},
   {"name":"Red Crystal","location":"Hearthome City (from Mr. Goods after finding 100 Fossils or Rare Bones)","iconUrl":"decoration4/Red_Crystal.png","pos":[[6427.2,7118.8]]},
   {"name":"Round Ornament","obtainable":-1},
-  {"name":"Shiny Gem","location":"Eterna City (from Underground Man after capturing 3 flags which requires multiplayer)","reqs":["MultiplayerDPP"],"iconUrl":"decoration4/Shiny_Gem.png"},
+  {"name":"Shiny Gem","location":"Eterna City (from Underground Man after capturing 3 flags which requires multiplayer)","reqs":["MultiplayerDPPt"],"iconUrl":"decoration4/Shiny_Gem.png"},
   {"name":"Silver Trophy","location":"Hearthome City (from Mr. Goods after winning 50 consecutive battles at the Battle Tower)","iconUrl":"decoration4/Silver_Trophy.png","pos":[[6427.2,7118.8]]},
   {"name":"Tough Cup","location":"Hearthome City (from Mr. Goods after completing Tough Contest Master Rank)","iconUrl":"decoration4/Tough_Cup.png","pos":[[6427.2,7118.8]]},
-  {"name":"Yellow Crystal","location":"Hearthome City (from Mr. Goods after trapping people 100 times)","reqs":["MultiplayerDPP"],"iconUrl":"decoration4/Yellow_Crystal.png","pos":[[6427.2,7118.8]]}
+  {"name":"Yellow Crystal","location":"Hearthome City (from Mr. Goods after trapping people 100 times)","reqs":["MultiplayerDPPt"],"iconUrl":"decoration4/Yellow_Crystal.png","pos":[[6427.2,7118.8]]}
  ]},
  {"id":"undergroundItem","name":"Underground Item","url":"https://bulbapedia.bulbagarden.net/wiki/Underground","list":[
   {"name":"Prism Sphere","location":"Underground","iconUrl":"underground4/Small_Prism_Sphere.png"},
@@ -2926,7 +2828,7 @@
   {"name":"Great Ability Ribbon","location":"Battle Tower (49 wins in Single Battle)","iconUrl":"ribbon/Great_Ability_Ribbon.png","pos":[[1070.4,10115.5]]},
   {"name":"Double Ability Ribbon","location":"Battle Tower (50 wins in Double Battle)","iconUrl":"ribbon/Double_Ability_Ribbon.png","pos":[[1070.4,10115.5]]},
   {"name":"Multi Ability Ribbon","location":"Battle Tower (50 wins in Double Battle)","iconUrl":"ribbon/Multi_Ability_Ribbon.png","pos":[[1070.4,10115.5]]},
-  {"name":"Pair Ability Ribbon","location":"Battle Tower (50 wins in Link Multi Battle)","reqs":["DPP"],"iconUrl":"ribbon/Pair_Ability_Ribbon.png","pos":[[1070.4,10115.5]]},
+  {"name":"Pair Ability Ribbon","location":"Battle Tower (50 wins in Link Multi Battle)","reqs":["DPPt"],"iconUrl":"ribbon/Pair_Ability_Ribbon.png","pos":[[1070.4,10115.5]]},
   {"name":"World Ability Ribbon","location":"Battle Tower (getting Rank 5 after 35 wins)","reqs":["NintendoWifiBattle"],"iconUrl":"ribbon/World_Ability_Ribbon.png","pos":[[1070.4,10115.5]]},
   {"name":"Artist Ribbon","location":"Trade from Ruby, Sapphire, Emerald","reqs":["RSE"],"iconUrl":"ribbon/Artist_Ribbon.png"},
   {"name":"Effort Ribbon","location":"Sunyshore City","iconUrl":"ribbon/Effort_Ribbon.png","pos":[[7111.2,13141.6]]},
@@ -3170,9 +3072,9 @@
  ]},
  {"id":"poffin","name":"Poffin","url":"https://bulbapedia.bulbagarden.net/wiki/Poffin","list":[
   {"name":"Foul Poffin","location":"Poffin House (Any Berry with many burns)","iconUrl":"poffin4/Foul_Poffin.png","pos":[[6483.2,7167.8]]},
-  {"name":"Rich Poffin","location":"Poffin House (Spelon Berry + Bluk Berry)","iconUrl":"poffin4/Rich_Poffin.png","pos":[[6483.2,7167.8]],"reqs":["DPP"]},
+  {"name":"Rich Poffin","location":"Poffin House (Spelon Berry + Bluk Berry)","iconUrl":"poffin4/Rich_Poffin.png","pos":[[6483.2,7167.8]],"reqs":["DPPt"]},
   {"name":"Overripe Poffin","location":"Poffin House (Figy Berry + Rabuta Berry + Kelpsy Berry)","iconUrl":"poffin4/Overripe_Poffin.png","pos":[[6483.2,7167.8]],"reqs":["OverripePoffin"]},
-  {"name":"Mild Poffin","location":"Poffin House (Pamtre Berry + Charti Berry under 45s), (Pamtre Berry + Charti Berry + Wiki Berry)","iconUrl":"poffin4/Mild_Poffin.png","pos":[[6483.2,7167.8]],"reqs":["DPP"]},
+  {"name":"Mild Poffin","location":"Poffin House (Pamtre Berry + Charti Berry under 45s), (Pamtre Berry + Charti Berry + Wiki Berry)","iconUrl":"poffin4/Mild_Poffin.png","pos":[[6483.2,7167.8]],"reqs":["DPPt"]},
   {"name":"Bitter Poffin","location":"Poffin House (Rawst Berry)","iconUrl":"poffin4/Bitter_Poffin.png","pos":[[6483.2,7167.8]]},
   {"name":"Bitter-Dry Poffin","location":"Poffin House (Coba Berry)","iconUrl":"poffin4/Bitter_Dry_Poffin.png","pos":[[6483.2,7167.8]]},
   {"name":"Bitter-Sour Poffin","location":"Veilstone Department Store, Poffin House","iconUrl":"poffin4/Bitter_Sour_Poffin.png","pos":[[5120.5,10818.6]]},
@@ -3232,7 +3134,7 @@
   {"name":"Hall of Fame","location":"Pokémon League (after getting a record in the Hall of Fame)","pos":[[3002.4,13107.5]],"iconUrl":"ribbon/Sinnoh_Champion_Ribbon.png"},
   {"name":"National Pokédex","location":"Complete the National Pokédex, excluding Mew, Lugia, Ho-Oh, Celebi, Jirachi, Deoxys, Phione, Manaphy, Darkrai, Shaymin, and Arceus","reqs":["NationalDex"],"iconUrl":"misc/pokedex.png"},
   {"name":"Pokémon Contest","location":"Super Contest Hall (after winning a Master Rank contest)","pos":[[6137.4,7275.5]],"iconUrl":"ribbon/Beauty_Ribbon_Master_Sinnoh.png"},
-  {"name":"Underground","location":"Underground (after capturing 50 flags, which requires multiplayer)","reqs":["MultiplayerDPP"],"iconUrl":"decoration4/PC_Platinum_Flag.png"},
+  {"name":"Underground","location":"Underground (after capturing 50 flags, which requires multiplayer)","reqs":["MultiplayerDPPt"],"iconUrl":"decoration4/PC_Platinum_Flag.png"},
   {"name":"Battle Tower","location":"Battle Tower (after defeating 100 Trainers in a row)","pos":[[1070.4,10115.5]],"iconUrl":"misc/symbolGold.png"}
  ]},
 
@@ -3312,7 +3214,7 @@
   {"name":"Single Battles","location":"Battle Tower","pos":[[1063.4,10024.5]],"iconUrl":"misc/symbolGold.png"},
   {"name":"Double Battles","location":"Battle Tower","pos":[[1063.4,10024.5]],"iconUrl":"misc/symbolGold.png"},
   {"name":"Multi Battles","location":"Battle Tower (Multi with NPC)","pos":[[1063.4,10024.5]],"iconUrl":"misc/symbolGold.png"},
-  {"name":"Link Multi Battles","location":"Battle Tower (Multi with other player)","reqs":["DPP"],"pos":[[1070.4,10115.5]],"iconUrl":"misc/symbolGold.png"},
+  {"name":"Link Multi Battles","location":"Battle Tower (Multi with other player)","reqs":["DPPt"],"pos":[[1070.4,10115.5]],"iconUrl":"misc/symbolGold.png"},
   {"name":"Wi-Fi Battles","location":"Battle Tower","reqs":["NintendoWifiBattle"],"pos":[[1063.4,10024.5]],"iconUrl":"misc/symbolGold.png"},
   {"name":"Avg Win Streak","location":"Battle Tower","pos":[[1063.4,10024.5]],"iconUrl":"misc/symbolGold.png"},
   {"name":"Contest Wins","location":"Super Contest Hall","pos":[[6137.4,7275.5]],"iconUrl":"ribbon/Beauty_Ribbon_Master_Sinnoh.png"},
