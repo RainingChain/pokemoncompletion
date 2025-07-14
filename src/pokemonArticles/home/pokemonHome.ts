@@ -31,7 +31,7 @@ document.addEventListener("DOMContentLoaded",async function(){
       {klass:'pokemon-p25',href:'/completion/Yellow',name:'Pokémon Yellow'},
       {klass:'pokemon-p245',href:'/completion/Crystal',name:'Pokémon Crystal'},
       {klass:'pokemon-p384',href:'/completion/Emerald',name:'Pokémon Emerald'},
-      {klass:'pokemon-p487',href:'/completion/Platinum',name:'Pokémon Platinum',desc:'(WIP: ~99% Complete)'},
+      {klass:'pokemon-p487',href:'/completion/Platinum',name:'Pokémon Platinum'},
       {klass:'pokemon-p644',href:'/completion/Black2',name:'Pokémon Black 2',desc:'(WIP)'},
       {klass:'pokemon-p716',href:'/completion/X',name:'Pokémon X',desc:'(WIP)'},
       {klass:'pokemon-p192',href:'/completion/UltraSun',name:'Pokémon Ultra Sun',desc:'(WIP)'},

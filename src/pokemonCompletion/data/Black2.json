@@ -116,46 +116,47 @@
   ["LeafGreen", "$LeafGreen_EN","$LeafGreen_JP"],
   ["FireRed","$FireRed_EN","$FireRed_JP"],
   ["FL","FireRed","LeafGreen"],
-  ["DualAny","DualFireRed","DualLeafGreen","DualRuby","DualSapphire","DualEmerald"],
   ["RS","Ruby","Sapphire"],
   ["RSE","RS","Emerald"],
   ["RS_JP", "$Ruby_JP","$Sapphire_JP"],
   ["RS_EN", "$Ruby_EN","$Sapphire_EN"],
   ["DP_JP", "$Diamond_JP","$Pearl_JP"],
   ["DP_EN", "$Diamond_EN","$Pearl_EN"],
+  ["Platinum", "$Platinum_EN","$Platinum_JP"],
   ["Black", "$Black_EN","$Black_JP"],
   ["White", "$White_EN","$White_JP"],
+  ["BW","Black", "White"],
   ["White2", "$White2_JP","$White2_EN"],
-
-  ["Colosseum", "$Colosseum_US","$Colosseum_JP"],
-  ["XD", "$XD_US","$XD_JP"],
-  ["AnyGen3_EN", "RS_EN","$Emerald_EN","$LeafGreen_EN","$FireRed_EN"],
-  ["AnyGen3_JP", "RS_JP","$Emerald_JP","$LeafGreen_JP","$FireRed_JP"],
-
-  ["AnyGen3", "AnyGen3_EN","AnyGen3_JP"],
-  ["AnyGen4_EN","$Diamond_EN","$Pearl_EN","$HeartGold_EN","$SoulSilver_EN","Platinum2_EN"],
-  ["TradeGen3", "AnyGen3_EN","AnyGen3_JP"],
-  ["TradeGen4", "DP","HS","Platinum2"],
-  ["TradeGen5", "BW","Black2_2","White2"],
-
+  ["DP","Diamond","Pearl"],
+  ["DPPt","DP","Platinum"],
   ["Diamond", "$Diamond_JP","$Diamond_EN"],
   ["Pearl", "$Pearl_JP","$Pearl_EN"],
   ["HeartGold", "$HeartGold_JP", "$HeartGold_EN"],
   ["SoulSilver", "$SoulSilver_JP", "$SoulSilver_EN"],
+  ["HS","HeartGold","SoulSilver"],
+
+  ["Colosseum", "$Colosseum_US","$Colosseum_JP"],
+  ["XD", "$XD_US","$XD_JP"],
+  
+  ["DualAny","DualFireRed","DualLeafGreen","DualRuby","DualSapphire","DualEmerald"],
+  ["AnyGen3_EN", "RS_EN","$Emerald_EN","$LeafGreen_EN","$FireRed_EN"],
+  ["AnyGen3_JP", "RS_JP","$Emerald_JP","$LeafGreen_JP","$FireRed_JP"],
+  ["AnyGen3", "AnyGen3_EN","AnyGen3_JP"],
+  ["AnyGen4_EN","$Diamond_EN","$Pearl_EN","$HeartGold_EN","$SoulSilver_EN","Platinum2_EN"],
+  ["AnyGen4_JP","$Diamond_JP","$Pearl_JP","$Platinum_JP"],
+  ["AnyGen4","AnyGen4_EN","AnyGen4_JP"],
+  
+  ["TradeGen5", "BW","Black2_2","White2"],
+
   ["EvolveTrade", "TradeGen3","TradeGen4","TradeGen5"],
   ["EvolveTrade4", "TradeGen4", "TradeGen5"],
   ["EvolveTrade5", "TradeGen5"],
   ["PokeWalker", "$PokeWalker"],
-  ["DP","Diamond","Pearl"],
-  ["DPPt","DP","Platinum"],
-  ["HS","HeartGold","SoulSilver"],
-  ["BW","Black", "White"],
 
   ["HoOh","HS","Colosseum"],
   ["PBR","$BattleRevolution_US","$BattleRevolution_JP"],
 
   ["OaksLetter","$OaksLetter_Event"],
-  ["AnyGen4_JP","$Diamond_JP","$Pearl_JP","$Platinum_JP"],
 
   ["Gracidea","Shaymin"],
   ["Arceus","$ArceusRowap_Event"],
@@ -196,6 +197,9 @@
     {"type":"emulator", "formula":[["Multiplayer"]]},
     {"type":["consoleEN"], "formula":[["GTE($Black2_EN,2)"]]}
   ]},
+  {"id":"NaturePreserve", "waresByType":[
+    {"type":["emulator","consoleEN"], "formula":[["Black","White"],["Black","White2"]]}
+  ],"notes":"route 7 to register legend trio"},
   {"id":"Mew", "waresByType":[
     {"type":["emulator","consoleEN"], "formula":[["MyPokemonRanch"],["$Mew_Event"]]}
   ]},
@@ -252,6 +256,14 @@
     {"type":["emulator"], "formula":[["$EmuGbaMultiplayer"]]},
     {"type":["consoleEN"], "formula":[["$GbaLinkCable"]]}
   ]},
+  {"id":"TradeGen3", "waresByType":[
+    {"type":["emulator"], "formula":[["AnyGen3","TradeGen3ToGen3"]]},
+    {"type":["consoleEN"], "formula":[
+      ["GTE(AnyGen3, 2)","TradeGen3ToGen3"]
+    ]}
+  ]},
+  
+  ["TradeGen4", "DP","HS","Platinum2"],
   {"id":"TransferGen3JPToGen4US", "waresByType":[
     {"type":["emulator"], "formula":[["AnyGen3_EN","TradeGen3ToGen3"],["AnyGen4_JP"]]},
     {"type":["consoleEN"], "formula":[["AnyGen3_EN","TradeGen3ToGen3"],["AnyGen4_JP"]]}
@@ -633,8 +645,8 @@
   {"name":"Feraligatr","id":"160","obtainable":0,"location":"Evolve traded Croconaw (Level 30) from Emerald, XD, HeartGold, SoulSilver, Colosseum","iconUrl":"pokemon/p160.png","reqs":["Emerald","XD","HS","Colosseum"]},
   {"name":"Sentret","id":"161","obtainable":1,"location":"Breed Furret","iconUrl":"pokemon/p161.png"},
   {"name":"Furret","id":"162","obtainable":1,"location":"Route 7 (Swarm)","iconUrl":"pokemon/p162.png"},
-  {"name":"Hoothoot","id":"163","obtainable":0,"location":"Breed Noctowl obtained Nature Preserve (requires trading to access). Trade from Black, White, White 2, Diamond, Pearl, Platinum, HeartGold, SoulSilver, Emerald","reqs":["BW","White 2","NaturePreserve","Emerald","DPPt","HS"]},
-  {"name":"Noctowl","id":"164","obtainable":0,"location":"Nature Preserve (requires trading to access). Evolve traded Hoothoot (Level 20). Trade from Black, White, White 2, Diamond, Pearl, Platinum, HeartGold, SoulSilver, Emerald","reqs":["BW","White 2","NaturePreserve","Emerald","DPPt","HS"]},
+  {"name":"Hoothoot","id":"163","obtainable":0,"location":"Breed Noctowl obtained Nature Preserve (requires trading to access). Trade from Black, White, White 2, Diamond, Pearl, Platinum, HeartGold, SoulSilver, Emerald","reqs":["BW","White2","NaturePreserve","Emerald","DPPt","HS"]},
+  {"name":"Noctowl","id":"164","obtainable":0,"location":"Nature Preserve (requires trading to access). Evolve traded Hoothoot (Level 20). Trade from Black, White, White 2, Diamond, Pearl, Platinum, HeartGold, SoulSilver, Emerald","reqs":["BW","White2","NaturePreserve","Emerald","DPPt","HS"]},
   {"name":"Ledyba","id":"165","obtainable":0,"location":"Trade from Black, White, White 2, Diamond, Pearl, Platinum, SoulSilver, Emerald, FireRed, LeafGreen, XD, Colosseum","reqs":["BW","White2","SoulSilver","Emerald","XD","DPPt","FL","Colosseum"]},
   {"name":"Ledian","id":"166","obtainable":0,"location":"Evolve traded Ledyba (Level 18). Trade from Black, White, White 2, Diamond, Pearl, Platinum, SoulSilver, Emerald, FireRed, LeafGreen, XD, Colosseum","reqs":["BW","White2","SoulSilver","Emerald","XD","DPPt","FL","Colosseum"]},
   {"name":"Spinarak","id":"167","obtainable":1,"location":"Breed Ariados","iconUrl":"pokemon/p167.png"},

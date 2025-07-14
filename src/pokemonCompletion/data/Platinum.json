@@ -2,7 +2,6 @@
 "name":"Platinum",
 "id":"Platinum",
 "iconUrl":"pokemon/p487.png",
-"wip":"Simulate all events. Finish Battle Frontier RNG abuse tool.",
 "additionalCredits":"<a target='_blank' rel='noopener' href='https://github.com/pret/pokeplatinum/'>pokeplatinum</a> decompil project. FabioAttard for <a target='_blank' rel='noopener' href='https://github.com/fattard/FlagsEditorEXPlugin'>event flag research</a>. <a target='_blank' rel='noopener' href='https://github.com/ICEREG1992/pkmnmap4'>ICEREG1992</a> and <a target='_blank' rel='noopener' href='https://bulbapedia.bulbagarden.net/'>Bulbapedia</a> for map image and icon placement.",
 "pkCompletionist":{
   "versions":["Pt"],
@@ -225,12 +224,6 @@
   ["LeafGreen", "$LeafGreen_EN","$LeafGreen_JP"],
   ["FireRed","$FireRed_EN","$FireRed_JP"],
   ["FL","FireRed","LeafGreen"],
-  ["DualFireRed","FireRed"],
-  ["DualLeafGreen","LeafGreen"],
-  ["DualRuby","Ruby"],
-  ["DualSapphire","Sapphire"],
-  ["DualEmerald","Emerald"],
-  ["DualAny","DualFireRed","DualLeafGreen","DualRuby","DualSapphire","DualEmerald"],
   ["RS","Ruby","Sapphire"],
   ["RSE","RS","Emerald"],
   ["RS_JP", "$Ruby_JP","$Sapphire_JP"],
@@ -239,28 +232,36 @@
   ["DP_EN", "$Diamond_EN","$Pearl_EN"],
   ["RangerShadow","$RangerShadow"],
   ["RangerGuardian","$RangerGuardian"],
-
   ["Colosseum", "$Colosseum_US","$Colosseum_JP"],
   ["XD", "$XD_US","$XD_JP"],
-  ["AnyGen3_EN", "RS_EN","$Emerald_EN","$LeafGreen_EN","$FireRed_EN"],
-  ["AnyGen3_JP", "RS_JP","$Emerald_JP","$LeafGreen_JP","$FireRed_JP"],
-
-  ["AnyGen3", "AnyGen3_EN","AnyGen3_JP"],
-  ["AnyGen4_EN","$Diamond_EN","$Pearl_EN","$HeartGold_EN","$SoulSilver_EN","Platinum2_EN"],
-  ["TradeGen3", "AnyGen3_EN","AnyGen3_JP"],
-  ["TradeGen4", "DP","HS","Platinum2"],
-  ["Trade", "TradeGen3","TradeGen4"],
-
   ["Diamond", "$Diamond_JP","$Diamond_EN"],
   ["Pearl", "$Pearl_JP","$Pearl_EN"],
   ["HeartGold", "$HeartGold_JP", "$HeartGold_EN"],
   ["SoulSilver", "$SoulSilver_JP", "$SoulSilver_EN"],
-  ["EvolveTrade", "Trade"],
-  ["EvolveTrade4", "TradeGen4"],
-  ["PokeWalker", "$PokeWalker"],
   ["DP","Diamond","Pearl"],
   ["DPP","DP","Platinum2"],
   ["HS","HeartGold","SoulSilver"],
+
+  ["DualFireRed","FireRed"],
+  ["DualLeafGreen","LeafGreen"],
+  ["DualRuby","Ruby"],
+  ["DualSapphire","Sapphire"],
+  ["DualEmerald","Emerald"],
+  ["DualAny","DualFireRed","DualLeafGreen","DualRuby","DualSapphire","DualEmerald"],
+  
+  ["AnyGen3_EN", "RS_EN","$Emerald_EN","$LeafGreen_EN","$FireRed_EN"],
+  ["AnyGen3_JP", "RS_JP","$Emerald_JP","$LeafGreen_JP","$FireRed_JP"],
+  ["AnyGen3", "AnyGen3_EN","AnyGen3_JP"],
+  ["AnyGen4_EN","$Diamond_EN","$Pearl_EN","$HeartGold_EN","$SoulSilver_EN","Platinum2_EN"],
+  ["AnyGen4_JP","$Diamond_JP","$Pearl_JP","$HeartGold_JP","$SoulSilver_JP","$Platinum_JP"],
+  ["AnyGen4","AnyGen4_JP","AnyGen4_EN"],
+
+  ["TradeGen4ToGen4", "DP","HS","Platinum2"],
+  ["Trade", "TradeGen3ToGen3","TradeGen4ToGen4"],
+
+  ["EvolveTradeAnyGen", "Trade"],
+  ["EvolveTradeGen4OrMore", "TradeGen4ToGen4"],
+  ["PokeWalker", "$PokeWalker"],
 
   ["Lugia","HS","XD"],
   ["HoOh","HS","Colosseum"],
@@ -270,7 +271,6 @@
   ["SecretKey", "$SecretKey_Event"],
   ["OaksLetter","$OaksLetter_Event"],
   ["MemberCard","$MemberCard_Event"],
-  ["AnyGen4_JP","$Diamond_JP","$Pearl_JP","$Platinum_JP"],
 
   ["Gracidea","Shaymin"],
   ["Arceus","$ArceusRowap_Event"],
@@ -388,6 +388,12 @@
   {"id":"NationalDex", "waresByType":[
     {"type":["emulator", "consoleEN"], "formula":[
       ["RandSorE","DorP","DPorPt","LorForHorS"]
+    ]}
+  ]},
+  {"id":"TradeGen3ToGen3", "waresByType":[
+    {"type":["emulator"], "formula":[["AnyGen3","TradeGen3ToGen3"]]},
+    {"type":["consoleEN"], "formula":[
+      ["GTE(AnyGen3, 2)","TradeGen3ToGen3"]
     ]}
   ]},
   {"id":"OverripePoffin", "waresByType":[
@@ -757,8 +763,8 @@
 ],
 "categories":[
  {"id":"pokemon","name":"Pokémon","urlSuffix":"_(Pok%C3%A9mon)#Game_locations","showId":true,"conflicts":[
-  {"name":"Starter", "list":[["Turtwig","Grotle","Torterra"],["Chimchar","Monferno","Infernape"],["Piplup","Prinplup","Empoleon"]], "reqsToSolve":[["TradeGen4"]]},
-  {"name":"Fossil", "list":[["Cranidos","Rampardos"],["Shieldon","Bastiodon"]], "reqsToSolve":[["TradeGen4"]]}
+  {"name":"Starter", "list":[["Turtwig","Grotle","Torterra"],["Chimchar","Monferno","Infernape"],["Piplup","Prinplup","Empoleon"]], "reqsToSolve":[["TradeGen4ToGen4"]]},
+  {"name":"Fossil", "list":[["Cranidos","Rampardos"],["Shieldon","Bastiodon"]], "reqsToSolve":[["TradeGen4ToGen4"]]}
  ],"list":[
   {"name":"Bulbasaur","id":"1","location":"Trade from FireRed, LeafGreen, HeartGold, SoulSilver","reqs":["FL","HS"],"iconUrl":"pokemon/p1.png"},
   {"name":"Ivysaur","id":"2","location":"Evolve traded Bulbasaur (Level 16)","reqs":["FL","HS"],"iconUrl":"pokemon/p2.png"},
@@ -769,7 +775,7 @@
   {"name":"Squirtle","id":"7","location":"Trade from FireRed, LeafGreen, HeartGold, SoulSilver","reqs":["FireRed","LeafGreen","HS"],"iconUrl":"pokemon/p7.png"},
   {"name":"Wartortle","id":"8","location":"Evolve traded Squirtle (Level 16)","reqs":["FL","HS"],"iconUrl":"pokemon/p8.png"},
   {"name":"Blastoise","id":"9","location":"Evolve traded Wartortle (Level 36)","reqs":["FL","HS"],"iconUrl":"pokemon/p9.png"},
-  {"name":"Caterpie","id":"10","location":"Route 204, Eterna Forest (Dual-slot FireRed). Trade from LeafGreen, HeartGold, SoulSilver. Breed traded Butterfree","reqs":["DualFireRed","LeafGreen","HS","XD"],"iconUrl":"pokemon/p10.png","pos":[[3714.4,2862.5],[6538.4,2765.5]]},
+  {"name":"Caterpie","id":"10","location":"Route 204, Eterna Forest (Dual-slot FireRed). Trade from LeafGreen, HeartGold, SoulSilver, XD. Breed traded Butterfree","reqs":["DualFireRed","LeafGreen","HS","XD"],"iconUrl":"pokemon/p10.png","pos":[[3714.4,2862.5],[6538.4,2765.5]]},
   {"name":"Metapod","id":"11","location":"Eterna Forest (Dual-slot FireRed). Evolve traded Caterpie (Level 7)","reqs":["DualFireRed","LeafGreen","HS","XD"],"iconUrl":"pokemon/p11.png","pos":[[3714.4,2862.5]]},
   {"name":"Butterfree","id":"12","location":"Evolve Metapod (Level 10). Evolve traded Metapod (Level 10). Trade from XD","reqs":["DualFireRed","LeafGreen","HS","XD"],"iconUrl":"pokemon/p12.png"},
   {"name":"Weedle","id":"13","location":"Route 204, Eterna Forest (Dual-slot LeafGreen). Trade from FireRed, HeartGold, SoulSilver. Breed traded Beedrill.","reqs":["DualLeafGreen","FireRed","HS","XD"],"iconUrl":"pokemon/p13.png","pos":[[3714.4,2862.5],[6538.4,2765.5]]},
@@ -782,8 +788,8 @@
   {"name":"Raticate","id":"20","location":"Route 225, Route 226","iconUrl":"pokemon/p20.png","pos":[[3200.9,9495],[2304,10985.8]]},
   {"name":"Spearow","id":"21","location":"Route 225","iconUrl":"pokemon/p21.png","pos":[[3200.9,9495]]},
   {"name":"Fearow","id":"22","location":"Route 225, Route 226, Route 227, Stark Mountain","iconUrl":"pokemon/p22.png","pos":[[3200.9,9495],[2304,10985.8],[1473,11393.4],[1117.7,11544.8]]},
-  {"name":"Ekans","id":"23","location":"Route 212 (Dual-slot FireRed). Trade from HeartGold, SoulSilver. Breed traded Arbok","reqs":["DualFireRed","HS"],"iconUrl":"pokemon/p23.png","pos":[[8261,8099.5]]},
-  {"name":"Arbok","id":"24","location":"Great Marsh (Dual-slot FireRed). Evolve traded Ekans (Level 22). Trade from HeartGold, SoulSilver.","reqs":["DualFireRed","HS"],"iconUrl":"pokemon/p24.png","pos":[[6902.4,8927.5]]},
+  {"name":"Ekans","id":"23","location":"Route 212 (Dual-slot FireRed). Trade from HeartGold, SoulSilver, XD. Breed traded Arbok","reqs":["DualFireRed","HS","XD"],"iconUrl":"pokemon/p23.png","pos":[[8261,8099.5]]},
+  {"name":"Arbok","id":"24","location":"Great Marsh (Dual-slot FireRed). Evolve traded Ekans (Level 22). Trade from HeartGold, SoulSilver, XD.","reqs":["DualFireRed","HS","XD"],"iconUrl":"pokemon/p24.png","pos":[[6902.4,8927.5]]},
   {"name":"Pikachu","id":"25","location":"Trophy Garden","iconUrl":"pokemon/p25.png","pos":[[7038.2,7872.9]]},
   {"name":"Raichu","id":"26","location":"Evolve Pikachu (Thunderstone)","iconUrl":"pokemon/p26.png"},
   {"name":"Sandshrew","id":"27","location":"Wayward Cave (Dual-slot LeafGreen). Trade from Ruby, Sapphire, Emerald, HeartGold, SoulSilver","reqs":["DualLeafGreen","RSE","HS"],"iconUrl":"pokemon/p27.png","pos":[[5060.3,6515.9]]},
@@ -824,10 +830,10 @@
   {"name":"Poliwrath","id":"62","location":"Evolve Poliwhirl (Water Stone)","iconUrl":"pokemon/p62.png"},
   {"name":"Abra","id":"63","location":"Route 203, Route 215, Trade Machop in Oreburgh City","iconUrl":"pokemon/p63.png","pos":[[6878.4,4418.5],[6912.4,3802.5],[4981,9324.5]]},
   {"name":"Kadabra","id":"64","location":"Route 215","iconUrl":"pokemon/p64.png","pos":[[4981,9324.5]]},
-  {"name":"Alakazam","id":"65","location":"Evolve Kadabra (Trade)","reqs":["EvolveTrade"],"iconUrl":"pokemon/p65.png"},
+  {"name":"Alakazam","id":"65","location":"Evolve Kadabra (Trade)","reqs":["EvolveTradeAnyGen"],"iconUrl":"pokemon/p65.png"},
   {"name":"Machop","id":"66","location":"Route 206, Route 207, Route 210, Route 211, Mt. Coronet","iconUrl":"pokemon/p66.png","pos":[[3684.2,8262.5],[5555.4,5093.5],[6508.4,4805.5],[4168.2,7384.3],[4157,5796.5]]},
   {"name":"Machoke","id":"67","location":"Route 210, Route 211, Route 225, Route 226, Mt. Coronet","iconUrl":"pokemon/p67.png","pos":[[1011.1,8135.3],[4168.2,7384.3],[4305,6607.5],[3200.9,9495],[2304,10985.8]]},
-  {"name":"Machamp","id":"68","location":"Evolve Machoke (Trade)","reqs":["EvolveTrade"],"iconUrl":"pokemon/p68.png"},
+  {"name":"Machamp","id":"68","location":"Evolve Machoke (Trade)","reqs":["EvolveTradeAnyGen"],"iconUrl":"pokemon/p68.png"},
   {"name":"Bellsprout","id":"69","location":"Route 224, Route 230","iconUrl":"pokemon/p69.png","pos":[[4355.5,13638.3],[3525,10838.8]]},
   {"name":"Weepinbell","id":"70","location":"Route 224, Route 230","iconUrl":"pokemon/p70.png","pos":[[4355.5,13638.3],[3525,10838.8]]},
   {"name":"Victreebel","id":"71","location":"Evolve Weepinbell (Leaf Stone)","iconUrl":"pokemon/p71.png"},
@@ -835,7 +841,7 @@
   {"name":"Tentacruel","id":"73","location":"Route 205, Route 212, Route 213, Route 218, Route 219, Route 220, Route 221, Route 222, Route 223, Route 224, Route 226, Route 230, Pastoria City, Canalave City, Sunyshore City, Valley Windworks, Fuego Ironworks, Iron Island, Pokémon League","iconUrl":"pokemon/p73.png","pos":[[6911.7,798.3],[5071.4,2937.5],[5506.4,245.5],[8098.6,9425],[4506.4,13079.6],[5743.4,3427.5],[8203,7832.6],[8075,10572.5],[6945,1820.5],[8532,2894.8],[8781,2842.5],[8968,3965.8],[7540,11937.5],[6446,13174.6],[4374,13915.6],[2522,10946.8],[3606,11132.8],[6807.2,13349.8],[5614.1,3775.1]]},
   {"name":"Geodude","id":"74","location":"Route 206, Route 207, Route 210, Route 214, Oreburgh Gate, Ruin Maniac Cave, Oreburgh Mine, Iron Island, Mt. Coronet","iconUrl":"pokemon/p74.png","pos":[[3895.7,1047.3],[3684.2,8262.5],[7479.4,3770.5],[7363.4,5526.5],[5555.4,5093.5],[6508.4,4805.5],[4536.4,8740.5],[6686,11012.6]]},
   {"name":"Graveler","id":"75","location":"Route 211, Route 214, Route 216, Route 225, Route 226, Route 227, Valor Lakefront, Iron Island, Mt. Coronet, Sendoff Spring, Victory Road, Stark Mountain","iconUrl":"pokemon/p75.png","pos":[[3895.7,1047.3],[7018.4,11128.5],[1011.1,8135.3],[4305,6607.5],[6686,11012.6],[3500,5883.5],[3200.9,9495],[2304,10985.8],[1473,11393.4],[6230,11698.4],[1117.7,11544.8],[6161.4,14912.5]]},
-  {"name":"Golem","id":"76","location":"Evolve Graveler (Trade)","reqs":["EvolveTrade"],"iconUrl":"pokemon/p76.png"},
+  {"name":"Golem","id":"76","location":"Evolve Graveler (Trade)","reqs":["EvolveTradeAnyGen"],"iconUrl":"pokemon/p76.png"},
   {"name":"Ponyta","id":"77","location":"Route 206, Route 207, Route 210","iconUrl":"pokemon/p77.png","pos":[[5555.4,5093.5],[6508.4,4805.5],[4536.4,8740.5]]},
   {"name":"Rapidash","id":"78","location":"Evolve Ponyta (Level 40)","iconUrl":"pokemon/p78.png"},
   {"name":"Slowpoke","id":"79","location":"Route 205","iconUrl":"pokemon/p79.png","pos":[[4079.4,4417.5]]},
@@ -853,7 +859,7 @@
   {"name":"Cloyster","id":"91","location":"Evolve Shellder (Water Stone)","iconUrl":"pokemon/p91.png"},
   {"name":"Gastly","id":"92","location":"Old Chateau, Eterna Forest, Lost Tower, Turnback Cave","iconUrl":"pokemon/p92.png","pos":[[4151.4,2655.5],[5840.4,8122.5],[2509.7,3121.8],[3423.1,15238.9]]},
   {"name":"Haunter","id":"93","location":"Evolve Gastly (Level 25). Old Chateau (Dual-slot any Gen III game), Turnback Cave","iconUrl":"pokemon/p93.png","pos":[[2509.7,3121.8],[981,15111.1]]},
-  {"name":"Gengar","id":"94","location":"Evolve Haunter (Trade), Old Chateau (Dual-slot any Gen III game).","reqs":["Trade","DualLeafGreen","DualFireRed","DualRuby","DualSapphire","DualEmerald"],"iconUrl":"pokemon/p94.png","pos":[[2509.7,3121.8]]},
+  {"name":"Gengar","id":"94","location":"Evolve Haunter (Trade), Old Chateau (Dual-slot any Gen III game).","reqs":["EvolveTradeAnyGen","DualLeafGreen","DualFireRed","DualRuby","DualSapphire","DualEmerald"],"iconUrl":"pokemon/p94.png","pos":[[2509.7,3121.8]]},
   {"name":"Onix","id":"95","location":"Iron Island, Oreburgh Mine, Victory Road, Wayward Cave","iconUrl":"pokemon/p95.png","pos":[[3895.7,1047.3],[7363.4,5526.5],[6161.4,14912.5],[5016.3,6297.9]]},
   {"name":"Drowzee","id":"96","location":"Route 215 (Swarm)","iconUrl":"pokemon/p96.png","pos":[[5009,9506.4]]},
   {"name":"Hypno","id":"97","location":"Evolve Drowzee (Level 26)","iconUrl":"pokemon/p97.png"},
@@ -945,7 +951,7 @@
   {"name":"Marill","id":"183","location":"Route 212, Route 215","iconUrl":"pokemon/p183.png","pos":[[7825,7090.5],[4981,9324.5]]},
   {"name":"Azumarill","id":"184","location":"Victory Road","iconUrl":"pokemon/p184.png","pos":[[5850.7,15600.8]]},
   {"name":"Sudowoodo","id":"185","location":"Route 221","iconUrl":"pokemon/p185.png","pos":[[8904.5,4199.8]]},
-  {"name":"Politoed","id":"186","location":"Evolve Poliwhirl (Trade with King's Rock)","reqs":["EvolveTrade"],"iconUrl":"pokemon/p186.png"},
+  {"name":"Politoed","id":"186","location":"Evolve Poliwhirl (Trade with King's Rock)","reqs":["EvolveTradeAnyGen"],"iconUrl":"pokemon/p186.png"},
   {"name":"Hoppip","id":"187","location":"Route 205","iconUrl":"pokemon/p187.png","pos":[[5587.4,3480.5]]},
   {"name":"Skiploom","id":"188","location":"Evolve Hoppip (Level 18)","iconUrl":"pokemon/p188.png"},
   {"name":"Jumpluff","id":"189","location":"Evolve Skiploom (Level 27)","iconUrl":"pokemon/p189.png"},
@@ -958,7 +964,7 @@
   {"name":"Espeon","id":"196","location":"Evolve Eevee (Happiness Daytime)","iconUrl":"pokemon/p196.png"},
   {"name":"Umbreon","id":"197","location":"Evolve Eevee (Happiness Nighttime)","iconUrl":"pokemon/p197.png"},
   {"name":"Murkrow","id":"198","location":"Trade from FireRed, Colosseum, Diamond, HeartGold, SoulSilver","reqs":["FireRed","Colosseum","Diamond","HS","Colosseum"],"iconUrl":"pokemon/p198.png"},
-  {"name":"Slowking","id":"199","location":"Evolve Slowpoke (Trade with King's Rock)","reqs":["EvolveTrade"],"iconUrl":"pokemon/p199.png"},
+  {"name":"Slowking","id":"199","location":"Evolve Slowpoke (Trade with King's Rock)","reqs":["EvolveTradeAnyGen"],"iconUrl":"pokemon/p199.png"},
   {"name":"Misdreavus","id":"200","location":"Trade from LeafGreen, Colosseum, Pearl, HeartGold, SoulSilver","reqs":["LeafGreen","Colosseum","Pearl","HS"],"iconUrl":"pokemon/p200.png"},
   {"name":"Unown","id":"201","location":"Solaceon Ruins","iconUrl":"pokemon/p201.png","pos":[[5580.4,9619.5]]},
   {"name":"Wobbuffet","id":"202","location":"Lake Verity, Lake Valor","iconUrl":"pokemon/p202.png","pos":[[6734.8,10317],[7925.4,868.5]]},
@@ -971,7 +977,7 @@
   {"name":"Snubbull","id":"209","location":"Route 209 (Swarm)","iconUrl":"pokemon/p209.png","pos":[[6602.4,7901.5]]},
   {"name":"Granbull","id":"210","location":"Evolve Snubbull (Level 23)","iconUrl":"pokemon/p210.png"},
   {"name":"Qwilfish","id":"211","location":"Iron Island","iconUrl":"pokemon/p211.png","pos":[[5506.4,245.5]]},
-  {"name":"Scizor","id":"212","location":"Evolve Scyther (Trade with Metal Coat). Trade from Colosseum","reqs":["EvolveTrade","Colosseum"],"iconUrl":"pokemon/p212.png"},
+  {"name":"Scizor","id":"212","location":"Evolve Scyther (Trade with Metal Coat). Trade from Colosseum","reqs":["EvolveTradeAnyGen","Colosseum"],"iconUrl":"pokemon/p212.png"},
   {"name":"Shuckle","id":"213","location":"Route 224 (Dual-slot Emerald). Trade from Colosseum, XD, HeartGold, SoulSilver","reqs":["DualEmerald","Colosseum","XD","HS"],"iconUrl":"pokemon/p213.png","pos":[[4222.1,13900.6]]},
   {"name":"Heracross","id":"214","location":"Route 205, Route 206, Route 207, Route 208, Route 209, Route 210, Route 211, Route 212, Route 213, Route 214, Route 215, Route 218, Route 221, Route 222, Eterna Forest, Floaroma Meadow, Fuego Ironworks, Valley Windworks","iconUrl":"pokemon/p214.png","pos":[[4151.4,2655.5],[5449.4,2069.5],[4995.4,3055.5],[4083.4,4607.5],[5681.4,5035.5],[6388.4,5048.5],[6744.4,6534.5],[6473.4,8442.5],[4240.7,8728.3],[4209,6555.5],[8162,8181.5],[7907,9921.6],[6684,11174.5],[4882,9034.6],[6977,1450.5],[8902,4476.5],[7355,12785.3],[5749.1,4017]]},
   {"name":"Sneasel","id":"215","location":"Route 216, Route 217, Acuity Lakefront, Lake Acuity, Snowpoint Temple","iconUrl":"pokemon/p215.png","pos":[[1658.4,5459.5],[1150.4,4568.5],[3500,5883.5],[2107,5092.3],[208.5,6538.2]]},
@@ -989,10 +995,10 @@
   {"name":"Skarmory","id":"227","location":"Route 227, Stark Mountain","iconUrl":"pokemon/p227.png","pos":[[1473,11393.4],[1117.7,11544.8]]},
   {"name":"Houndour","id":"228","location":"Route 214, Valor Lakefront","iconUrl":"pokemon/p228.png","pos":[[7018.4,11128.5],[6686,11012.6]]},
   {"name":"Houndoom","id":"229","location":"Evolve Houndour (Level 24)","iconUrl":"pokemon/p229.png"},
-  {"name":"Kingdra","id":"230","location":"Evolve Seadra (Trade with Dragon Scale)","reqs":["EvolveTrade"],"iconUrl":"pokemon/p230.png"},
+  {"name":"Kingdra","id":"230","location":"Evolve Seadra (Trade with Dragon Scale)","reqs":["EvolveTradeAnyGen"],"iconUrl":"pokemon/p230.png"},
   {"name":"Phanpy","id":"231","location":"Route 207 (Swarm)","iconUrl":"pokemon/p231.png","pos":[[6508.4,4805.5]]},
   {"name":"Donphan","id":"232","location":"Evolve Phanpy (Level 25)","iconUrl":"pokemon/p232.png"},
-  {"name":"Porygon2","id":"233","location":"Evolve Porygon (Trade with Up-Grade)","reqs":["EvolveTrade"],"iconUrl":"pokemon/p233.png"},
+  {"name":"Porygon2","id":"233","location":"Evolve Porygon (Trade with Up-Grade)","reqs":["EvolveTradeAnyGen"],"iconUrl":"pokemon/p233.png"},
   {"name":"Stantler","id":"234","location":"Route 207","iconUrl":"pokemon/p234.png","pos":[[6508.4,4805.5]]},
   {"name":"Smeargle","id":"235","location":"Route 208, Route 212","iconUrl":"pokemon/p235.png","pos":[[6669.4,6472.5],[7825,7090.5]]},
   {"name":"Tyrogue","id":"236","location":"Route 211","iconUrl":"pokemon/p236.png","pos":[[4202,5770.5]]},
@@ -1223,20 +1229,20 @@
   {"name":"Weavile","id":"461","location":"Evolve Sneasel (Level up holding Razor Claw during the night)","iconUrl":"pokemon/p461.png"},
   {"name":"Magnezone","id":"462","location":"Evolve Magneton (Level up in Mt. Coronet)","iconUrl":"pokemon/p462.png","pos":[[3220.2,8203.8]]},
   {"name":"Lickilicky","id":"463","location":"Evolve Lickitung (Level up knowing Rollout learnable at level 33)","iconUrl":"pokemon/p463.png"},
-  {"name":"Rhyperior","id":"464","location":"Evolve Rhydon (Trade with Protector)","reqs":["EvolveTrade4"],"iconUrl":"pokemon/p464.png"},
+  {"name":"Rhyperior","id":"464","location":"Evolve Rhydon (Trade with Protector)","reqs":["EvolveTradeGen4OrMore"],"iconUrl":"pokemon/p464.png"},
   {"name":"Tangrowth","id":"465","location":"Evolve Tangela (Level up knowing Ancient Power learnable at level 33)","iconUrl":"pokemon/p465.png"},
-  {"name":"Electivire","id":"466","location":"Evolve Electabuzz (Trade with Electirizer). Trade from Pokémon Battle Revolution (Code BA16-X4SH-E2AT)","reqs":[["EvolveTrade4"],["PBR"]],"iconUrl":"pokemon/p466.png"},
-  {"name":"Magmortar","id":"467","location":"Evolve Magmar (Trade with Magmarizer). Trade from Pokémon Battle Revolution (Code B416-X4HT-VTWF)","reqs":[["EvolveTrade4"],["PBR"]],"iconUrl":"pokemon/p467.png"},
+  {"name":"Electivire","id":"466","location":"Evolve Electabuzz (Trade with Electirizer). Trade from Pokémon Battle Revolution (Code BA16-X4SH-E2AT)","reqs":[["EvolveTradeGen4OrMore"],["PBR"]],"iconUrl":"pokemon/p466.png"},
+  {"name":"Magmortar","id":"467","location":"Evolve Magmar (Trade with Magmarizer). Trade from Pokémon Battle Revolution (Code B416-X4HT-VTWF)","reqs":[["EvolveTradeGen4OrMore"],["PBR"]],"iconUrl":"pokemon/p467.png"},
   {"name":"Togekiss","id":"468","location":"Evolve Togetic (Shiny Stone)","iconUrl":"pokemon/p468.png"},
   {"name":"Yanmega","id":"469","location":"Evolve Yanma (Level up knowing Ancient Power learnable at level 33)","iconUrl":"pokemon/p469.png"},
   {"name":"Leafeon","id":"470","location":"Evolve Eevee (Level up near Moss Rock in Eterna Forest)","iconUrl":"pokemon/p470.png","pos":[[3981.7,2080.8]]},
   {"name":"Glaceon","id":"471","location":"Evolve Eevee (Level up near Ice Rock on Route 217)","iconUrl":"pokemon/p471.png","pos":[[2074,5167.7]]},
   {"name":"Gliscor","id":"472","location":"Evolve Gligar (Level up holding Razor Fang during the night)","iconUrl":"pokemon/p472.png"},
   {"name":"Mamoswine","id":"473","location":"Evolve Piloswine (Level up knowing Ancient Power learnable at level 1)","iconUrl":"pokemon/p473.png"},
-  {"name":"Porygon-Z","id":"474","location":"Evolve Porygon2 (Trade with Dubious Disc)","reqs":["EvolveTrade4"],"iconUrl":"pokemon/p474.png"},
+  {"name":"Porygon-Z","id":"474","location":"Evolve Porygon2 (Trade with Dubious Disc)","reqs":["EvolveTradeGen4OrMore"],"iconUrl":"pokemon/p474.png"},
   {"name":"Gallade","id":"475","location":"Evolve Kirlia ♂ (Dawn Stone)","iconUrl":"pokemon/p475.png"},
   {"name":"Probopass","id":"476","location":"Evolve Nosepass (Level up in Mt. Coronet)","iconUrl":"pokemon/p476.png","pos":[[3220.2,8203.8]]},
-  {"name":"Dusknoir","id":"477","location":"Evolve Dusclops (Trade with Reaper Cloth)","reqs":["EvolveTrade4"],"iconUrl":"pokemon/p477.png"},
+  {"name":"Dusknoir","id":"477","location":"Evolve Dusclops (Trade with Reaper Cloth)","reqs":["EvolveTradeGen4OrMore"],"iconUrl":"pokemon/p477.png"},
   {"name":"Froslass","id":"478","location":"Evolve Snorunt ♀ (Dawn Stone)","iconUrl":"pokemon/p478.png"},
   {"name":"Rotom","id":"479","location":"Old Chateau","iconUrl":"pokemon/p479.png","pos":[[2477.2,2873.3]]},
   {"name":"Uxie","id":"480","location":"Lake Acuity","iconUrl":"pokemon/p480.png","pos":[[765.4,4318.5]]},
@@ -1335,7 +1341,7 @@
   {"name":"All Foreign Pokédex Entries","href":"","location":"Obtain every Pokémon originating from an English, Japanese, French, Italian, German, and Spanish game.","reqs":[["ForeignDexEntries"]]}
  ]},
  {"id":"item","name":"Item","showId":true,"conflicts":[
-  {"name":"Fossil", "list":[["Armor Fossil"],["Skull Fossil"]], "reqsToSolve":[["TradeGen4"]]}
+  {"name":"Fossil", "list":[["Armor Fossil"],["Skull Fossil"]], "reqsToSolve":[["TradeGen4ToGen4"]]}
  ],"list":[
   {"id":"1","name":"Master Ball","location":"Team Galactic HQ, Jubilife TV Pokémon Lottery Corner (5 digits)","iconUrl":"item/Master_Ball.png","pos":[[4333.2,11767]]},
   {"id":"2","name":"Ultra Ball","location":"Route 210, Route 212, Route 215, Route 217, Route 221, Route 222, Route 223, Route 224, Route 225, Route 230, Mt. Coronet, Valor Lakefront, Floaroma Meadow, Fuego Ironworks, Iron Island, Acuity Lakefront, Victory Road, Stark Mountain, All Poké Marts (after earning 5 Badges), Veilstone Department Store, Jubilife TV Pokémon Lottery Corner (1 digit), Pokémon News Press, Pickup (levels 1-90)","iconUrl":"item/Ultra_Ball.png","pos":[[4669.7,8494.8]]},
@@ -3069,9 +3075,9 @@
  ]},
  {"id":"accessory","name":"Accessory","url":"https://bulbapedia.bulbagarden.net/wiki/Accessory",
   "missables":[
-    {"text":"You must pick the starter Piplup in order to obtain the maximum number of accessories.", "collectables":["Narrow Scale","White Fluff","White Moustache","Narrow Leaf"], "reqsToSolve":[["TradeGen4"]]}
+    {"text":"You must pick the starter Piplup in order to obtain the maximum number of accessories.", "collectables":["Narrow Scale","White Fluff","White Moustache","Narrow Leaf"], "reqsToSolve":[["TradeGen4ToGen4"]]}
   ],"conflicts":[
-   {"name":"Amity Square", "list":[["Narrow Scale","White Fluff","White Moustache","Narrow Leaf"],["White Fluff","Round Pebble"], ["Round Pebble","Narrow Scale"]], "reqsToSolve":[["TradeGen4"]]}
+   {"name":"Amity Square", "list":[["Narrow Scale","White Fluff","White Moustache","Narrow Leaf"],["White Fluff","Round Pebble"], ["Round Pebble","Narrow Scale"]], "reqsToSolve":[["TradeGen4ToGen4"]]}
   ],"list":[
   {"name":"White Fluff","location":"Amity Square (Chimchar, Piplup)","obtainable":2,"iconUrl":"accessory4/White_Fluff.png","pos":[[5762.7,6988.3]]},
   {"name":"Yellow Fluff","location":"Amity Square (Pikachu, Clefairy, Pachirisu, Happiny)","iconUrl":"accessory4/Yellow_Fluff.png","pos":[[5762.7,6988.3]]},

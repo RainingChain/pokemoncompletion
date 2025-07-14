@@ -900,13 +900,13 @@
  ]},
 
   {"id":"rank","name":"Rank","url":"https://bulbapedia.bulbagarden.net/wiki/Rank_(Mystery_Dungeon)", "list":[
-    {"name":"Normal Rank","location":"Unlocked by default","iconUrl":"misc/pmd_Normal_Rank.png"},
-    {"name":"Bronze Rank","location":"50 rescue points","iconUrl":"misc/pmd_Bronze_Rank.png"},
-    {"name":"Silver Rank","location":"500 rescue points","iconUrl":"misc/pmd_Silver_Rank.png"},
-    {"name":"Gold Rank","location":"1500 rescue points","iconUrl":"misc/pmd_Gold_Rank.png"},
-    {"name":"Platinum Rank","location":"3000 rescue points","iconUrl":"misc/pmd_Platinum_Rank.png"},
-    {"name":"Diamond Rank","location":"7500 rescue points","iconUrl":"misc/pmd_Diamond_Rank.png"},
-    {"name":"Lucario Rank","location":"15000 rescue points","iconUrl":"misc/pmd_Lucario_Rank.png"}
+    {"name":"Normal Rank","location":"Unlocked by default","iconUrl":"pmd/pmd_Normal_Rank.png"},
+    {"name":"Bronze Rank","location":"50 rescue points","iconUrl":"pmd/pmd_Bronze_Rank.png"},
+    {"name":"Silver Rank","location":"500 rescue points","iconUrl":"pmd/pmd_Silver_Rank.png"},
+    {"name":"Gold Rank","location":"1500 rescue points","iconUrl":"pmd/pmd_Gold_Rank.png"},
+    {"name":"Platinum Rank","location":"3000 rescue points","iconUrl":"pmd/pmd_Platinum_Rank.png"},
+    {"name":"Diamond Rank","location":"7500 rescue points","iconUrl":"pmd/pmd_Diamond_Rank.png"},
+    {"name":"Lucario Rank","location":"15000 rescue points","iconUrl":"pmd/pmd_Lucario_Rank.png"}
   ]},
 
   {"id":"dungeon","name":"Dungeon", "missables":[
