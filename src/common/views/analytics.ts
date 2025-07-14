@@ -6,8 +6,8 @@ import Clarity from "@microsoft/clarity";
 
 // clarity project settings: cookies are disabled by default
 
-const ACTIVE = window.location.href.includes('localhost');
-if(ACTIVE)
+const ACTIVE = !window.location.href.includes('localhost');
+if (ACTIVE)
   Clarity.init('sauh2imb2d');
 
 const activateGoogleAdsense = async function(){

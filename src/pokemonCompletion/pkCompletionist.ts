@@ -49,6 +49,9 @@ export class Vue_pkCompletionist_data {
         when: evt.when ?? '',
         region: evt.region ?? 'US',
         savUrl: evt.savUrl ?? '',
+        versions: evt.versions ?? [],
+        modifiedSavDataIdx:evt.modifiedSavDataIdx ?? [0],
+        requirements:evt.requirements ?? '',
       };
     });
 
@@ -288,11 +291,11 @@ export class Vue_pkCompletionist_methods {
     events.forEach(evt => {
       const success = EventSimulator.Execute(evt.id, savDatas[0], this.versionHint, savDatas[1]);
       if (success){
-        this.savInfos[0].modificationsAppliedOnSavFile.push(`Applied event "${evt.name}"`); //TMP, modify savB
         this.hasTriggeredEvent = true;
-        this.updateDownloadLinkSav(0);
-        if(savDatas[1])
-          this.updateDownloadLinkSav(1);
+        evt.modifiedSavDataIdx.forEach(idx => {
+          this.savInfos[idx].modificationsAppliedOnSavFile.push(`Applied event "${evt.name}"`); //TMP, modify savB
+          this.updateDownloadLinkSav(idx);
+        });
       }
       const msgs:string[] = Command.GetMessages();
       const shortName = evt.name.split('(')[0].trim();
@@ -316,7 +319,6 @@ export class Vue_pkCompletionist_methods {
     const blob = new Blob([arr], { type:"application/octet-stream"});
     this.savInfos[savIdx].modifiedSavDataUrl = URL.createObjectURL(blob);
   }
-
 }
 
 export type Vue_pkCompletionist_full = Vue_pkCompletionist_data & Vue_pkCompletionist_methods;

@@ -44,7 +44,7 @@
           <ul style="margin-top:5px">
             <li v-for="m in savInfo.modificationsAppliedOnSavFile">{{m}}</li>
           </ul>
-          <a v-if="savInfo.modifiedSavDataUrl" type="download" :href="savInfo.modifiedSavDataUrl" :download="savInfo.savDataFilenameModified">Download modified .sav</a>
+          <a v-if="savInfo.modifiedSavDataUrl" type="download" :href="savInfo.modifiedSavDataUrl" :download="savInfo.savDataFilenameModified">Download modified .sav #{{i}}</a>
         </div>
       </div>
 
@@ -119,14 +119,19 @@
           <span style="padding-left:20px" v-if="selectedEvent_warning" class="cs-orange">{{selectedEvent_warning}}</span>
         </div>
         <div style="padding:10px" v-if="selectedEvent">
-          <a :href="selectedEvent.url" target="_blank" rel="noopener">{{selectedEvent.fullName}}</a>:
-          <span v-if="selectedEvent.longDesc">{{selectedEvent.longDesc}}</span>
-          <span v-else-if="selectedEvent.promo" :title="selectedEvent.where + ' (' + selectedEvent.when + ')'">
-            {{selectedEvent.promo}} ({{selectedEvent.region}})
-          </span>
-          <span v-else="">
-            <span :title="'Region: ' + selectedEvent.region">{{selectedEvent.where}}</span> ({{selectedEvent.when}})
-          </span>
+          <p>
+            <a :href="selectedEvent.url" target="_blank" rel="noopener">{{selectedEvent.fullName}}</a>:
+            <span v-if="selectedEvent.longDesc">{{selectedEvent.longDesc}}</span>
+            <span v-else-if="selectedEvent.promo" :title="selectedEvent.where + ' (' + selectedEvent.when + ')'">
+              {{selectedEvent.promo}} ({{selectedEvent.region}})
+            </span>
+            <span v-else="">
+              <span :title="'Region: ' + selectedEvent.region">{{selectedEvent.where}}</span> ({{selectedEvent.when}})
+            </span>
+          </p>
+          <p v-if="selectedEvent.requirements">
+            {{selectedEvent.requirements}}
+          </p>
         </div>
         <button @click="triggerEvent" v-if="selectedEvent">Trigger Event</button>
         <div style="padding:10px" v-if="hasTriggeredEvent" v-for="(savInfo,i) in savInfos">

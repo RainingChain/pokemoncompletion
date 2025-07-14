@@ -27,13 +27,6 @@
 
     {"id":"EnteiCustap_Event","name":"Entei holding Custap Berry","fullName":"GameStop Entei","promo":"Zoroark: Master of Illusions 2011 Movie Promo","where":"GameStop stores","when":"January 17 to 23, 2011", "url":"https://bulbapedia.bulbagarden.net/wiki/List_of_local_English_event_Pok%C3%A9mon_distributions_(Generation_IV)#GameStop_Entei","savSrc":"https://projectpokemon.org/home/files/file/82-winter-entei-gamestop/"},
 
-    {"id":"MewPremierRibbon_HGSS_Event","name":"HGSS: Mew with Premier Ribbon","fullName":"Fall 2010 Mew","promo":"10th Anniversary of Pokémon Gold and Silver",
-      "when":"October 15 to 30, 2010", "where":"Nintendo Wi-Fi Connection", "versions":["HG","SS"],
-      "url":"https://bulbapedia.bulbagarden.net/wiki/List_of_Wi-Fi_English_event_Pok%C3%A9mon_distributions_(Generation_IV)#Fall_2010_Mew",
-      "savUrl":"https://projectpokemon.org/home/files/file/29-10th-anniversary-mew/"},
-
-    {"id":"PokemonFestaRibbons_RSE_Event","name":"RSE (JP): Country & World Ribbons","fullName":"Country & World Ribbons", "promo":"Pokémon Festa 2005","where":"Tokyo Big Site, Odaiba","when":"July 17 to August 21, 2005","versions":["R","S","E"],"region":"JP", "japanOnly":true,"url":"https://docs.google.com/document/u/2/d/e/2PACX-1vRe_HT3-5GKszke1sMB7ejD0lxoEsANMRc9yXWCL4wHfT4piIT1D_g7TmVgY8Ua9hwieB45JqKNOidz/pub"},
-
     {"id":"SecretKey_Event","name":"Secret Key","when":"April 20 to May 12, 2009","where":"Nintendo Wi-Fi Connection",
       "url":"https://bulbapedia.bulbagarden.net/wiki/Secret_Key_(Sinnoh)#Distribution","saveUrl":"https://projectpokemon.org/home/files/file/71-secret-key-usa/"},
     {"id":"OaksLetter_Event","name":"Oak's Letter","when":"September 28 to November 8, 2009","where":"Nintendo Wi-Fi Connection",
@@ -42,49 +35,58 @@
       "url":"https://bulbapedia.bulbagarden.net/wiki/Member_Card#Distribution_in_Pok.C3.A9mon_Platinum","savUrl":"https://projectpokemon.org/home/files/file/40-member-card/"},
 
 
-
-    {"id":"Phione_MyPokemonRanch","name":"My Pokémon Ranch: Phione","fullName":"My Pokémon Ranch Phione",
-      "when":"June 9, 2008 to January 31, 2019", "where":"Wii Shop Channel","url":"https://projectpokemon.org/home/files/file/333-phione/"},
-
-    {"id":"Mew_MyPokemonRanch","name":"My Pokémon Ranch: Mew","fullName":"My Pokémon Ranch Mew",
-      "when":"June 9, 2008 to January 31, 2019", "where":"Wii Shop Channel","url":"https://projectpokemon.org/home/files/file/330-mew/"},
-
-
-    {"id":"BrickMail_DP_Event","name":"DP: Brick Mail","fullName":"Trading Japanese Lvl10+ Roselia holding Air Mail for Heracross holding Brick Mail",
-      "when":"August 19 to 30, 2007", "where":"Nintendo Global Trade System","versions":["D","P"],
-      "url":"https://bulbapedia.bulbagarden.net/wiki/List_of_GTS_event_Pok%C3%A9mon_distributions_(Generation_IV)#Heracross"},
-
-    {"id":"Deoxys_DP_Event","name":"DP: Deoxys","fullName":"GameStop Deoxys","where":"GameStop stores","when":"June 20 to 22, 2008","url":"https://bulbapedia.bulbagarden.net/wiki/List_of_local_English_event_Pok%C3%A9mon_distributions_(Generation_IV)#GameStop_Deoxys","savSrc":"https://projectpokemon.org/home/files/file/37-gamestop-deoxys/","versions":["D","P"]},
-
-
-
     {"id":"LucarioDoll_Event","name":"Lucario Doll","fullName":"Lucario Doll","promo":"Waku Waku Lucario Fair","where":"Pokémon Centers","region":"JP","japanOnly":true, "when":"May 1 to 31, 2009", "url":"https://bulbapedia.bulbagarden.net/wiki/List_of_other_event_distributions_(Generation_IV)#Lucario_Doll","savSrc":"https://projectpokemon.org/home/files/file/264-lucario-doll/"},
 
     {"id":"Jirachi_Event","name":"Jirachi","fullName":"GameStop Jirachi","where":"GameStop stores","when":"February 27 to March 13, 2010", "optional":true,"url":"https://bulbapedia.bulbagarden.net/wiki/List_of_local_English_event_Pok%C3%A9mon_distributions_(Generation_IV)#GameStop_Jirachi","savSrc":"https://projectpokemon.org/home/files/file/52-night-sky-jirachi-gamestop/"},
 
-    {"id":"Darkrai_DP_Event","name":"DP: Darkrai","fullName":"Toys R Us Darkrai","where":"Toys R Us stores","when":"June 20 to 22, 2008","promo":"The Rise of Darkrai 2008 DVD Promo", "optional":true,"url":"https://bulbapedia.bulbagarden.net/wiki/List_of_local_English_event_Pok%C3%A9mon_distributions_(Generation_IV)#Toys_.22R.22_Us_Darkrai","savSrc":"https://projectpokemon.org/home/files/file/33-alamos-darkrai-usa/","versions":["D","P"]},
 
-    {"id":"Manaphy_DP_Event","name":"DP: Manaphy","fullName":"Toys R Us Manaphy","where":"Toys R Us stores","when":"September 29, 2007","promo":"Pokémon Ranger and the Temple of the Sea 2007 DVD Promo", "optional":true,"url":"https://bulbapedia.bulbagarden.net/wiki/List_of_local_English_event_Pok%C3%A9mon_distributions_(Generation_IV)#Toys_.22R.22_Us_Manaphy","savSrc":"https://projectpokemon.org/home/files/file/73-toys-r-us-manaphy/","versions":["D","P"]},
 
-    {"id":"AuroraTicketEvent_Gen3","name":"AuroraTicket","promo":"Pokémon Rocks America 2004","where":"Lenox Square outdoor parking lot, Atlanta, Georgia","when":"October 9 to 23, 2004","url":"https://bulbapedia.bulbagarden.net/wiki/List_of_other_event_distributions_(Generation_III)#AuroraTicket","versions":["E","FR","LG"],"optional":true}
+    {"id":"BrickMail_DP_Event","name":"DP: Brick Mail","fullName":"Trade for Heracross holding Brick Mail",
+      "when":"August 19 to 30, 2007", "where":"Nintendo Global Trade System","versions":["D","P"],"modifiedSavDataIdx":[1],
+      "url":"https://bulbapedia.bulbagarden.net/wiki/List_of_GTS_event_Pok%C3%A9mon_distributions_(Generation_IV)#Heracross","requirements":"This event is exclusive to Diamond and Pearl. Load a Diamond or Pearl savefile in .sav #2 that owns a Japanese Lvl10+ Roselia holding Air Mail."},
+
+    {"id":"Deoxys_DP_Event","name":"DP: Deoxys","fullName":"GameStop Deoxys","where":"GameStop stores","when":"June 20 to 22, 2008","modifiedSavDataIdx":[1],"url":"https://bulbapedia.bulbagarden.net/wiki/List_of_local_English_event_Pok%C3%A9mon_distributions_(Generation_IV)#GameStop_Deoxys","savSrc":"https://projectpokemon.org/home/files/file/37-gamestop-deoxys/","versions":["D","P"],"requirements":"This event is exclusive to Diamond and Pearl. Load a Diamond or Pearl savefile in .sav #2."},
+
+
+
+    {"id":"Darkrai_DP_Event","name":"DP: Darkrai","fullName":"Toys R Us Darkrai","where":"Toys R Us stores","when":"June 20 to 22, 2008","promo":"The Rise of Darkrai 2008 DVD Promo", "optional":true,"url":"https://bulbapedia.bulbagarden.net/wiki/List_of_local_English_event_Pok%C3%A9mon_distributions_(Generation_IV)#Toys_.22R.22_Us_Darkrai","savSrc":"https://projectpokemon.org/home/files/file/33-alamos-darkrai-usa/","versions":["D","P"],"modifiedSavDataIdx":[1],"requirements":"This event is exclusive to Diamond and Pearl. Load a Diamond or Pearl savefile in .sav #2."},
+
+    {"id":"Manaphy_DP_Event","name":"DP: Manaphy","fullName":"Toys R Us Manaphy","where":"Toys R Us stores","when":"September 29, 2007","promo":"Pokémon Ranger and the Temple of the Sea 2007 DVD Promo", "optional":true,"url":"https://bulbapedia.bulbagarden.net/wiki/List_of_local_English_event_Pok%C3%A9mon_distributions_(Generation_IV)#Toys_.22R.22_Us_Manaphy","savSrc":"https://projectpokemon.org/home/files/file/73-toys-r-us-manaphy/","versions":["D","P"], "modifiedSavDataIdx":[1],"requirements":"This event is exclusive to Diamond and Pearl. Load a Diamond or Pearl savefile in .sav #2."},
+
+    
+    {"id":"MewPremierRibbon_HGSS_Event","name":"HGSS: Mew with Premier Ribbon","fullName":"Fall 2010 Mew","promo":"10th Anniversary of Pokémon Gold and Silver",
+      "when":"October 15 to 30, 2010", "where":"Nintendo Wi-Fi Connection", "versions":["HG","SS"], "modifiedSavDataIdx":[1],
+      "url":"https://bulbapedia.bulbagarden.net/wiki/List_of_Wi-Fi_English_event_Pok%C3%A9mon_distributions_(Generation_IV)#Fall_2010_Mew",
+      "savUrl":"https://projectpokemon.org/home/files/file/29-10th-anniversary-mew/","requirements":"This event is exclusive to HeartGold and SoulSilver. Load a HeartGold or SoulSilver savefile in .sav #2."},
+
+    {"id":"AuroraTicketEvent_Gen3","name":"Emerald: AuroraTicket","promo":"Pokémon Rocks America 2004","where":"Lenox Square outdoor parking lot, Atlanta, Georgia","when":"October 9 to 23, 2004","url":"https://bulbapedia.bulbagarden.net/wiki/List_of_other_event_distributions_(Generation_III)#AuroraTicket","versions":["E"],"notes":"FR & LG could also get the event, but I didn't code it.","optional":true, "modifiedSavDataIdx":[1],"requirements":"This event is exclusive to Emerald, FireRed, LeafGreen. Load a Emerald savefile in .sav #2. (Only Emerald is supported by the tool.)"},
+    
+    {"id":"PokemonFestaRibbons_RSE_Event","name":"RSE (JP): Country & World Ribbons","fullName":"Country & World Ribbons", "promo":"Pokémon Festa 2005","where":"Tokyo Big Site, Odaiba","when":"July 17 to August 21, 2005","versions":["R","S","E"],"region":"JP", "japanOnly":true,"modifiedSavDataIdx":[1],"url":"https://docs.google.com/document/u/2/d/e/2PACX-1vRe_HT3-5GKszke1sMB7ejD0lxoEsANMRc9yXWCL4wHfT4piIT1D_g7TmVgY8Ua9hwieB45JqKNOidz/pub","requirements":"This event is exclusive to Ruby, Sapphire, Emerald. Load a Ruby, Sapphire or Emerald savefile in .sav #2."},
+
+    {"id":"Phione_MyPokemonRanch","name":"My Pokémon Ranch: Phione","fullName":"My Pokémon Ranch Phione",
+      "when":"June 9, 2008 to January 31, 2019", "where":"Wii Shop Channel","url":"https://projectpokemon.org/home/files/file/333-phione/","requirements":"Requirement: You must own at least 250 Pokémon to obtain Phione from My Pokémon Ranch."},
+
+    {"id":"Mew_MyPokemonRanch","name":"My Pokémon Ranch: Mew","fullName":"My Pokémon Ranch Mew",
+      "when":"June 9, 2008 to January 31, 2019", "where":"Wii Shop Channel","url":"https://projectpokemon.org/home/files/file/330-mew/","requirements":"Requirement: You must own at least 999 Pokémon within both savefiles to obtain Mew from My Pokémon Ranch."}
+
   ]
 },
 "unsupportedEvents":[
-    {"id":"Manaphy_RangerShadow_Event","name":"Manaphy (Ranger Shadow)","fullName":"Pokémon Ranger Shadows of Almia: Recover the Manaphy Egg! Mission",
-      "when":"November 10, 2008 to January 31, 2009","where":"Nintendo Wi-Fi Connection","optional":true,
-      "url":"https://bulbapedia.bulbagarden.net/wiki/Ranger_Net#Recover_the_Manaphy_Egg.21"},
-    {"id":"Darkrai_RangerShadow_Event","name":"Darkrai (Ranger Shadow)","fullName":"Pokémon Ranger Shadows of Almia: Liberate the Tower! Mission",
-      "when":"December 1, 2008 to January 31, 2009","where":"Nintendo Wi-Fi Connection","optional":true,
-      "url":"https://bulbapedia.bulbagarden.net/wiki/Ranger_Net#Liberate_the_Tower.21"},
-    {"id":"Manaphy_RangerGuardian_Event","name":"Manaphy (Ranger Guardian)","fullName":"Pokémon Ranger Guardian Signs: Protect the Blue Sphere! Mission",
-      "when":"October 4, 2010 to January 11, 2011","where":"Nintendo Wi-Fi Connection","optional":true,
-      "url":"https://bulbapedia.bulbagarden.net/wiki/Ranger_Net#Protect_the_Blue_Sphere.21"},
-    {"id":"Deoxys_RangerGuardian_Event","name":"Deoxys (Ranger Guardian)","fullName":"Pokémon Ranger Guardian Signs: Deoxys and the Odd Temple Mission",
-      "when":"October 4, 2010 to January 11, 2011","where":"Nintendo Wi-Fi Connection","optional":true,
-      "url":"https://bulbapedia.bulbagarden.net/wiki/Ranger_Net#Deoxys_and_the_Odd_Temple"},
-    {"id":"Shaymin_RangerGuardian_Event","name":"Shaymin (Ranger Guardian)","fullName":"Pokémon Ranger Guardian Signs: Rescue the Lost Shaymin Mission",
-      "when":"November 15, 2010 to January 11, 2011","where":"Nintendo Wi-Fi Connection","optional":true,
-      "url":"https://bulbapedia.bulbagarden.net/wiki/Ranger_Net#Rescue_the_Lost_Shaymin.21"}
+  {"id":"Manaphy_RangerShadow_Event","name":"Manaphy (Ranger Shadow)","fullName":"Pokémon Ranger Shadows of Almia: Recover the Manaphy Egg! Mission",
+    "when":"November 10, 2008 to January 31, 2009","where":"Nintendo Wi-Fi Connection","optional":true,
+    "url":"https://bulbapedia.bulbagarden.net/wiki/Ranger_Net#Recover_the_Manaphy_Egg.21"},
+  {"id":"Darkrai_RangerShadow_Event","name":"Darkrai (Ranger Shadow)","fullName":"Pokémon Ranger Shadows of Almia: Liberate the Tower! Mission",
+    "when":"December 1, 2008 to January 31, 2009","where":"Nintendo Wi-Fi Connection","optional":true,
+    "url":"https://bulbapedia.bulbagarden.net/wiki/Ranger_Net#Liberate_the_Tower.21"},
+  {"id":"Manaphy_RangerGuardian_Event","name":"Manaphy (Ranger Guardian)","fullName":"Pokémon Ranger Guardian Signs: Protect the Blue Sphere! Mission",
+    "when":"October 4, 2010 to January 11, 2011","where":"Nintendo Wi-Fi Connection","optional":true,
+    "url":"https://bulbapedia.bulbagarden.net/wiki/Ranger_Net#Protect_the_Blue_Sphere.21"},
+  {"id":"Deoxys_RangerGuardian_Event","name":"Deoxys (Ranger Guardian)","fullName":"Pokémon Ranger Guardian Signs: Deoxys and the Odd Temple Mission",
+    "when":"October 4, 2010 to January 11, 2011","where":"Nintendo Wi-Fi Connection","optional":true,
+    "url":"https://bulbapedia.bulbagarden.net/wiki/Ranger_Net#Deoxys_and_the_Odd_Temple"},
+  {"id":"Shaymin_RangerGuardian_Event","name":"Shaymin (Ranger Guardian)","fullName":"Pokémon Ranger Guardian Signs: Rescue the Lost Shaymin Mission",
+    "when":"November 15, 2010 to January 11, 2011","where":"Nintendo Wi-Fi Connection","optional":true,
+    "url":"https://bulbapedia.bulbagarden.net/wiki/Ranger_Net#Rescue_the_Lost_Shaymin.21"}
 ],
 "interactiveMap":{
   "maxZoom":4,

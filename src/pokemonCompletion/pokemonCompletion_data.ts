@@ -261,6 +261,8 @@ export type PkCompEvent = {
   optional:boolean,
   japanOnly:boolean,
   longDesc:string,
+  modifiedSavDataIdx:number[],
+  requirements:string,
 };
 export type PkCompEventInput = {
   id:string,
@@ -276,6 +278,8 @@ export type PkCompEventInput = {
   japanOnly?:boolean,
   versions?:string[],
   longDesc?:string,
+  modifiedSavDataIdx?:number[],
+  requirements?:string,
 };
 
 export type PkCompletionistInput = {

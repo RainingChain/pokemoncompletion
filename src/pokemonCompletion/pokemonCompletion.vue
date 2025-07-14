@@ -24,9 +24,14 @@
     <h5 @click="displayPlayingWith = !displayPlayingWith, saveSettingsToLocalStorage()">
       {{displayPlayingWith ? '▼' : '▶'}} Playing with:
     </h5>
-    <label class="clickable" v-for="w in waresByType" style="margin-left:10px" v-if="mustHideEmulator() && w.type.includes('emulator') ? false : true">
-      <input type="radio" :value="w.type" v-model="playingWith"  @change="displayPlayingWith = true, onOwnedWaresChanged()"> {{w.name}}
-    </label>
+    <div @click="displayPlayingWith = true">
+      <label class="clickable" v-for="w in waresByType" style="margin-left:10px" v-if="mustHideEmulator() && w.type.includes('emulator') ? false : true">
+        <input type="radio" :value="w.type" v-model="playingWith"  @change="onOwnedWaresChanged()"> {{w.name}}
+      </label>
+      <div style="margin-left:20px;padding-top:5px;opacity:0.5;" v-if="!displayPlayingWith">
+        {{getWareGroups().length}} options hidden
+      </div>
+    </div>
   </div>
   <table style="padding-left:40px" class="noPaddingIfSmallDevice" v-if="displayPlayingWith" >
     <tr v-for="grp in getWareGroups()" :key="grp.id + playingWith" v-if="showAllWares || grp.wares[0].visible">
