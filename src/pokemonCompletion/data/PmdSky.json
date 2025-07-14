@@ -112,10 +112,8 @@
   "-Faint in a dungeon and send an SOS mail to your main Pokémon Sky, enter the SOS mail password and rescue the player.",
   "-Connect the two games wirelessly to transfer a team to the main Pokémon Sky to unlock Explorer Maze."
 ],
-"simpleRequirements":[
-  ["WonderCodeGenerated", "$WonderCodeGenerated"]
-],
 "requirements":[
+  ["WonderCodeGenerated", "$WonderCodeGenerated"],
   {"id":"Rescue", "waresByType":[
     {"type":"emulator", "formula":[[]]},
     {"type":"console", "formula":[["GTE($ConsoleDS,2)","OtherGame"],["$WonderCodeOnline_Optional"]]}

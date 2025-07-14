@@ -109,7 +109,7 @@
   {"name":"Black Tower","alias":[]},
   {"name":"Nature Preserve","alias":[]}
 ],
-"simpleRequirements":[
+"requirements":[
   ["Ruby", "$Ruby_EN", "$Ruby_JP"],
   ["Sapphire", "$Sapphire_EN","$Sapphire_JP"],
   ["Emerald", "$Emerald_EN", "$Emerald_JP"],
@@ -182,9 +182,7 @@
   ["PremierRibbon","$MewPremierRibbon_HGSS_Event"],
   ["ForeignDexEntries","$ForeignDexEntries"],
   
-  ["Deoxys","$Deoxys_Event"]
-],
-"requirements":[
+  ["Deoxys","$Deoxys_Event"],
   {"id":"Multiplayer", "waresByType":[
     {"type":"emulator", "formula":[["$EmuMultiplayer"]]},
     {"type":["consoleEN"], "formula":[["GTE($ConsoleDS,2)"]]}

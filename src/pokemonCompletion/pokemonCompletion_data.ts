@@ -322,8 +322,9 @@ export type WareInput = {
 
 export type RequirementInput = {
   id:string,
-  waresByType:{type:string | string[], formula:string[][]}[]
-};
+  formula?:string[][],
+  waresByType?:{type:string | string[], formula:string[][]}[]
+} | string[] | string;
 
 export type WaresInput = {
   type:string | string[],
@@ -355,7 +356,6 @@ export type GameDataInput = {
   guide?:string[],
   locations?:LocationInput[],
   requirements?:RequirementInput[],
-  simpleRequirements?:string[][],
   waresByType?:WaresInput[],
   pkCompletionist?:PkCompletionistInput,
   interactiveMap?:PkInteractiveMapInput,
@@ -719,7 +719,6 @@ export class GameData {
     if(game.showWares === false && !window.location.href.includes('localhost')){
       game.waresByType = undefined;
       game.requirements = undefined;
-      game.simpleRequirements = undefined;
     }
 
     if(game.pkCompletionist !== undefined){
@@ -799,18 +798,26 @@ export class GameData {
     if(game.requirements){
       const types = this.waresByType.map(w => w.type);
 
-      if(game.simpleRequirements){
-        game.requirements.push(...game.simpleRequirements.map(([reqId, ...formula]) => {
-          const orList = formula.map(f => [f]);
-          return {id:reqId, waresByType:[
-            {type:types, formula:orList}
-          ]};
-        }));
-      }
 
-      this.requirements = game.requirements.map(r => {
+      this.requirements = game.requirements.map(raw => {
+        if(typeof raw === 'string')
+          return null!;
+        const r = (() => {
+          if (Array.isArray(raw)){
+            const [reqId, ...formula] = raw;
+            const orList = formula.map(f => [f]);
+            return {id:reqId, waresByType:[
+              {type:types, formula:orList}
+            ]};
+          }
+          return raw;
+        })();
+        
         const waresByType:Requirement['waresByType'] = [];
-        r.waresByType.forEach(t => {
+        const waresByTypeInput = r.waresByType || types.map(type => {
+          return {type, formula: r.formula!};
+        });
+        waresByTypeInput.forEach(t => {
           const arr = typeof t.type === 'string' ? [t.type] : t.type;
 
           arr.forEach(t2 => {
@@ -819,7 +826,7 @@ export class GameData {
           });
         });
         return {id:r.id, waresByType, isFulfilled:false};
-      });
+      }).filter(a => a);
 
     }
 

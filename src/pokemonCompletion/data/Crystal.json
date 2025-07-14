@@ -118,7 +118,7 @@
    {"id":"MysteryGift","name":"Mystery Gift","fullName":"Quickly simulate Mystery Gift between 2 GBC.","optional":true,"versions":["G","S"],"url":"https://bulbapedia.bulbagarden.net/wiki/Mystery_Gift"},
     {"id":"MysteryGiftx1000","name":"Mystery Gift x1000","fullName":"Quickly simulate x1000 Mystery Gifts between 2 GBC. Only the last item is kept.","optional":true,"versions":["G","S"],"url":"https://bulbapedia.bulbagarden.net/wiki/Mystery_Gift"}
 ],
-"simpleRequirements":[
+"requirements":[
   ["Yellow","$Yellow"],
   ["Red","$Red"],
   ["Blue","$Blue"],
@@ -130,9 +130,7 @@
   ["RBY","Red", "Blue", "Yellow"],
   ["Trade","RBY", "GSC"],
   ["MiracleBerry","GSBall", "MysteryGift", "MysteryGiftPikachu"],
-  ["MysteryGift","MysteryGiftGSC", "MysteryGiftStad2"]
-],
-"requirements":[
+  ["MysteryGift","MysteryGiftGSC", "MysteryGiftStad2"],
   {"id":"Crystal2", "waresByType":[
     {"type":["emulator"], "formula":[["$EmuMultiplayer"]]},
     {"type":["gbEN","gbJP","vc"], "formula":[["GTE($Crystal,2)"]]}

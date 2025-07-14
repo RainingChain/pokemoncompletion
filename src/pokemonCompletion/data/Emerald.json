@@ -174,7 +174,7 @@
   "Obtain all event-exclusive elements.",
   "Check <a href='/VersionCompatibility/GenIII' target='_blank' rel='noopener'>Generation III Version Compability Page</a>"
 ],
-"simpleRequirements":[
+"requirements":[
   ["Ruby", "$Ruby_EN", "$Ruby_JP"],
   ["Sapphire", "$Sapphire_EN","$Sapphire_JP"],
   ["LeafGreen", "$LeafGreen_EN","$LeafGreen_JP"],
@@ -199,9 +199,7 @@
   ["PokemonFestaRibbon", "$PokemonFestaEvent"],
   ["ColosseumRibbon", "Colosseum", "XD"],
   ["TentDecoConflict", "MixRecord"],
-  ["GanlonSalac","XD","Colosseum","$ColosseumBonusDisc_US","$PokemonChannel_PAL"]
-],
-"requirements":[
+  ["GanlonSalac","XD","Colosseum","$ColosseumBonusDisc_US","$PokemonChannel_PAL"],
   {"id":"LinkOrWireless", "waresByType":[
     {"type":"emulator", "formula":[["$EmuMultiplayer"]]},
     {"type":["gb_EN","gb_JP"], "formula":[["$LinkCable"],["GTE($WirelessAdapter,2)"]]}

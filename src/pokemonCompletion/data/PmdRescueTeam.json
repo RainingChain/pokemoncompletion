@@ -14,9 +14,6 @@
     {"name":"Obtain all and keep if possible (Living Dex)","value":1,"desc":"Ex: You must own Bulbasaur, Ivysaur, and Venusaur simultaneously. Same for items."}
   ]
 },
-"simpleRequirements":[
-  ["WonderCodeOnline", "$WonderCodeOnline"]
-],
 "guide":[
   "Obtain all possible elements using only Red Rescue Team.",
   "-A good Pokémon for clearing stages is Articuno (Body-size-4) with Gust, Ice Beam, Powder Snow linked with Agility.",
@@ -35,6 +32,7 @@
   "Enter the event-exclusive Wonder Mail Codes for Oddity Cave, Remains Island, Marvelous Sea, and Fantasy Strait."
 ],
 "requirements":[
+  ["WonderCodeOnline", "$WonderCodeOnline"],
   {"id":"WonderOrRed", "waresByType":[
     {"type":["emulatorRed","consoleRed"], "formula":[[]]},
     {"type":["emulatorBlue","consoleBlue"], "formula":[["$Red"],["$WonderCodeOnline_Optional"]]}

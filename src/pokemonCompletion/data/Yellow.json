@@ -61,16 +61,14 @@
    [[2237.4,6412.5],[2302.4,5977.5]]
   ]
 },
-"simpleRequirements":[
+"requirements":[
   ["Red","$Red"],
   ["Blue","$Blue"],
   ["Gold","$Gold"],
   ["Silver","$Silver"],
   ["Crystal","$Crystal"],
   ["MewEvent","$MewEvent"],
-  ["Trade", "Red", "Blue", "Yellow2","Gold", "Silver", "Crystal"]
-],
-"requirements":[
+  ["Trade", "Red", "Blue", "Yellow2","Gold", "Silver", "Crystal"],
   {"id":"Yellow2", "waresByType":[
     {"type":["emulator"], "formula":[["$Yellow","$EmuMultiplayer"]]},
     {"type":["gb"], "formula":[["GTE($Yellow,2)","GTE($ConsoleGb,2)"],["GTE($Yellow,2)","$ConsoleGbc"]]},
