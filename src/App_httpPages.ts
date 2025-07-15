@@ -134,7 +134,19 @@ export class App_httpPages {
     const pokemonsGameToName = function(name:string){
       const n = name.toLowerCase();
       if (!n)
-        return '';
+        return null;
+      
+      if(["yellow",
+        "crystal",
+        "emerald",
+        "platinum",
+        "x",
+        "pinball",
+        "stadium",
+        "shuffle",
+        "ranger"].includes(n))
+       return n.charAt(0).toUpperCase() + n.slice(1); // capitalize
+
       if(n === 'black2')
         return 'Black 2';
       if(n === 'ultrasun')
@@ -145,7 +157,8 @@ export class App_httpPages {
         return 'Mystery Dungeon: Red/Blue Rescue Team';
       if(n === 'MysteryDungeonExplorersOfSky'.toLowerCase())
         return 'Mystery Dungeon: Explorers of Sky';
-      return n.charAt(0).toUpperCase() + n.slice(1);
+      
+      return null;
     };
     const pokemonsGameToHasMap = function(name:string){
       const n = name.toLowerCase();
@@ -155,6 +168,9 @@ export class App_httpPages {
     app.get('/completion/:game',function(req,res){
       const game = typeof req.params.game === 'string' ? req.params.game.slice(0, 50) : '';
       const name = pokemonsGameToName(game);
+      if(name === null)
+        return res.redirect('/completion');
+      
       const hasMap = pokemonsGameToHasMap(game);
       const filePath = app.appConfig.absolutePathFromCwd('/compiled/pokemonCompletion/pokemonCompletion.html');
       const desc = `Pokémon ${name} ${hasMap ? 'Interactive Map & ' : ''}100% Checklist Challenge`

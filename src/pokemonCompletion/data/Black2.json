@@ -221,6 +221,7 @@
   {"id":"Shaymin", "formula":[["$ShayminMicle_DP_Event", "DP"]],"notes":"exist events in other games too"},
   {"id":"Darkrai", "formula":[["$Darkrai_BW_Event", "BW"]],"notes":"exist events in other games too"},
 
+  ["Keldeo","$Keldeo_B2_Event"],
 
   ["Gracidea","Shaymin"],
   ["MicleBerry","$ShayminMicle_DP_Event"],
@@ -268,18 +269,17 @@
     ["$ArceusRowap_DP_Event","$EventTool"],
     ["$ShayminMicle_DP_Event","$EventTool"],
     
-    ["$Shaymin_BW_Event","$EventTool"],
     ["$Darkrai_BW_Event","$EventTool"],
-
+    ["$Keldeo_B2_Event","$EventTool"],
     ["$CelebiJaboca_Event","$EventTool"],
+
+
     ["$MewPremierRibbon_HGSS_Event","$EventTool"],
     ["$PokemonFestaRibbons_RSE_Event","$EventTool"],
-    ["$OaksLetter_Event","$EventTool"],
-    ["$Darkrai_BW_Event","$EventTool"],
 
     ["$EnteiCustap_Event","$EventTool"],
 
-    ["$Deoxys_Event","$EventTool"],
+    ["$Deoxys_B2_Event","$EventTool"],
     ["$Victini_Event","$EventTool"],
 
 
@@ -1020,7 +1020,7 @@
   {"name":"Zekrom","id":"644","obtainable":1,"location":"Dragonspiral Tower"},
   {"name":"Landorus","id":"645","obtainable":0,"location":"Trade from Black, White (requires owning Tornadus and Thundurus). Transfer from Dream Radar","reqs":[["Black","White"],["DreamRadar"]]},
   {"name":"Kyurem","id":"646","obtainable":1,"location":"Giant Chasm"},
-  {"name":"Keldeo","id":"647","obtainable":0,"location":"Event"},
+  {"name":"Keldeo","id":"647","obtainable":0,"location":"Event (ex: Winter 2013 Keldeo)","reqs":["Keldeo"]},
   {"name":"Meloetta","id":"648","obtainable":0,"location":"Event"},
   {"name":"Genesect","id":"649","obtainable":0,"location":"Event"}
  ]},
@@ -1107,8 +1107,8 @@
   {"name":"Kyurem - Normal","location":"Giant Chasm"},
   {"name":"Kyurem - White","obtainable":0,"location":"Use DNA Splicers on Kyurem to fuse with Reshiram","reqs":["Black","White2"]},
   {"name":"Kyurem - Black","location":"Use DNA Splicers on Kyurem to fuse with Zekrom"},
-  {"name":"Keldeo - Ordinary","obtainable":0,"location":"Event"},
-  {"name":"Keldeo - Resolute","obtainable":0,"location":"Keldeo when it learns the move Secret Sword"},
+  {"name":"Keldeo - Ordinary","obtainable":0,"location":"Event (ex: Winter 2013 Keldeo)","reqs":["Keldeo"]},
+  {"name":"Keldeo - Resolute","obtainable":0,"location":"Keldeo when it learns the move Secret Sword","reqs":["Keldeo"]},
   {"name":"Meloetta - Aria","obtainable":0,"location":"Event"},
   {"name":"Meloetta - Pirouette","obtainable":0,"location":"Using the move Relic Song in battle"},
   {"name":"Male & Female Form for All Pokémon","obtainable":0,"location":"Various"},

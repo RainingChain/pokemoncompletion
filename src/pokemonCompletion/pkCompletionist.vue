@@ -44,7 +44,7 @@
           <ul style="margin-top:5px">
             <li v-for="m in savInfo.modificationsAppliedOnSavFile">{{m}}</li>
           </ul>
-          <a v-if="savInfo.modifiedSavDataUrl" type="download" :href="savInfo.modifiedSavDataUrl" :download="savInfo.savDataFilenameModified">Download modified .sav #{{i}}</a>
+          <a v-if="savInfo.modifiedSavDataUrl" type="download" :href="savInfo.modifiedSavDataUrl" :download="savInfo.savDataFilenameModified">Download modified .sav #{{i + 1}}</a>
         </div>
       </div>
 
@@ -152,7 +152,7 @@
     </div>
 
     <div style="padding:10px" v-if="hasSorted" v-for="(savInfo,i) in savInfos">
-      <a v-if="savInfo.modifiedSavDataUrl" type="download" :href="savInfo.modifiedSavDataUrl" :download="savInfo.savDataFilenameModified">Download modified .sav #{{i}}</a>
+      <a v-if="savInfo.modifiedSavDataUrl" type="download" :href="savInfo.modifiedSavDataUrl" :download="savInfo.savDataFilenameModified">Download modified .sav #{{i + 1}}</a>
     </div>
   </div>
   <br v-if="display">

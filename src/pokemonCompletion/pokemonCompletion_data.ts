@@ -37,6 +37,7 @@ export const getGameDataInput = async function(){
   if(game === "/completion/ranger")
     return new GameData(await import("./data/Ranger.json"));
 
+  // must update App_httpPages pokemonsGameToName too if adding something here
   //return null;
   return new GameData(await import("./data/Yellow.json"));
 };
