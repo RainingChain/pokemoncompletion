@@ -543,13 +543,13 @@
   {"name":"Moon Stone Usage", "list":[["Delcatty"],["Wigglytuff"]], "reqsToSolve":[["Trade"],["XD"]]},
   {"name":"Lati@s", "list":[["Latios"],["Latias"]], "reqsToSolve":[["Trade"],["EonTicket"]]}
  ],"list":[
-  {"name":"Bulbasaur","id":"1","location":"Trade from LeafGreen, FireRed. Event","reqs":["LeafGreen","FireRed"],"iconUrl":"pokemon/p1.png"},
+  {"name":"Bulbasaur","id":"1","location":"Trade from LeafGreen, FireRed","reqs":["LeafGreen","FireRed"],"iconUrl":"pokemon/p1.png"},
   {"name":"Ivysaur","id":"2","location":"Evolve traded Bulbasaur (Level 16)","reqs":["LeafGreen","FireRed"],"iconUrl":"pokemon/p2.png"},
   {"name":"Venusaur","id":"3","location":"Evolve traded Ivysaur (Level 32)","reqs":["LeafGreen","FireRed"],"iconUrl":"pokemon/p3.png"},
-  {"name":"Charmander","id":"4","location":"Trade from LeafGreen, FireRed. Event","reqs":["LeafGreen","FireRed"],"iconUrl":"pokemon/p4.png"},
+  {"name":"Charmander","id":"4","location":"Trade from LeafGreen, FireRed","reqs":["LeafGreen","FireRed"],"iconUrl":"pokemon/p4.png"},
   {"name":"Charmeleon","id":"5","location":"Evolve traded Charmander (Level 16)","reqs":["LeafGreen","FireRed"],"iconUrl":"pokemon/p5.png"},
   {"name":"Charizard","id":"6","location":"Evolve traded Charmeleon (Level 32)","reqs":["LeafGreen","FireRed"],"iconUrl":"pokemon/p6.png"},
-  {"name":"Squirtle","id":"7","location":"Trade from LeafGreen, FireRed. Event","reqs":["LeafGreen","FireRed"],"iconUrl":"pokemon/p7.png"},
+  {"name":"Squirtle","id":"7","location":"Trade from LeafGreen, FireRed","reqs":["LeafGreen","FireRed"],"iconUrl":"pokemon/p7.png"},
   {"name":"Wartortle","id":"8","location":"Evolve traded Squirtle (Level 16)","reqs":["LeafGreen","FireRed"],"iconUrl":"pokemon/p8.png"},
   {"name":"Blastoise","id":"9","location":"Evolve traded Wartortle (Level 32)","reqs":["LeafGreen","FireRed"],"iconUrl":"pokemon/p9.png"},
   {"name":"Caterpie","id":"10","location":"Trade from LeafGreen, FireRed. Breed traded Butterfree","reqs":["LeafGreen","FireRed","XD"],"iconUrl":"pokemon/p10.png"},
@@ -565,7 +565,7 @@
   {"name":"Raticate","id":"20","location":"Evolve traded Rattata (Level 20). Trade from XD","reqs":["LeafGreen","FireRed","XD"],"iconUrl":"pokemon/p20.png"},
   {"name":"Spearow","id":"21","location":"Trade from LeafGreen, FireRed, XD","reqs":["LeafGreen","FireRed","XD"],"iconUrl":"pokemon/p21.png"},
   {"name":"Fearow","id":"22","location":"Evolve traded Spearow (Level 20)","reqs":["LeafGreen","FireRed","XD"],"iconUrl":"pokemon/p22.png"},
-  {"name":"Ekans","id":"23","location":"Trade from FireRed. Event. Breed traded Arbok","reqs":["FireRed"],"iconUrl":"pokemon/p23.png"},
+  {"name":"Ekans","id":"23","location":"Trade from FireRed. Breed traded Arbok","reqs":["FireRed"],"iconUrl":"pokemon/p23.png"},
   {"name":"Arbok","id":"24","location":"Evolve traded Ekans (Level 22). Trade from XD","reqs":["FireRed","XD"],"iconUrl":"pokemon/p24.png"},
   {"name":"Pikachu","id":"25","location":"Safari Zone","iconUrl":"pokemon/p25.png","pos":[[2609.7,7513.9]]},
   {"name":"Raichu","id":"26","location":"Evolve Pikachu (Thunderstone)","iconUrl":"pokemon/p26.png"},
@@ -1348,13 +1348,13 @@
   {"id":"367","name":"Tri-Pass","obtainable":-1},
   {"id":"368","name":"Rainbow Pass","obtainable":-1},
   {"id":"369","name":"Tea","obtainable":-1},
-  {"id":"370","name":"MysticTicket","location":"Event","reqs":["MysticTicket"],"iconUrl":"item/MysticTicket.png"},
-  {"id":"371","name":"AuroraTicket","location":"Event","reqs":["AuroraTicket"],"iconUrl":"item/AuroraTicket.png"},
+  {"id":"370","name":"MysticTicket","location":"Event (ex: San Diego Comic-Con 2005)","reqs":["MysticTicket"],"iconUrl":"item/MysticTicket.png"},
+  {"id":"371","name":"AuroraTicket","location":"Event (ex: Pokémon Rocks America 2004)","reqs":["AuroraTicket"],"iconUrl":"item/AuroraTicket.png"},
   {"id":"372","name":"Powder Jar","location":"Slateport City","iconUrl":"item/Powder_Jar.png","pos":[[6691.8,4050.8]]},
   {"id":"373","name":"Ruby","obtainable":-1},
   {"id":"374","name":"Sapphire","obtainable":-1},
   {"id":"375","name":"Magma Emblem","location":"Mt. Pyre (from old lady after confronting Team Aqua)","iconUrl":"item/Magma_Emblem.png","pos":[[4669.2,6961.8]]},
-  {"id":"376","name":"Old Sea Map","location":"Japanese only: Event","reqs":["OldSeaMap"],"iconUrl":"item/Old_Sea_Map.png"}
+  {"id":"376","name":"Old Sea Map","location":"Japanese only: Event (ex: Pokémon Festa 2005)","reqs":["OldSeaMap"],"iconUrl":"item/Old_Sea_Map.png"}
  ]},
  {"id":"itemInMap","name":"Item In Map", "iconColorClass":"cat-orange","missables":[
   {"text":"Items from the Trick House are missable.","reqsToSolve":[],"collectables":["Nugget (Hidden)", "Orange Mail","Harbor Mail","Shadow Mail","Wood Mail", "Mech Mail","Wave Mail","Glitter Mail","Bead Mail","Tropic Mail"]}

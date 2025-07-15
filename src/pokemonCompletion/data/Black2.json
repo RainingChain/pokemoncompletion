@@ -109,7 +109,19 @@
   {"name":"Black Tower","alias":[]},
   {"name":"Nature Preserve","alias":[]}
 ],
+"pkCompletionist":{
+  "versions":["Pt"],
+  "versionsLongName":["Platinum"],
+  "hasEventUsingSavB":true,
+  "completionTypes":[
+    {"name":"Obtain all","value":0},
+    {"name":"Obtain all and keep if possible (Living Dex)","value":1,"desc":"Ex: You must own Bulbasaur, Ivysaur, and Venusaur simultaneously. Same for items."}
+  ],
+  "events":[
+  ]
+},
 "requirements":[
+  "------Gen3 Games-------",
   ["Ruby", "$Ruby_EN", "$Ruby_JP"],
   ["Sapphire", "$Sapphire_EN","$Sapphire_JP"],
   ["Emerald", "$Emerald_EN", "$Emerald_JP"],
@@ -120,57 +132,104 @@
   ["RSE","RS","Emerald"],
   ["RS_JP", "$Ruby_JP","$Sapphire_JP"],
   ["RS_EN", "$Ruby_EN","$Sapphire_EN"],
+
+  ["Colosseum", "$Colosseum_US","$Colosseum_JP"],
+  ["XD", "$XD_US","$XD_JP"],
+
+  ["AnyGen3_EN", "RS_EN","$Emerald_EN","$LeafGreen_EN","$FireRed_EN"],
+  ["AnyGen3_JP", "RS_JP","$Emerald_JP","$LeafGreen_JP","$FireRed_JP"],
+  ["AnyGen3", "AnyGen3_EN","AnyGen3_JP"],
+
+  "------Gen4 Games-------",
+  ["Diamond", "$Diamond_JP","$Diamond_EN"],
+  ["Pearl", "$Pearl_JP","$Pearl_EN"],
+  ["Platinum", "$Platinum_EN","$Platinum_JP"],
+  ["HeartGold", "$HeartGold_JP", "$HeartGold_EN"],
+  ["SoulSilver", "$SoulSilver_JP", "$SoulSilver_EN"],
   ["DP_JP", "$Diamond_JP","$Pearl_JP"],
   ["DP_EN", "$Diamond_EN","$Pearl_EN"],
-  ["Platinum", "$Platinum_EN","$Platinum_JP"],
+  ["DP","Diamond","Pearl"],
+  ["DPPt","DP","Platinum"],
+  ["HS","HeartGold","SoulSilver"],
+
+  ["AnyGen4_EN","$Diamond_EN","$Pearl_EN","$HeartGold_EN","$SoulSilver_EN","Platinum2_EN"],
+  ["AnyGen4_JP","$Diamond_JP","$Pearl_JP","$HeartGold_JP","$SoulSilver_JP","$Platinum_JP"],
+  ["AnyGen4","AnyGen4_JP","AnyGen4_EN"],
+
+  ["PBR","$BattleRevolution_US","$BattleRevolution_JP"],
+  {"id":"MyPokemonRanch", "formula":[
+    ["$MyPokemonRanch_US"],
+    ["$MyPokemonRanch_JP","$MyPokemonRanchUpdate_JP","$Platinum_JP"],
+    ["$MyPokemonRanch_JP","DP_JP"]]
+  },
+
+  "------Gen5 Games-------",
   ["Black", "$Black_EN","$Black_JP"],
   ["White", "$White_EN","$White_JP"],
   ["BW","Black", "White"],
   ["White2", "$White2_JP","$White2_EN"],
-  ["DP","Diamond","Pearl"],
-  ["DPPt","DP","Platinum"],
-  ["Diamond", "$Diamond_JP","$Diamond_EN"],
-  ["Pearl", "$Pearl_JP","$Pearl_EN"],
-  ["HeartGold", "$HeartGold_JP", "$HeartGold_EN"],
-  ["SoulSilver", "$SoulSilver_JP", "$SoulSilver_EN"],
-  ["HS","HeartGold","SoulSilver"],
 
-  ["Colosseum", "$Colosseum_US","$Colosseum_JP"],
-  ["XD", "$XD_US","$XD_JP"],
-  
-  ["DualAny","DualFireRed","DualLeafGreen","DualRuby","DualSapphire","DualEmerald"],
-  ["AnyGen3_EN", "RS_EN","$Emerald_EN","$LeafGreen_EN","$FireRed_EN"],
-  ["AnyGen3_JP", "RS_JP","$Emerald_JP","$LeafGreen_JP","$FireRed_JP"],
-  ["AnyGen3", "AnyGen3_EN","AnyGen3_JP"],
-  ["AnyGen4_EN","$Diamond_EN","$Pearl_EN","$HeartGold_EN","$SoulSilver_EN","Platinum2_EN"],
-  ["AnyGen4_JP","$Diamond_JP","$Pearl_JP","$Platinum_JP"],
-  ["AnyGen4","AnyGen4_EN","AnyGen4_JP"],
-  
-  ["TradeGen5", "BW","Black2_2","White2"],
-
-  ["EvolveTrade", "TradeGen3","TradeGen4","TradeGen5"],
-  ["EvolveTrade4", "TradeGen4", "TradeGen5"],
-  ["EvolveTrade5", "TradeGen5"],
+  {"id":"Black2_2", "waresByType":[
+    {"type":"emulator", "formula":[["MultiplayerGen4"]]},
+    {"type":["consoleEN"], "formula":[["GTE($Black2_EN,$Black2_JP,2)"]]}
+  ]},
+  "------Simple Hardware-------",
   ["PokeWalker", "$PokeWalker"],
+  ["EonTicket","$eReader_EonTicket"],
+  ["DreamRadar","$DreamRadar"],
+  ["NintendoWifi","$NintendoWifi"],
+  {"id":"NintendoWifiBattle","formula":[["$NintendoWifi","MultiplayerDPP"]]},
+  
+  "------Events-------",
+  
+  "------Inter-Game Interactions-------",
+  {"id":"DualFireRed", "formula":[["$FireRed", "DPPt"],["FireRed"]]},
+  {"id":"DualLeafGreen", "formula":[["$LeafGreen", "DPPt"],["LeafGreen"]]},
+  {"id":"DualRuby", "formula":[["$Ruby", "DPPt"],["Ruby"]]},
+  {"id":"DualSapphire", "formula":[["$Sapphire", "DPPt"],["Sapphire"]]},
+  {"id":"DualEmerald", "formula":[["$Emerald", "DPPt"],["Emerald"]]},
+  ["DualAny","DualFireRed","DualLeafGreen","DualRuby","DualSapphire","DualEmerald"],
+  
+  {"id":"TradeGen3ToGen3", "waresByType":[
+    {"type":["emulator"], "formula":[["$EmuGbaMultiplayer","GTE(AnyGen3,2)"]]},
+    {"type":["consoleEN"], "formula":[["$GbaLinkCable","GTE(AnyGen3,2)"]]}
+  ]},
+  {"id":"TransferGen3JPToGen4US", "formula":[
+    ["AnyGen3_EN","TradeGen3ToGen3"],
+    ["AnyGen4_JP"]
+  ], "notes":"assumes the JP game is owned"},
+  {"id":"TradeGen4ToGen4", "waresByType":[
+    {"type":["emulator"],  "formula":[["AnyGen4"]],"notes":"if gen4-gen5 trade is possible, gen4-gen4 too"},
+    {"type":["consoleEN"], "formula":[["GTE(AnyGen4,2)"]]}
+  ]},
+  ["TradeGen5ToGen5", "BW","Black2_2","White2"],
 
+  ["EvolveTradeAnyGen", "TradeGen3ToGen3","TradeGen4ToGen4","TradeGen5ToGen5"],
+  ["EvolveTradeGen4OrMore", "TradeGen4ToGen4","TradeGen5ToGen5"],
+  ["EvolveTradeGen5", "TradeGen5ToGen5"],
+
+  "------Collectable-------",
+  {"id":"Mew", "formula":[["MyPokemonRanch"],["$Mew_Event"]]},
   ["HoOh","HS","Colosseum"],
-  ["PBR","$BattleRevolution_US","$BattleRevolution_JP"],
+  {"id":"Arceus", "formula":[["$ArceusRowap_DPPt_Event","DPPt"]]},
+  ["Victini","$Victini_B2_Event"],
+  ["Deoxys","$Deoxys_B2_Event"],
+  ["Celebi", "$ColosseumBonusDisc_JP"],
+  ["Jirachi","$ColosseumBonusDisc_US","$Jirachi_Event"],  
+  ["Phione","MyPokemonRanch", "Manaphy"],
+  {"id":"Manaphy", "formula":[["$Ranger_EN","DP_EN"]]},
+  {"id":"Shaymin", "formula":[["$ShayminMicle_DP_Event", "DP"]],"notes":"exist events in other games too"},
+  {"id":"Darkrai", "formula":[["$Darkrai_BW_Event", "BW"]],"notes":"exist events in other games too"},
 
-  ["OaksLetter","$OaksLetter_Event"],
 
   ["Gracidea","Shaymin"],
-  ["Arceus","$ArceusRowap_Event"],
-  ["Victini","$Victini_Event"],
+  ["MicleBerry","$ShayminMicle_DP_Event"],
 
-  ["MicleBerry","$ShayminMicle_Event"],
-
-  ["RowapBerry","$ArceusRowap_Event"],  
+  ["RowapBerry","$ArceusRowap_DP_Event"],  
   ["EnigmaBerry","PBR","eReader_AnyBerry"],
 
   ["JabocaBerry","$CelebiJaboca_Event"],
   ["SoulDew","EonTicket","PBR"],
-  ["NintendoWifi","$NintendoWifi"],
-  ["LucarioDoll","$LucarioDoll_Event"],
   ["CustapBerry","$EnteiCustap_Event"],
 
   ["eReader_AnyBerry", "$eReader_AnyBerry_EN", "$eReader_AnyBerry_JP"],
@@ -178,222 +237,51 @@
   ["CountryRibbon","$PokemonFestaRibbons_RSE_Event"],
   ["WorldRibbon","$PokemonFestaRibbons_RSE_Event"],
 
-  ["ClassicRibbon","$ShayminMicle_Event","$ArceusRowap_Event","$CelebiJaboca_Event","$EnteiCustap_Event"],
+  ["ClassicRibbon","$ShayminMicle_DP_Event","$ArceusRowap_DP_Event","$CelebiJaboca_Event","$EnteiCustap_Event"],
   ["PremierRibbon","$MewPremierRibbon_HGSS_Event"],
   ["ForeignDexEntries","$ForeignDexEntries"],
   
-  ["Deoxys","$Deoxys_Event"],
-  {"id":"Multiplayer", "waresByType":[
+  {"id":"MultiplayerGen4", "waresByType":[
     {"type":"emulator", "formula":[["$EmuMultiplayer"]]},
     {"type":["consoleEN"], "formula":[["GTE($ConsoleDS,2)"]]}
-  ]},
-  {"id":"Black2_2", "waresByType":[
-    {"type":"emulator", "formula":[["Multiplayer"]]},
-    {"type":["consoleEN"], "formula":[["GTE($Black2_EN,$Black2_JP,2)"]]}
-  ]},
-  {"id":"Black2_2_EN", "waresByType":[
-    {"type":"emulator", "formula":[["Multiplayer"]]},
-    {"type":["consoleEN"], "formula":[["GTE($Black2_EN,2)"]]}
   ]},
   {"id":"NaturePreserve", "waresByType":[
     {"type":["emulator","consoleEN"], "formula":[["Black","White"],["Black","White2"]]}
   ],"notes":"route 7 to register legend trio"},
-  {"id":"Mew", "waresByType":[
-    {"type":["emulator","consoleEN"], "formula":[["MyPokemonRanch"],["$Mew_Event"]]}
-  ]},
-  {"id":"Celebi", "waresByType":[
-    {"type":["emulator","consoleEN"], "formula":[["$Celebi_Event"],["$ColosseumBonusDisc_JP"]]}
-  ]},
-  {"id":"EonTicket", "waresByType":[
-    {"type":["emulator","consoleEN"], "formula":[["$eReader_EonTicket"]]}
-  ]},
-  {"id":"Jirachi", "note":"Summer 2010 Jirachi English Wi-Fi 5 June 26 to July 16, 2010", "waresByType":[
-    {"type":["emulator","consoleEN"], "formula":[["$ColosseumBonusDisc_US"]]}
-  ]},
-  {"id":"Deoxys", "waresByType":[
-    {"type":["emulator", "consoleEN"], "formula":[["$Deoxys_Event"]]}
-  ]},
-
-  {"id":"MyPokemonRanch", "waresByType":[
-    {"type":["emulator", "consoleEN"], "formula":[["$MyPokemonRanch_US","DP_EN"],["$MyPokemonRanch_JP","$MyPokemonRanchUpdate_JP","$Platinum_JP"],["$MyPokemonRanch_JP","DP_JP"]]}
-  ]},
-
-  {"id":"Phione", "waresByType":[
-    {"type":["emulator", "consoleEN"], "formula":[["MyPokemonRanch"],["Manaphy"]]}
-  ]},
-  {"id":"Manaphy", "waresByType":[
-    {"type":["emulator", "consoleEN"], "formula":[["$Ranger_EN","DP_EN"],["$Manaphy_DP_Event"]]}
-  ]},
-
-  {"id":"Darkrai", "waresByType":[
-    {"type":["emulator", "consoleEN"], "formula":[["$MemberCard_Event","Platinum"],["$Darkrai_DP_Event", "DP"],["$Darkrai_BW_Event", "BW"]]}
-  ]},
-  {"id":"Shaymin", "waresByType":[
-    {"type":["emulator", "consoleEN"], "formula":[["OaksLetter","Platinum"],["$ShayminMicle_Event", "DP"],["$Shaymin_BW_Event", "BW"]]}
-  ]},
-  {"id":"Electabuzz", "waresByType":[
-    {"type":["emulator", "consoleEN"], "formula":[["White"],["White2"],["FireRed"],["XD"],["DPPt"],["HS"]]}
-  ]},
-  {"id":"Electivire", "waresByType":[
-    {"type":["emulator", "consoleEN"], "formula":[["EvolveTrade4","Electabuzz"],["PBR"]]}
-  ]},
-  {"id":"Porygon", "waresByType":[
-    {"type":["emulator", "consoleEN"], "formula":[["White"],["DPPt"],["HS"],["FL"]]}
-  ]},
-  {"id":"Dusclops", "waresByType":[
-    {"type":["emulator", "consoleEN"], "formula":[["XD","DPPt","HS","RSE"]]}
-  ]},
-  {"id":"Graveler", "waresByType":[
-    {"type":["emulator", "consoleEN"], "formula":[["BW","DPPt","HS","FL","RSE"]]}
-  ]},
+  {"id":"Electabuzz", "formula":[["White"],["White2"],["FireRed"],["XD"],["DPPt"],["HS"]]},
+  {"id":"Electivire", "formula":[["EvolveTradeGen4OrMore","Electabuzz"],["PBR"]]},
+  {"id":"Porygon", "formula":[["White"],["DPPt"],["HS"],["FL"]]},
+  {"id":"Dusclops", "formula":[["XD","DPPt","HS","RSE"]]},
+  {"id":"Graveler","formula":[["BW","DPPt","HS","FL","RSE"]]},
   
-  {"id":"BrickMail", "waresByType":[
-    {"type":["emulator", "consoleEN"], "formula":[["$BrickMail_DP_Event","DP_JP"]]}
-  ]},
-  {"id":"TradeGen3ToGen3", "waresByType":[
-    {"type":["emulator"], "formula":[["$EmuGbaMultiplayer"]]},
-    {"type":["consoleEN"], "formula":[["$GbaLinkCable"]]}
-  ]},
-  {"id":"TradeGen3", "waresByType":[
-    {"type":["emulator"], "formula":[["AnyGen3","TradeGen3ToGen3"]]},
-    {"type":["consoleEN"], "formula":[
-      ["GTE(AnyGen3, 2)","TradeGen3ToGen3"]
-    ]}
-  ]},
-  
-  ["TradeGen4", "DP","HS","Platinum2"],
-  {"id":"TransferGen3JPToGen4US", "waresByType":[
-    {"type":["emulator"], "formula":[["AnyGen3_EN","TradeGen3ToGen3"],["AnyGen4_JP"]]},
-    {"type":["consoleEN"], "formula":[["AnyGen3_EN","TradeGen3ToGen3"],["AnyGen4_JP"]]}
-  ]},
   {"id":"AllMaleFemaleForms", "note":"probably possible by fighting only trainers", "waresByType":[
     {"type":["emulator", "consoleEN"], "formula":[["NationalDex"]]}
   ]},
-  {"id":"Geonet", "waresByType":[
-    {"type":["emulator", "consoleEN"], "formula":[["AnyGen4_EN"]]}
-  ]},
-  {"id":"NintendoWifiBattle", "waresByType":[
-    {"type":["consoleEN","emulator"], "formula":[["$NintendoWifi","MultiplayerDPP"]]}
-  ]},
-  {"id":"RandSorE", "waresByType":[
-    {"type":["emulator", "consoleEN"], "formula":[
-      ["Ruby","Sapphire"],
-      ["Emerald"]
-    ]}
-  ]},
-  {"id":"RandSorE", "waresByType":[
-    {"type":["emulator", "consoleEN"], "formula":[["Ruby","Sapphire"],["Emerald"]]}
-  ]},
-  {"id":"DorP", "waresByType":[
-    {"type":["emulator", "consoleEN"], "formula":[["Diamond"],["Pearl"]]}
-  ]},
-  {"id":"DPorPt", "waresByType":[
-    {"type":["emulator", "consoleEN"], "formula":[["Diamond","Pearl"],["Platinum2"]]}
-  ]},
-  {"id":"LorForHorS", "waresByType":[
-    {"type":["emulator", "consoleEN"], "formula":[["LeafGreen"],["FireRed"],["HeartGold"],["SoulSilver"]]}
-  ]},
-  {"id":"XDandColorHorS", "waresByType":[
-    {"type":["emulator", "consoleEN"], "formula":[["XD","Colosseum"],["HeartGold"],["SoulSilver"]]}
-  ]},
-  {"id":"NationalDex", "waresByType":[
-    {"type":["emulator", "consoleEN"], "formula":[
-      ["RandSorE","DorP","DPorPt","LorForHorS"]
-    ]}
-  ]},
-  {"id":"DualFireRed", "waresByType":[
-    {"type":["emulator", "consoleEN"], "formula":[
-      ["$FireRed", "DPPt"],
-      ["FireRed"]
-    ]}
-  ]},
-  {"id":"DualLeafGreen", "waresByType":[
-    {"type":["emulator", "consoleEN"], "formula":[
-      ["$LeafGreen", "DPPt"],
-      ["LeafGreen"]
-    ]}
-  ]},
-  {"id":"DualRuby", "waresByType":[
-    {"type":["emulator", "consoleEN"], "formula":[
-      ["$Ruby", "DPPt"],
-      ["Ruby"]
-    ]}
-  ]},
-  {"id":"DualSapphire", "waresByType":[
-    {"type":["emulator", "consoleEN"], "formula":[
-      ["$Sapphire", "DPPt"],
-      ["Sapphire"]
-    ]}
-  ]},
-  {"id":"DualEmerald", "waresByType":[
-    {"type":["emulator", "consoleEN"], "formula":[
-      ["$Emerald", "DPPt"],
-      ["Emerald"]
-    ]}
-  ]},
-  {"id":"ForeignDexEntries", "waresByType":[
-    {"type":["emulator", "consoleEN"], "formula":[["$ForeignDexEntries"]]}
-  ],
-  "info":[
-    "144 Articuno LGPtHS",
-    "145 Zapdos LGPtHS",
-    "146 Moltres LGPtHS",
-    "150 Mewtwo LGHS",
-    "151 Mew MyPkmRanch",
-    "201 Unown LGDPPtHS",
-    "243 Raikou LGColHS",
-    "244 Entei LGColHS",
-    "245 Suicune LGColHS",
-    "249 Lugia XDHS",
-    "250 Ho-Oh ColHS",
-    "251 Celebi JP(Col),Event(RSEDPPtHS)",
-    "377 Regirock RSE",
-    "378 Regice RSE",
-    "379 Registeel RSE",
-    "380 Latias SE",
-    "381 Latios RE",
-    "382 Kyogre SEH",
-    "383 Groudon RES",
-    "384 Rayquaza RSEHS",
-    "385 Jirachi JP(Event DPPtHS),Col",
-    "386 Deoxys Event DPRSELF",
-    "480 Uxie DPPt",
-    "481 Mesprit DPPt",
-    "482 Azelf DPPt",
-    "483 Dialga DPt",
-    "484 Palkia PPt",
-    "485 Heatran DPPt",
-    "486 Regigigas RSE",
-    "487 Giratina DPPt",
-    "488 Cresselia DPPt",
-    "491 Darkrai Event(DPPt)",
-    "492 Shaymin Event(DPPt)",
-    "493 Arceus Event(DPPt)"
+  
+  
+  {"id":"ForeignDexEntries", "formula":[["$ForeignDexEntries"]],"info":[ "144 Articuno LGPtHS", "145 Zapdos LGPtHS", "146 Moltres LGPtHS", "150 Mewtwo LGHS", "151 Mew MyPkmRanch", "201 Unown LGDPPtHS", "243 Raikou LGColHS", "244 Entei LGColHS", "245 Suicune LGColHS", "249 Lugia XDHS", "250 Ho-Oh ColHS", "251 Celebi JP(Col),Event(RSEDPPtHS)", "377 Regirock RSE", "378 Regice RSE", "379 Registeel RSE", "380 Latias SE", "381 Latios RE", "382 Kyogre SEH", "383 Groudon RES", "384 Rayquaza RSEHS", "385 Jirachi JP(Event DPPtHS),Col", "386 Deoxys Event DPRSELF", "480 Uxie DPPt", "481 Mesprit DPPt", "482 Azelf DPPt", "483 Dialga DPt", "484 Palkia PPt", "485 Heatran DPPt", "486 Regigigas RSE", "487 Giratina DPPt", "488 Cresselia DPPt", "491 Darkrai Event(DPPt)", "492 Shaymin Event(DPPt)", "493 Arceus Event(DPPt)"
   ]}
 
 ],
 "waresByType":[
   {"type":"emulator","name":"Emulator (EN)","aliases":[
-    ["$ArceusRowap_Event","$EventTool"],
-    ["$ShayminMicle_Event","$EventTool"],
+    ["$ArceusRowap_DP_Event","$EventTool"],
+    ["$ShayminMicle_DP_Event","$EventTool"],
     
+    ["$Shaymin_BW_Event","$EventTool"],
+    ["$Darkrai_BW_Event","$EventTool"],
+
     ["$CelebiJaboca_Event","$EventTool"],
     ["$MewPremierRibbon_HGSS_Event","$EventTool"],
     ["$PokemonFestaRibbons_RSE_Event","$EventTool"],
     ["$OaksLetter_Event","$EventTool"],
     ["$Darkrai_BW_Event","$EventTool"],
-    ["$BrickMail_DP_Event","$EventTool"],
 
     ["$EnteiCustap_Event","$EventTool"],
-    ["$LucarioDoll_Event","$EventTool_JP"],
 
     ["$Deoxys_Event","$EventTool"],
     ["$Victini_Event","$EventTool"],
 
-    ["$Shaymin_BW_Event","$EventTool_Optional"],
-    ["$Darkrai_DP_Event","$EventTool_Optional"],
-    ["$MemberCard_Event","$EventTool_Optional"],
-    ["$Manaphy_DP_Event","$EventTool_Optional"],
 
     ["$Celebi_Event","$EventTool_Optional"],
     ["$AuroraTicketEvent_Gen3","$EventTool_Optional"]
@@ -403,22 +291,22 @@
     {"id":"$EmuMultiplayer","name":"Emulator supports DS multiplayer?","indent":1, "url":["melonDS","https://melonds.kuribo64.net/"], "fullCompl":1},
     {"id":"$EmuDualSlot","name":"Emulator supports GBA slot?","indent":1, "url":["melonDS","https://melonds.kuribo64.net/"], "fullCompl":1},
     {"id":"$Black2_EN","name":"Game: Pokémon Black 2 (EN)","indent":1, "minCount":1},
-    {"id":"$Black_EN","name":"Game: Pokémon Black (EN)","indent":1, "preReqs":[["Multiplayer"]]},
-    {"id":"$White2_EN","name":"Game: Pokémon White 2 (EN)","indent":1, "preReqs":[["Multiplayer"]]},
-    {"id":"$White_EN","name":"Game: Pokémon White (EN)","indent":1, "preReqs":[["Multiplayer"]]},
-    {"id":"$Platinum_EN","name":"Game: Pokémon Platinum (EN)","indent":1, "fullCompl":1, "preReqs":[["Multiplayer"]]},
-    {"id":"$Diamond_EN","name":"Game: Pokémon Diamond (EN)","indent":1, "fullCompl":1, "preReqs":[["Multiplayer"]]},
-    {"id":"$Pearl_EN","name":"Game: Pokémon Pearl (EN)","indent":1, "preReqs":[["Multiplayer"]]},
-    {"id":"$HeartGold_EN","name":"Game: Pokémon HeartGold (EN)","indent":1, "fullCompl":1, "preReqs":[["Multiplayer"]]},
-    {"id":"$SoulSilver_EN","name":"Game: Pokémon SoulSilver (EN)","indent":1, "preReqs":[["Multiplayer"]]},
+    {"id":"$Black_EN","name":"Game: Pokémon Black (EN)","indent":1, "preReqs":[["MultiplayerGen4"]]},
+    {"id":"$White2_EN","name":"Game: Pokémon White 2 (EN)","indent":1, "preReqs":[["MultiplayerGen4"]]},
+    {"id":"$White_EN","name":"Game: Pokémon White (EN)","indent":1, "preReqs":[["MultiplayerGen4"]]},
+    {"id":"$Platinum_EN","name":"Game: Pokémon Platinum (EN)","indent":1, "fullCompl":1, "preReqs":[["MultiplayerGen4"]]},
+    {"id":"$Diamond_EN","name":"Game: Pokémon Diamond (EN)","indent":1, "fullCompl":1, "preReqs":[["MultiplayerGen4"]]},
+    {"id":"$Pearl_EN","name":"Game: Pokémon Pearl (EN)","indent":1, "preReqs":[["MultiplayerGen4"]]},
+    {"id":"$HeartGold_EN","name":"Game: Pokémon HeartGold (EN)","indent":1, "fullCompl":1, "preReqs":[["MultiplayerGen4"]]},
+    {"id":"$SoulSilver_EN","name":"Game: Pokémon SoulSilver (EN)","indent":1, "preReqs":[["MultiplayerGen4"]]},
 
-    {"id":"$Ranger_EN","name":"Game: Pokémon Ranger (EN)","indent":1,"fullCompl":1, "preReqs":[["Multiplayer"]]},
+    {"id":"$Ranger_EN","name":"Game: Pokémon Ranger (EN)","indent":1,"fullCompl":1, "preReqs":[["MultiplayerGen4"]]},
 
-    {"id":"$Platinum_JP","name":"Game: Pokémon Platinum (JP)","indent":1, "preReqs":[["Multiplayer"]]},
-    {"id":"$Diamond_JP","name":"Game: Pokémon Diamond (JP)","indent":1, "preReqs":[["Multiplayer"]]},
-    {"id":"$Pearl_JP","name":"Game: Pokémon Pearl (JP)","indent":1, "fullCompl":1, "preReqs":[["Multiplayer"]]},
-    {"id":"$HeartGold_JP","name":"Game: Pokémon HeartGold (JP)","indent":1, "preReqs":[["Multiplayer"]]},
-    {"id":"$SoulSilver_JP","name":"Game: Pokémon SoulSilver (JP)","indent":1, "preReqs":[["Multiplayer"]]},
+    {"id":"$Platinum_JP","name":"Game: Pokémon Platinum (JP)","indent":1, "preReqs":[["MultiplayerGen4"]]},
+    {"id":"$Diamond_JP","name":"Game: Pokémon Diamond (JP)","indent":1, "preReqs":[["MultiplayerGen4"]]},
+    {"id":"$Pearl_JP","name":"Game: Pokémon Pearl (JP)","indent":1, "fullCompl":1, "preReqs":[["MultiplayerGen4"]]},
+    {"id":"$HeartGold_JP","name":"Game: Pokémon HeartGold (JP)","indent":1, "preReqs":[["MultiplayerGen4"]]},
+    {"id":"$SoulSilver_JP","name":"Game: Pokémon SoulSilver (JP)","indent":1, "preReqs":[["MultiplayerGen4"]]},
 
     [
       {"id":"$EmuPokewalker","name":"Emulator for PokéWalker","desc":"No PokéWalker emulators with DS connnectivity exist yet.", "indent":1, "preReqs":[["HS"]]},
@@ -428,6 +316,11 @@
     [
       {"id":"$Wifi","name":"Emulator supports Wifi","desc":"","indent":1,"fullCompl":1},
       {"id":"$NintendoWifi","name":"Simulator of Nintendo Wi-Fi Connection","desc":"","url":["DWC Network Server", "https://github.com/barronwaffles/dwc_network_server_emulator"],"indent":1,"fullCompl":1}
+    ],
+
+    [
+      {"id":"$Emu3DS","name":"Emulator for 3DS","desc":"Must support inserted NDS, which isn't supported by any emulator as of 2025-07-14.", "indent":1},
+      {"id":"$DreamRadar","name":"Game: Dream Radar","indent":1}
     ],
 
     {"id":"$EmuGba","name":"Emulator for GBA","fullCompl":1,"preReqs":[["$EmuDualSlot"]]},
@@ -469,7 +362,7 @@
     {"id":"$MyPokemonRanch_JP","name":"Game: My Pokémon Ranch (JP)", "indent":1,"preReqs":[["AnyGen4_JP"]]},
     {"id":"$MyPokemonRanchUpdate_JP","name":"Update: My Pokémon Ranch 1.1 (JP)", "indent":2},
     {"id":"$BattleRevolution_JP","name":"Game: Pokémon Battle Revolution (JP)","indent":1,"preReqs":[["AnyGen4_JP"]]},
-    {"id":"$ForeignDexEntries","name":"Many games in all languages", "fullCompl":1,"indent":1,"preReqs":[["Multiplayer","$EmuGba"]],"url":["Foreign Pokédex Entries Requirements", "./Platinum/ForeignPokedexEntries",""]},
+    {"id":"$ForeignDexEntries","name":"Many games in all languages", "fullCompl":1,"indent":1,"preReqs":[["MultiplayerGen4","$EmuGba"]],"url":["Foreign Pokédex Entries Requirements", "./Platinum/ForeignPokedexEntries",""]},
 
     {"id":"$EventTool","name":"Event Simulator","desc":"Found in the Savefile (.sav) Utilities section in this page","fullCompl":1},
     {"id":"$EventTool_Optional","name":"Permit optional events?", "desc":"Permit events giving gifts obtainabled without events", "indent":1},
@@ -556,7 +449,7 @@
   {"name":"Tentacruel","id":"73","obtainable":0,"location":"Evolve traded Tentacool (Level 30). Trade from Diamond, Pearl, Platinum, HeartGold, SoulSilver, FireRed, LeafGreen, Ruby, Sapphire, Emerald","iconUrl":"pokemon/p46.png","reqs":["DPPt","HS","FL","RSE"]},
   {"name":"Geodude","id":"74","obtainable":0,"location":"Trade from Black, White, Diamond, Pearl, Platinum, HeartGold, SoulSilver, FireRed, LeafGreen, Ruby, Sapphire, Emerald","iconUrl":"pokemon/p46.png","reqs":["Graveler"]},
   {"name":"Graveler","id":"75","obtainable":0,"location":"Evolve traded Geodude (Level 25). Trade from Black, White, Diamond, Pearl, Platinum, HeartGold, SoulSilver, FireRed, LeafGreen, Ruby, Sapphire, Emerald","iconUrl":"pokemon/p46.png","reqs":["Graveler"]},
-  {"name":"Golem","id":"76","obtainable":0,"location":"Evolve traded Graveler (Trade). Trade from Black, White, Diamond, Pearl, Platinum, HeartGold, SoulSilver, FireRed, LeafGreen, Ruby, Sapphire, Emerald","iconUrl":"pokemon/p46.png","reqs":[["Graveler","EvolveTrade"]]},
+  {"name":"Golem","id":"76","obtainable":0,"location":"Evolve traded Graveler (Trade). Trade from Black, White, Diamond, Pearl, Platinum, HeartGold, SoulSilver, FireRed, LeafGreen, Ruby, Sapphire, Emerald","iconUrl":"pokemon/p46.png","reqs":[["Graveler","EvolveTradeAnyGen"]]},
   {"name":"Ponyta","id":"77","obtainable":0,"location":"Trade from Diamond, Pearl, Platinum, HeartGold, SoulSilver, FireRed, LeafGreen. Breed Rapidash traded from Black, White, XD.","iconUrl":"pokemon/p77.png","reqs":["BW","DPPt","HS","FL","XD"]},
   {"name":"Rapidash","id":"78","obtainable":0,"location":"Trade from Black, White, Diamond, Pearl, Platinum, HeartGold, SoulSilver, FireRed, LeafGreen, XD","iconUrl":"pokemon/p77.png","reqs":["BW","DPPt","HS","FL", "XD"]},
   {"name":"Slowpoke","id":"79","obtainable":1,"location":"Abundant Shrine (Swarm)","iconUrl":"pokemon/p79.png"},
@@ -574,7 +467,7 @@
   {"name":"Cloyster","id":"91","obtainable":1,"location":"Route 13, Undella Town, Seaside Cave, Humilau City","iconUrl":"pokemon/p91.png"},
   {"name":"Gastly","id":"92","obtainable":0,"location":"Trade from White, Diamond, Pearl, Platinum, HeartGold, SoulSilver, FireRed, LeafGreen","iconUrl":"pokemon/p93.png","reqs":["DPPt", "HS","FL","White"]},
   {"name":"Haunter","id":"93","obtainable":0,"location":"Evolve traded Gastly (Level 25). Trade from White, Diamond, Pearl, Platinum, HeartGold, SoulSilver, FireRed, LeafGreen","iconUrl":"pokemon/p93.png","reqs":["DPPt", "HS","FL","White"]},
-  {"name":"Gengar","id":"94","obtainable":0,"location":"Evolve Haunter (Trade). Trade from Diamond, Pearl, Platinum with dual-slot any Gen III game.","iconUrl":"pokemon/p94.png","reqs":["EvolveTrade","DualLeafGreen","DualFireRed","DualRuby","DualSapphire","DualEmerald"]},
+  {"name":"Gengar","id":"94","obtainable":0,"location":"Evolve Haunter (Trade). Trade from Diamond, Pearl, Platinum with dual-slot any Gen III game.","iconUrl":"pokemon/p94.png","reqs":["EvolveTradeAnyGen","DualLeafGreen","DualFireRed","DualRuby","DualSapphire","DualEmerald"]},
   {"name":"Onix","id":"95","obtainable":1,"location":"Relic Passage, Twist Mountain, Clay Tunnel, Underground Ruins, Victory Road","iconUrl":"pokemon/p95.png"},
   {"name":"Drowzee","id":"96","obtainable":1,"location":"Breed Hypno","iconUrl":"pokemon/p96.png"},
   {"name":"Hypno","id":"97","obtainable":1,"location":"Dreamyard (Swarm)","iconUrl":"pokemon/p97.png"},
@@ -679,7 +572,7 @@
   {"name":"Espeon","id":"196","obtainable":1,"location":"Evolve Eevee (Happiness Daytime)","iconUrl":"pokemon/p196.png"},
   {"name":"Umbreon","id":"197","obtainable":1,"location":"Evolve Eevee (Happiness Nighttime)","iconUrl":"pokemon/p197.png"},
   {"name":"Murkrow","id":"198","obtainable":1,"location":"Pinwheel Forest","iconUrl":"pokemon/p198.png"},
-  {"name":"Slowking","id":"199","obtainable":0,"location":"Evolve Slowpoke (Trade with King's Rock)","iconUrl":"pokemon/p199.png","reqs":["EvolveTrade"]},
+  {"name":"Slowking","id":"199","obtainable":0,"location":"Evolve Slowpoke (Trade with King's Rock)","iconUrl":"pokemon/p199.png","reqs":["EvolveTradeAnyGen"]},
   {"name":"Misdreavus","id":"200","obtainable":0,"location":"Trade from White, LeafGreen, Colosseum, Pearl, HeartGold, SoulSilver","iconUrl":"pokemon/p200.png","reqs":["White","LeafGreen","Colosseum","Pearl","HS"]},
   {"name":"Unown","id":"201","obtainable":0,"location":"Trade from Diamond, Pearl, Platinum, HeartGold, SoulSilver, FireRed, LeafGreen","reqs":["DPPt","HS","FL"]},
   {"name":"Wobbuffet","id":"202","obtainable":1,"location":"Trade with Curtis or Yancy in Nimbasa City","iconUrl":"pokemon/p202.png"},
@@ -713,7 +606,7 @@
   {"name":"Kingdra","id":"230","obtainable":1,"location":"Route 17 and Route 18, P2 Laboratory","iconUrl":"pokemon/p230.png"},
   {"name":"Phanpy","id":"231","obtainable":2,"location":"Trade with Curtis in Nimbasa City (female player character only)","iconUrl":"pokemon/p231.png"},
   {"name":"Donphan","id":"232","obtainable":2,"location":"Evolve Phanpy (Level 25)","iconUrl":"pokemon/p232.png"},
-  {"name":"Porygon2","id":"233","obtainable":0,"location":"Evolve Porygon (Trade with Up-Grade)","iconUrl":"pokemon/p233.png","reqs":[["Porygon","EvolveTrade"]]},
+  {"name":"Porygon2","id":"233","obtainable":0,"location":"Evolve Porygon (Trade with Up-Grade)","iconUrl":"pokemon/p233.png","reqs":[["Porygon","EvolveTradeAnyGen"]]},
   {"name":"Stantler","id":"234","obtainable":0,"location":"Trade from Black, White, Pearl, Platinum, HeartGold, SoulSilver, Emerald, Colosseum","reqs":["BW","Pearl","Platinum","Emerald","Colosseum","HS"]},
   {"name":"Smeargle","id":"235","obtainable":0,"location":"Trade from Black, White, Diamond, Pearl, Platinum, HeartGold, SoulSilver, Emerald, Colosseum","reqs":["BW","Emerald","Colosseum","DPPt","HS"]},
   {"name":"Tyrogue","id":"236","obtainable":0,"location":"Trade from Black, White, Diamond, Pearl, Platinum, HeartGold, SoulSilver, FireRed, LeafGreen","reqs":["BW","DPPt","HS","FL"]},
@@ -848,7 +741,7 @@
   {"name":"Walrein","id":"365","obtainable":1,"location":"Undella Bay (Winter)","iconUrl":"pokemon/p365.png"},
   {"name":"Clamperl","id":"366","obtainable":1,"location":"Route 4","iconUrl":"pokemon/p366.png"},
   {"name":"Huntail","id":"367","obtainable":1,"location":"Route 4","iconUrl":"pokemon/p367.png"},
-  {"name":"Gorebyss","id":"368","obtainable":0,"location":"Evolve Clamperl (Trade with Deepseascale)","iconUrl":"pokemon/p368.png","reqs":["EvolveTrade"]},
+  {"name":"Gorebyss","id":"368","obtainable":0,"location":"Evolve Clamperl (Trade with Deepseascale)","iconUrl":"pokemon/p368.png","reqs":["EvolveTradeAnyGen"]},
   {"name":"Relicanth","id":"369","obtainable":1,"location":"Route 4","iconUrl":"pokemon/p369.png"},
   {"name":"Luvdisc","id":"370","obtainable":1,"location":"Route 13, Route 21, Seaside Cave, Undella Town, Humilau City","iconUrl":"pokemon/p370.png"},
   {"name":"Bagon","id":"371","obtainable":1,"location":"Pinwheel Forest","iconUrl":"pokemon/p371.png"},
@@ -923,7 +816,7 @@
   {"name":"Happiny","id":"440","obtainable":1,"location":"Hatch the Egg received from a trainer in Nacrene Gate","iconUrl":"pokemon/p440.png"},
   {"name":"Chatot","id":"441","obtainable":1,"location":"Route 18","iconUrl":"pokemon/p441.png"},
   {"name":"Spiritomb","id":"442","obtainable":1,"location":"Trade with Curtis or Yancy in Nimbasa City  Transfer from Dream Radar","iconUrl":"pokemon/p442.png"},
-  {"name":"Gible","id":"443","obtainable":1,"location":"Gift in Floccesy Town (Shiny)","iconUrl":"pokemon/p443.png"},
+  {"name":"Gible","id":"443","obtainable":1,"location":"Floccesy Town (Gift)","iconUrl":"pokemon/p443.png"},
   {"name":"Gabite","id":"444","obtainable":1,"location":"Evolve Gible (Level 24)","iconUrl":"pokemon/p444.png"},
   {"name":"Garchomp","id":"445","obtainable":1,"location":"Evolve Gabite (Level 48)","iconUrl":"pokemon/p445.png"},
   {"name":"Munchlax","id":"446","obtainable":1,"location":"Breed Snorlax holding a Full Incense","iconUrl":"pokemon/p446.png"},
@@ -944,20 +837,20 @@
   {"name":"Weavile","id":"461","obtainable":1,"location":"Evolve Sneasel (Level up holding Razor Claw during the night)","iconUrl":"pokemon/p461.png"},
   {"name":"Magnezone","id":"462","obtainable":1,"location":"P2 Laboratory","iconUrl":"pokemon/p462.png"},
   {"name":"Lickilicky","id":"463","obtainable":1,"location":"Route 2. Evolve Lickitung (Level up knowing Rollout learnable at level 33)","iconUrl":"pokemon/p463.png"},
-  {"name":"Rhyperior","id":"464","obtainable":0,"location":"Evolve Rhydon (Trade with Protector)","iconUrl":"pokemon/p464.png","reqs":["EvolveTrade4"]},
+  {"name":"Rhyperior","id":"464","obtainable":0,"location":"Evolve Rhydon (Trade with Protector)","iconUrl":"pokemon/p464.png","reqs":["EvolveTradeGen4OrMore"]},
   {"name":"Tangrowth","id":"465","obtainable":1,"location":"Route 13, Giant ChasmTrade Mantine in Humilau City","iconUrl":"pokemon/p465.png"},
   {"name":"Electivire","id":"466","obtainable":0,"location":"Evolve traded Electabuzz holding with Electirizer. Trade from Pokémon Battle Revolution (Code BA16-X4SH-E2AT).","iconUrl":"pokemon/p466.png","reqs":["Electivire"]},
-  {"name":"Magmortar","id":"467","obtainable":0,"location":"Evolve Magmar (Trade with Magmarizer). Trade from Pokémon Battle Revolution (Code B416-X4HT-VTWF)","iconUrl":"pokemon/p467.png","reqs":[["EvolveTrade4"],["PBR"]]},
+  {"name":"Magmortar","id":"467","obtainable":0,"location":"Evolve Magmar (Trade with Magmarizer). Trade from Pokémon Battle Revolution (Code B416-X4HT-VTWF)","iconUrl":"pokemon/p467.png","reqs":[["EvolveTradeGen4OrMore"],["PBR"]]},
   {"name":"Togekiss","id":"468","obtainable":1,"location":"Evolve Togetic (Shiny Stone)","iconUrl":"pokemon/p468.png"},
   {"name":"Yanmega","id":"469","obtainable":1,"location":"Route 3, Pinwheel Forest","iconUrl":"pokemon/p469.png"},
   {"name":"Leafeon","id":"470","obtainable":1,"location":"Evolve Eevee (Level up near Moss Rock in Pinwheel Forest)","iconUrl":"pokemon/p470.png"},
   {"name":"Glaceon","id":"471","obtainable":1,"location":"Evolve Eevee (Level up near Ice Rock on Twist Mountain)","iconUrl":"pokemon/p471.png"},
   {"name":"Gliscor","id":"472","obtainable":1,"location":"Route 11, Route 15, Route 23","iconUrl":"pokemon/p472.png"},
   {"name":"Mamoswine","id":"473","obtainable":1,"location":"Giant Chasm. Evolve Piloswine (Level up knowing Ancient Power learnable at level 1)","iconUrl":"pokemon/p473.png"},
-  {"name":"Porygon-Z","id":"474","obtainable":0,"location":"Evolve Porygon2 (Trade with Dubious Disc)","iconUrl":"pokemon/p474.png","reqs":[["Porygon","EvolveTrade4"]]},
+  {"name":"Porygon-Z","id":"474","obtainable":0,"location":"Evolve Porygon2 (Trade with Dubious Disc)","iconUrl":"pokemon/p474.png","reqs":[["Porygon","EvolveTradeGen4OrMore"]]},
   {"name":"Gallade","id":"475","obtainable":1,"location":"Evolve Kirlia Male (Dawn Stone)","iconUrl":"pokemon/p475.png"},
   {"name":"Probopass","id":"476","obtainable":1,"location":"Evolve Nosepass (Level up in Chargestone Cave)","iconUrl":"pokemon/p476.png"},
-  {"name":"Dusknoir","id":"477","obtainable":0,"location":"Evolve Dusclops (Trade with Reaper Cloth)","iconUrl":"pokemon/p477.png","reqs":[["Dusclops","EvolveTrade4"]]},
+  {"name":"Dusknoir","id":"477","obtainable":0,"location":"Evolve Dusclops (Trade with Reaper Cloth)","iconUrl":"pokemon/p477.png","reqs":[["Dusclops","EvolveTradeGen4OrMore"]]},
   {"name":"Froslass","id":"478","obtainable":0,"location":"Evolve traded Snorunt ♀ (Dawn Stone). Trade from Diamond, Pearl, Platinum, HeartGold, SoulSilver","reqs":["DPPt","HS"]},
   {"name":"Rotom","id":"479","obtainable":1,"location":"Trade Ditto on Route 15, Transfer from Dream Radar","iconUrl":"pokemon/p479.png"},
   {"name":"Uxie","id":"480","obtainable":1,"location":"Outside of Nacrene Museum","iconUrl":"pokemon/p480.png"},
@@ -1014,7 +907,7 @@
   {"name":"Audino","id":"531","obtainable":1,"location":"Route 1, Route 2, Route 3, Route 5, Route 6, Route 7, 9, 11, 12, 13, 14, 15, 16, 18, 20, 22, Route 23, Floccesy Ranch, Virbank Complex, Pinwheel Forest, Dreamyard, P2 Laboratory, Castelia City, Lostlorn Forest, Dragonspiral Tower, Village Bridge, Giant Chasm, Abundant Shrine, Victory Road, Reversal Mountain"},
   {"name":"Timburr","id":"532","obtainable":1,"location":"Relic Passage, Pinwheel Forest (outside) (requires Memory Link)"},
   {"name":"Gurdurr","id":"533","obtainable":1,"location":"Relic Passage, Twist Mountain, Pinwheel Forest, Victory Road"},
-  {"name":"Conkeldurr","id":"534","obtainable":0,"location":"Evolve Gurdurr (Trade)","reqs":["EvolveTrade5"]},
+  {"name":"Conkeldurr","id":"534","obtainable":0,"location":"Evolve Gurdurr (Trade)","reqs":["EvolveTradeGen5"]},
   {"name":"Tympole","id":"535","obtainable":1,"location":"Breed Palpitoad. Pinwheel Forest (outside) (requires Memory Link)"},
   {"name":"Palpitoad","id":"536","obtainable":1,"location":"Pinwheel Forest, Route 8, Icirrus City, Moor of Icirrus (Spring, Summer, Autumn)"},
   {"name":"Seismitoad","id":"537","obtainable":1,"location":"Route 8, Icirrus City, Moor of Icirrus, Pinwheel Forest. Evolve Palpitoad"},
@@ -1069,7 +962,7 @@
   {"name":"Sawsbuck","id":"586","obtainable":1,"location":"Dragonspiral Tower (outside)"},
   {"name":"Emolga","id":"587","obtainable":1,"location":"Route 5, Route 6, Route 7, Route 9, Route 11, Route 12, 13, 14, 15, 16, 22, Route 23, Dragonspiral Tower, Village Bridge, Abundant Shrine, Lostlorn Forest"},
   {"name":"Karrablast","id":"588","obtainable":1,"location":"Route 6, Route 11 Route 8, Icirrus City, Moor of Icirrus (Spring, Summer, Autumn)"},
-  {"name":"Escavalier","id":"589","obtainable":0,"location":"Evolve Karrablast (Trade with Shelmet)","reqs":["EvolveTrade5"]},
+  {"name":"Escavalier","id":"589","obtainable":0,"location":"Evolve Karrablast (Trade with Shelmet)","reqs":["EvolveTradeGen5"]},
   {"name":"Foongus","id":"590","obtainable":1,"location":"Route 6, Route 7, Route 5, Route 13 (Hidden Grotto)"},
   {"name":"Amoonguss","id":"591","obtainable":1,"location":"Route 11, Route 22, Route 23 Route 22, Abundant Shrine, Pinwheel Forest (Hidden Grotto)"},
   {"name":"Frillish","id":"592","obtainable":1,"location":"Route 4, Route 13, Route 17, Route 18, Route 21, Virbank City, Virbank Complex, Undella Town, Undella Bay, Seaside Cave, Humilau City, P2 Laboratory"},
@@ -1097,7 +990,7 @@
   {"name":"Beartic","id":"614","obtainable":1,"location":"Twist Mountain, Dragonspiral TowerWinter"},
   {"name":"Cryogonal","id":"615","obtainable":1,"location":"Twist Mountain"},
   {"name":"Shelmet","id":"616","obtainable":1,"location":"Route 6, Route 11 Route 8, Icirrus City, Moor of Icirrus (Spring, Summer, Autumn)"},
-  {"name":"Accelgor","id":"617","obtainable":0,"location":"Evolve Shelmet (Trade with Karrablast)","reqs":["EvolveTrade5"]},
+  {"name":"Accelgor","id":"617","obtainable":0,"location":"Evolve Shelmet (Trade with Karrablast)","reqs":["EvolveTradeGen5"]},
   {"name":"Stunfisk","id":"618","obtainable":1,"location":"Route 8, Icirrus City, Moor of Icirrus (Spring, Summer, Autumn)"},
   {"name":"Mienfoo","id":"619","obtainable":1,"location":"Route 14, Route 22, Route 23, Dragonspiral Tower (Winter), Route 22 (Hidden Grotto)"},
   {"name":"Mienshao","id":"620","obtainable":1,"location":"Route 23 (Dark grass only). Dragonspiral Tower"},
@@ -1176,22 +1069,22 @@
   {"name":"Wormadam - Plant Cloak","obtainable":0,"location":"Trade from Diamond, Pearl, Platinum, HearGold, SoulSilver","iconUrl":"pokemon/p413.png","reqs":["DPPt","HS"]},
   {"name":"Wormadam - Sandy Cloak","obtainable":0,"location":"Trade from Diamond, Pearl, Platinum, HearGold, SoulSilver","iconUrl":"pokemon/p413.png","reqs":["DPPt","HS"]},
   {"name":"Wormadam - Trash Cloak","obtainable":0,"location":"Trade from Diamond, Pearl, Platinum, HearGold, SoulSilver","iconUrl":"pokemon/p413.png","reqs":["DPPt","HS"]},
-  {"name":"Cherrim - Overcast","obtainable":0,"location":"Battle when not in sunny weather, with Cherrim traded from Black, White or evolved from Cherubi (Level 25) traded from Diamond, Pearl, Platinum, HeartGold, SoulSilver","iconUrl":"pokemon/p421.png"},
-  {"name":"Cherrim - Sunshine","obtainable":0,"location":"Battle in sunny weather, with Cherrim traded from Black, White or evolved from Cherubi (Level 25) traded from Diamond, Pearl, Platinum, HeartGold, SoulSilver","iconUrl":"pokemon/p421.png"},
-  {"name":"Shellos - West Sea","obtainable":2,"location":"Trade Yancy in Nimbasa City to obtain Shellos","iconUrl":"pokemon/p422.png"},
-  {"name":"Shellos - East Sea","obtainable":2,"location":"Trade Curtis in Nimbasa City to obtain Shellos","iconUrl":"pokemon/p422.png"},
-  {"name":"Gastrodon - West Sea","obtainable":2,"location":"Evolve Shellos obtained by in-game trade with Yancy (Level 30)","iconUrl":"pokemon/p423.png"},
-  {"name":"Gastrodon - East Sea","obtainable":2,"location":"Evolve Shellos obtained by in-game trade with Curtis (Level 30)","iconUrl":"pokemon/p423.png"},
-  {"name":"Rotom - Ghost","location":"Trade Ditto on Route 15","iconUrl":"pokemon/p479.png"},
+  {"name":"Cherrim - Overcast","obtainable":0,"location":"Battle when not in sunny weather, with Cherrim traded from Black, White or evolved from Cherubi (Level 25) traded from Diamond, Pearl, Platinum, HeartGold, SoulSilver","iconUrl":"pokemon/p421.png","reqs":["BW","DPPt","HS"]},
+  {"name":"Cherrim - Sunshine","obtainable":0,"location":"Battle in sunny weather, with Cherrim traded from Black, White or evolved from Cherubi (Level 25) traded from Diamond, Pearl, Platinum, HeartGold, SoulSilver","iconUrl":"pokemon/p421.png","reqs":["BW","DPPt","HS"]},
+  {"name":"Shellos - West Sea","obtainable":2,"location":"Nimbasa City (Trade with Yancy, male player character only)","iconUrl":"pokemon/p422.png"},
+  {"name":"Shellos - East Sea","obtainable":2,"location":"Nimbasa City (Trade with Curtis, female player character only)","iconUrl":"pokemon/p422.png"},
+  {"name":"Gastrodon - West Sea","obtainable":2,"location":"Evolve Shellos (Level 30) obtained by in-game trade with Yancy (male player character only)","iconUrl":"pokemon/p423.png"},
+  {"name":"Gastrodon - East Sea","obtainable":2,"location":"Evolve Shellos (Level 30) obtained by in-game trade with Curtis (female player character only)","iconUrl":"pokemon/p423.png"},
+  {"name":"Rotom - Ghost","location":"Route 15 (Trade Ditto)","iconUrl":"pokemon/p479.png"},
   {"name":"Rotom - Heat","location":"Shopping Mall Nine (Interact with oven)","iconUrl":"pokemon/p479.png"},
   {"name":"Rotom - Wash","location":"Shopping Mall Nine (Interact with washing machine)","iconUrl":"pokemon/p479.png"},
   {"name":"Rotom - Frost","location":"Shopping Mall Nine (Interact with refrigerator)","iconUrl":"pokemon/p479.png"},
   {"name":"Rotom - Fan","location":"Shopping Mall Nine (Interact with fan)","iconUrl":"pokemon/p479.png"},
   {"name":"Rotom - Mow","location":"Shopping Mall Nine (Interact with lawn mower)","iconUrl":"pokemon/p479.png"},
-  {"name":"Giratina - Altered","obtainable":0,"location":"Battle with Giratina without Griseous Orb, traded from Platinum","iconUrl":"pokemon/p487.png"},
-  {"name":"Giratina - Origin","obtainable":0,"location":"Battle with Giratina with Griseous Orb, traded from Platinum","iconUrl":"pokemon/p487.png"},
-  {"name":"Shaymin - Land","obtainable":0,"location":"Battle with Shaymin without using Gracidea, traded from Platinum event","iconUrl":"pokemon/p492.png"},
-  {"name":"Shaymin - Sky","obtainable":0,"location":"Battle with Shaymin after using Gracidea, traded from Platinum event","iconUrl":"pokemon/p492.png"},
+  {"name":"Giratina - Altered","obtainable":0,"location":"Battle with Giratina without Griseous Orb, traded from Diamond, Pearl, Platinum","iconUrl":"pokemon/p487.png","reqs":["DPPt"]},
+  {"name":"Giratina - Origin","obtainable":0,"location":"Battle with Giratina with Griseous Orb, traded from Diamond, Pearl, Platinum","iconUrl":"pokemon/p487.png","reqs":["DPPt"]},
+  {"name":"Shaymin - Land","obtainable":0,"location":"Battle with Shaymin without using Gracidea, traded from Diamond, Pearl, Platinum event","iconUrl":"pokemon/p492.png","reqs":["Shaymin"]},
+  {"name":"Shaymin - Sky","obtainable":0,"location":"Battle with Shaymin after using Gracidea, traded from Diamond, Pearl, Platinum event","iconUrl":"pokemon/p492.png","reqs":["Gracidea"]},
 
   {"name":"Basculin - Blue Stripe","location":"Route 1, Route 3, Route 6, Route 11, Route 13, Route 14, 19, 20, 22, Route 23, Aspertia City, Floccesy Ranch, Relic Passage, Clay Tunnel, Dragonspiral Tower, Striaton City, Wellspring Cave, Pinwheel Forest, Undella Town, Humilau City, Victory Road, Village Bridge, Giant Chasm, Abundant Shrine, Nature Preserve, Lostlorn Forest"},
   {"name":"Basculin - Red Stripe","location":"Route 1, Route 3, Route 6, Route 11, Route 13, Route 14, 19, 20, 22, Route 23, Aspertia City, Floccesy Ranch, Relic Passage, Clay Tunnel, Dragonspiral Tower, Striaton City, Wellspring Cave, Pinwheel Forest, Undella Town, Humilau City, Victory Road, Village Bridge, Giant Chasm, Abundant Shrine, Nature Preserve Lostlorn Forest"},
@@ -1205,14 +1098,14 @@
   {"name":"Sawsbuck - Summer","location":"Evolve Deerling - Summer (Level 34)"},
   {"name":"Sawsbuck - Autumn","location":"Evolve Deerling - Autumn (Level 34)"},
   {"name":"Sawsbuck - Winter","location":"Evolve Deerling - Winter (Level 34)"},
-  {"name":"Tornadus - Incarnate","obtainable":0,"location":"Transfer from Dream Radar"},
-  {"name":"Tornadus - Therian","obtainable":0,"location":"Use Reveal Glass on Tornadus"},
-  {"name":"Thundurus - Incarnate","obtainable":0,"location":"Transfer from Dream Radar"},
-  {"name":"Thundurus - Therian","obtainable":0,"location":"Use Reveal Glass on Tornadus"},
-  {"name":"Landorus - Incarnate","obtainable":0,"location":"Transfer from Dream Radar"},
-  {"name":"Landorus - Therian","obtainable":0,"location":"Use Reveal Glass on Tornadus"},
+  {"name":"Tornadus - Incarnate","obtainable":0,"location":"Trade from Black. Use Reveal Glass on Therian Tornadus","reqs":["Black","DreamRadar"]},
+  {"name":"Tornadus - Therian","obtainable":0,"location":"Transfer from Dream Radar","reqs":["DreamRadar"]},
+  {"name":"Thundurus - Incarnate","obtainable":0,"location":"Trade from White. Use Reveal Glass on Therian Thundurus","reqs":["White","DreamRadar"]},
+  {"name":"Thundurus - Therian","obtainable":0,"location":"Transfer from Dream Radar","reqs":["DreamRadar"]},
+  {"name":"Landorus - Incarnate","obtainable":0,"location":"Trade from Black or White (requires owning both Tornadus and Thundurus). Use Reveal Glass on Therian Landorus","reqs":[["Black","White"],["DreamRadar"]]},
+  {"name":"Landorus - Therian","obtainable":0,"location":"Transfer from Dream Radar","reqs":["DreamRadar"]},
   {"name":"Kyurem - Normal","location":"Giant Chasm"},
-  {"name":"Kyurem - White","obtainable":0,"location":"Use DNA Splicers on Kyurem to fuse with Reshiram"},
+  {"name":"Kyurem - White","obtainable":0,"location":"Use DNA Splicers on Kyurem to fuse with Reshiram","reqs":["Black","White2"]},
   {"name":"Kyurem - Black","location":"Use DNA Splicers on Kyurem to fuse with Zekrom"},
   {"name":"Keldeo - Ordinary","obtainable":0,"location":"Event"},
   {"name":"Keldeo - Resolute","obtainable":0,"location":"Keldeo when it learns the move Secret Sword"},
@@ -1587,9 +1480,9 @@
   {"id":"207","name":"Starf Berry","location":"From a Trainer on the Battle Subway platform after 203 consecutive victories.","iconUrl":"item/Starf_Berry.png"},
   {"id":"208","name":"Enigma Berry","location":"Unknown","obtainable":0,"iconUrl":"item/Enigma_Berry.png"},
   {"id":"209","name":"Micle Berry","location":"Unknown","obtainable":0,"iconUrl":"item/Micle_Berry.png"},
-  {"id":"210","name":"Custap Berry","location":"Unknown","obtainable":0,"iconUrl":"item/Custap_Berry.png"},
-  {"id":"211","name":"Jaboca Berry","location":"Unknown","obtainable":0,"iconUrl":"item/Jaboca_Berry.png"},
-  {"id":"212","name":"Rowap Berry","location":"Unknown","obtainable":0,"iconUrl":"item/Rowap_Berry.png"},
+  {"id":"210","name":"Custap Berry","location":"Held by event Mewtwo (Platinum)","obtainable":0,"iconUrl":"item/Custap_Berry.png"},
+  {"id":"211","name":"Jaboca Berry","location":"Held by event Celebi (Platinum)","obtainable":0,"iconUrl":"item/Jaboca_Berry.png","reqs":["JabocaBerry"]},
+  {"id":"212","name":"Rowap Berry","location":"Held by event Arceus (Platinum)","obtainable":0,"iconUrl":"item/Rowap_Berry.png","reqs":["RowapBerry"]},
   {"id":"213","name":"BrightPowder","location":"Route 4W2, Anville Town, Battle Subway/PWT (12 BP)","iconUrl":"item/Bright_Powder.png"},
   {"id":"214","name":"White Herb","location":"Battle Subway/PWT (16 BP)","iconUrl":"item/White_Herb.png"},
   {"id":"215","name":"Macho Brace","location":"Nimbasa City (eastern gate)","iconUrl":"item/Macho_Brace.png"},
@@ -2649,7 +2542,7 @@
  ]},
  {"id":"funfest","name":"Funfest","list":[
   {"name":"Black Entree Level 100","location":"Entralink"},
-  {"name":"White Entree Level 100", "obtainable":0,"location":"Participate in missions hosting by White 2 player"},
+  {"name":"White Entree Level 100", "obtainable":0,"location":"Participate in missions hosting by White or White 2 player"},
   {"name":"The First Berry Search!","location":"Entralink"},
   {"name":"Collect Berries!","location":"Entralink"},
   {"name":"Big Harvest of Berries!","location":"Entralink"},
@@ -2697,6 +2590,7 @@
   {"name":"Take a Walk with Eggs!","location":"Entralink"}
  ]},
  {"id":"misc","name":"Miscellaneous Task","list":[
+  {"name":"Registered a Geonet location","location":"Global Terminal","iconUrl":"decoration4/Globe.png"},
   {"name":"Black City Area 10"},
   {"name":"Battle Institute - Single - Rank Master"},
   {"name":"Battle Institute - Double - Rank Master"},
