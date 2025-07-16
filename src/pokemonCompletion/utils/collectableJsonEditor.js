@@ -23,7 +23,7 @@ setTimeout(async () => {
 }, 1);
 */
 
-if(true){
+if(false){
 setTimeout(async () => {
   await func(`C:\\Users\\Samuel\\source\\repos\\pokemoncompletion\\src\\pokemonCompletion\\data\\Black2.json`, (col, cat) => {
     if(cat === 'item'){
@@ -44,18 +44,17 @@ setTimeout(async () => {
 }, 1);
 }
 
-if(false){
+if(true){
 setTimeout(async () => {
   const plat = await readJson(`C:\\Users\\Samuel\\source\\repos\\pokemoncompletion\\src\\pokemonCompletion\\data\\Platinum.json`);
   await func(`C:\\Users\\Samuel\\source\\repos\\pokemoncompletion\\src\\pokemonCompletion\\data\\Black2.json`, (col, cat) => {
-    if(cat === 'pokemon'){
+    if(cat === 'ribbon'){
       const p = plat.categories.find(c => c.id == "pokemon").list.find(m => m.name === col.name);
       if (!p)
         return null;
 
-      if(col.location.match(/^Evolve \w+$/) 
-         && p.location.match(/^Evolve \w+/))
-        col.location = p.location;
+      col.location = p.location;
+      col.reqs = p.reqs;
       return col;
     }
 
