@@ -2,11 +2,22 @@
 
 {{> ../../common/header.hbs}}
 
+<style>
+  .mytable th, .mytable td {
+    border: 1px solid black;
+    text-align:center;
+  }
+  .mytable th, .mytable td:first-child {
+    text-align:left;
+    padding:3px;
+  }
+</style>
 <body class="darkTheme">
   <div id="nav-slot"></div>
 
   <div class="root-container">
     <h3>Foreign Pokédex Entries in Pokémon Platinum</h3>
+    <br>
     <h4>Objective</h4>
     <p>
       To fully complete the Pokémon Platinum Pokédex, players must obtain all Pokémon originating from an English, Japanese, French, Italian, German, and Spanish game.
@@ -42,7 +53,7 @@
         <ul>
           <li>AuroraTicket event from Emerald (except JP), FireRed or LeafGreen.</li>
           <li>or Deoxys and the Odd Temple event mission in Pokémon Rangers: Guardian Signs.</li>
-          <li>or other events</li>
+          <li>or other events (ex: Oblivia Normal Forme Deoxys in Diamond)</li>
         </ul>
       </li>
     </ul>
@@ -55,32 +66,66 @@
         <li>This covers all Pokémon except unbreedable ones: Articuno, Zapdos, Moltres, Mewtwo, Mew, Unown, Raikou, Entei, Suicune, Lugia, Ho-Oh, Celebi, Regirock, Regice, Registeel, Latias, Latios, Kyogre, Groudon, Rayquaza, Jirachi, Deoxys, Uxie, Mesprit, Azelf, Dialga, Palkia, Heatran, Regigigas, Giratina, Cresselia, Darkrai, Shaymin, Arceus.</li>
       </ul></li>
       <li>
-        For each language, play Emerald to get Regirock, Regice, Registeel, Latias, Rayquaza, Kyogre, and Groudon. Also get Deoxys from event.
+        Play Emerald in every language, to get Regirock, Regice, Registeel, Latios, Rayquaza, Kyogre, and Groudon.
       </li>
       <li>
-        For each language, play HeartGold to get Articuno, Zapdos, Moltres, Unown, Raikou, Entei, Suicune, Latios, Mewtwo, Ho-Oh, and Lugia.
+        Play HeartGold in every language, to get Articuno, Zapdos, Moltres, Mewtwo, Unown, Raikou, Entei, Suicune, Ho-Oh, Lugia, and Latias.
       </li>
       <li>
-        For each language, play Platinum to get Uxie, Mesprit, Azelf, Dialga, Palkia, Heatran, Giratina, Cresselia, Regigigas. Also get Darkrai, Shaymin, Arceus from event. For all languages except Japanese, also get Celebi from event.
+        Play Platinum in every language, to get Uxie, Mesprit, Azelf, Dialga, Palkia, Heatran, Giratina, Cresselia, Regigigas. Also get Deoxys, Darkrai, Shaymin, Arceus from event. For all languages except Japanese, also get Celebi from event.
       </li>
       <li>
-        Get Celebi from Pokémon Colosseum and Pokémon Colosseum Bonus Disc JP.
+        Play Japanese Pokémon Colosseum and Pokémon Colosseum Bonus Disc JP to get Japanese Celebi.
       </li>
       <li>
-        For each language, play Diamond until being able to trade. Use Diamond to connect to My Pokémon Ranch to obtain Mew.
+        Play Diamond in every language, until being able to trade. Connect to My Pokémon Ranch to obtain Mew. Get Japanese Jirachi from event.
       </li>
       <li>
-        For all languages except Japanese, get Jirachi from Pokémon Channel.
-      </li>
-      <li>
-        Get Jirachi from Japanese event.
+        Play Pokémon Channel in every language except Japanese, to get Jirachi.
       </li>
       <li>
         <span style="font-weight:bold">Total playthroughs:</span> x6 Emerald, x6 HeartGold, x6 Platinum, x1 Pokémon Colosseum, x5 Pokémon Channel.
       </li>
     </ul>
     <br>
-
+    <table class="mytable">
+      <tr><th>↓ Pokémon \ Language →</th><th>English</th><th>Japanese</th><th>French</th><th>Italian</th><th>German</th><th>Spanish</th></tr>
+      <tr><td>Articuno</td><td>HG</td><td>HG</td><td>HG</td><td>HG</td><td>HG</td><td>HG</td></tr>
+      <tr><td>Zapdos</td><td>HG</td><td>HG</td><td>HG</td><td>HG</td><td>HG</td><td>HG</td></tr>
+      <tr><td>Moltres</td><td>HG</td><td>HG</td><td>HG</td><td>HG</td><td>HG</td><td>HG</td></tr>
+      <tr><td>Mewtwo</td><td>HG</td><td>HG</td><td>HG</td><td>HG</td><td>HG</td><td>HG</td></tr>
+      <tr><td>Mew</td><td>Ranch</td><td>Ranch</td><td>Ranch</td><td>Ranch</td><td>Ranch</td><td>Ranch</td></tr>
+      <tr><td>Unown</td><td>HG</td><td>HG</td><td>HG</td><td>HG</td><td>HG</td><td>HG</td></tr>
+      <tr><td>Raikou</td><td>HG</td><td>HG</td><td>HG</td><td>HG</td><td>HG</td><td>HG</td></tr>
+      <tr><td>Entei</td><td>HG</td><td>HG</td><td>HG</td><td>HG</td><td>HG</td><td>HG</td></tr>
+      <tr><td>Suicune</td><td>HG</td><td>HG</td><td>HG</td><td>HG</td><td>HG</td><td>HG</td></tr>
+      <tr><td>Lugia</td><td>HG</td><td>HG</td><td>HG</td><td>HG</td><td>HG</td><td>HG</td></tr>
+      <tr><td>Ho-Oh</td><td>HG</td><td>HG</td><td>HG</td><td>HG</td><td>HG</td><td>HG</td></tr>
+      <tr><td>Celebi</td><td>Pt Event</td><td>Colosseum</td><td>Pt Event</td><td>Pt Event</td><td>Pt Event</td><td>Pt Event</td></tr>
+      <tr><td>Regirock</td><td>E</td><td>E</td><td>E</td><td>E</td><td>E</td><td>E</td></tr>
+      <tr><td>Regice</td><td>E</td><td>E</td><td>E</td><td>E</td><td>E</td><td>E</td></tr>
+      <tr><td>Registeel</td><td>E</td><td>E</td><td>E</td><td>E</td><td>E</td><td>E</td></tr>
+      <tr><td>Latias</td><td>HG</td><td>HG</td><td>HG</td><td>HG</td><td>HG</td><td>HG</td></tr>
+      <tr><td>Latios</td><td>E</td><td>E</td><td>E</td><td>E</td><td>E</td><td>E</td></tr>
+      <tr><td>Kyogre</td><td>E</td><td>E</td><td>E</td><td>E</td><td>E</td><td>E</td></tr>
+      <tr><td>Groudon</td><td>E</td><td>E</td><td>E</td><td>E</td><td>E</td><td>E</td></tr>
+      <tr><td>Rayquaza</td><td>E</td><td>E</td><td>E</td><td>E</td><td>E</td><td>E</td></tr>
+      <tr><td>Jirachi</td><td>Channel</td><td>D Event</td><td>Channel</td><td>Channel</td><td>Channel</td><td>Channel</td></tr>
+      <tr><td>Deoxys</td><td>Pt Event</td><td>Pt Event</td><td>Pt Event</td><td>Pt Event</td><td>Pt Event</td><td>Pt Event</td></tr>
+      <tr><td>Uxie</td><td>Pt</td><td>Pt</td><td>Pt</td><td>Pt</td><td>Pt</td><td>Pt</td></tr>
+      <tr><td>Mesprit</td><td>Pt</td><td>Pt</td><td>Pt</td><td>Pt</td><td>Pt</td><td>Pt</td></tr>
+      <tr><td>Azelf</td><td>Pt</td><td>Pt</td><td>Pt</td><td>Pt</td><td>Pt</td><td>Pt</td></tr>
+      <tr><td>Dialga</td><td>Pt</td><td>Pt</td><td>Pt</td><td>Pt</td><td>Pt</td><td>Pt</td></tr>
+      <tr><td>Palkia</td><td>Pt</td><td>Pt</td><td>Pt</td><td>Pt</td><td>Pt</td><td>Pt</td></tr>
+      <tr><td>Heatran</td><td>Pt</td><td>Pt</td><td>Pt</td><td>Pt</td><td>Pt</td><td>Pt</td></tr>
+      <tr><td>Regigigas</td><td>Pt</td><td>Pt</td><td>Pt</td><td>Pt</td><td>Pt</td><td>Pt</td></tr>
+      <tr><td>Giratina</td><td>Pt</td><td>Pt</td><td>Pt</td><td>Pt</td><td>Pt</td><td>Pt</td></tr>
+      <tr><td>Cresselia</td><td>Pt</td><td>Pt</td><td>Pt</td><td>Pt</td><td>Pt</td><td>Pt</td></tr>
+      <tr><td>Darkrai</td><td>Pt Event</td><td>Pt Event</td><td>Pt Event</td><td>Pt Event</td><td>Pt Event</td><td>Pt Event</td></tr>
+      <tr><td>Shaymin</td><td>Pt Event</td><td>Pt Event</td><td>Pt Event</td><td>Pt Event</td><td>Pt Event</td><td>Pt Event</td></tr>
+      <tr><td>Arceus</td><td>Pt Event</td><td>Pt Event</td><td>Pt Event</td><td>Pt Event</td><td>Pt Event</td><td>Pt Event</td></tr>
+    </table>
+    
 
     <br>
     <h4>Korean Platinum</h4>
@@ -90,7 +135,7 @@
         <li>Korean DS games can't trade with Non-Korean DS games.</li>
         <li>Korean DS games can trade with GBA games of any language.</li>
         <li>It is possible to obtain all Pokédex entries in all languages because DS events were also released in Korea.</li>
-        <li>Korean Mew can't be obtained from My Pokémon Ranch, because My Pokémon Ranch doesn't exist in Korean. An event if required.</li>
+        <li>Korean Mew can't be obtained from My Pokémon Ranch, because My Pokémon Ranch doesn't exist in Korean. An event to obtain Korean Mew is required.</li>
       </ul>
     </div>
 

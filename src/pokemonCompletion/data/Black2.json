@@ -222,6 +222,8 @@
   {"id":"Darkrai", "formula":[["$Darkrai_BW_Event", "BW"]],"notes":"exist events in other games too"},
 
   ["Keldeo","$Keldeo_B2_Event"],
+  ["Meloetta","$Meloetta_B2_Event"],
+  ["Genesect","$Genesect_B2_Event"],
 
   ["Gracidea","Shaymin"],
   ["MicleBerry","$ShayminMicle_DP_Event"],
@@ -271,6 +273,7 @@
     
     ["$Darkrai_BW_Event","$EventTool"],
     ["$Keldeo_B2_Event","$EventTool"],
+    ["$Meloetta_B2_Event","$EventTool"],
     ["$CelebiJaboca_Event","$EventTool"],
 
 
@@ -617,7 +620,7 @@
   {"name":"Miltank","id":"241","obtainable":0,"location":"Trade from Diamond, Pearl, Platinum, HeartGold, SoulSilver, Emerald, Colosseum","reqs":["Emerald","Colosseum","DPPt","HS"]},
   {"name":"Blissey","id":"242","obtainable":1,"location":"Evolve Chansey (Friendship)","iconUrl":"pokemon/p242.png"},
   {"name":"Raikou","id":"243","obtainable":0,"location":"Trade from FireRed, LeafGreen, Colosseum, HeartGold, SoulSilver","iconUrl":"pokemon/p243.png","reqs":["FL","Colosseum","HS"]},
-  {"name":"Entei","id":"244","obtainable":0,"location":"Trade from FireRed, LeafGreen, Colosseum, HeartGold, SoulSilver","iconUrl":"pokemon/p244.png","reqs":["FL","Colosseum","HS"]},
+{"name":"Entei","id":"244","obtainable":0,"location":"Trade from FireRed, LeafGreen, Colosseum, HeartGold, SoulSilver","iconUrl":"pokemon/p244.png","reqs":["FL","Colosseum","HS"]},
   {"name":"Suicune","id":"245","obtainable":0,"location":"Trade from FireRed, LeafGreen, Colosseum, HeartGold, SoulSilver","iconUrl":"pokemon/p245.png","reqs":["FL","Colosseum","HS"]},
   {"name":"Larvitar","id":"246","obtainable":1,"location":"Breed Pupitar or Tyranitar","iconUrl":"pokemon/p246.png"},
   {"name":"Pupitar","id":"247","obtainable":1,"location":"Route 15","iconUrl":"pokemon/p247.png"},
@@ -1021,8 +1024,8 @@
   {"name":"Landorus","id":"645","obtainable":0,"location":"Trade from Black, White (requires owning Tornadus and Thundurus). Transfer from Dream Radar","reqs":[["Black","White"],["DreamRadar"]]},
   {"name":"Kyurem","id":"646","obtainable":1,"location":"Giant Chasm"},
   {"name":"Keldeo","id":"647","obtainable":0,"location":"Event (ex: Winter 2013 Keldeo)","reqs":["Keldeo"]},
-  {"name":"Meloetta","id":"648","obtainable":0,"location":"Event"},
-  {"name":"Genesect","id":"649","obtainable":0,"location":"Event"}
+  {"name":"Meloetta","id":"648","obtainable":0,"location":"Event (ex: Spring 2013 Meloetta)", "reqs":["Meloetta"]},
+  {"name":"Genesect","id":"649","obtainable":0,"location":"Event (ex: Plasma Genesect)","reqs":["Genesect"]}
  ]},
  {"id":"pokemonForm","name":"Pokémon Form","conflicts":[
   [["Shellos - West Sea","Gastrodon - West Sea"], ["Shellos - East Sea","Gastrodon - East Sea"]]
@@ -1108,11 +1111,13 @@
   {"name":"Kyurem - White","obtainable":0,"location":"Use DNA Splicers on Kyurem to fuse with Reshiram","reqs":["Black","White2"]},
   {"name":"Kyurem - Black","location":"Use DNA Splicers on Kyurem to fuse with Zekrom"},
   {"name":"Keldeo - Ordinary","obtainable":0,"location":"Event (ex: Winter 2013 Keldeo)","reqs":["Keldeo"]},
-  {"name":"Keldeo - Resolute","obtainable":0,"location":"Keldeo when it learns the move Secret Sword","reqs":["Keldeo"]},
-  {"name":"Meloetta - Aria","obtainable":0,"location":"Event"},
-  {"name":"Meloetta - Pirouette","obtainable":0,"location":"Using the move Relic Song in battle"},
-  {"name":"Male & Female Form for All Pokémon","obtainable":0,"location":"Various"},
-  {"name":"Shiny Male & Female Form for All Pokémon", "obtainable":0,"location":"Various"}
+  {"name":"Keldeo - Resolute","obtainable":0,"location":"Keldeo when it learns the move Secret Sword in Pledge Grove","reqs":["Keldeo"]},
+  {"name":"Meloetta - Aria","obtainable":0,"location":"Event (ex: Spring 2013 Meloetta)","reqs":["Meloetta"]},
+  {"name":"Meloetta - Pirouette","obtainable":0,"location":"Using the move Relic Song in battle, learned in Café Sonata in Castelia City","reqs":["Meloetta"]},
+  {"name":"Male & Female Form for All Pokémon","obtainable":0,"location":"See the Male and Female forms of all Pokémon with gender."},
+  {"name":"Shiny Male & Female Form for All Pokémon", "obtainable":0,"location":"See the shiny forms of all Pokémon in its gender forms."},
+  {"name":"All Foreign Pokédex Entries","href":"","location":"Obtain the first 493 Pokémon originating from an English, Japanese, French, Italian, German, Spanish, Korean game.","reqs":[["ForeignDexEntries"]]}
+
  ]},
  {"id":"inGameTrade","name":"In-Game Trade","url":"https://bulbapedia.bulbagarden.net/wiki/In-game_trade",
  "conflicts":[
@@ -1386,10 +1391,10 @@
   {"id":"113","name":"unknown1","obtainable":-1},
   {"id":"114","name":"unknown2","obtainable":-1},
   {"id":"115","name":"unknown3","obtainable":-1},
-  {"id":"116","name":"Douse Drive","location":"P2 Laboratory (show Genesect in White 2)","obtainable":0},
-  {"id":"117","name":"Shock Drive","location":"P2 Laboratory (show Genesect)","obtainable":0},
-  {"id":"118","name":"Burn Drive","location":"P2 Laboratory (show Genesect)","obtainable":0},
-  {"id":"119","name":"Chill Drive","location":"P2 Laboratory (show Genesect in White 2)","obtainable":0},
+  {"id":"116","name":"Douse Drive","location":"P2 Laboratory (show Genesect in White 2)","obtainable":0,"reqs":[["Genesect","White2"]]},
+  {"id":"117","name":"Shock Drive","location":"P2 Laboratory (show Genesect)","obtainable":0,"reqs":["Genesect"]},
+  {"id":"118","name":"Burn Drive","location":"P2 Laboratory (show Genesect)","obtainable":0,"reqs":["Genesect"]},
+  {"id":"119","name":"Chill Drive","location":"P2 Laboratory (show Genesect in White 2)","obtainable":0,"reqs":[["Genesect","White2"]]},
   {"id":"120","name":"unknown4","obtainable":-1},
   {"id":"121","name":"unknown5","obtainable":-1},
   {"id":"122","name":"unknown6","obtainable":-1},

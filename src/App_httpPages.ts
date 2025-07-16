@@ -113,12 +113,21 @@ export class App_httpPages {
       });
     });
 
-    app.get('/completion/Platinum/ForeignPokédexEntries',function(req,res){
+    app.get('/completion/Platinum/ForeignPokedexEntries',function(req,res){
       const filePath = app.appConfig.absolutePathFromCwd('/compiled/pokemonCompletion/research/Platinum_ForeignEntries.html');
       app.render2(res, filePath, {
         location:'pokemonCompletion',
         title: `Pokémon Platinum - Foreign Pokédex Entries advices`,
         description:`Advices for obtaining all Platinum Foreign Pokédex entries`,
+      });
+    });
+
+    app.get('/completion/Black2/ForeignPokedexEntries',function(req,res){
+      const filePath = app.appConfig.absolutePathFromCwd('/compiled/pokemonCompletion/research/Black2_ForeignEntries.html');
+      app.render2(res, filePath, {
+        location:'pokemonCompletion',
+        title: `Pokémon Black 2 - Foreign Pokédex Entries advices`,
+        description:`Advices for obtaining all Black 2 Foreign Pokédex entries`,
       });
     });
 

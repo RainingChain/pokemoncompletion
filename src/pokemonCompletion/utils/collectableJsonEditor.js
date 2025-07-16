@@ -25,6 +25,26 @@ setTimeout(async () => {
 
 if(true){
 setTimeout(async () => {
+  await func(`C:\\Users\\Samuel\\source\\repos\\pokemoncompletion\\src\\pokemonCompletion\\data\\Black2.json`, (col, cat) => {
+    if(cat === 'pokemon'){
+      col.iconUrl = `pokemon/p${col.id}.png`;
+      return col;
+    }
+
+    /*const em = plat.categories.find(c => c.id === cat);
+    if(!em)
+      return null;
+
+    const emel = em.list.find(a => a.name === col.name);
+    if(emel && emel.iconUrl)
+      col.iconUrl = emel.iconUrl;
+    return col;*/
+  });
+}, 1);
+}
+
+if(false){
+setTimeout(async () => {
   const plat = await readJson(`C:\\Users\\Samuel\\source\\repos\\pokemoncompletion\\src\\pokemonCompletion\\data\\Platinum.json`);
   await func(`C:\\Users\\Samuel\\source\\repos\\pokemoncompletion\\src\\pokemonCompletion\\data\\Black2.json`, (col, cat) => {
     if(cat === 'pokemon'){

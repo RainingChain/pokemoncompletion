@@ -260,6 +260,7 @@ export default async function(env){
     await nongameConfigProd('VersionCompatibility_Gen3',{pathExtra:'pokemonCompletion/research',useDefaultEntry:true}),
     await nongameConfigProd('VersionCompatibility_Gen4',{pathExtra:'pokemonCompletion/research',useDefaultEntry:true}),
     await nongameConfigProd('Platinum_ForeignEntries',{pathExtra:'pokemonCompletion/research',useDefaultEntry:true}),
+    await nongameConfigProd('Black2_ForeignEntries',{pathExtra:'pokemonCompletion/research',useDefaultEntry:true}),
     await nongameConfigProd('shuffleMod',{pathExtra:'pokemonCompletion/ShuffleMod'}),
     await nongameConfigProd('notFound404'),
     await nongameConfigProd('pokemonCompletion',{useChunk:true}),
