@@ -26,8 +26,9 @@ setTimeout(async () => {
 if(true){
 setTimeout(async () => {
   await func(`C:\\Users\\Samuel\\source\\repos\\pokemoncompletion\\src\\pokemonCompletion\\data\\Black2.json`, (col, cat) => {
-    if(cat === 'pokemon'){
-      col.iconUrl = `pokemon/p${col.id}.png`;
+    if(cat === 'item'){
+      if(!col.id)
+        col.iconUrl = `pokemon/p${col.id}.png`;
       return col;
     }
 
