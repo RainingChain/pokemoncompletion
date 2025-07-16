@@ -49,7 +49,7 @@ setTimeout(async () => {
   const plat = await readJson(`C:\\Users\\Samuel\\source\\repos\\pokemoncompletion\\src\\pokemonCompletion\\data\\Platinum.json`);
   await func(`C:\\Users\\Samuel\\source\\repos\\pokemoncompletion\\src\\pokemonCompletion\\data\\Black2.json`, (col, cat) => {
     if(cat === 'ribbon'){
-      const p = plat.categories.find(c => c.id == "pokemon").list.find(m => m.name === col.name);
+      const p = plat.categories.find(c => c.id == "ribbon").list.find(m => m.name === col.name);
       if (!p)
         return null;
 
