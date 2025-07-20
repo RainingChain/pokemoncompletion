@@ -18,7 +18,7 @@ Alt + Shift + Click => reset
 
 const MAP_LINK_ICON = 'misc/teleport.png';
 
-const USE_LOCAL_IMG = false; //window.location.href.includes('localhost');
+const USE_LOCAL_IMG = window.location.href.includes('localhost');
 const ICON_SIZE = 24; //hardcoded in .css
 
 type LeafletEvent = {latlng:{lat:number,lng:number},originalEvent:MouseEvent};
