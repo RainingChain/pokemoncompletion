@@ -2,11 +2,12 @@
 To deply on production server:
     cd C:\Users\Samuel\source\repos\pokemoncompletion
     npm run compil-prod
-    node C:\Users\Samuel\source\repos\pokemoncompletion\deploy_heroku.js
+    ./deploy_heroku.js
     cd ../pokemoncompletion-heroku
     git add .
     git commit -m "."
     git push heroku master
+    cd ../pokemoncompletion
 */
 
 import fs from "fs/promises";

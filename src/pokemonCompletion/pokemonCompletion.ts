@@ -464,12 +464,6 @@ class Vue_pokemonCompletion_methods extends Vue_pokemonCompletion_req_methods {
       if(!this.playingWith)
         this.playingWith = this.waresByType[0]?.type || '';
     } catch(err){}
-
-    if(this.mustHideEmulator() && this.playingWith.includes('emulator') && this.waresByType.length > 1)
-      this.playingWith = this.waresByType.find(t => !t.type.includes('emulator'))?.type || '';
-  }
-  mustHideEmulator = function(this:Vue_pokemonCompletion_full){
-    return window.location.href.includes('reddit');
   }
   getBackgroundColor = function(this:Vue_pokemonCompletion_full, c:Collectable){
     const obt = c.obtainable;

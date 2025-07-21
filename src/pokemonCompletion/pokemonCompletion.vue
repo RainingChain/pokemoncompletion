@@ -25,7 +25,7 @@
       {{displayPlayingWith ? '▼' : '▶'}} Playing with:
     </h5>
     <div @click="displayPlayingWith = true">
-      <label class="clickable" v-for="w in waresByType" style="margin-left:10px" v-if="mustHideEmulator() && w.type.includes('emulator') ? false : true">
+      <label class="clickable" v-for="w in waresByType" style="margin-left:10px">
         <input type="radio" :value="w.type" v-model="playingWith"  @change="onOwnedWaresChanged()"> {{w.name}}
       </label>
       <div style="margin-left:20px;padding-top:5px;opacity:0.5;" v-if="!displayPlayingWith">
@@ -140,7 +140,7 @@
     <div v-show="guide.length !== 0">
       <h6>Walkthrough:</h6>
       <ul>
-        <li v-for="(a,i) in guide" :key="i" v-if="mustHideEmulator ? !a.html.toLowerCase().includes('emulator') : true" v-html="a.html" :style="{marginLeft:a.indented ? '20px':'' }"></li>
+        <li v-for="(a,i) in guide" :key="i" v-html="a.html" :style="{marginLeft:a.indented ? '20px':'' }"></li>
       </ul>
     </div>
   </div>

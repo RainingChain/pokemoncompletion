@@ -3,6 +3,8 @@ import externalLinkIcon from "./externalLinkIcon.svg";
 import { getIconData } from "./icons/pokemonIcon";
 import type { PkInteractiveMap, PkInteractiveMapInput } from "./map/pokemonMap";
 
+const DEFAULT_TO_CONSOLE = window.location.href.includes('reddit');
+
 export const getGameDataInput = async function(){
   const game = window.location.pathname.toLowerCase();
 
@@ -792,7 +794,9 @@ export class GameData {
       this.createWaresByType(game);
       this.playingWith = this.waresByType[0]?.type || '';
 
-      if(this.mustHideEmulator() && this.playingWith.includes('emulator') && this.waresByType.length > 1)
+      if (DEFAULT_TO_CONSOLE && 
+          this.playingWith.includes('emulator') && 
+          this.waresByType.length > 1)
         this.playingWith = this.waresByType.find(t => !t.type.includes('emulator'))?.type || '';
     }
 
@@ -845,9 +849,6 @@ export class GameData {
     }, 0);
   }
 
-  mustHideEmulator(){
-    return window.location.href.includes('reddit');
-  }
   createWaresByType(game:GameDataInput){
     game.waresByType?.forEach(s => {
       const types = typeof s.type === 'string' ? [s.type] : s.type;
