@@ -37,8 +37,7 @@ const mapSetOrPush = function<T,U>(map:Map<T,U[]>, key:T, val:U){
 export class PkInteractiveMapInput {
   url = ``;
   dim = {w:16384,h:8192};
-  maxZoom = 5;
-  digitalZoom = 1;
+  digitalZoom = 1; // only value = 1 is supported. to support > 1, we need to adapt getTileUrl and tileloadstart
   mapZoomIconScaleModifier = 0;
   initialPos = {zoom:1, pos:[0,0]};
   cropSize = 512;

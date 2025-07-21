@@ -1,16 +1,20 @@
 /*
-node C:\Users\Samuel\source\repos\pokemoncompletion\deploy_heroku.js
-cd ../pokemoncompletion-heroku
-git add .
-git commit -m "."
-git push heroku master
+To deply on production server:
+    cd C:\Users\Samuel\source\repos\pokemoncompletion
+    npm run compil-prod
+    node C:\Users\Samuel\source\repos\pokemoncompletion\deploy_heroku.js
+    cd ../pokemoncompletion-heroku
+    git add .
+    git commit -m "."
+    git push heroku master
 */
 
 import fs from "fs/promises";
 
 const DONT_COPY = ['.git','node_modules'];
 
-(async () => {c
+(async () => {
+    await fs.rm('../pokemoncompletion-heroku/dist', {recursive:true, force:true});
     const files = await fs.readdir('./');
 
     await Promise.all(files.map(async file => {

@@ -43,7 +43,7 @@ export const createOverlay = function (config: Config) {
 
   const tileLayerFallback = L.TileLayer.extend({
     getTileUrl: function (coords: { x: number; y: number; z: number }) {
-      if (coords.z === maxZoom) 
+      if (config.digitalZoom !== 0 && coords.z === maxZoom) 
         return emptyImageUrl;
 
       return L.TileLayer.prototype.getTileUrl.apply(this, [coords]);

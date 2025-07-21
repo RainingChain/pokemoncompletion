@@ -5,7 +5,6 @@
 "additionalCredits":"Valentino. <a target='_blank' rel='noopener' href='https://github.com/pret/pokeemerald/'>pokeemerald</a> decompil project. FabioAttard for <a target='_blank' rel='noopener' href='https://github.com/fattard/FlagsEditorEXPlugin'>event flag research</a>. <a target='_blank' rel='noopener' href='https://www.jaxsonkeenes.com/'>Jaxson Keenes</a> for map image and icon placement.",
 "displayIcons":true,
 "interactiveMap":{
-  "maxZoom":4,
   "digitalZoom":1,
   "url":"https://pokemonmap.b-cdn.net/emerald/{z}_{x}_{y}.png?v=1",
   "fullImgUrl":"https://pokemonmap.b-cdn.net/emerald/full.png",

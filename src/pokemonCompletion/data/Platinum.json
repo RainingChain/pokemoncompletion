@@ -71,7 +71,6 @@
   ]
 },
 "interactiveMap":{
-  "maxZoom":4,
   "digitalZoom":1,
   "url":"https://pokemonmap.b-cdn.net/platinum/{z}_{x}_{y}.png?v=1",
   "fullImgUrl":"https://pokemonmap.b-cdn.net/platinum/full.png",

@@ -285,6 +285,7 @@ export default async function(env){
 
     return pack;
   });
+  console.log(deleteDist);
   if(deleteDist === 'true')
     await fs.rm(path.resolve(__dirname, 'dist'), {recursive:true, force:true});
   return packs;
