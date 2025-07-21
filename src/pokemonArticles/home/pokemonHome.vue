@@ -76,14 +76,16 @@
 <div v-if="loc === 'home'">
   <h3>Changelog</h3>
   <ul>
+    <li>2025-07-21: Fixed a bug causing the interactive maps to be blurry.</li>
+    <li>2025-07-21: <a href="/completion/black2">Black 2 100% Checklist page</a> now considers interaction with other games. It's still a WIP.</li>
     <li>2025-07-06: The website is now hosted on pokemoncompletion.com.</li>
-    <li>2025-06-30: <a href="/articles/GamePreservation">Pokémon Game Preservation</a></li>
-    <li>2025-06-25: <a href="/completion/shuffle/dlc">Pokémon Shuffle Special Stages DLC</a></li>
-    <li>2025-06-20: <a href="/completion/shuffle">Pokémon Shuffle 100% Completion Checklist</a></li>
-    <li>2025-03-30: <a href="/BattleFacilities/Emerald/Guide">Pokémon Emerald 100% Completion Guide</a></li>
-    <li>2025-03-30: <a href="/BattleFacilities/Emerald/Guide/RNG">Pokémon Emerald 100% Completion RNG Manipulation Guide</a></li>
-    <li>2025-03-23: <a href="/BattleFacilities/Platinum/RngManipulation">Pokémon Platinum RNG Manipulation tool</a></li>
-    <li>2025-03-23: <a href="/articles/Platinum_Battle_Tower_RNG_Manipulation">Pokémon Platinum RNG Manipulation article</a></li>
+    <li>2025-06-30: Added <a href="/articles/GamePreservation">Pokémon Game Preservation</a></li>
+    <li>2025-06-25: Added <a href="/completion/shuffle/dlc">Pokémon Shuffle Special Stages DLC</a></li>
+    <li>2025-06-20: Added <a href="/completion/shuffle">Pokémon Shuffle 100% Completion Checklist</a></li>
+    <li>2025-03-30: Added <a href="/BattleFacilities/Emerald/Guide">Pokémon Emerald 100% Completion Guide</a></li>
+    <li>2025-03-30: Added <a href="/BattleFacilities/Emerald/Guide/RNG">Pokémon Emerald 100% Completion RNG Manipulation Guide</a></li>
+    <li>2025-03-23: Added <a href="/BattleFacilities/Platinum/RngManipulation">Pokémon Platinum RNG Manipulation tool</a></li>
+    <li>2025-03-23: Added <a href="/articles/Platinum_Battle_Tower_RNG_Manipulation">Pokémon Platinum RNG Manipulation article</a></li>
     <li>2025-03-19: New Pokémon website structure</li>
   </ul>
 </div>

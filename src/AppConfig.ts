@@ -14,9 +14,6 @@ export class AppConfig {
   ROOT:string = path.join(this.CWD, '..');
   ON_PRODUCTION_SERVER = !!process.env.HEROKU_APP_ID;
 
-  constructor(){
-    console.log(this.CWD, this.ROOT);
-  }
   absolutePathFromCwd(...seg:string[]){
     return <FileServerPath>path.join(this.ROOT, 'dist', ...seg);
   }

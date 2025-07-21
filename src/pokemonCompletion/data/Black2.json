@@ -3,6 +3,7 @@
 "id":"Black2",
 "iconUrl":"pokemon/p644.png",
 "displayIcons":true,
+"wip":"Finish requirements. Add console wares. Create event simulator and progress importer. Add interactive map. Improve the guide.",
 "advices":[
   "The hardest element is the Starf Berry which requires 203 consecutive Battle Subway wins. Check <a href=\"https://github.com/RainingChain/PokemonB2W2BattleSubwayRNG\">https://github.com/RainingChain/PokemonB2W2BattleSubwayRNG</a> for guidance for Battle Subway and Battle Institute.",
   "Join Avenue Level 100 is very long but it generates a lot of money. Add Market shops to your avenue and upon reaching level 10 on each shop, there will be a sale for 1 week. Buy all EV-items (ex: Protein) and sell them back to the Pokémart for about 2M $ profit. This can be repeated.",

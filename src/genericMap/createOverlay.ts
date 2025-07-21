@@ -1,4 +1,5 @@
 import { Config } from "./Config";
+declare let L:any;
 
 const emptyImageUrl =
   "data:image/gif;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=";
@@ -42,7 +43,6 @@ export const createOverlay = function (config: Config) {
 
   const tileLayerFallback = L.TileLayer.extend({
     getTileUrl: function (coords: { x: number; y: number; z: number }) {
-      console.log(coords.z, maxZoom);
       if (coords.z === maxZoom) 
         return emptyImageUrl;
 

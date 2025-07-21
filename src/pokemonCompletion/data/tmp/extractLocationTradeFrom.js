@@ -1852,9 +1852,6 @@ let str = await Promise.all(list.map(async el => {
     }
     goodListForReqs = goodListForReqs.map(a => a.replace(' ',''));
     return el + ' : ' + `,"location":"Trade from ${goodList.join(', ')}","reqs":${JSON.stringify(goodListForReqs)}},`;
-
-
-    //NO_PROD validate if missing or extra
 }));
 
 fs.writeFile(root + '\\result.json', str.join('\n'));

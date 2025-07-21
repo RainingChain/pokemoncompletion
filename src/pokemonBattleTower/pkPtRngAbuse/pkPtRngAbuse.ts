@@ -243,7 +243,6 @@ class Vue_pkPtRngAbuse_methods {
         if(!this.validateInput_hex(this.diffDaySeed))
           errors.push(`Invalid Different day seed (${this.diffDaySeed}). Expected number in hex format starting with 0x. Ex: 0x1234ABCD`);
       } else {
-        console.log(!this.validateInput_hex(this.sameDaySeed));
         if(!this.validateInput_hex(this.sameDaySeed))
           errors.push(`Invalid Same day seed (${this.sameDaySeed}). Expected number in hex format starting with 0x. Ex: 0x1234ABCD`);
       }

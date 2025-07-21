@@ -1,9 +1,9 @@
 
 /** for debugging. to highlight misspelled locations
-*/
 a.sobreLink:not(:hover) {
   color:black !important;
 }
+*/
 
 .genericMap-marker {
   background-image:url(./icons/pokemonCompletionIconSheet.png); /* overwrite *IconSheet.css */
