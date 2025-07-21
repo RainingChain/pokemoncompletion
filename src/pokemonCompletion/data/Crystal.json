@@ -21,16 +21,15 @@
   ]
 },
 "interactiveMap":{
-  "maxZoom":4,
   "digitalZoom":1,
-  "url":"https://pokemonCrystalMap.b-cdn.net/{z}_{x}_{y}.png?v=1",
+  "url":"https://pokemonmap.b-cdn.net/crystal/{z}_{x}_{y}.png?v=1",
+  "fullImgUrl":"https://pokemonmap.b-cdn.net/crystal/full.png",
+  "fullImgSize":"2MB",
   "dim":{"w":16384,"h":8192},
   "cropSize":512,
   "mapZoomIconScaleModifier":0,
   "initialPos":{"zoom":2, "pos":[0,8000]},
   "imgCredit":"ZaidusRecon",
-  "fullImgUrl":"https://pokemonCrystalMap.b-cdn.net/Crystal.png",
-  "fullImgSize":"2MB",
   "mapLinks":[
    [[2505.6,4779.5],[3285.6,4768.5]],
    [[2503.6,4998.5],[3348.6,5058.5]],

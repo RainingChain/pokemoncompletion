@@ -7,13 +7,13 @@
 "interactiveMap":{
   "maxZoom":4,
   "digitalZoom":1,
-  "url":"https://pokemonemeraldmap.b-cdn.net/cropped/{z}_{x}_{y}.png?v=1",
+  "url":"https://pokemonmap.b-cdn.net/emerald/{z}_{x}_{y}.png?v=1",
+  "fullImgUrl":"https://pokemonmap.b-cdn.net/emerald/full.png",
+  "fullImgSize":"18MB",
   "dim":{"w":16384,"h":8192},
   "cropSize":512,
   "mapZoomIconScaleModifier":0,
   "initialPos":{"zoom":2, "pos":[4200,4200]},
-  "fullImgUrl":"https://pokemonemeraldmap.b-cdn.net/Emerald.png",
-  "fullImgSize":"18MB",
   "imgCredit":"<a target='_blank' rel='noopener' href='https://www.jaxsonkeenes.com/'>Jaxson Keenes</a> and <a target='_blank' rel='noopener' href='https://bulbapedia.bulbagarden.net/'>Bulbapedia</a>",
   "mapLinks":[
     [[2681.0,1408.7],[1719.3,986.7]],

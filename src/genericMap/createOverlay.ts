@@ -42,21 +42,20 @@ export const createOverlay = function (config: Config) {
 
   const tileLayerFallback = L.TileLayer.extend({
     getTileUrl: function (coords: { x: number; y: number; z: number }) {
-      if (coords.z === maxZoom) return emptyImageUrl;
+      console.log(coords.z, maxZoom);
+      if (coords.z === maxZoom) 
+        return emptyImageUrl;
 
       return L.TileLayer.prototype.getTileUrl.apply(this, [coords]);
     },
   });
 
-  console.log(maxZoom);
-  
   const url = config.getUrl();
   const lay = new tileLayerFallback(url, {
     tileSize: cropSize,
     zoomReverse: true,
     minZoom: 0,
     maxZoom,
-    //zoomOffset:-config.digitalZoom,
     bounds: [
       [(-boundH * digitalZoomFact) / 2, 0],
       [0, (boundW * digitalZoomFact) / 2],

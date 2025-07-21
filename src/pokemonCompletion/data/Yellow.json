@@ -18,8 +18,10 @@
 },
 "interactiveMap":{
   "digitalZoom":1,
-  "url":"https://pokemonYellowMap.b-cdn.net/{z}_{x}_{y}.png?v=1",
-  "dim":{"w":2048,"h":2048},
+  "url":"https://pokemonmap.b-cdn.net/yellow/{z}_{x}_{y}.png?v=1",
+  "fullImgUrl":"https://pokemonmap.b-cdn.net/yellow/full.png",
+  "fullImgSize":"5MB",
+  "dim":{"w":8192,"h":8192},
   "cropSize":512,
   "initialPos":{"zoom":1, "pos":[0,4000]},
   "mapZoomIconScaleModifier":1,

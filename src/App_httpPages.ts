@@ -271,5 +271,13 @@ export class App_httpPages {
                   .replace('{{IMG}}', Emerald_Battle_Tower_RNG_Manipulation_png);
       renderArticle(app, res, txt);
     });
+    
+    const DEV_CROPPED_MAPS = `C:\\rc\\misc\\TOOLS_UNCOMMON\\genericMapCropper\\dontBackup`
+    if(!app.appConfig.ON_PRODUCTION_SERVER){
+      app.get('/genericMap-image/:url', function(req, res){
+        const url = req.params.url;
+        res.sendFile(`${DEV_CROPPED_MAPS}\\cropped\\${url}`);
+      });
+    }
   }
 }
