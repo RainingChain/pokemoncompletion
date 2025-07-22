@@ -184,7 +184,7 @@
   ["DPPt","DP","Platinum"],
   ["HS","HeartGold","SoulSilver"],
 
-  ["AnyGen4_EN","$Diamond_EN","$Pearl_EN","$HeartGold_EN","$SoulSilver_EN","Platinum2_EN"],
+  ["AnyGen4_EN","$Diamond_EN","$Pearl_EN","$HeartGold_EN","$SoulSilver_EN","$Platinum_EN"],
   ["AnyGen4_JP","$Diamond_JP","$Pearl_JP","$HeartGold_JP","$SoulSilver_JP","$Platinum_JP"],
   ["AnyGen4","AnyGen4_JP","AnyGen4_EN"],
 
@@ -203,15 +203,20 @@
   ["AnyGen5","BW","White2","Black2_2"],
 
   {"id":"Black2_2", "waresByType":[
-    {"type":"emulator", "formula":[["MultiplayerGen4"]]},
+    {"type":"emulator", "formula":[["MultiplayerGenDS"]]},
     {"type":["consoleEN"], "formula":[["GTE($Black2_EN,$Black2_JP,2)"]]}
   ]},
   "------Simple Hardware-------",
   ["PokeWalker", "$PokeWalker"],
   ["EonTicket","$eReader_EonTicket"],
   ["DreamRadar","$DreamRadar"],
+
+  ["PWTEvent_EN","$PWTEvent_EN"],
+  ["PWTEvent_JP","$PWTEvent_JP"],
+  ["MusicalEvent","$MusicalEvent"],
   
   "------Events-------",
+  ["DreamWorld","$DreamWorld"],
   
   "------Inter-Game Interactions-------",
   {"id":"DualFireRed", "formula":[["$FireRed", "DPPt"],["FireRed"]]},
@@ -233,7 +238,7 @@
     {"type":["emulator"],  "formula":[["AnyGen4"]],"notes":"if gen4-gen5 trade is possible, gen4-gen4 too"},
     {"type":["consoleEN"], "formula":[["GTE(AnyGen4,2)"]]}
   ]},
-  ["TradeGen5ToGen5", "BW","Black2_2","White2"],
+  ["TradeGen5ToGen5", "AnyGen5"],
 
   ["EvolveTradeAnyGen", "TradeGen3ToGen3","TradeGen4ToGen4","TradeGen5ToGen5"],
   ["EvolveTradeGen4OrMore", "TradeGen4ToGen4","TradeGen5ToGen5"],
@@ -241,20 +246,10 @@
 
   ["SpinTrade", "TradeGen5ToGen5"],
   
-  {"id":"HSSpinTrade4", "waresByType":[
-    {"type":"emulator", "formula":[["$EmuMultiplayer","HS"]]},
-    {"type":["consoleEN"], "formula":[["GTE($ConsoleDS,4)", "GTE(HS,4)"]]}
-  ]},
-  {"id":"HSSpinTrade5", "waresByType":[
-    {"type":"emulator", "formula":[["$EmuMultiplayer","HS"]]},
-    {"type":["consoleEN"], "formula":[["GTE($ConsoleDS,5)", "GTE(HS,5)"]]}
-  ]},
-  {"id":"FLBerry4", "waresByType":[
-    {"type":"emulator", "formula":[["FL","$EmuGbaWireless"]]},
-    {"type":["consoleEN"], "formula":[["GTE($ConsoleDS,5)", "GTE(HS,5)"]]}
-  ]},
-  {"id":"MagostRabutaBerry", "formula":[["RSE"],["DPPt"],["HSSpinTrade5"],["PokeWalker"],["FLBerry4"],["DreamWorld"]]},
+  ["CGearTag", "$EmuMultiplayer","TODO"],
+  ["FriendCode", "$NintendoWifi"],
 
+  
   "------Collectable-------",
   {"id":"Mew", "formula":[["MyPokemonRanch"],["$Mew_Event"]]},
   ["HoOh","HS","Colosseum"],
@@ -272,15 +267,13 @@
   ["Meloetta","$Meloetta_B2_Event"],
   ["Genesect","$Genesect_B2_Event"],
 
-  ["Gracidea","Shaymin"],
-  ["MicleBerry","$ShayminMicle_DP_Event"],
+  ["MicleBerry","TODO"],
 
-  ["RowapBerry","$ArceusRowap_DP_Event"],  
-  ["EnigmaBerry","PBR","eReader_AnyBerry"],
+  ["RowapBerry","TODO"],  
+  ["EnigmaBerry","Darkrai"],
 
-  ["JabocaBerry","$CelebiJaboca_Event"],
-  ["SoulDew","EonTicket","PBR"],
-  ["CustapBerry","$EnteiCustap_Event"],
+  ["JabocaBerry","TODO"],
+  ["CustapBerry","TODO"],
 
   ["eReader_AnyBerry", "$eReader_AnyBerry_EN", "$eReader_AnyBerry_JP"],
 
@@ -290,24 +283,76 @@
   ["ClassicRibbon","$ShayminMicle_DP_Event","$ArceusRowap_DP_Event","$CelebiJaboca_Event","$EnteiCustap_Event"],
   ["PremierRibbon","$MewPremierRibbon_HGSS_Event"],
   ["ForeignDexEntries","$ForeignDexEntries"],
+  ["LuckyPunch","10PeopleFunfest","BW","DreamWorld"],
   
-  {"id":"MultiplayerGen4", "waresByType":[
+  {"id":"MultiplayerGenDS", "waresByType":[
     {"type":"emulator", "formula":[["$EmuMultiplayer"]]},
     {"type":["consoleEN"], "formula":[["GTE($ConsoleDS,2)"]]}
   ]},
-  {"id":"NaturePreserve", "formula":[["Black","White"],["Black","White2"]],"notes":"route 7 to register legend trio"},
-  {"id":"Electabuzz", "formula":[["White"],["White2"],["FireRed"],["XD"],["DPPt"],["HS"]]},
+  {"id":"NaturePreserve", "formula":[["Black","White"],["Black","White2"],["Reshiram","DreamRadar"]],"notes":"route 7 to register legend trio"},
+  {"id":"CatchUnovaPokedex", "formula":[["NaturePreserve","Black","White"],["NaturePreserve","DreamRadar"]]},
+  
+  ["Electabuzz", "White","White2","FireRed","XD","DPPt","HS"],
+  ["Porygon", "White","DPPt","HS","FL"],
+  ["Dusclops", "XD","DPPt","HS","RSE"],
+  ["Scyther", "Diamond","Platinum","FireRed","XD","HS"],
   {"id":"Electivire", "formula":[["EvolveTradeGen4OrMore","Electabuzz"],["PBR"]]},
-  {"id":"Porygon", "formula":[["White"],["DPPt"],["HS"],["FL"]]},
-  {"id":"Dusclops", "formula":[["XD","DPPt","HS","RSE"]]},
-  {"id":"Graveler","formula":[["BW","DPPt","HS","FL","RSE"]]},
+  
+  {"id":"Graveler","formula":[["BW"],["DPPt"],["HS"],["FL"],["RSE"]]},
   
   {"id":"AllMaleFemaleForms", "note":"probably possible by fighting only trainers", "waresByType":[
     {"type":["emulator", "consoleEN"], "formula":[["NationalDex"]]}
   ]},
+  {"id":"ShinyForms", "waresByType":[
+    {"type":["emulator", "consoleEN"], "formula":[["NationalDex","TODO"]]}
+  ]},
+
+  {"id":"Latias", "formula":[["Sapphire"],["Emerald"],["Ruby","EonTicket"],["HeartGold"],["White2"]]},
+  ["Kyogre", "Sapphire","Emerald","HeartGold"],
+  ["Groudon", "Ruby","Emerald","SoulSilver"],
+  ["Mewtwo", "HS","FL"],
+  ["Glameow", "Pearl","White2"],
+  ["Regice", "White2","RSE"],
+  ["Reshiram","Black","White2"],
+
+  "------NationalDex------- see ForeignEntries",
+  {"id":"NationalDex", "formula":[[
+    "Latias",
+    "Kyogre",
+    "Groudon",
+    "NationalDex_DialgaPalkia",
+    "NationalDex_HoOhLugia",
+    "Mewtwo",
+    "Glameow",
+    "Regice",
+    "CatchUnovaPokedex"
+  ]]},
+  {"id":"NationalDex_DialgaPalkia", "formula":[["Diamond","Platinum"], ["Pearl","Platinum"]]},
+  {"id":"NationalDex_HoOhLugia", "formula":[["HS"], ["XD","Colosseum"]]},
+  "------NationalDex end-------",
   
+  {"id":"TODO","formula":[]},
+
+  {"id":"LightBall","formula":[["TODO"]]},
+  {"id":"EventRibbon","formula":[["TODO"]]},
+  {"id":"BirthdayRibbon","formula":[["TODO"]]},
+  {"id":"SouvenirRibbon","formula":[["TODO"]]},
+  {"id":"WishingRibbon","formula":[["TODO"]]},
+  {"id":"BattleChampionRibbon","formula":[["TODO"]]},
   
   {"id":"ForeignDexEntries", "formula":[["$ForeignDexEntries"]],"info":[ "144 Articuno LGPtHS", "145 Zapdos LGPtHS", "146 Moltres LGPtHS", "150 Mewtwo LGHS", "151 Mew MyPkmRanch", "201 Unown LGDPPtHS", "243 Raikou LGColHS", "244 Entei LGColHS", "245 Suicune LGColHS", "249 Lugia XDHS", "250 Ho-Oh ColHS", "251 Celebi JP(Col), Event(RSEDPPtHS)", "377 Regirock RSE", "378 Regice RSE", "379 Registeel RSE", "380 Latias SE", "381 Latios RE", "382 Kyogre SEH", "383 Groudon RES", "384 Rayquaza RSEHS", "385 Jirachi JP(Event DPPtHS), Col", "386 Deoxys Event DPRSELF", "480 Uxie DPPt", "481 Mesprit DPPt", "482 Azelf DPPt", "483 Dialga DPt", "484 Palkia PPt", "485 Heatran DPPt", "486 Regigigas RSE", "487 Giratina DPPt", "488 Cresselia DPPt", "491 Darkrai Event(DPPt)", "492 Shaymin Event(DPPt)", "493 Arceus Event(DPPt)"
+  ]},
+  {"id":"2PeopleFunfest", "waresByType":[
+    {"type":["emulator"], "formula":[["MultiplayerGenDS"]]},
+    {"type":["consoleEN"], "formula":[["TODO"]]}
+  ]},
+  {"id":"10PeopleFunfest", "waresByType":[
+    {"type":["emulator"], "formula":[["MultiplayerGenDS"]]},
+    {"type":["consoleEN"], "formula":[["TODO"]]}
+  ]},
+  {"id":"30PeopleFunfest", "waresByType":[
+    {"type":["emulator"], "formula":[["MultiplayerGenDS"]]},
+    {"type":["consoleEN"], "formula":[["TODO"]]}
   ]}
 
 ],
@@ -335,9 +380,9 @@
 
     ["$Deoxys_B2_Event","$EventTool"],
     ["$Victini_Event","$EventTool"],
-    ["$PWTEvent","$EventTool"],
+    ["$PWTEvent_EN","$EventTool"],
     ["$PWTEvent_JP","$EventTool_JP"],
-    
+    ["$MusicalEvent","$EventTool"],
 
     ["$Celebi_Event","$EventTool_Optional"],
     ["$AuroraTicketEvent_Gen3","$EventTool_Optional"]
@@ -345,24 +390,25 @@
   ],"list":[
     {"id":"$EmuDS","name":"Emulator for DS", "minCount":1},
     {"id":"$EmuMultiplayer","name":"Emulator supports DS multiplayer?","indent":1, "url":["melonDS","https://melonds.kuribo64.net/"], "fullCompl":1},
+    
     {"id":"$EmuDualSlot","name":"Emulator supports GBA slot?","indent":1, "url":["melonDS","https://melonds.kuribo64.net/"], "fullCompl":1},
     {"id":"$Black2_EN","name":"Game: Pokémon Black 2 (EN)","indent":1, "minCount":1},
-    {"id":"$Black_EN","name":"Game: Pokémon Black (EN)","indent":1, "preReqs":[["MultiplayerGen4"]]},
-    {"id":"$White2_EN","name":"Game: Pokémon White 2 (EN)","indent":1, "preReqs":[["MultiplayerGen4"]]},
-    {"id":"$White_EN","name":"Game: Pokémon White (EN)","indent":1, "preReqs":[["MultiplayerGen4"]]},
-    {"id":"$Platinum_EN","name":"Game: Pokémon Platinum (EN)","indent":1, "fullCompl":1, "preReqs":[["MultiplayerGen4"]]},
-    {"id":"$Diamond_EN","name":"Game: Pokémon Diamond (EN)","indent":1, "fullCompl":1, "preReqs":[["MultiplayerGen4"]]},
-    {"id":"$Pearl_EN","name":"Game: Pokémon Pearl (EN)","indent":1, "preReqs":[["MultiplayerGen4"]]},
-    {"id":"$HeartGold_EN","name":"Game: Pokémon HeartGold (EN)","indent":1, "fullCompl":1, "preReqs":[["MultiplayerGen4"]]},
-    {"id":"$SoulSilver_EN","name":"Game: Pokémon SoulSilver (EN)","indent":1, "preReqs":[["MultiplayerGen4"]]},
+    {"id":"$Black_EN","name":"Game: Pokémon Black (EN)","indent":1, "preReqs":[["MultiplayerGenDS"]]},
+    {"id":"$White2_EN","name":"Game: Pokémon White 2 (EN)","indent":1, "preReqs":[["MultiplayerGenDS"]]},
+    {"id":"$White_EN","name":"Game: Pokémon White (EN)","indent":1, "preReqs":[["MultiplayerGenDS"]]},
+    {"id":"$Platinum_EN","name":"Game: Pokémon Platinum (EN)","indent":1, "fullCompl":1, "preReqs":[["MultiplayerGenDS"]]},
+    {"id":"$Diamond_EN","name":"Game: Pokémon Diamond (EN)","indent":1, "fullCompl":1, "preReqs":[["MultiplayerGenDS"]]},
+    {"id":"$Pearl_EN","name":"Game: Pokémon Pearl (EN)","indent":1, "preReqs":[["MultiplayerGenDS"]]},
+    {"id":"$HeartGold_EN","name":"Game: Pokémon HeartGold (EN)","indent":1, "fullCompl":1, "preReqs":[["MultiplayerGenDS"]]},
+    {"id":"$SoulSilver_EN","name":"Game: Pokémon SoulSilver (EN)","indent":1, "preReqs":[["MultiplayerGenDS"]]},
 
-    {"id":"$Ranger_EN","name":"Game: Pokémon Ranger (EN)","indent":1,"fullCompl":1, "preReqs":[["MultiplayerGen4"]]},
+    {"id":"$Ranger_EN","name":"Game: Pokémon Ranger (EN)","indent":1,"fullCompl":1, "preReqs":[["MultiplayerGenDS"]]},
 
-    {"id":"$Platinum_JP","name":"Game: Pokémon Platinum (JP)","indent":1, "preReqs":[["MultiplayerGen4"]]},
-    {"id":"$Diamond_JP","name":"Game: Pokémon Diamond (JP)","indent":1, "preReqs":[["MultiplayerGen4"]]},
-    {"id":"$Pearl_JP","name":"Game: Pokémon Pearl (JP)","indent":1, "fullCompl":1, "preReqs":[["MultiplayerGen4"]]},
-    {"id":"$HeartGold_JP","name":"Game: Pokémon HeartGold (JP)","indent":1, "preReqs":[["MultiplayerGen4"]]},
-    {"id":"$SoulSilver_JP","name":"Game: Pokémon SoulSilver (JP)","indent":1, "preReqs":[["MultiplayerGen4"]]},
+    {"id":"$Platinum_JP","name":"Game: Pokémon Platinum (JP)","indent":1, "preReqs":[["MultiplayerGenDS"]]},
+    {"id":"$Diamond_JP","name":"Game: Pokémon Diamond (JP)","indent":1, "preReqs":[["MultiplayerGenDS"]]},
+    {"id":"$Pearl_JP","name":"Game: Pokémon Pearl (JP)","indent":1, "fullCompl":1, "preReqs":[["MultiplayerGenDS"]]},
+    {"id":"$HeartGold_JP","name":"Game: Pokémon HeartGold (JP)","indent":1, "preReqs":[["MultiplayerGenDS"]]},
+    {"id":"$SoulSilver_JP","name":"Game: Pokémon SoulSilver (JP)","indent":1, "preReqs":[["MultiplayerGenDS"]]},
 
     [
       {"id":"$EmuPokewalker","name":"Emulator for PokéWalker","desc":"No PokéWalker emulators with DS connnectivity exist yet.", "indent":1, "preReqs":[["HS"]]},
@@ -370,9 +416,16 @@
     ],
 
     [
+      {"id":"$Wifi","name":"Emulator supports Wifi","desc":"","indent":1,"fullCompl":1},
+      {"id":"$NintendoWifi","name":"Simulator of Nintendo Wi-Fi Server","desc":"","url":["DWC Network Server", "https://github.com/barronwaffles/dwc_network_server_emulator"],"indent":1,"fullCompl":1}
+    ],
+
+    [
       {"id":"$Emu3DS","name":"Emulator for 3DS","desc":"Must support inserted NDS, which isn't supported by any emulator as of 2025-07-14.", "indent":1},
       {"id":"$DreamRadar","name":"Game: Dream Radar","indent":1}
     ],
+
+    {"id":"$DreamWorld","name":"Simulator of Dream World Server","indent":1,"desc":"No Dream World servers exist as of 2025-07-14."},
 
     {"id":"$EmuGba","name":"Emulator for GBA","fullCompl":1,"preReqs":[["$EmuDualSlot"]]},
     {"id":"$EmuGbaMultiplayer","name":"Emulator supports link cables?","indent":1, "url":["mGBA","https://mgba.io/"], "fullCompl":1},
@@ -414,7 +467,7 @@
     {"id":"$MyPokemonRanch_JP","name":"Game: My Pokémon Ranch (JP)", "indent":1,"preReqs":[["AnyGen4_JP"]]},
     {"id":"$MyPokemonRanchUpdate_JP","name":"Update: My Pokémon Ranch 1.1 (JP)", "indent":2},
     {"id":"$BattleRevolution_JP","name":"Game: Pokémon Battle Revolution (JP)","indent":1,"preReqs":[["AnyGen4_JP"]]},
-    {"id":"$ForeignDexEntries","name":"Many games in all languages", "fullCompl":1,"indent":1,"preReqs":[["MultiplayerGen4","$EmuGba"]],"url":["Foreign Pokédex Entries Requirements", "./Black2/ForeignPokedexEntries",""]},
+    {"id":"$ForeignDexEntries","name":"Many games in all languages", "fullCompl":1,"indent":1,"preReqs":[["MultiplayerGenDS","$EmuGba"]],"url":["Foreign Pokédex Entries Requirements", "./Black2/ForeignPokedexEntries",""]},
 
     {"id":"$EventTool","name":"Event Simulator","desc":"Found in the Savefile (.sav) Utilities section in this page","fullCompl":1},
     {"id":"$EventTool_Optional","name":"Permit optional events?", "desc":"Permit events giving gifts obtainabled without events", "indent":1},
@@ -423,7 +476,7 @@
 ],
 "categories":[
  {"id":"pokemon","name":"Pokémon","urlSuffix":"_(Pok%C3%A9mon)#Game_locations","showId":true,"conflicts":[
-  [["Tepig","Pignite","Emboar"], ["Snivy","Servine","Serperior"], ["Oshawott","Dewott","Samurott"]],
+  [["Oshawott","Dewott","Samurott"],["Tepig","Pignite","Emboar"], ["Snivy","Servine","Serperior"]],
   [["Meowth","Persian","Teddiursa","Ursaring","Mawile"], ["Mankey","Primeape","Phanpy","Donphan","Sableye"]]
  ],"list":[
   {"name":"Bulbasaur","id":"1","obtainable":0,"location":"Trade from HeartGold, SoulSilver, FireRed, LeafGreen","reqs":["HS","FL"],"iconUrl":"pokemon/p1.png"},
@@ -477,11 +530,11 @@
   {"name":"Venomoth","id":"49","obtainable":1,"location":"Evolve Venonat (Level 31)","iconUrl":"pokemon/p49.png"},
   {"name":"Diglett","id":"50","obtainable":0,"location":"Trade from Diamond, Pearl, Platinum, HeartGold, SoulSilver, FireRed, LeafGreen, XD","iconUrl":"pokemon/p50.png","reqs":["DPPt","HS","FL","XD"]},
   {"name":"Dugtrio","id":"51","obtainable":0,"location":"Evolve traded Diglett (Level 26). Trade from Diamond, Pearl, Platinum, HeartGold, SoulSilver, FireRed, LeafGreen, XD","iconUrl":"pokemon/p51.png","reqs":["DPPt","HS","FL","XD"]},
-  {"name":"Meowth","id":"52","obtainable":2,"location":"Nimbasa City (Trade with Yancy, male player character only)","iconUrl":"pokemon/p52.png"},
+  {"name":"Meowth","id":"52","obtainable":2,"location":"Nimbasa City (Trade with Yancy) (male player character only)","iconUrl":"pokemon/p52.png"},
   {"name":"Persian","id":"53","obtainable":2,"location":"Evolve Meowth (Level 28)","iconUrl":"pokemon/p53.png"},
   {"name":"Psyduck","id":"54","obtainable":1,"location":"Floccesy Ranch","iconUrl":"pokemon/p54.png"},
   {"name":"Golduck","id":"55","obtainable":1,"location":"Route 11, Route 14, Route 22, Route 23, Village Bridge, Seaside Cave, Abundant Shrine, Nature Preserve, Route 23","iconUrl":"pokemon/p55.png"},
-  {"name":"Mankey","id":"56","obtainable":2,"location":"Nimbasa City (Trade with Curtis, female player character only)","iconUrl":"pokemon/p56.png"},
+  {"name":"Mankey","id":"56","obtainable":2,"location":"Nimbasa City (Trade with Curtis) (female player character only)","iconUrl":"pokemon/p56.png"},
   {"name":"Primeape","id":"57","obtainable":2,"location":"Evolve Mankey (Level 28)","iconUrl":"pokemon/p57.png"},
   {"name":"Growlithe","id":"58","obtainable":1,"location":"Virbank Complex","iconUrl":"pokemon/p58.png"},
   {"name":"Arcanine","id":"59","obtainable":1,"location":"Evolve Growlithe (Fire Stone)","iconUrl":"pokemon/p59.png"},
@@ -548,7 +601,7 @@
   {"name":"Staryu","id":"120","obtainable":1,"location":"Route 13, Undella Town, Humilau City. Transfer from Dream Radar","iconUrl":"pokemon/p120.png"},
   {"name":"Starmie","id":"121","obtainable":1,"location":"Route 13, Undella Town, Humilau City","iconUrl":"pokemon/p121.png"},
   {"name":"Mr. Mime","id":"122","obtainable":0,"location":"Trade from White 2, Diamond, Pearl, Platinum, HeartGold, SoulSilver, FireRed, LeafGreen, XD","iconUrl":"pokemon/p122.png","reqs":["White2","DPPt","HS","FL","XD"]},
-  {"name":"Scyther","id":"123","obtainable":0,"location":"Trade from Diamond, Platinum, HeartGold, SoulSilver, FireRed, XD","reqs":["Diamond","Platinum","FireRed","XD","HS"],"iconUrl":"pokemon/p123.png"},
+  {"name":"Scyther","id":"123","obtainable":0,"location":"Trade from Diamond, Platinum, HeartGold, SoulSilver, FireRed, XD. Breed Scizor traded from Colosseum.","reqs":["Scyther"],"iconUrl":"pokemon/p123.png"},
   {"name":"Jynx","id":"124","obtainable":0,"location":"Trade from Black, White, Diamond, Pearl, Platinum, HeartGold, SoulSilver, FireRed, LeafGreen","reqs":["BW","DPPt","HS","FL"],"iconUrl":"pokemon/p124.png"},
   {"name":"Electabuzz","id":"125","obtainable":0,"location":"Trade from White, White 2, Diamond, Pearl, Platinum, HeartGold, SoulSilver, FireRed, XD","reqs":["White","White2","FireRed","XD","DPPt","HS"],"iconUrl":"pokemon/p125.png"},
   {"name":"Magmar","id":"126","obtainable":1,"location":"Evolve Magby (Level 30)","iconUrl":"pokemon/p126.png"},
@@ -575,7 +628,7 @@
   {"name":"Dratini","id":"147","obtainable":1,"location":"Dragonspiral Tower","iconUrl":"pokemon/p147.png"},
   {"name":"Dragonair","id":"148","obtainable":1,"location":"Dragonspiral Tower","iconUrl":"pokemon/p148.png"},
   {"name":"Dragonite","id":"149","obtainable":1,"location":"Dragonspiral Tower, Route 18","iconUrl":"pokemon/p149.png"},
-  {"name":"Mewtwo","id":"150","obtainable":0,"location":"Trade from HeartGold, SoulSilver, FireRed, LeafGreen","iconUrl":"pokemon/p150.png","reqs":["HS","FL"]},
+  {"name":"Mewtwo","id":"150","obtainable":0,"location":"Trade from HeartGold, SoulSilver, FireRed, LeafGreen","iconUrl":"pokemon/p150.png","reqs":["Mewtwo"]},
   {"name":"Mew","id":"151","obtainable":0,"location":"Trade from My Pokémon Ranch (transfer 999 Pokémon). Event","iconUrl":"pokemon/p151.png","reqs":["Mew"]},
   {"name":"Chikorita","id":"152","obtainable":0,"location":"Trade from Emerald, XD, HeartGold, SoulSilver, Colosseum. Breed traded Bayleef","iconUrl":"pokemon/p152.png","reqs":["Emerald","XD","HS","Colosseum"]},
   {"name":"Bayleef","id":"153","obtainable":0,"location":"Evolve traded Chikorita (Level 16) from Emerald, XD, HeartGold, SoulSilver, Colosseum","iconUrl":"pokemon/p153.png","reqs":["Emerald","XD","HS","Colosseum"]},
@@ -637,7 +690,7 @@
   {"name":"Snubbull","id":"209","obtainable":1,"location":"Breed Granbull","iconUrl":"pokemon/p209.png"},
   {"name":"Granbull","id":"210","obtainable":1,"location":"Route 2","iconUrl":"pokemon/p210.png"},
   {"name":"Qwilfish","id":"211","obtainable":1,"location":"Route 4, Virbank City, Virbank Complex, Route 4, P2 Laboratory","iconUrl":"pokemon/p211.png"},
-  {"name":"Scizor","id":"212","obtainable":0,"location":"Evolve Scyther (Trade with Metal Coat). Trade from Colosseum","iconUrl":"pokemon/p212.png","reqs":[["ScizorTrade"],["Colosseum"]]},
+  {"name":"Scizor","id":"212","obtainable":0,"location":"Evolve Scyther (Trade with Metal Coat). Trade from Colosseum","iconUrl":"pokemon/p212.png","reqs":[["Scyther","EvolveTradeAnyGen"],["Colosseum"]]},
   {"name":"Shuckle","id":"213","obtainable":1,"location":"Seaside Cave  Transfer from Dream Radar","iconUrl":"pokemon/p213.png"},
   {"name":"Heracross","id":"214","obtainable":1,"location":"Route 12, Lostlorn Forest","iconUrl":"pokemon/p214.png"},
   {"name":"Sneasel","id":"215","obtainable":1,"location":"Giant Chasm","iconUrl":"pokemon/p215.png"},
@@ -698,9 +751,9 @@
   {"name":"Lotad","id":"270","obtainable":1,"location":"Breed Lombre or Ludicolo","iconUrl":"pokemon/p270.png"},
   {"name":"Lombre","id":"271","obtainable":1,"location":"Route 3","iconUrl":"pokemon/p271.png"},
   {"name":"Ludicolo","id":"272","obtainable":1,"location":"Evolve Lombre (Water Stone)","iconUrl":"pokemon/p272.png"},
-  {"name":"Seedot","id":"273","obtainable":0,"location":"Breed Nuzleaf caught in Nature Preserve (requires trading to access). Route 203, Route 204 (Dual-slot Ruby). Trade from White, Sapphire, Emerald, XD, HeartGold, SoulSilver","iconUrl":"pokemon/p273.png","reqs":["NaturePreserve","DualRuby","White","Sapphire","Emerald","HS"]},
-  {"name":"Nuzleaf","id":"274","obtainable":0,"location":"Route 210, Route 229 (Dual-slot Ruby). Trade from White, Sapphire, Emerald, XD, HeartGold, SoulSilver","iconUrl":"pokemon/p274.png","reqs":["DualRuby","Emerald","HS"]},
-  {"name":"Shiftry","id":"275","obtainable":0,"location":"Evolve traded Nuzleaf (Leaf Stone)","iconUrl":"pokemon/p275.png","reqs":["White","Sapphire","XD","DualRuby","Emerald","HS"]},
+  {"name":"Seedot","id":"273","obtainable":0,"location":"Breed Nuzleaf caught in Nature Preserve (requires trading to access). Trade from White, Ruby, Emerald, XD, HeartGold, SoulSilver. Trade from Diamond, Pearl, Platinum with Dual-Sot Ruby.","iconUrl":"pokemon/p273.png","reqs":["NaturePreserve","DualRuby","White","Ruby","Emerald","HS"]},
+  {"name":"Nuzleaf","id":"274","obtainable":0,"location":"Nature Preserve (requires trading to access). Trade from White, Ruby, Emerald, XD, HeartGold, SoulSilver. Trade from Diamond, Pearl, Platinum with Dual-Sot Ruby.","iconUrl":"pokemon/p274.png","reqs":["NaturePreserve","DualRuby","White","Ruby","Emerald","HS"]},
+  {"name":"Shiftry","id":"275","obtainable":0,"location":"Evolve traded Nuzleaf (Leaf Stone)","iconUrl":"pokemon/p275.png","reqs":["NaturePreserve","DualRuby","White","Ruby","Emerald","HS"]},
   {"name":"Taillow","id":"276","obtainable":1,"location":"Breed Swellow","iconUrl":"pokemon/p276.png"},
   {"name":"Swellow","id":"277","obtainable":1,"location":"Route 13 (Swarm)","iconUrl":"pokemon/p277.png"},
   {"name":"Wingull","id":"278","obtainable":1,"location":"Breed Pelipper","iconUrl":"pokemon/p278.png"},
@@ -803,12 +856,12 @@
   {"name":"Metang","id":"375","obtainable":1,"location":"Giant Chasm (Crater Forest), Giant Chasm","iconUrl":"pokemon/p375.png"},
   {"name":"Metagross","id":"376","obtainable":1,"location":"Giant Chasm","iconUrl":"pokemon/p376.png"},
   {"name":"Regirock","id":"377","obtainable":1,"location":"Underground Ruins (Rock Peak Chamber)","iconUrl":"pokemon/p377.png"},
-  {"name":"Regice","id":"378","obtainable":0,"location":"Underground Ruins (after getting Iceberg Key from Unova Link which requires White 2). Trade from Ruby, Sapphire or Emerald.","iconUrl":"pokemon/p378.png","reqs":["White2","RSE"]},
+  {"name":"Regice","id":"378","obtainable":0,"location":"Underground Ruins (after getting Iceberg Key from Unova Link which requires White 2). Trade from Ruby, Sapphire or Emerald.","iconUrl":"pokemon/p378.png","reqs":["Regice"]},
   {"name":"Registeel","id":"379","obtainable":1,"location":"Underground Ruins (Iron Chamber)","iconUrl":"pokemon/p379.png"},
-  {"name":"Latias","id":"380","obtainable":0,"location":"Trade from Ruby (requires Eon Ticket), Sapphire, Emerald, HeartGold, White 2","iconUrl":"pokemon/p380.png","reqs":[["Sapphire"],["Emerald"],["Ruby","EonTicket"],["HeartGold"],["White2"]]},
+  {"name":"Latias","id":"380","obtainable":0,"location":"Trade from Ruby (requires Eon Ticket), Sapphire, Emerald, HeartGold, White 2","iconUrl":"pokemon/p380.png","reqs":["Latias"]},
   {"name":"Latios","id":"381","obtainable":1,"location":"Dreamyard","iconUrl":"pokemon/p381.png"},
-  {"name":"Kyogre","id":"382","obtainable":0,"location":"Trade from Sapphire, Emerald, HeartGold","iconUrl":"pokemon/p382.png","reqs":[["Sapphire"],["Emerald"],["HeartGold"]]},
-  {"name":"Groudon","id":"383","obtainable":0,"location":"Trade from Ruby, Emerald, SoulSilver","iconUrl":"pokemon/p383.png","reqs":[["Ruby"],["Emerald"],["SoulSilver"]]},
+  {"name":"Kyogre","id":"382","obtainable":0,"location":"Trade from Sapphire, Emerald, HeartGold","iconUrl":"pokemon/p382.png","reqs":["Kyogre"]},
+  {"name":"Groudon","id":"383","obtainable":0,"location":"Trade from Ruby, Emerald, SoulSilver","iconUrl":"pokemon/p383.png","reqs":["Groudon"]},
   {"name":"Rayquaza","id":"384","obtainable":0,"location":"Trade from Ruby, Sapphire, Emerald, HeartGold, SoulSilver","iconUrl":"pokemon/p384.png","reqs":[["RSE"],["HS"]]},
   {"name":"Jirachi","id":"385","obtainable":0,"location":"Trade from Ruby, Sapphire which obtained it from Pokémon Colosseum Bonus Disc (US), Event","iconUrl":"pokemon/p385.png","reqs":["Jirachi"]},
   {"name":"Deoxys","id":"386","obtainable":0,"location":"Event","iconUrl":"pokemon/p386.png","reqs":[["Deoxys"]]},
@@ -856,8 +909,8 @@
   {"name":"Lopunny","id":"428","obtainable":1,"location":"Castelia City","iconUrl":"pokemon/p428.png"},
   {"name":"Mismagius","id":"429","obtainable":0,"location":"Evolve traded Misdreavus (Dusk Stone)","iconUrl":"pokemon/p429.png","reqs":["White","LeafGreen","Colosseum","Pearl","HS"]},
   {"name":"Honchkrow","id":"430","obtainable":1,"location":"Evolve Murkrow (Dusk Stone)","iconUrl":"pokemon/p430.png"},
-  {"name":"Glameow","id":"431","obtainable":0,"location":"Trade from Pearl, White 2","iconUrl":"pokemon/p431.png","reqs":["Pearl","White2"]},
-  {"name":"Purugly","id":"432","obtainable":0,"location":"Evolve traded Glameow (Level 38)","iconUrl":"pokemon/p432.png","reqs":["Pearl","White2"]},
+  {"name":"Glameow","id":"431","obtainable":0,"location":"Trade from Pearl, White 2","iconUrl":"pokemon/p431.png","reqs":["Glameow"]},
+  {"name":"Purugly","id":"432","obtainable":0,"location":"Evolve traded Glameow (Level 38)","iconUrl":"pokemon/p432.png","reqs":["Glameow"]},
   {"name":"Chingling","id":"433","obtainable":0,"location":"Trade from Black, White, Diamond, Pearl, Platinum, HeartGold, SoulSilver","reqs":["BW","DPPt","HS"],"iconUrl":"pokemon/p433.png"},
   {"name":"Stunky","id":"434","obtainable":1,"location":"Route 2, Route 3, Route 5, Route 6, Route 7, Route 9, Route 13, Route 18, Route 22, Route 23, Abundant Shrine, Giant Chasm, Lostlorn Forest, Pinwheel Forest, Floccesy Ranch (Only during Funfest Mission Noisy Hidden Grottoes!)","iconUrl":"pokemon/p434.png"},
   {"name":"Skuntank","id":"435","obtainable":1,"location":"Evolve Stunky (Level 34)","iconUrl":"pokemon/p435.png"},
@@ -1068,7 +1121,7 @@
   {"name":"Virizion","id":"640","obtainable":1,"location":"Route 11","iconUrl":"pokemon/p640.png"},
   {"name":"Tornadus","id":"641","obtainable":0,"location":"Trade from Black. Transfer from Dream Radar","reqs":["Black","DreamRadar"],"iconUrl":"pokemon/p641.png"},
   {"name":"Thundurus","id":"642","obtainable":0,"location":"Trade from White. Transfer from Dream Radar","reqs":["White","DreamRadar"],"iconUrl":"pokemon/p642.png"},
-  {"name":"Reshiram","id":"643","obtainable":0,"location":"Trade from Black, White 2","reqs":["Black","White2"],"iconUrl":"pokemon/p643.png"},
+  {"name":"Reshiram","id":"643","obtainable":0,"location":"Trade from Black, White 2","reqs":["Reshiram"],"iconUrl":"pokemon/p643.png"},
   {"name":"Zekrom","id":"644","obtainable":1,"location":"Dragonspiral Tower","iconUrl":"pokemon/p644.png"},
   {"name":"Landorus","id":"645","obtainable":0,"location":"Trade from Black, White (requires owning Tornadus and Thundurus). Transfer from Dream Radar","reqs":[["Black","White"],["DreamRadar"]],"iconUrl":"pokemon/p645.png"},
   {"name":"Kyurem","id":"646","obtainable":1,"location":"Giant Chasm","iconUrl":"pokemon/p646.png"},
@@ -1123,8 +1176,8 @@
   {"name":"Wormadam - Trash Cloak","obtainable":0,"location":"Trade from Diamond, Pearl, Platinum, HeartGold, SoulSilver","iconUrl":"pokemon/p413.png","reqs":["DPPt","HS"]},
   {"name":"Cherrim - Overcast","obtainable":0,"location":"Battle when not in sunny weather, with Cherrim traded from Black, White or evolved from Cherubi (Level 25) traded from Diamond, Pearl, Platinum, HeartGold, SoulSilver","iconUrl":"pokemon/p421.png","reqs":["BW","DPPt","HS"]},
   {"name":"Cherrim - Sunshine","obtainable":0,"location":"Battle in sunny weather, with Cherrim traded from Black, White or evolved from Cherubi (Level 25) traded from Diamond, Pearl, Platinum, HeartGold, SoulSilver","iconUrl":"pokemon/p421.png","reqs":["BW","DPPt","HS"]},
-  {"name":"Shellos - West Sea","obtainable":2,"location":"Nimbasa City (Trade with Yancy, male player character only)","iconUrl":"pokemon/p422.png"},
-  {"name":"Shellos - East Sea","obtainable":2,"location":"Nimbasa City (Trade with Curtis, female player character only)","iconUrl":"pokemon/p422.png"},
+  {"name":"Shellos - West Sea","obtainable":2,"location":"Nimbasa City (Trade with Yancy) (male player character only)","iconUrl":"pokemon/p422.png"},
+  {"name":"Shellos - East Sea","obtainable":2,"location":"Nimbasa City (Trade with Curtis) (female player character only)","iconUrl":"pokemon/p422.png"},
   {"name":"Gastrodon - West Sea","obtainable":2,"location":"Evolve Shellos (Level 30) obtained by in-game trade with Yancy (male player character only)","iconUrl":"pokemon/p423.png"},
   {"name":"Gastrodon - East Sea","obtainable":2,"location":"Evolve Shellos (Level 30) obtained by in-game trade with Curtis (female player character only)","iconUrl":"pokemon/p423.png"},
   {"name":"Rotom - Ghost","location":"Route 15 (Trade Ditto)","iconUrl":"pokemon/p479.png"},
@@ -1136,7 +1189,7 @@
   {"name":"Giratina - Altered","obtainable":0,"location":"Battle with Giratina without Griseous Orb, traded from Diamond, Pearl, Platinum","iconUrl":"pokemon/p487.png","reqs":["DPPt"]},
   {"name":"Giratina - Origin","obtainable":0,"location":"Battle with Giratina with Griseous Orb, traded from Diamond, Pearl, Platinum","iconUrl":"pokemon/p487.png","reqs":["DPPt"]},
   {"name":"Shaymin - Land","obtainable":0,"location":"Battle with Shaymin without using Gracidea, traded from Diamond, Pearl, Platinum event","iconUrl":"pokemon/p492.png","reqs":["Shaymin"]},
-  {"name":"Shaymin - Sky","obtainable":0,"location":"Battle with Shaymin after using Gracidea, traded from Diamond, Pearl, Platinum event","iconUrl":"pokemon/p492.png","reqs":["Gracidea"]},
+  {"name":"Shaymin - Sky","obtainable":0,"location":"Battle with Shaymin after using Gracidea, traded from Diamond, Pearl, Platinum event","iconUrl":"pokemon/p492.png","reqs":["Shaymin"]},
 
   {"name":"Basculin - Blue Stripe","location":"Route 1, Route 3, Route 6, Route 11, Route 13, Route 14, 19, 20, 22, Route 23, Aspertia City, Floccesy Ranch, Relic Passage, Clay Tunnel, Dragonspiral Tower, Striaton City, Wellspring Cave, Pinwheel Forest, Undella Town, Humilau City, Victory Road, Village Bridge, Giant Chasm, Abundant Shrine, Nature Preserve, Lostlorn Forest","iconUrl":"pokemon/p550.png"},
   {"name":"Basculin - Red Stripe","location":"Route 1, Route 3, Route 6, Route 11, Route 13, Route 14, 19, 20, 22, Route 23, Aspertia City, Floccesy Ranch, Relic Passage, Clay Tunnel, Dragonspiral Tower, Striaton City, Wellspring Cave, Pinwheel Forest, Undella Town, Humilau City, Victory Road, Village Bridge, Giant Chasm, Abundant Shrine, Nature Preserve Lostlorn Forest","iconUrl":"pokemon/p550.png"},
@@ -1170,8 +1223,8 @@
  ]},
  {"id":"inGameTrade","name":"In-Game Trade","url":"https://bulbapedia.bulbagarden.net/wiki/In-game_trade",
  "conflicts":[
-  [["Any for Meowth (Yancy)","Any for Wobbuffet (Yancy)","Any for Ralts (Yancy)","Any for Shieldon (Yancy)","Any for Rhyhorn (Yancy)","Any for Shellos (Yancy)","Any for Mawile (Yancy)","Any for Spiritomb (Yancy)","Any for Snorlax (Yancy)","Any for Teddiursa (Yancy)","Any for Spinda (Yancy)","Any for Togepi (Yancy)"],
-  ["Any for Mankey (Curtis)","Any for Wobbuffet (Curtis)","Any for Ralts (Curtis)","Any for Cranidos (Curtis)","Any for Rhyhorn (Curtis)","Any for Shellos (Curtis)","Any for Sableye (Curtis)","Any for Spiritomb (Curtis)","Any for Snorlax (Curtis)","Any for Phanpy (Curtis)","Any for Spinda (Curtis)","Any for Togepi (Curtis)"]]
+  [["Any for Meowth (Yancy) (male player character only)","Any for Wobbuffet (Yancy) (male player character only)","Any for Ralts (Yancy) (male player character only)","Any for Shieldon (Yancy) (male player character only)","Any for Rhyhorn (Yancy) (male player character only)","Any for Shellos (Yancy) (male player character only)","Any for Mawile (Yancy) (male player character only)","Any for Spiritomb (Yancy) (male player character only)","Any for Snorlax (Yancy) (male player character only)","Any for Teddiursa (Yancy) (male player character only)","Any for Spinda (Yancy) (male player character only)","Any for Togepi (Yancy) (male player character only)"],
+  ["Any for Mankey (Curtis) (female player character only)","Any for Wobbuffet (Curtis) (female player character only)","Any for Ralts (Curtis) (female player character only)","Any for Cranidos (Curtis) (female player character only)","Any for Rhyhorn (Curtis) (female player character only)","Any for Shellos (Curtis) (female player character only)","Any for Sableye (Curtis) (female player character only)","Any for Spiritomb (Curtis) (female player character only)","Any for Snorlax (Curtis) (female player character only)","Any for Phanpy (Curtis) (female player character only)","Any for Spinda (Curtis) (female player character only)","Any for Togepi (Curtis) (female player character only)"]]
  ],"list":[
   {"name":"Petilil for Cottonee","location":"Route 4","iconUrl":"pokemon/p546.png"},
   {"name":"Emolga for Gigalith","location":"Route 7","iconUrl":"pokemon/p526.png"},
@@ -1179,31 +1232,31 @@
   {"name":"Ditto for Rotom","location":"Route 15","iconUrl":"pokemon/p479.png"},
   {"name":"Excadrill for Ambipom","location":"Accumula Town","iconUrl":"pokemon/p424.png"},
   {"name":"Hippowdon for Alakazam","location":"Accumula Town","iconUrl":"pokemon/p65.png"},
-  {"name":"Any for Meowth (Yancy)","location":"Nimbasa City","obtainable":2,"iconUrl":"pokemon/p52.png"},
-  {"name":"Any for Wobbuffet (Yancy)","location":"Nimbasa City","obtainable":2,"iconUrl":"pokemon/p202.png"},
-  {"name":"Any for Ralts (Yancy)","location":"Nimbasa City","obtainable":2,"iconUrl":"pokemon/p280.png"},
-  {"name":"Any for Shieldon (Yancy)","location":"Nimbasa City","obtainable":2,"iconUrl":"pokemon/p410.png"},
-  {"name":"Any for Rhyhorn (Yancy)","location":"Nimbasa City","obtainable":2,"iconUrl":"pokemon/p112.png"},
-  {"name":"Any for Shellos (Yancy)","location":"Nimbasa City","obtainable":2,"iconUrl":"pokemon/p422.png"},
-  {"name":"Any for Mawile (Yancy)","location":"Nimbasa City","obtainable":2,"iconUrl":"pokemon/p303.png"},
-  {"name":"Any for Spiritomb (Yancy)","location":"Nimbasa City","obtainable":2,"iconUrl":"pokemon/p442.png"},
-  {"name":"Any for Snorlax (Yancy)","location":"Nimbasa City","obtainable":2,"iconUrl":"pokemon/p143.png"},
-  {"name":"Any for Teddiursa (Yancy)","location":"Nimbasa City","obtainable":2,"iconUrl":"pokemon/p216.png"},
-  {"name":"Any for Spinda (Yancy)","location":"Nimbasa City","obtainable":2,"iconUrl":"pokemon/p327.png"},
-  {"name":"Any for Togepi (Yancy)","location":"Nimbasa City","obtainable":2,"iconUrl":"pokemon/p175.png"},
+  {"name":"Any for Meowth (Yancy) (male player character only)","location":"Nimbasa City","obtainable":2,"iconUrl":"pokemon/p52.png"},
+  {"name":"Any for Wobbuffet (Yancy) (male player character only)","location":"Nimbasa City","obtainable":2,"iconUrl":"pokemon/p202.png"},
+  {"name":"Any for Ralts (Yancy) (male player character only)","location":"Nimbasa City","obtainable":2,"iconUrl":"pokemon/p280.png"},
+  {"name":"Any for Shieldon (Yancy) (male player character only)","location":"Nimbasa City","obtainable":2,"iconUrl":"pokemon/p410.png"},
+  {"name":"Any for Rhyhorn (Yancy) (male player character only)","location":"Nimbasa City","obtainable":2,"iconUrl":"pokemon/p112.png"},
+  {"name":"Any for Shellos (Yancy) (male player character only)","location":"Nimbasa City","obtainable":2,"iconUrl":"pokemon/p422.png"},
+  {"name":"Any for Mawile (Yancy) (male player character only)","location":"Nimbasa City","obtainable":2,"iconUrl":"pokemon/p303.png"},
+  {"name":"Any for Spiritomb (Yancy) (male player character only)","location":"Nimbasa City","obtainable":2,"iconUrl":"pokemon/p442.png"},
+  {"name":"Any for Snorlax (Yancy) (male player character only)","location":"Nimbasa City","obtainable":2,"iconUrl":"pokemon/p143.png"},
+  {"name":"Any for Teddiursa (Yancy) (male player character only)","location":"Nimbasa City","obtainable":2,"iconUrl":"pokemon/p216.png"},
+  {"name":"Any for Spinda (Yancy) (male player character only)","location":"Nimbasa City","obtainable":2,"iconUrl":"pokemon/p327.png"},
+  {"name":"Any for Togepi (Yancy) (male player character only)","location":"Nimbasa City","obtainable":2,"iconUrl":"pokemon/p175.png"},
 
-  {"name":"Any for Mankey (Curtis)","location":"Nimbasa City","obtainable":2,"iconUrl":"pokemon/p56.png"},
-  {"name":"Any for Wobbuffet (Curtis)","location":"Nimbasa City","obtainable":2,"iconUrl":"pokemon/p202.png"},
-  {"name":"Any for Ralts (Curtis)","location":"Nimbasa City","obtainable":2,"iconUrl":"pokemon/p280.png"},
-  {"name":"Any for Cranidos (Curtis)","location":"Nimbasa City","obtainable":2,"iconUrl":"pokemon/p408.png"},
-  {"name":"Any for Rhyhorn (Curtis)","location":"Nimbasa City","obtainable":2,"iconUrl":"pokemon/p111.png"},
-  {"name":"Any for Shellos (Curtis)","location":"Nimbasa City","obtainable":2,"iconUrl":"pokemon/p422.png"},
-  {"name":"Any for Sableye (Curtis)","location":"Nimbasa City","obtainable":2,"iconUrl":"pokemon/p302.png"},
-  {"name":"Any for Spiritomb (Curtis)","location":"Nimbasa City","obtainable":2,"iconUrl":"pokemon/p442.png"},
-  {"name":"Any for Snorlax (Curtis)","location":"Nimbasa City","obtainable":2,"iconUrl":"pokemon/p143.png"},
-  {"name":"Any for Phanpy (Curtis)","location":"Nimbasa City","obtainable":2,"iconUrl":"pokemon/p231.png"},
-  {"name":"Any for Spinda (Curtis)","location":"Nimbasa City","obtainable":2,"iconUrl":"pokemon/p327.png"},
-  {"name":"Any for Togepi (Curtis)","location":"Nimbasa City","obtainable":2,"iconUrl":"pokemon/p175.png"}
+  {"name":"Any for Mankey (Curtis) (female player character only)","location":"Nimbasa City","obtainable":2,"iconUrl":"pokemon/p56.png"},
+  {"name":"Any for Wobbuffet (Curtis) (female player character only)","location":"Nimbasa City","obtainable":2,"iconUrl":"pokemon/p202.png"},
+  {"name":"Any for Ralts (Curtis) (female player character only)","location":"Nimbasa City","obtainable":2,"iconUrl":"pokemon/p280.png"},
+  {"name":"Any for Cranidos (Curtis) (female player character only)","location":"Nimbasa City","obtainable":2,"iconUrl":"pokemon/p408.png"},
+  {"name":"Any for Rhyhorn (Curtis) (female player character only)","location":"Nimbasa City","obtainable":2,"iconUrl":"pokemon/p111.png"},
+  {"name":"Any for Shellos (Curtis) (female player character only)","location":"Nimbasa City","obtainable":2,"iconUrl":"pokemon/p422.png"},
+  {"name":"Any for Sableye (Curtis) (female player character only)","location":"Nimbasa City","obtainable":2,"iconUrl":"pokemon/p302.png"},
+  {"name":"Any for Spiritomb (Curtis) (female player character only)","location":"Nimbasa City","obtainable":2,"iconUrl":"pokemon/p442.png"},
+  {"name":"Any for Snorlax (Curtis) (female player character only)","location":"Nimbasa City","obtainable":2,"iconUrl":"pokemon/p143.png"},
+  {"name":"Any for Phanpy (Curtis) (female player character only)","location":"Nimbasa City","obtainable":2,"iconUrl":"pokemon/p231.png"},
+  {"name":"Any for Spinda (Curtis) (female player character only)","location":"Nimbasa City","obtainable":2,"iconUrl":"pokemon/p327.png"},
+  {"name":"Any for Togepi (Curtis) (female player character only)","location":"Nimbasa City","obtainable":2,"iconUrl":"pokemon/p175.png"}
  ]},
  {"id":"inGameGift","name":"In-Game Gift Pokémon","url":"https://bulbapedia.bulbagarden.net/wiki/Gift_Pok%C3%A9mon","list":[
   {"name":"Starter Pokémon","location":"Aspertia City","iconUrl":"pokemon/p495.png"},
@@ -1363,7 +1416,7 @@
   {"id":"43","name":"Berry Juice","location":"Undella Town, Nuvema Town, Join Avenue (Raffle Shop), Pokéstar Studios, Royal Unova (Tuesday), Held by wild Shuckle","iconUrl":"item/Berry_Juice.png"},
   {"id":"44","name":"Sacred Ash","location":"Join Avenue (Antique Shop)","iconUrl":"item/Sacred_Ash.png"},
   {"id":"45","name":"HP Up","location":"Route 9, Route 11, Route 15, Route 23, Dreamyard, Pinwheel Forest, Castelia Sewers (Spring, Summer), Mistralton City, Clay Tunnel, Passerby Analytics HQ (complete survey about TV and movies), Shopping Mall Nine, Join Avenue (Market), Battle Subway, PWT, Black Tower (Area 1-5 reward), Anville Town (lost-and-found)","iconUrl":"item/HP_Up.png"},
-  {"id":"46","name":"Protein","location":"Dragonspiral Tower, Humilau City, Relic Passage, Pinwheel Forest, N's Castle, Route 4, Route 6, Route 14Passerby Analytics HQ (complete \"Most popular kind of game?\" survey), Shopping Mall Nine, Join Avenue (Market), Battle Subway, PWT, Black Tower (Area 1-5 reward), Big Stadium and Small Court (defeat a Linebacker), Anville Town (lost-and-found)","iconUrl":"item/Protein.png"},
+  {"id":"46","name":"Protein","location":"Dragonspiral Tower, Humilau City, Relic Passage, Pinwheel Forest, N's Castle, Route 4, Route 6, Route 14, Passerby Analytics HQ (complete \"Most popular kind of game?\" survey), Shopping Mall Nine, Join Avenue (Market), Battle Subway, PWT, Black Tower (Area 1-5 reward), Big Stadium and Small Court (defeat a Linebacker), Anville Town (lost-and-found)","iconUrl":"item/Protein.png"},
   {"id":"47","name":"Iron","location":"Route 9, Route 18, Route 23, Chargestone Cave, Mistralton City, Victory Road, Clay Tunnel, Dreamyard, Passerby Analytics HQ (complete \"What if...?\" survey), Shopping Mall Nine, Join Avenue (Market), Battle Subway, PWT, Black Tower (Area 1-5 reward), Big Stadium and Small Court (defeat an Infielder), Anville Town (lost-and-found)","iconUrl":"item/Iron.png"},
   {"id":"48","name":"Carbos","location":"Route 2, Route 22, Chargestone Cave, Village Bridge, Giant Chasm, Dragonspiral Tower, Wellspring Cave, Passerby Analytics HQ (complete \"Where would you go with a time machine?\" survey), Shopping Mall Nine, Join Avenue (Market), Battle Subway, PWT, Black Tower (Area 1-5 reward), Big Stadium and Small Court (defeat a Striker), Anville Town (lost-and-found)","iconUrl":"item/Carbos.png"},
   {"id":"49","name":"Calcium","location":"Route 2, Route 3, Route 22, Route 23, Driftveil City, Reversal Mountain, Abundant Shrine, Seaside Cave, Passerby Analytics HQ (complete \"How many years playing Pokémon?\" survey), Shopping Mall Nine, Join Avenue (Market), Battle Subway, PWT, Black Tower (Area 1-5 reward), Big Stadium and Small Court (defeat a Hoopster), Anville Town (lost-and-found)","iconUrl":"item/Calcium.png"},
@@ -1527,7 +1580,7 @@
   {"id":"207","name":"Starf Berry","location":"From a Trainer on the Battle Subway platform after 203 consecutive victories.","iconUrl":"item/Starf_Berry.png"},
   {"id":"208","name":"Enigma Berry","obtainable":0,"iconUrl":"item/Enigma_Berry.png","location":"Held by event Darkrai traded from Black, White (ex: Winter 2011 Darkrai)","reqs":["EnigmaBerry"]},
   {"id":"209","name":"Micle Berry","location":"Held by event Jirachi (ex: Chilseok Jirachi).","obtainable":0,"iconUrl":"item/Micle_Berry.png","reqs":["MicleBerry"]},
-  {"id":"210","name":"Custap Berry","location":"Held by event Mewtwo (ex: Pokémon Hills Mewtwo). Transfer from Dream World (event).","obtainable":0,"iconUrl":"item/Custap_Berry.png"},
+  {"id":"210","name":"Custap Berry","location":"Held by event Mewtwo (ex: Pokémon Hills Mewtwo). Transfer from Dream World (event).","obtainable":0,"iconUrl":"item/Custap_Berry.png","reqs":["CustapBerry"]},
   {"id":"211","name":"Jaboca Berry","location":"Transfer from Dream World (event)","obtainable":0,"iconUrl":"item/Jaboca_Berry.png","reqs":["JabocaBerry"]},
   {"id":"212","name":"Rowap Berry","location":"Transfer from Dream World","obtainable":0,"iconUrl":"item/Rowap_Berry.png","reqs":["DreamWorld"]},
   {"id":"213","name":"BrightPowder","location":"Anville Town, Battle Subway, PWT","iconUrl":"item/Bright_Powder.png"},
@@ -1573,9 +1626,9 @@
   {"id":"253","name":"Shell Bell","location":"Humilau City, Driftveil City","iconUrl":"item/Shell_Bell.png"},
   {"id":"254","name":"Sea Incense","location":"Driftveil Market","iconUrl":"item/Sea_Incense.png"},
   {"id":"255","name":"Lax Incense","location":"Driftveil Market","iconUrl":"item/Lax_Incense.png"},
-  {"id":"256","name":"Lucky Punch","location":"Funfest Mission (\"Rock-Paper-Scissors Competition!,\" requiring at least 100 points on level 3)","obtainable":0,"iconUrl":"item/Lucky_Punch.png"},
+  {"id":"256","name":"Lucky Punch","location":"Funfest Mission (\"Rock-Paper-Scissors Competition!,\" requiring at least 100 points on level 3 which requires 10+ players). Trade from Black, White, Dream World.","obtainable":0,"iconUrl":"item/Lucky_Punch.png","reqs":["LuckyPunch"]},
   {"id":"257","name":"Metal Powder","location":"Held by wild Ditto found in Giant Chasm (Crater Forest, Hidden Grotto)","iconUrl":"item/Metal_Powder.png"},
-  {"id":"258","name":"Thick Club","location":"Funfest Mission (Do a Great Trade-Up!)","obtainable":0,"iconUrl":"item/Thick_Club.png"},
+  {"id":"258","name":"Thick Club","location":"Funfest Mission (Do a Great Trade-Up!)","iconUrl":"item/Thick_Club.png"},
   {"id":"259","name":"Stick","location":"Held by wild Farfetch'd found in Route 1 (Swarm)","iconUrl":"item/Stick.png"},
   {"id":"260","name":"Red Scarf","obtainable":-1,"iconUrl":"item/Red_Scarf.png"},
   {"id":"261","name":"Blue Scarf","obtainable":-1,"iconUrl":"item/Blue_Scarf.png"},
@@ -1685,7 +1738,7 @@
   {"id":"463","name":"Storage Key","obtainable":-1,"iconUrl":"item/Storage_Key.png"},
   {"id":"464","name":"SecretPotion","obtainable":-1,"iconUrl":"item/Secret_Potion.png"},
   {"id":"465","name":"Vs. Recorder","location":"Nimbasa City (from Nate/Rosa after defeating the Subway Bosses in front of the Gear Station)","iconUrl":"item/Vs_Recorder.png"},
-  {"id":"466","name":"Gracidea","location":"Striaton City Pokémon Center (show a fateful encounter Shaymin)","obtainable":0,"iconUrl":"item/Gracidea.png"},
+  {"id":"466","name":"Gracidea","location":"Striaton City Pokémon Center (show a fateful encounter Shaymin)","obtainable":0,"iconUrl":"item/Gracidea.png","reqs":["Shaymin"]},
   {"id":"467","name":"Secret Key","obtainable":-1,"iconUrl":"item/Secret_Key.png"},
   {"id":"468","name":"Apricorn Box","obtainable":-1},
   {"id":"469","name":"Unown Report","obtainable":-1},
@@ -1796,7 +1849,7 @@
   {"id":"574","name":"Liberty Pass","obtainable":-1,"location":"Black, White-exclusive key item from event"},
   {"id":"575","name":"Pass Orb","location":"Entralink (Funfest Mission)"},
   {"id":"576","name":"Dream Ball","location":"Entralink (requires Dream World)","obtainable":0,"reqs":["DreamWorld"]},
-  {"id":"577","name":"Poké Toy","location":"Route 4, Virbank City, Shopping Mall NineBig Stadium and Small Court (defeat Preschooler Evan)"},
+  {"id":"577","name":"Poké Toy","location":"Route 4, Virbank City, Shopping Mall Nine, Big Stadium and Small Court (defeat Preschooler Evan)"},
   {"id":"578","name":"Prop Case","location":"Musical Theater (from the owner when first visiting the Theater)"},
   {"id":"579","name":"Dragon Skull","obtainable":-1,"location":"Black, White-exclusive key item"},
   {"id":"580","name":"BalmMushroom","location":"Accumula Town, Pinwheel Forest (reappears occasionally, Held by wild Foongus, Amoonguss (dark grass)"},
@@ -1846,15 +1899,15 @@
   {"id":"627","name":"Medal Box","location":"Floccesy Town (from Mr. Medal outside of Alder's house after defeating the two School Kids)"},
   {"id":"628","name":"DNA Splicers","location":"Giant Chasm (dropped by Kyurem when caught, defeated, or fled from)"},
   {"id":"629","name":"DNA Splicers (2)","location":"Giant Chasm (dropped by Kyurem when caught, defeated, or fled from)"},
-  {"id":"630","name":"Permit","location":"Juniper Pokémon Lab (from Professor Juniper after seeing all Pokémon in the Unova Pokédex)","obtainable":0},
-  {"id":"631","name":"Oval Charm","location":"Juniper Pokémon Lab (from Professor Juniper for obtaining all the Pokémon in the Unova Pokédex, except Mythical Pokémon)","obtainable":0},
-  {"id":"632","name":"Shiny Charm","location":"Juniper Pokémon Lab (from Professor Juniper after obtaining all the Pokémon in the National Pokédex, excluding Mythical Pokémon, having it evaluated by Cedric Juniper)","obtainable":0},
+  {"id":"630","name":"Permit","location":"Juniper Pokémon Lab (from Professor Juniper after seeing all Pokémon in the Unova Pokédex)","obtainable":0,"reqs":["NaturePreserve"]},
+  {"id":"631","name":"Oval Charm","location":"Juniper Pokémon Lab (from Professor Juniper after obtaining all the Pokémon in the Unova Pokédex, excluding Mythical Pokémon)","obtainable":0,"reqs":["CatchUnovaPokedex"]},
+  {"id":"632","name":"Shiny Charm","location":"Juniper Pokémon Lab (from Professor Juniper after obtaining all the Pokémon in the National Pokédex, excluding Mythical Pokémon)","obtainable":0,"reqs":["NationalDex"]},
   {"id":"633","name":"Plasma Card","location":"Plasma Frigate B2F (from the Plasma Grunt with a Trubbish and Zangoose after defeating her)"},
   {"id":"634","name":"Grubby Hanky","location":"Nacrene City (Café Warehouse, from a customer on Sunday)"},
   {"id":"635","name":"Colress MCHN","location":"Route 22 (from Colress upon approaching Terrakion)"},
   {"id":"636","name":"Dropped Item","location":"Nimbasa City (near the flower bed in the amusement park)"},
   {"id":"637","name":"Dropped Item (2)","location":"Nimbasa City (near the flower bed in the amusement park)"},
-  {"id":"638","name":"Reveal Glass","location":"Abundant Shrine (requires Therian Forme Landorus)","obtainable":0}
+  {"id":"638","name":"Reveal Glass","location":"Abundant Shrine (requires Therian Forme Landorus)","obtainable":0,"reqs":["DreamRadar"]}
 ]},
  {"id":"joinAvenue","name":"Join Avenue","list":[
   {"name":"Avenue Rank 100","location":"Join Avenue"},
@@ -2079,20 +2132,22 @@
   {"name":"Download - Gathered! Gym Leader!","obtainable":0,"location":"Pokémon World Tournament (Japanese-exclusive event)","reqs":["PWTEvent_JP"]},
   {"name":"Download - Challenge the Champion Wataru!","obtainable":0,"location":"Pokémon World Tournament (Japanese-exclusive event)","reqs":["PWTEvent_JP"]},
   {"name":"Download - The Battle Between Legendary Pokémon","obtainable":0,"location":"Pokémon World Tournament (Japanese-exclusive event)","reqs":["PWTEvent_JP"]},
-  {"name":"Download - 2012 Junior Division Challenge - Initial","obtainable":0,"location":"Pokémon World Tournament (event)","reqs":["PWTEvent"]},
-  {"name":"Download - 2012: Junior Division Challenge - Fixed","obtainable":0,"location":"Pokémon World Tournament (event)","reqs":["PWTEvent"]},
-  {"name":"Download - 2012: Senior Division Challenge","obtainable":0,"location":"Pokémon World Tournament (event)","reqs":["PWTEvent"]},
-  {"name":"Download - 2012: Masters Division Challenge - Initial","obtainable":0,"location":"Pokémon World Tournament (event)","reqs":["PWTEvent"]},
-  {"name":"Download - 2012 Masters Division Challenge - Fixed","obtainable":0,"location":"Pokémon World Tournament (event)","reqs":["PWTEvent"]},
+  {"name":"Download - 2012 Junior Division Challenge - Initial","obtainable":0,"location":"Pokémon World Tournament (event)","reqs":["PWTEvent_EN"]},
+  {"name":"Download - 2012: Junior Division Challenge - Fixed","obtainable":0,"location":"Pokémon World Tournament (event)","reqs":["PWTEvent_EN"]},
+  {"name":"Download - 2012: Senior Division Challenge","obtainable":0,"location":"Pokémon World Tournament (event)","reqs":["PWTEvent_EN"]},
+  {"name":"Download - 2012: Masters Division Challenge - Initial","obtainable":0,"location":"Pokémon World Tournament (event)","reqs":["PWTEvent_EN"]},
+  {"name":"Download - 2012 Masters Division Challenge - Fixed","obtainable":0,"location":"Pokémon World Tournament (event)","reqs":["PWTEvent_EN"]},
   {"name":"Download - You Challenge the Isshu League Too!","obtainable":0,"location":"Pokémon World Tournament (Japanese-exclusive event)","reqs":["PWTEvent_JP"]}
  ]},
- {"id":"medal","name":"Medals","list":[
+ {"id":"medal","name":"Medals","missables":[
+    {"text":"You must pick the starter Snivy or Oshawott in order to obtain the maximum number of medals. With Snivy, you can obtain Grass-type Catcher medal. With Oshawott, you can obtain Water-type Catcher medal. With Tepig, you can't obtain Fire-type Catcher medal because of missing Reshiram.", "collectables":["Water-type Catcher","Grass-type Catcher"], "reqsToSolve":[["TradeGen5ToGen5"]]}
+  ], "list":[
   {"name":"First Step","location":"A Medal given to all Medal Rally participants at the beginning. A symbol of a Trainer's potential."},
   {"name":"Participation Prize","location":"Go to the Medal Office after collecting 50 Medals. A Medal for Medal Rally participants who achieved certain results and reached a goal."},
   {"name":"Rookie Medalist","location":"Obtain Rookie Rank by collecting 50 Medals. A Medal commemorating the advance to the Rookie Rank as the result of constant efforts in the Medal Rally."},
   {"name":"Elite Medalist","location":"Obtain Elite Rank by collecting 100 Medals. A Medal commemorating the advance to the Elite Rank as the result of constant efforts in the Medal Rally."},
   {"name":"Master Medalist","location":"Obtain Master Rank by collecting 150 Medals. A Medal commemorating the advance to the Master Rank as the result of constant efforts in the Medal Rally."},
-  {"name":"Legend Medalist","location":"Obtain Legend Rank by collecting 200 Medals. A Medal commemorating the advance to the Legend Rank as the result of constant efforts in the Medal Rally.","obtainable":0},
+  {"name":"Legend Medalist","location":"Obtain Legend Rank by collecting 200 Medals. A Medal commemorating the advance to the Legend Rank as the result of constant efforts in the Medal Rally.","obtainable":0,"notes":"192 medals obtainable without req","reqs":["AnyGen5"]},
   {"name":"Top Medalist","location":"An honorable Medal for those who collected all the Medals.", "obtainable":0, "reqs":["TODO"]},
   {"name":"Hint Medal","location":"Does not count towards total. Obtained from Mr. Medal, contains hints towards how to get new Medals."},
   {"name":"Light Walker","location":"A Medal to praise light walkers who took 5,000 steps on the land of Unova."},
@@ -2115,24 +2170,24 @@
   {"name":"Good Rod Fisherman","location":"The player has only to reel in Pokémon, not catch it. A Medal given to leisure fishers who caught 10 Pokémon."},
   {"name":"Super Rod Fisherman","location":"The player has only to reel in Pokémon, not catch it. A Medal given to very experienced fishers who caught 50 Pokémon."},
   {"name":"Mighty Fisher","location":"The player has only to reel in Pokémon, not catch it. A Medal given to legendary fishers who caught 100 Pokémon."},
-  {"name":"Normal-type Catcher","location":"A Medal in commemoration of catching all the Normal-type Pokémon in the Unova Pokédex. (Excluding Meloetta)", "obtainable":0},
-  {"name":"Fire-type Catcher","location":"A Medal in commemoration of catching all the Fire-type Pokémon in the Unova Pokédex. (Excluding Victini)", "obtainable":0,"TODO":"check if need mythical"},
-  {"name":"Water-type Catcher","location":"A Medal in commemoration of catching all the Water-type Pokémon in the Unova Pokédex. (Excluding Keldeo)", "obtainable":0},
-  {"name":"Electric-type Catcher","location":"A Medal in commemoration of catching all the Electric-type Pokémon in the Unova Pokédex.", "obtainable":0},
-  {"name":"Grass-type Catcher","location":"A Medal in commemoration of catching all the Grass-type Pokémon in the Unova Pokédex.", "obtainable":0},
+  {"name":"Normal-type Catcher","location":"A Medal in commemoration of catching all the Normal-type Pokémon in the Unova Pokédex. (Excluding Meloetta)", "obtainable":0,"reqs":["White","White2"],"notes":"Braviary"},
+  {"name":"Fire-type Catcher","location":"A Medal in commemoration of catching all the Fire-type Pokémon in the Unova Pokédex. (Excluding Victini)", "obtainable":0,"reqs":["Black","White2"],"notes":"Reshiram"},
+  {"name":"Water-type Catcher","location":"A Medal in commemoration of catching all the Water-type Pokémon in the Unova Pokédex. (Excluding Keldeo)", "obtainable":0,"reqs":["EvolveTradeGen5"],"notes":"water starter"},
+  {"name":"Electric-type Catcher","location":"A Medal in commemoration of catching all the Electric-type Pokémon in the Unova Pokédex.", "obtainable":0,"reqs":["White","DreamRadar"],"notes":"Thundurus"},
+  {"name":"Grass-type Catcher","location":"A Medal in commemoration of catching all the Grass-type Pokémon in the Unova Pokédex.", "obtainable":0,"reqs":["EvolveTradeGen5"],"notes":"grass starter"},
   {"name":"Ice-type Catcher","location":"A Medal in commemoration of catching all the Ice-type Pokémon in the Unova Pokédex.", "obtainable":1},
-  {"name":"Fighting-type Catcher","location":"A Medal in commemoration of catching all the Fighting-type Pokémon in the Unova Pokédex. (Excluding Keldeo)", "obtainable":0},
+  {"name":"Fighting-type Catcher","location":"A Medal in commemoration of catching all the Fighting-type Pokémon in the Unova Pokédex. (Excluding Keldeo)", "obtainable":0,"reqs":["EvolveTradeGen5"],"notes":"Conkeldurr"},
   {"name":"Poison-type Catcher","location":"A Medal in commemoration of catching all the Poison-type Pokémon in the Unova Pokédex.", "obtainable":1},
-  {"name":"Ground-type Catcher","location":"A Medal in commemoration of catching all the Ground-type Pokémon in the Unova Pokédex.", "obtainable":0},
-  {"name":"Flying-type Catcher","location":"A Medal in commemoration of catching all the Flying-type Pokémon in the Unova Pokédex.", "obtainable":0},
-  {"name":"Psychic-type Catcher","location":"A Medal in commemoration of catching all the Psychic-type Pokémon in the Unova Pokédex. (Excluding Victini, Meloetta)", "obtainable":0},
-  {"name":"Bug-type Catcher","location":"A Medal in commemoration of catching all the Bug-type Pokémon in the Unova Pokédex. (Excluding Genesect)", "obtainable":0},
+  {"name":"Ground-type Catcher","location":"A Medal in commemoration of catching all the Ground-type Pokémon in the Unova Pokédex.", "obtainable":0,"reqs":[["Black","White"],["DreamRadar"]],"notes":"Landorus"},
+  {"name":"Flying-type Catcher","location":"A Medal in commemoration of catching all the Flying-type Pokémon in the Unova Pokédex.", "obtainable":0,"reqs":[["Black","White"],["DreamRadar","White"],["DreamRadar","White2"]],"notes":"Braviary, Tornadus, Thundurus, Landorus"},
+  {"name":"Psychic-type Catcher","location":"A Medal in commemoration of catching all the Psychic-type Pokémon in the Unova Pokédex. (Excluding Victini, Meloetta)", "obtainable":0,"reqs":["White","White2"],"notes":"Reuniclus"},
+  {"name":"Bug-type Catcher","location":"A Medal in commemoration of catching all the Bug-type Pokémon in the Unova Pokédex. (Excluding Genesect)", "obtainable":0,"reqs":["EvolveTradeGen5"],"notes":"Escavalier, Accelgor"},
   {"name":"Rock-type Catcher","location":"A Medal in commemoration of catching all the Rock-type Pokémon in the Unova Pokédex.", "obtainable":1},
-  {"name":"Ghost-type Catcher","location":"A Medal in commemoration of catching all the Ghost-type Pokémon in the Unova Pokédex.", "obtainable":1},
-  {"name":"Dragon-type Catcher","location":"A Medal in commemoration of catching all the Dragon-type Pokémon in the Unova Pokédex.", "obtainable":0},
+  {"name":"Ghost-type Catcher","location":"A Medal in commemoration of catching all the Ghost-type Pokémon in the Unova Pokédex.", "obtainable":1,"notes":"requires "},
+  {"name":"Dragon-type Catcher","location":"A Medal in commemoration of catching all the Dragon-type Pokémon in the Unova Pokédex.", "obtainable":0,"reqs":["Black","White2"],"notes":"Reshiram"},
   {"name":"Dark-type Catcher","location":"A Medal in commemoration of catching all the Dark-type Pokémon in the Unova Pokédex.", "obtainable":1},
-  {"name":"Steel-type Catcher","location":"A Medal in commemoration of catching all the Steel-type Pokémon in the Unova Pokédex. (Excluding Genesect)", "obtainable":0},
-  {"name":"Unova Catcher","location":"A Medal in commemoration of receiving the award from the Game Director for completing the Unova Pokédex. (Excluding Victini, Keldeo, Meloetta, Genesect)", "obtainable":0},
+  {"name":"Steel-type Catcher","location":"A Medal in commemoration of catching all the Steel-type Pokémon in the Unova Pokédex. (Excluding Genesect)", "obtainable":0,"reqs":["EvolveTradeGen5"],"notes":"Escavalier, conflict in-game trade Mawile"},
+  {"name":"Unova Catcher","location":"A Medal in commemoration of receiving the award from the Game Director for completing the Unova Pokédex. (Excluding Victini, Keldeo, Meloetta, Genesect)", "obtainable":0,"reqs":["CatchUnovaPokedex"]},
   {"name":"National Catcher","location":"A Medal in commemoration of receiving the award from the Game Director for completing the National Pokédex. (Excluding Mew, Lugia, Ho-Oh, Celebi, Jirachi, Deoxys, Phione, Manaphy, Darkrai, Shaymin, Arceus, Victini, Keldeo, Meloetta, Genesect)", "obtainable":0,"reqs":["NationalDex"]},
   {"name":"30 Boxed","location":"A Medal given to novice Trainers who have deposited 30 Pokémon in their PC Boxes."},
   {"name":"120 Boxed","location":"A Medal given to skilled Trainers who have deposited 120 Pokémon in their PC Boxes."},
@@ -2581,11 +2636,11 @@
   {"name":"Forest Stroll","location":"Musical Theater"},
   {"name":"A Sweet Soirée","location":"Musical Theater"},
   {"name":"Exciting Nimbasa","location":"Musical Theater"},
-  {"name":"Charming Munna", "obtainable":0,"location":"Musical Theater (event)"},
-  {"name":"Pokémon Smash!", "obtainable":0,"location":"Musical Theater (event)"},
-  {"name":"Carnival Pokémon", "obtainable":0,"location":"Musical Theater (event)"},
-  {"name":"MELOETTAAA!!!", "obtainable":0,"location":"Musical Theater (event)"},
-  {"name":"Carnival Ludicolo!", "obtainable":0,"location":"Musical Theater (event)"}
+  {"name":"Charming Munna", "obtainable":0,"location":"Musical Theater (event)","reqs":["MusicalEvent"]},
+  {"name":"Pokémon Smash!", "obtainable":0,"location":"Musical Theater (event)","reqs":["MusicalEvent"]},
+  {"name":"Carnival Pokémon", "obtainable":0,"location":"Musical Theater (event)","reqs":["MusicalEvent"]},
+  {"name":"MELOETTAAA!!!", "obtainable":0,"location":"Musical Theater (event)","reqs":["MusicalEvent"]},
+  {"name":"Carnival Ludicolo!", "obtainable":0,"location":"Musical Theater (event)","reqs":["MusicalEvent"]}
  ]},
  {"id":"funfest","name":"Funfest","list":[
   {"name":"Black Entree Level 100","location":"Entralink"},

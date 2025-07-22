@@ -463,6 +463,9 @@ export class Collectable {
       this.href = nameToHref(this.name, urlSuffix);
 
     this.obtainable = <ObtainType><unknown>this.obtainableJson;
+
+    if (this.obtainableJson === ObtainTypeInJson.unobtainable && !info.reqs)
+      console.error('this.obtainableJson === ObtainTypeInJson.unobtainable && !info.reqs', this.name, this);
   }
   setObtainable(t:ObtainType){
     this.obtainable = t;

@@ -342,11 +342,11 @@
   ]},
 
   "------NationalDex-------",
-  {"id":"NationalDex", "formula":[["RandSorE","DorP","DPorPt","LorForHorS"]]},
-  {"id":"RandSorE", "formula":[["Ruby","Sapphire"], ["Emerald"]]},
-  ["DorP","Diamond","Pearl"],
-  {"id":"DPorPt", "formula":[["Diamond","Pearl"],["Platinum2"]]},
-  {"id":"LorForHorS", "formula":[["LeafGreen"],["FireRed"],["HeartGold"],["SoulSilver"]]},
+  {"id":"NationalDex", "formula":[["NationalDex_RandSorE","NationalDex_DorP","NationalDex_DPorPt","NationalDex_LorForHorS"]]},
+  {"id":"NationalDex_RandSorE", "formula":[["Ruby","Sapphire"], ["Emerald"]]},
+  ["NationalDex_DorP","Diamond","Pearl"],
+  {"id":"NationalDex_DPorPt", "formula":[["Diamond","Pearl"],["Platinum2"]]},
+  {"id":"NationalDex_LorForHorS", "formula":[["LeafGreen"],["FireRed"],["HeartGold"],["SoulSilver"]]},
   "------NationalDex end-------",
   
   {"id":"ForeignDexEntries", "formula":[["$ForeignDexEntries"]],"info":[ "144 Articuno LGPtHS", "145 Zapdos LGPtHS", "146 Moltres LGPtHS", "150 Mewtwo LGHS", "151 Mew MyPkmRanch", "201 Unown LGDPPtHS", "243 Raikou LGColHS", "244 Entei LGColHS", "245 Suicune LGColHS", "249 Lugia XDHS", "250 Ho-Oh ColHS", "251 Celebi JP(Col),Event(RSEDPPtHS)", "377 Regirock RSE", "378 Regice RSE", "379 Registeel RSE", "380 Latias SE", "381 Latios RE", "382 Kyogre SEH", "383 Groudon RES", "384 Rayquaza RSEHS", "385 Jirachi JP(Event DPPtHS),Col", "386 Deoxys Event DPRSELF", "480 Uxie DPPt", "481 Mesprit DPPt", "482 Azelf DPPt", "483 Dialga DPt", "484 Palkia PPt", "485 Heatran DPPt", "486 Regigigas RSE", "487 Giratina DPPt", "488 Cresselia DPPt", "491 Darkrai Event(DPPt)", "492 Shaymin Event(DPPt)", "493 Arceus Event(DPPt)"
@@ -396,13 +396,13 @@
     {"id":"$SoulSilver_JP","name":"Game: Pokémon SoulSilver (JP)","indent":1, "preReqs":[["MultiplayerGen4_PreReq"]]},
 
     [
-      {"id":"$EmuPokewalker","name":"Emulator for PokéWalker","desc":"No PokéWalker emulators with DS connnectivity exist yet.", "indent":1, "preReqs":[["HS"]]},
+      {"id":"$EmuPokewalker","name":"Emulator for PokéWalker","desc":"No PokéWalker emulators with DS connnectivity exist as of 2025-05-21.", "indent":1, "preReqs":[["HS"]]},
       {"id":"$Pokewalker","name":"Game: PokéWalker","indent":1, "preReqs":[["HS"]]}
     ],
 
     [
       {"id":"$Wifi","name":"Emulator supports Wifi","desc":"","indent":1,"fullCompl":1},
-      {"id":"$NintendoWifi","name":"Simulator of Nintendo Wi-Fi Connection","desc":"","url":["DWC Network Server", "https://github.com/barronwaffles/dwc_network_server_emulator"],"indent":1,"fullCompl":1}
+      {"id":"$NintendoWifi","name":"Simulator of Nintendo Wi-Fi Server","desc":"","url":["DWC Network Server", "https://github.com/barronwaffles/dwc_network_server_emulator"],"indent":1,"fullCompl":1}
     ],
 
     {"id":"$EmuGba","name":"Emulator for GBA","fullCompl":1,"preReqs":[["$EmuDualSlot"]]},
@@ -934,9 +934,9 @@
   {"name":"Lotad","id":"270","location":"Route 203, Route 204, Route 205, Route 212 (Dual-slot Sapphire). Trade from Emerald, HeartGold, SoulSilver","reqs":["DualSapphire","Emerald","HeartGold","SoulSilver"],"iconUrl":"pokemon/p270.png","pos":[[4151.4,2655.5],[6912.4,3802.5],[6538.4,2765.5],[4079.4,4417.5],[8261,8099.5]]},
   {"name":"Lombre","id":"271","location":"Route 212, Route 229 (Dual-slot Sapphire). Evolve traded Lotad (Level 14)","reqs":["DualSapphire","Emerald","HeartGold","SoulSilver"],"iconUrl":"pokemon/p271.png","pos":[[8261,8099.5],[3508,12114.2]]},
   {"name":"Ludicolo","id":"272","location":"Evolve Lombre (Water Stone)","reqs":["DualSapphire","Emerald","HeartGold","SoulSilver"],"iconUrl":"pokemon/p272.png"},
-  {"name":"Seedot","id":"273","location":"Route 203, Route 204 (Dual-slot Ruby). Trade from Sapphire, Emerald, XD, HeartGold, SoulSilver","reqs":["DualRuby","Sapphire","Emerald","HS","XD"],"iconUrl":"pokemon/p273.png","pos":[[6912.4,3802.5],[6538.4,2765.5]]},
-  {"name":"Nuzleaf","id":"274","location":"Route 210, Route 229 (Dual-slot Ruby). Trade from Sapphire, Emerald, XD, HeartGold, SoulSilver","reqs":["DualRuby","Sapphire","Emerald","HS","XD"],"iconUrl":"pokemon/p274.png","pos":[[4536.4,8740.5],[3508,12114.2]]},
-  {"name":"Shiftry","id":"275","location":"Evolve Nuzleaf (Leaf Stone)","reqs":["DualRuby","Sapphire","Emerald","HS","XD"],"iconUrl":"pokemon/p275.png"},
+  {"name":"Seedot","id":"273","location":"Route 203, Route 204 (Dual-slot Ruby). Trade from Ruby, Emerald, XD, HeartGold, SoulSilver","reqs":["DualRuby","Ruby","Emerald","HS","XD"],"iconUrl":"pokemon/p273.png","pos":[[6912.4,3802.5],[6538.4,2765.5]]},
+  {"name":"Nuzleaf","id":"274","location":"Route 210, Route 229 (Dual-slot Ruby). Trade from Ruby, Emerald, XD, HeartGold, SoulSilver","reqs":["DualRuby","Ruby","Emerald","HS","XD"],"iconUrl":"pokemon/p274.png","pos":[[4536.4,8740.5],[3508,12114.2]]},
+  {"name":"Shiftry","id":"275","location":"Evolve Nuzleaf (Leaf Stone)","reqs":["DualRuby","Ruby","Emerald","HS","XD"],"iconUrl":"pokemon/p275.png"},
   {"name":"Taillow","id":"276","location":"Breed Swellow","iconUrl":"pokemon/p276.png"},
   {"name":"Swellow","id":"277","location":"Route 213","iconUrl":"pokemon/p277.png","pos":[[7832,9976.6]]},
   {"name":"Wingull","id":"278","location":"Route 213, Route 222, Route 226, Route 230, Fuego Ironworks, Route 213, Route 219, Route 220, Route 221, Route 222, Sunyshore City, Iron Island, Pokémon League","iconUrl":"pokemon/p278.png","pos":[[5022.4,2877.5],[5506.4,245.5],[4506.4,13079.6],[7843,10074.6],[8532,2894.8],[8781,2842.5],[8968,3965.8],[7343,11473.6],[2304,10985.8],[3525,10838.8],[6807.2,13349.8]]},
@@ -2499,8 +2499,7 @@
   {"note":true, "id":"298","flagHex":"0x12A","name":"Big Tree","location":"Eterna Forest"},
   {"note":true, "id":"317","flagHex":"0x13D","name":"Starter Mask #3","location":"Jubilife TV"},
   {"note":true, "id":"346","flagHex":"0x15A","name":"Poffin Case","location":"Hearthome City (from the Pokémon Fan Club Chairman)"}
-  ],"missables":[
- ],"list":[
+  ],"list":[
   {"id":"108","flagHex":"0x06C","name":"Potion","location":"Route 201 (from Poké Mart employee)","pos":[[8079.4,2326.5]],"iconUrl":"item/Potion.png"},
   {"id":"274","flagHex":"0x112","name":"Potion #2","location":"Trainers' School","pos":[[7224.2,2767.2]],"iconUrl":"item/Potion.png"},
   {"id":"116","flagHex":"0x074","name":"TM86 - Grass Knot","location":"Eterna Gym","pos":[[4419.7,5422.3]],"iconUrl":"item/TM_Normal.png"},

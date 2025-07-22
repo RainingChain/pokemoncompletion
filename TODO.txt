@@ -1,27 +1,7 @@
 
+photo bebe cimon shower sylvain
+
 This PC\Pixel 4a\Internal shared storage\Emulators\3DS\sdmc\Nintendo 3DS\00000000000000000000000000000000\00000000000000000000000000000000\title\00040000\00141000\data\00000001
-
-const emptyImageUrl = 'data:image/gif;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=';
-this.on('tileloadstart', {tile,coords} => {
-	if (tile.src === emptyImageUrl){
-		tile.style.backgroundImage = 'url(' + this._url
-			.replace('{z}', '1')
-			.replace('{y}', '' + Math.floor(coords.y / 2))
-			.replace('{x}', '' + Math.floor(coords.x / 2)) + ')';
-		
-		const my = coords.y % 2;
-		const mx = coords.x % 2;
-		tile.style.visibility  = 'visible';
-		tile.style.backgroundSize = '200%';
-		tile.style.backgroundPositionX = mx === 0 ? '0%' : '100%';
-		tile.style.backgroundPositionY = my === 0 ? '0%' : '100%';
-	}
-
-	getTileUrl: function (coords) {
-//console.log(coords.z);
-if(coords.z === 3)
-		return emptyImageUrl;
-}
 
 
 -------------------
