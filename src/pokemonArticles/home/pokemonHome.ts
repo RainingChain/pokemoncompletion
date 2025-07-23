@@ -51,7 +51,7 @@ document.addEventListener("DOMContentLoaded",async function(){
       {klass:'pokemon-p25',href:'/VersionCompatibility/GenI',name:'Generation I'},
       {klass:'pokemon-p245',href:'/VersionCompatibility/GenII',name:'Generation II'},
       {klass:'pokemon-p384',href:'/VersionCompatibility/GenIII',name:'Generation III'},
-      {klass:'pokemon-p487',href:'/VersionCompatibility/GenIV',name:'Generation IV',desc:'(WIP)'},
+      {klass:'pokemon-p487',href:'/VersionCompatibility/GenIV',name:'Generation IV'},
     ],
 
     articles:[

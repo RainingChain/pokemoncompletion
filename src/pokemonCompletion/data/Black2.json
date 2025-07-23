@@ -150,6 +150,24 @@
     {"name":"Obtain all and keep if possible (Living Dex)","value":1,"desc":"Ex: You must own Bulbasaur, Ivysaur, and Venusaur simultaneously. Same for items."}
   ],
   "events":[
+    {"id":"WishingRibbon_B2_Event","name":"Mewtwo with Wishing Ribbon", "fullName":"Pokémon Hills Mewtwo",
+      "promo":"Genesect and the Legend Awakened 2013 Promo", "where":"Blitzmegaplex cinema in the Mall of Indonesia", "when":"November 2, 6, and 9, 2013",
+     "url":"https://bulbapedia.bulbagarden.net/wiki/List_of_local_English_event_Pok%C3%A9mon_distributions_in_Generation_V#Pok%C3%A9mon_Hills_Mewtwo","savUrl":"https://projectpokemon.org/home/files/file/701-movie-2013-mewtwo/"},
+
+    {"id":"PremierRibbon_BW_Event","name":"Mewtwo with Premier Ribbon", "fullName":"February 2012 Mewtwo", "where":"Nintendo Wi-Fi Connection", "when":"February 12 to 26, 2012",
+     "url":"https://bulbapedia.bulbagarden.net/wiki/List_of_Wi-Fi_English_event_Pok%C3%A9mon_distributions_in_Generation_V#February_2012_Mewtwo","savUrl":"https://projectpokemon.org/home/files/file/699-mighty-mewtwo/"},
+
+
+    {"id":"BirthdayRibbon_B2_Event","name":"Audino with Birthday Ribbon", "fullName":"2012 Birthday Audino", "where":"Pokémon Centers in Fukuoka, Nagoya, Osaka, Sapporo, Tohoku, Tokyo, and Yokohama", "when":"November 4, 2012 to October 11, 2013",
+     "url":"https://bulbapedia.bulbagarden.net/wiki/List_of_local_Japanese_event_Pok%C3%A9mon_distributions_in_Generation_V#2012_Birthday_Audino","savUrl":"https://projectpokemon.org/home/files/file/1182-birthday-audino-2012/"},
+
+
+
+    {"id":"Mew_MyPokemonRanch","name":"My Pokémon Ranch: Mew","fullName":"My Pokémon Ranch Mew",
+      "when":"June 9, 2008 to January 31, 2019", "where":"Wii Shop Channel","url":"https://projectpokemon.org/home/files/file/330-mew/","requirements":"Requirement: You must own at least 999 Pokémon within both savefiles to obtain Mew from My Pokémon Ranch NO_PROD."},
+
+    {"id":"PokemonFestaRibbons_RSE_Event","name":"RSE (JP): Country & World Ribbons","fullName":"Country & World Ribbons", "promo":"Pokémon Festa 2005","where":"Tokyo Big Site, Odaiba","when":"July 17 to August 21, 2005","versions":["R","S","E"],"region":"JP", "japanOnly":true,"modifiedSavDataIdx":[1],"url":"https://docs.google.com/document/u/2/d/e/2PACX-1vRe_HT3-5GKszke1sMB7ejD0lxoEsANMRc9yXWCL4wHfT4piIT1D_g7TmVgY8Ua9hwieB45JqKNOidz/pub","requirements":"This event is exclusive to Ruby, Sapphire, Emerald. Load a Ruby, Sapphire or Emerald savefile in .sav #2."},
+
   ]
 },
 "requirements":[
@@ -214,8 +232,6 @@
   ["PWTEvent_EN","$PWTEvent_EN"],
   ["PWTEvent_JP","$PWTEvent_JP"],
   ["MusicalEvent","$MusicalEvent"],
-  
-  "------Events-------",
   ["DreamWorld","$DreamWorld"],
   
   "------Inter-Game Interactions-------",
@@ -250,22 +266,28 @@
   ["FriendCode", "$NintendoWifi"],
 
   
-  "------Collectable-------",
-  {"id":"Mew", "formula":[["MyPokemonRanch"],["$Mew_Event"]]},
-  ["HoOh","HS","Colosseum"],
-  {"id":"Arceus", "formula":[["$ArceusRowap_DPPt_Event","DPPt"]]},
+  "------Events-------",
   ["Victini","$Victini_B2_Event"],
   ["Deoxys","$Deoxys_B2_Event"],
-  ["Celebi", "$ColosseumBonusDisc_JP"],
-  ["Jirachi","$ColosseumBonusDisc_US","$Jirachi_Event"],  
-  ["Phione","MyPokemonRanch", "Manaphy"],
-  {"id":"Manaphy", "formula":[["$Ranger_EN","DP_EN"]]},
   {"id":"Shaymin", "formula":[["$ShayminMicle_DP_Event", "DP"]],"notes":"exist events in other games too"},
   {"id":"Darkrai", "formula":[["$Darkrai_BW_Event", "BW"]],"notes":"exist events in other games too"},
-
   ["Keldeo","$Keldeo_B2_Event"],
   ["Meloetta","$Meloetta_B2_Event"],
   ["Genesect","$Genesect_B2_Event"],
+
+  ["CountryRibbon","$PokemonFestaRibbons_RSE_Event"],
+  ["WorldRibbon","$PokemonFestaRibbons_RSE_Event"],
+  ["PremierRibbon","$MewtwoPremierRibbon_BW_Event"],
+  
+  "------Collectable-------",
+  ["Mew", "MyPokemonRanch"],
+  ["HoOh","HS","Colosseum"],
+  {"id":"Arceus", "formula":[["$ArceusRowap_DPPt_Event","DPPt"]]},
+  ["Celebi", "$ColosseumBonusDisc_JP"],
+  ["Jirachi","$ColosseumBonusDisc_US"],  
+  ["Phione","MyPokemonRanch", "Manaphy"],
+  {"id":"Manaphy", "formula":[["$Ranger_EN","DP_EN"]]},
+
 
   ["MicleBerry","TODO"],
 
@@ -275,13 +297,8 @@
   ["JabocaBerry","TODO"],
   ["CustapBerry","TODO"],
 
-  ["eReader_AnyBerry", "$eReader_AnyBerry_EN", "$eReader_AnyBerry_JP"],
-
-  ["CountryRibbon","$PokemonFestaRibbons_RSE_Event"],
-  ["WorldRibbon","$PokemonFestaRibbons_RSE_Event"],
 
   ["ClassicRibbon","$ShayminMicle_DP_Event","$ArceusRowap_DP_Event","$CelebiJaboca_Event","$EnteiCustap_Event"],
-  ["PremierRibbon","$MewPremierRibbon_HGSS_Event"],
   ["ForeignDexEntries","$ForeignDexEntries"],
   ["LuckyPunch","10PeopleFunfest","BW","DreamWorld"],
   
@@ -334,11 +351,11 @@
   {"id":"TODO","formula":[]},
 
   {"id":"LightBall","formula":[["TODO"]]},
-  {"id":"EventRibbon","formula":[["TODO"]]},
-  {"id":"BirthdayRibbon","formula":[["TODO"]]},
-  {"id":"SouvenirRibbon","formula":[["TODO"]]},
-  {"id":"WishingRibbon","formula":[["TODO"]]},
-  {"id":"BattleChampionRibbon","formula":[["TODO"]]},
+  ["EventRibbon","$EventRibbon"],
+  ["BirthdayRibbon","$BirthdayRibbon_B2_Event"],
+  ["SouvenirRibbon","$SouvenirRibbon"],
+  ["BattleChampionRibbon","$BattleChampionRibbon"],
+  ["WishingRibbon","$WishingRibbon_B2_Event"],
   
   {"id":"ForeignDexEntries", "formula":[["$ForeignDexEntries"]],"info":[ "144 Articuno LGPtHS", "145 Zapdos LGPtHS", "146 Moltres LGPtHS", "150 Mewtwo LGHS", "151 Mew MyPkmRanch", "201 Unown LGDPPtHS", "243 Raikou LGColHS", "244 Entei LGColHS", "245 Suicune LGColHS", "249 Lugia XDHS", "250 Ho-Oh ColHS", "251 Celebi JP(Col), Event(RSEDPPtHS)", "377 Regirock RSE", "378 Regice RSE", "379 Registeel RSE", "380 Latias SE", "381 Latios RE", "382 Kyogre SEH", "383 Groudon RES", "384 Rayquaza RSEHS", "385 Jirachi JP(Event DPPtHS), Col", "386 Deoxys Event DPRSELF", "480 Uxie DPPt", "481 Mesprit DPPt", "482 Azelf DPPt", "483 Dialga DPt", "484 Palkia PPt", "485 Heatran DPPt", "486 Regigigas RSE", "487 Giratina DPPt", "488 Cresselia DPPt", "491 Darkrai Event(DPPt)", "492 Shaymin Event(DPPt)", "493 Arceus Event(DPPt)"
   ]},
@@ -367,15 +384,15 @@
     ["$CelebiJaboca_Event","$EventTool"],
 
 
-    ["$MewPremierRibbon_HGSS_Event","$EventTool"],
+    ["$MewtwoPremierRibbon_BW_Event","$EventTool"],
     ["$PokemonFestaRibbons_RSE_Event","$EventTool"],
 
     ["$EnteiCustap_Event","$EventTool"],
 
     ["$EventRibbon","$EventTool"],
-    ["$BirthdayRibbon","$EventTool"],
+    ["$BirthdayRibbon_B2_Event","$EventTool"],
     ["$SouvenirRibbon","$EventTool"],
-    ["$WishingRibbon","$EventTool"],
+    ["$WishingRibbon_B2_Event","$EventTool"],
     ["$BattleChampionRibbon","$EventTool"],
 
     ["$Deoxys_B2_Event","$EventTool"],
@@ -393,8 +410,8 @@
     
     {"id":"$EmuDualSlot","name":"Emulator supports GBA slot?","indent":1, "url":["melonDS","https://melonds.kuribo64.net/"], "fullCompl":1},
     {"id":"$Black2_EN","name":"Game: Pokémon Black 2 (EN)","indent":1, "minCount":1},
-    {"id":"$Black_EN","name":"Game: Pokémon Black (EN)","indent":1, "preReqs":[["MultiplayerGenDS"]]},
-    {"id":"$White2_EN","name":"Game: Pokémon White 2 (EN)","indent":1, "preReqs":[["MultiplayerGenDS"]]},
+    {"id":"$Black_EN","name":"Game: Pokémon Black (EN)","indent":1, "preReqs":[["MultiplayerGenDS"]],"fullCompl":1},
+    {"id":"$White2_EN","name":"Game: Pokémon White 2 (EN)","indent":1, "fullCompl":1, "preReqs":[["MultiplayerGenDS"]]},
     {"id":"$White_EN","name":"Game: Pokémon White (EN)","indent":1, "preReqs":[["MultiplayerGenDS"]]},
     {"id":"$Platinum_EN","name":"Game: Pokémon Platinum (EN)","indent":1, "fullCompl":1, "preReqs":[["MultiplayerGenDS"]]},
     {"id":"$Diamond_EN","name":"Game: Pokémon Diamond (EN)","indent":1, "fullCompl":1, "preReqs":[["MultiplayerGenDS"]]},
@@ -421,20 +438,20 @@
     ],
 
     [
-      {"id":"$Emu3DS","name":"Emulator for 3DS","desc":"Must support inserted NDS, which isn't supported by any emulator as of 2025-07-14.", "indent":1},
-      {"id":"$DreamRadar","name":"Game: Dream Radar","indent":1}
+      {"id":"$Emu3DS","name":"Emulator for 3DS","desc":"Must support inserted NDS, which isn't supported by any emulator as of 2025-07-14.", "indent":1,"fullCompl":1},
+      {"id":"$DreamRadar","name":"Game: Dream Radar","indent":1,"fullCompl":1}
     ],
 
-    {"id":"$DreamWorld","name":"Simulator of Dream World Server","indent":1,"desc":"No Dream World servers exist as of 2025-07-14."},
+    {"id":"$DreamWorld","name":"Simulator of Dream World Server","indent":1,"desc":"No Dream World servers exist as of 2025-07-14.","fullCompl":1},
 
     {"id":"$EmuGba","name":"Emulator for GBA","fullCompl":1,"preReqs":[["$EmuDualSlot"]]},
     {"id":"$EmuGbaMultiplayer","name":"Emulator supports link cables?","indent":1, "url":["mGBA","https://mgba.io/"], "fullCompl":1},
     {"id":"$EmuGbaWireless","name":"Emulator supports wireless adapters?","indent":1, "url":["gpSP","https://github.com/davidgfnet/gpsp"]},    
-    {"id":"$Emerald_EN","name":"Game: Pokémon Emerald (EN)","fullCompl":1,"indent":1},
-    {"id":"$Ruby_EN","name":"Game: Pokémon Ruby (EN)","indent":1},
-    {"id":"$Sapphire_EN","name":"Game: Pokémon Sapphire (EN)","fullCompl":1,"indent":1},
-    {"id":"$FireRed_EN","name":"Game: Pokémon FireRed (EN)","fullCompl":1,"indent":1},
-    {"id":"$LeafGreen_EN","name":"Game: Pokémon LeafGreen (EN)","fullCompl":1,"indent":1},
+    {"id":"$Emerald_EN","name":"Game: Pokémon Emerald (EN)","indent":1},
+    {"id":"$Ruby_EN","name":"Game: Pokémon Ruby (EN)","indent":1,"fullCompl":1},
+    {"id":"$Sapphire_EN","name":"Game: Pokémon Sapphire (EN)","indent":1},
+    {"id":"$FireRed_EN","name":"Game: Pokémon FireRed (EN)","indent":1},
+    {"id":"$LeafGreen_EN","name":"Game: Pokémon LeafGreen (EN)","indent":1},
 
     {"id":"$Emerald_JP","name":"Game: Pokémon Emerald (JP)","indent":1,"preReqs":[["TransferGen3JPToGen4US"]]},
     {"id":"$Ruby_JP","name":"Game: Pokémon Ruby (JP)","indent":1,"fullCompl":1,"preReqs":[["TransferGen3JPToGen4US"]]},
@@ -442,17 +459,13 @@
     {"id":"$FireRed_JP","name":"Game: Pokémon FireRed (JP)","indent":1,"preReqs":[["TransferGen3JPToGen4US"]]},
     {"id":"$LeafGreen_JP","name":"Game: Pokémon LeafGreen (JP)","indent":1,"preReqs":[["TransferGen3JPToGen4US"]]},
 
-    {"id":"$eReader","name":"GBA Emulator supports eReader?","fullCompl":1,"indent":1,"preReqs":[["RS_EN"],["RS_JP","AnyGen4_JP"]]},
-    {"id":"$eReader_EN","name":"Game: e-Reader (EN)","preReqs":[["RS_EN"]], "indent":2, "fullCompl":1},
-    {"id":"$eReader_AnyBerry_EN","name":"Data: Any e-Reader Berry Card (EN)","indent":3, "desc":"Ex: Pokémon Battle e: Series 1 - Freezing Ray - 08-K001 - Pumkin Berry","fullCompl":1},
-    {"id":"$eReader_EonTicket","name":"Data: Eon Ticket Card","indent":3,"fullCompl":1},
-
-    {"id":"$eReader_JP","name":"Game: e-Reader e+ (JP)","preReqs":[["RS_JP","AnyGen4_JP"]], "indent":2},
-    {"id":"$eReader_AnyBerry_JP","name":"Data: Any e-Reader Berry Card (JP)","indent":3, "desc":"Ex: Pokémon Battle e: Series 1 - Freezing Ray - 08-K001 - Pumkin Berry"},
+    {"id":"$eReader","name":"GBA Emulator supports eReader?","indent":1,"preReqs":[["RS_EN"],["RS_JP","AnyGen4_JP"]]},
+    {"id":"$eReader_EN","name":"Game: e-Reader (EN)","preReqs":[["RS_EN"]], "indent":2},
+    {"id":"$eReader_EonTicket","name":"Data: Eon Ticket Card","indent":3},
 
     {"id":"$EmuGameCube","name":"Emulator for Game Cube", "desc":"Must support GBA connectivity.", "url":["Dolphin","https://dolphin-emu.org/"], "fullCompl":1,"preReqs":[["AnyGen3"]]},
     {"id":"$Colosseum_US","name":"Game: Pokémon Colosseum (US)","indent":1,"preReqs":[["AnyGen3_EN"]]},
-    {"id":"$ColosseumBonusDisc_US","name":"Game: Pokémon Colosseum Bonus Disc (US)","indent":1, "fullCompl":1,"preReqs":[["RS"]]},
+    {"id":"$ColosseumBonusDisc_US","name":"Game: Pokémon Colosseum Bonus Disc (US)","indent":1, "fullCompl":1,"preReqs":[["RS_EN"]]},
     {"id":"$XD_US","name":"Game: Pokémon XD (US)","indent":1},
 
     [
@@ -461,13 +474,14 @@
     ],
     {"id":"$XD_JP","name":"Game: Pokémon XD (JP)","indent":1,"preReqs":[["AnyGen3_JP"]]},
 
-    {"id":"$EmuWii","name":"Emulator for WII", "desc":"No WII emulators with DS connectivity exist yet.", "fullCompl":1},
-    {"id":"$MyPokemonRanch_US","name":"Game: My Pokémon Ranch (US)", "fullCompl":1,"indent":1,"preReqs":[["DP_EN"]]},
+    {"id":"$EmuWii","name":"Emulator for WII", "desc":"No WII emulators with DS connectivity exist yet."},
+    {"id":"$MyPokemonRanch_US","name":"Game: My Pokémon Ranch (US)","indent":1,"preReqs":[["DP_EN"]]},
     {"id":"$BattleRevolution_US","name":"Game: Pokémon Battle Revolution (US)", "indent":1},
     {"id":"$MyPokemonRanch_JP","name":"Game: My Pokémon Ranch (JP)", "indent":1,"preReqs":[["AnyGen4_JP"]]},
     {"id":"$MyPokemonRanchUpdate_JP","name":"Update: My Pokémon Ranch 1.1 (JP)", "indent":2},
     {"id":"$BattleRevolution_JP","name":"Game: Pokémon Battle Revolution (JP)","indent":1,"preReqs":[["AnyGen4_JP"]]},
-    {"id":"$ForeignDexEntries","name":"Many games in all languages", "fullCompl":1,"indent":1,"preReqs":[["MultiplayerGenDS","$EmuGba"]],"url":["Foreign Pokédex Entries Requirements", "./Black2/ForeignPokedexEntries",""]},
+
+    {"id":"$ForeignDexEntries","name":"Many games in all languages", "fullCompl":1,"preReqs":[["MultiplayerGenDS","$EmuGba"]],"url":["Foreign Pokédex Entries Requirements", "./Black2/ForeignPokedexEntries",""]},
 
     {"id":"$EventTool","name":"Event Simulator","desc":"Found in the Savefile (.sav) Utilities section in this page","fullCompl":1},
     {"id":"$EventTool_Optional","name":"Permit optional events?", "desc":"Permit events giving gifts obtainabled without events", "indent":1},
@@ -863,7 +877,7 @@
   {"name":"Kyogre","id":"382","obtainable":0,"location":"Trade from Sapphire, Emerald, HeartGold","iconUrl":"pokemon/p382.png","reqs":["Kyogre"]},
   {"name":"Groudon","id":"383","obtainable":0,"location":"Trade from Ruby, Emerald, SoulSilver","iconUrl":"pokemon/p383.png","reqs":["Groudon"]},
   {"name":"Rayquaza","id":"384","obtainable":0,"location":"Trade from Ruby, Sapphire, Emerald, HeartGold, SoulSilver","iconUrl":"pokemon/p384.png","reqs":[["RSE"],["HS"]]},
-  {"name":"Jirachi","id":"385","obtainable":0,"location":"Trade from Ruby, Sapphire which obtained it from Pokémon Colosseum Bonus Disc (US), Event","iconUrl":"pokemon/p385.png","reqs":["Jirachi"]},
+  {"name":"Jirachi","id":"385","obtainable":0,"location":"Trade from Ruby, Sapphire which obtained it from Pokémon Colosseum Bonus Disc (US). Event","iconUrl":"pokemon/p385.png","reqs":["Jirachi"]},
   {"name":"Deoxys","id":"386","obtainable":0,"location":"Event","iconUrl":"pokemon/p386.png","reqs":[["Deoxys"]]},
   {"name":"Turtwig","id":"387","obtainable":0,"location":"Trade from Diamond, Pearl, Platinum","reqs":["DPPt"],"iconUrl":"pokemon/p387.png"},
   {"name":"Grotle","id":"388","obtainable":0,"location":"Evolve traded Turtwig (Level 18). Trade from Diamond, Pearl, Platinum","reqs":["DPPt"],"iconUrl":"pokemon/p388.png"},
@@ -1995,12 +2009,12 @@
   {"name":"Birthday Ribbon","location":"Event (ex: 2012 Birthday Audino)","obtainable":0,"reqs":["BirthdayRibbon"]},
   {"name":"Special Ribbon","obtainable":-1},
   {"name":"Souvenir Ribbon","obtainable":0,"location":"Event TODO","reqs":["SouvenirRibbon"]},
-  {"name":"Wishing Ribbon","obtainable":0,"location":"Event TODO","reqs":["WishingRibbon"]},
+  {"name":"Wishing Ribbon","obtainable":0,"location":"Event (ex: Movie 2013 Mewtwo)","reqs":["WishingRibbon"]},
   {"name":"Battle Champion Ribbon","obtainable":0,"location":"Event (ex: Yamamoto's Tournament Politoed)","reqs":["BattleChampionRibbon"]},
   {"name":"Regional Champion Ribbon","obtainable":-1},
   {"name":"National Champion Ribbon","obtainable":-1},
   {"name":"World Champion Ribbon","obtainable":-1},
-  {"name":"Premier Ribbon","obtainable":0,"iconUrl":"ribbon/Premier_Ribbon.png","location":"Mew obtained from event (10th Anniversary of Pokémon Gold and Silver from October 15 to 30, 2010 on Pokémon HeartGold/SoulSilver)","reqs":["PremierRibbon"]}
+  {"name":"Premier Ribbon","obtainable":0,"iconUrl":"ribbon/Premier_Ribbon.png","location":"Event (ex: Mighty Mewtwo)","reqs":["PremierRibbon"]}
  ]},
  {"id":"battleSubway","name":"Battle Subway","list":[
   {"name":"Single - 21 wins","location":"Battle Subway"},
@@ -2690,6 +2704,32 @@
   {"name":"Ring the Bell...","location":"Entralink"},
   {"name":"The Bell that Rings <number> Times","location":"Entralink"},
   {"name":"Take a Walk with Eggs!","location":"Entralink"}
+ ]},
+ {"id":"pcWallpaper","name":"PC Wallpaper","list":[
+  {"name":"Forest","location":"Obtained automatically when starting the game."},
+  {"name":"City","location":"Obtained automatically when starting the game."},
+  {"name":"Desert","location":"Obtained automatically when starting the game."},
+  {"name":"Savanna","location":"Obtained automatically when starting the game."},
+  {"name":"Crag","location":"Obtained automatically when starting the game."},
+  {"name":"Volcano","location":"Obtained automatically when starting the game."},
+  {"name":"Snow","location":"Obtained automatically when starting the game."},
+  {"name":"Cave","location":"Obtained automatically when starting the game."},
+  {"name":"Beach","location":"Obtained automatically when starting the game."},
+  {"name":"Seafloor","location":"Obtained automatically when starting the game."},
+  {"name":"River","location":"Obtained automatically when starting the game."},
+  {"name":"Sky","location":"Obtained automatically when starting the game."},
+  {"name":"Checks","location":"Obtained automatically when starting the game."},
+  {"name":"Poké Center","location":"Obtained automatically when starting the game."},
+  {"name":"Machine","location":"Obtained automatically when starting the game."},
+  {"name":"Simple","location":"Obtained automatically when starting the game."},
+  {"name":"Monochrome","location":"Enter the Hall of fame after beating the Pokémon League."},
+  {"name":"Team Plasma","location":"Enter the Hall of fame after beating the Pokémon League."},
+  {"name":"Movie","location":"Enter the Hall of fame after beating the Pokémon League."},
+  {"name":"PWT","location":"Enter the Hall of fame after beating the Pokémon League."},
+  {"name":"Black Kyurem","location":"After catching Zekrom and Kyurem."},
+  {"name":"White Kyurem","location":"After catching Zekrom and Kyurem."},
+  {"name":"Reshiram","location":"After catching Zekrom and Kyurem."},
+  {"name":"Zekrom","location":"After catching Zekrom and Kyurem."}
  ]},
  {"id":"misc","name":"Miscellaneous Task","list":[
   {"name":"Registered a Geonet location","location":"Any Pokémon Center (ex: in Nimbasa City)","iconUrl":"decoration4/Globe.png"},

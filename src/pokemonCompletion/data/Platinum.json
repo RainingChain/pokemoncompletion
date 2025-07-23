@@ -41,22 +41,22 @@
 
 
     {"id":"BrickMail_DP_Event","name":"DP: Brick Mail","fullName":"Trade for Heracross holding Brick Mail",
-      "when":"August 19 to 30, 2007", "where":"Nintendo Global Trade System","versions":["D","P"],"modifiedSavDataIdx":[1],
-      "url":"https://bulbapedia.bulbagarden.net/wiki/List_of_GTS_event_Pok%C3%A9mon_distributions_(Generation_IV)#Heracross","requirements":"This event is exclusive to Diamond and Pearl. Load a Diamond or Pearl savefile in .sav #2 that owns a Japanese Lvl10+ Roselia holding Air Mail."},
+      "when":"August 19 to 30, 2007", "where":"Nintendo Global Trade System",
+      "url":"https://bulbapedia.bulbagarden.net/wiki/List_of_GTS_event_Pok%C3%A9mon_distributions_(Generation_IV)#Heracross","requirements":"The savefile must own a Japanese Lvl10+ Roselia holding Air Mail."},
 
-    {"id":"Deoxys_DP_Event","name":"DP: Deoxys","fullName":"GameStop Deoxys","where":"GameStop stores","when":"June 20 to 22, 2008","modifiedSavDataIdx":[1],"url":"https://bulbapedia.bulbagarden.net/wiki/List_of_local_English_event_Pok%C3%A9mon_distributions_(Generation_IV)#GameStop_Deoxys","savSrc":"https://projectpokemon.org/home/files/file/37-gamestop-deoxys/","versions":["D","P"],"requirements":"This event is exclusive to Diamond and Pearl. Load a Diamond or Pearl savefile in .sav #2."},
+    {"id":"Deoxys_DP_Event","name":"DP: Deoxys","fullName":"GameStop Deoxys","where":"GameStop stores","when":"June 20 to 22, 2008","url":"https://bulbapedia.bulbagarden.net/wiki/List_of_local_English_event_Pok%C3%A9mon_distributions_(Generation_IV)#GameStop_Deoxys","savSrc":"https://projectpokemon.org/home/files/file/37-gamestop-deoxys/"},
 
 
 
-    {"id":"Darkrai_DP_Event","name":"DP: Darkrai","fullName":"Toys R Us Darkrai","where":"Toys R Us stores","when":"June 20 to 22, 2008","promo":"The Rise of Darkrai 2008 DVD Promo", "optional":true,"url":"https://bulbapedia.bulbagarden.net/wiki/List_of_local_English_event_Pok%C3%A9mon_distributions_(Generation_IV)#Toys_.22R.22_Us_Darkrai","savSrc":"https://projectpokemon.org/home/files/file/33-alamos-darkrai-usa/","versions":["D","P"],"modifiedSavDataIdx":[1],"requirements":"This event is exclusive to Diamond and Pearl. Load a Diamond or Pearl savefile in .sav #2."},
+    {"id":"Darkrai_DP_Event","name":"DP: Darkrai","fullName":"Toys R Us Darkrai","where":"Toys R Us stores","when":"June 20 to 22, 2008","promo":"The Rise of Darkrai 2008 DVD Promo", "optional":true,"url":"https://bulbapedia.bulbagarden.net/wiki/List_of_local_English_event_Pok%C3%A9mon_distributions_(Generation_IV)#Toys_.22R.22_Us_Darkrai","savSrc":"https://projectpokemon.org/home/files/file/33-alamos-darkrai-usa/"},
 
-    {"id":"Manaphy_DP_Event","name":"DP: Manaphy","fullName":"Toys R Us Manaphy","where":"Toys R Us stores","when":"September 29, 2007","promo":"Pokémon Ranger and the Temple of the Sea 2007 DVD Promo", "optional":true,"url":"https://bulbapedia.bulbagarden.net/wiki/List_of_local_English_event_Pok%C3%A9mon_distributions_(Generation_IV)#Toys_.22R.22_Us_Manaphy","savSrc":"https://projectpokemon.org/home/files/file/73-toys-r-us-manaphy/","versions":["D","P"], "modifiedSavDataIdx":[1],"requirements":"This event is exclusive to Diamond and Pearl. Load a Diamond or Pearl savefile in .sav #2."},
+    {"id":"Manaphy_DP_Event","name":"DP: Manaphy","fullName":"Toys R Us Manaphy","where":"Toys R Us stores","when":"September 29, 2007","promo":"Pokémon Ranger and the Temple of the Sea 2007 DVD Promo", "optional":true,"url":"https://bulbapedia.bulbagarden.net/wiki/List_of_local_English_event_Pok%C3%A9mon_distributions_(Generation_IV)#Toys_.22R.22_Us_Manaphy","savSrc":"https://projectpokemon.org/home/files/file/73-toys-r-us-manaphy/"},
 
     
     {"id":"MewPremierRibbon_HGSS_Event","name":"HGSS: Mew with Premier Ribbon","fullName":"Fall 2010 Mew","promo":"10th Anniversary of Pokémon Gold and Silver",
-      "when":"October 15 to 30, 2010", "where":"Nintendo Wi-Fi Connection", "versions":["HG","SS"], "modifiedSavDataIdx":[1],
+      "when":"October 15 to 30, 2010", "where":"Nintendo Wi-Fi Connection",
       "url":"https://bulbapedia.bulbagarden.net/wiki/List_of_Wi-Fi_English_event_Pok%C3%A9mon_distributions_(Generation_IV)#Fall_2010_Mew",
-      "savUrl":"https://projectpokemon.org/home/files/file/29-10th-anniversary-mew/","requirements":"This event is exclusive to HeartGold and SoulSilver. Load a HeartGold or SoulSilver savefile in .sav #2."},
+      "savUrl":"https://projectpokemon.org/home/files/file/29-10th-anniversary-mew/"},
 
     {"id":"AuroraTicketEvent_Gen3","name":"Emerald: AuroraTicket","promo":"Pokémon Rocks America 2004","where":"Lenox Square outdoor parking lot, Atlanta, Georgia","when":"October 9 to 23, 2004","url":"https://bulbapedia.bulbagarden.net/wiki/List_of_other_event_distributions_(Generation_III)#AuroraTicket","versions":["E"],"notes":"FR & LG could also get the event, but I didn't code it.","optional":true, "modifiedSavDataIdx":[1],"requirements":"This event is exclusive to Emerald, FireRed, LeafGreen. Load a Emerald savefile in .sav #2. (Only Emerald is supported by the tool.)"},
     
@@ -297,7 +297,7 @@
   ["HoOh","HS","Colosseum"],
   ["Arceus","$ArceusRowap_Event"],
   ["Shaymin","OaksLetter","$ShayminMicle_Event"],
-  ["Mew","MyPokemonRanch", "$Mew_Event"],
+  ["Mew","MyPokemonRanch", "$MewPremierRibbon_HGSS_Event"],
   ["Celebi","$Celebi_Event", "$ColosseumBonusDisc_JP"],
   ["Jirachi","$ColosseumBonusDisc_US","$Jirachi_Event"],
   ["Phione","MyPokemonRanch", "Manaphy"],
@@ -429,7 +429,7 @@
 
     {"id":"$EmuGameCube","name":"Emulator for Game Cube", "desc":"Must support GBA connectivity.", "url":["Dolphin","https://dolphin-emu.org/"], "fullCompl":1,"preReqs":[["AnyGen3"]]},
     {"id":"$Colosseum_US","name":"Game: Pokémon Colosseum (US)","indent":1,"preReqs":[["AnyGen3_EN"]]},
-    {"id":"$ColosseumBonusDisc_US","name":"Game: Pokémon Colosseum Bonus Disc (US)","indent":1, "fullCompl":1,"preReqs":[["RS"]]},
+    {"id":"$ColosseumBonusDisc_US","name":"Game: Pokémon Colosseum Bonus Disc (US)","indent":1, "fullCompl":1,"preReqs":[["RS_EN"]]},
     {"id":"$XD_US","name":"Game: Pokémon XD (US)","indent":1},
 
     [
@@ -438,13 +438,14 @@
     ],
     {"id":"$XD_JP","name":"Game: Pokémon XD (JP)","indent":1,"preReqs":[["AnyGen3_JP"]]},
 
-    {"id":"$EmuWii","name":"Emulator for WII", "desc":"No WII emulators with DS connectivity exist yet.", "fullCompl":1},
-    {"id":"$MyPokemonRanch_US","name":"Game: My Pokémon Ranch (US)", "fullCompl":1,"indent":1,"preReqs":[["DP_EN"]]},
+    {"id":"$EmuWii","name":"Emulator for WII", "desc":"No WII emulators with DS connectivity exist yet."},
+    {"id":"$MyPokemonRanch_US","name":"Game: My Pokémon Ranch (US)","indent":1,"preReqs":[["DP_EN"]]},
     {"id":"$BattleRevolution_US","name":"Game: Pokémon Battle Revolution (US)", "indent":1},
     {"id":"$MyPokemonRanch_JP","name":"Game: My Pokémon Ranch (JP)", "indent":1,"preReqs":[["DPPt_JP"]]},
     {"id":"$MyPokemonRanchUpdate_JP","name":"Update: My Pokémon Ranch 1.1 (JP)", "indent":2},
     {"id":"$BattleRevolution_JP","name":"Game: Pokémon Battle Revolution (JP)","indent":1,"preReqs":[["AnyGen4_JP"]]},
-    {"id":"$ForeignDexEntries","name":"Many games in all languages", "fullCompl":1,"indent":1,"preReqs":[["MultiplayerGen4_PreReq","$EmuGba"]],"url":["Foreign Pokédex Entries Requirements", "./Platinum/ForeignPokedexEntries",""]},
+
+    {"id":"$ForeignDexEntries","name":"Many games in all languages", "fullCompl":1,"preReqs":[["MultiplayerGen4_PreReq","$EmuGba"]],"url":["Foreign Pokédex Entries Requirements", "./Platinum/ForeignPokedexEntries",""]},
 
     {"id":"$EventTool","name":"Event Simulator","desc":"Found in the Savefile (.sav) Utilities section in this page","fullCompl":1},
     {"id":"$EventTool_Optional","name":"Permit optional events?", "desc":"Permit events giving gifts obtainabled without events", "indent":1},
@@ -3208,7 +3209,13 @@
   {"name":"Pokémon - Lunatone","location":"Stark Mountain (battle Chelsey)","pos":[[1398.2,13204.2]]},
   {"name":"Pokémon - Solrock","location":"Stark Mountain (battle Sterling)","pos":[[1396.2,13253.2]]},
   {"name":"Pokémon - Others","location":"See the Pokémon to unlock its name. This group includes all Pokémon not included elsewhere.","reqs":[["NationalDex","Mew","Lugia","HoOh","Celebi","Jirachi","Deoxys","Phione","Manaphy","Darkrai","Shaymin","Arceus"]]},
-  {"name":"Moves","location":"Sandgem Town (after obtain the national Pokédex from Professor Rowan)","pos":[[8028.5,2773.7]]}
+  {"name":"Moves","location":"Sandgem Town (after obtain the national Pokédex from Professor Rowan)","pos":[[8028.5,2773.7]]},
+  {"name":"Greetings - KONNICHIWA","location":"Interact with a Japanese player in the Union Room","reqs":[["ForeignDexEntries"]]},
+  {"name":"Greetings - HELLO","location":"Obtained automatically when starting a new game"},
+  {"name":"Greetings - BONJOUR","location":"Interact with a French player in the Union Room","reqs":[["ForeignDexEntries"]]},
+  {"name":"Greetings - CIAO","location":"Interact with an Italian player in the Union Room","reqs":[["ForeignDexEntries"]]},
+  {"name":"Greetings - HALLO","location":"Interact with a German player in the Union Room","reqs":[["ForeignDexEntries"]]},
+  {"name":"Greetings - HOLA ","location":"Interact with a Spanish player in the Union Room","reqs":[["ForeignDexEntries"]]}
  ]},
 
  {"id":"jubilifeTvRankings","name":"Jubilife TV Ranking Room","iconUrl":"decoration3/TV.png", "url":"https://bulbapedia.bulbagarden.net/wiki/Jubilife_TV#Ranking_Rooms", "list":[
