@@ -150,23 +150,57 @@
     {"name":"Obtain all and keep if possible (Living Dex)","value":1,"desc":"Ex: You must own Bulbasaur, Ivysaur, and Venusaur simultaneously. Same for items."}
   ],
   "events":[
-    {"id":"WishingRibbon_B2_Event","name":"Mewtwo with Wishing Ribbon", "fullName":"Pokémon Hills Mewtwo",
-      "promo":"Genesect and the Legend Awakened 2013 Promo", "where":"Blitzmegaplex cinema in the Mall of Indonesia", "when":"November 2, 6, and 9, 2013",
-     "url":"https://bulbapedia.bulbagarden.net/wiki/List_of_local_English_event_Pok%C3%A9mon_distributions_in_Generation_V#Pok%C3%A9mon_Hills_Mewtwo","savUrl":"https://projectpokemon.org/home/files/file/701-movie-2013-mewtwo/"},
+    {"id":"Victini_BW_Event","name":"Victini", "fullName":"Movie 14 Victini", "where":"Nintendo Wi-Fi Connection", "when":"December 3, 2011 to January 14, 2012",
+     "url":"https://bulbapedia.bulbagarden.net/wiki/List_of_Wi-Fi_English_event_Pok%C3%A9mon_distributions_in_Generation_V#Movie_14_Victini","savUrl":"https://projectpokemon.org/home/files/file/700-movie-2011-victini/"},
+
+    {"id":"Deoxys_B2_Event","name":"Deoxys", "fullName":"Plasma Deoxys", "where":"Nintendo Wi-Fi Connection", "when":"May 8 to 31, 2013",
+     "url":"https://bulbapedia.bulbagarden.net/wiki/List_of_Wi-Fi_English_event_Pok%C3%A9mon_distributions_in_Generation_V#Plasma_Deoxys","savUrl":"https://projectpokemon.org/home/files/file/703-plasma-deoxys/"},
+
+    {"id":"Genesect_B2_Event","name":"Genesect", "fullName":"Plasma Genesect", "where":"Nintendo Wi-Fi Connection", "when":"October 7 to November 12, 2012",
+     "url":"https://bulbapedia.bulbagarden.net/wiki/List_of_Wi-Fi_English_event_Pok%C3%A9mon_distributions_in_Generation_V#Plasma_Genesect","savUrl":"https://projectpokemon.org/home/files/file/704-plasma-genesect/"},
+
+    {"id":"DarkraiClassicRibbonEnigmaBerry_BW_Event","name":"Darkrai with Classic Ribbon and Enigma Berry", "fullName":"Winter 2011 Darkrai", "where":"Toys R Us stores in France", "when":"November 14 to 26, 2011",
+     "url":"https://bulbapedia.bulbagarden.net/wiki/List_of_local_English_event_Pok%C3%A9mon_distributions_in_Generation_V#Winter_2011_Darkrai","savUrl":"https://projectpokemon.org/home/files/file/726-winter-darkrai/"},
+
+    {"id":"Shaymin_BW_Event","name":"Shaymin", "fullName":"Pokémon Center Shaymin", "where":"Pokémon Center stores in Japan", "when":"December 19, 2011 to January 5, 2012",
+     "url":"https://bulbapedia.bulbagarden.net/wiki/List_of_Wi-Fi_English_event_Pok%C3%A9mon_distributions_in_Generation_V#May_2012_Darkrai","savUrl":"https://projectpokemon.org/home/files/file/696-dark-explorer-darkrai/"},
+
+    {"id":"KeldeoWishingRibbon_B2_Event","name":"Keldeo with Wishing Ribbon", "fullName":"Winter 2013 Keldeo", "where":"Nintendo Wi-Fi Connection", "when":"January 25 to February 12, 2013",
+     "url":"https://bulbapedia.bulbagarden.net/wiki/List_of_Wi-Fi_English_event_Pok%C3%A9mon_distributions_in_Generation_V#Winter_2013_Keldeo","savUrl":"https://projectpokemon.org/home/files/file/727-winter-keldeo/"},
+
+    {"id":"MeloettaWishingRibbon_B2_Event","name":"Meloetta with Wishing Ribbon", "fullName":"Spring 2013 Meloetta", "where":"GameStop storesin US", "when":"March 4 to 24, 2013",
+     "url":"https://bulbapedia.bulbagarden.net/wiki/List_of_local_English_event_Pok%C3%A9mon_distributions_in_Generation_V#Spring_2013_Meloetta","savUrl":"https://projectpokemon.org/home/files/file/706-spring-meloetta/"},
 
     {"id":"PremierRibbon_BW_Event","name":"Mewtwo with Premier Ribbon", "fullName":"February 2012 Mewtwo", "where":"Nintendo Wi-Fi Connection", "when":"February 12 to 26, 2012",
      "url":"https://bulbapedia.bulbagarden.net/wiki/List_of_Wi-Fi_English_event_Pok%C3%A9mon_distributions_in_Generation_V#February_2012_Mewtwo","savUrl":"https://projectpokemon.org/home/files/file/699-mighty-mewtwo/"},
 
 
-    {"id":"BirthdayRibbon_B2_Event","name":"Audino with Birthday Ribbon", "fullName":"2012 Birthday Audino", "where":"Pokémon Centers in Fukuoka, Nagoya, Osaka, Sapporo, Tohoku, Tokyo, and Yokohama", "when":"November 4, 2012 to October 11, 2013",
+    {"id":"BirthdayRibbon_B2_Event","name":"Audino with Birthday Ribbon", "fullName":"2012 Birthday Audino", "where":"Pokémon Center stores in Fukuoka, Nagoya, Osaka, Sapporo, Tohoku, Tokyo, and Yokohama", "when":"November 4, 2012 to October 11, 2013",
      "url":"https://bulbapedia.bulbagarden.net/wiki/List_of_local_Japanese_event_Pok%C3%A9mon_distributions_in_Generation_V#2012_Birthday_Audino","savUrl":"https://projectpokemon.org/home/files/file/1182-birthday-audino-2012/"},
+
+
+    {"id":"EventRibbon_B2_Event","name":"Smeargle with Event Ribbon", "fullName":"2013 World Championships Smeargle", "where":"East Building of the Vancouver Convention Centre in Vancouver, British Columbia, Canada", "promo":"2013 World Championships", "when":"August 10 to 11, 2013",
+     "url":"https://bulbapedia.bulbagarden.net/wiki/List_of_local_English_event_Pok%C3%A9mon_distributions_in_Generation_V#2013_World_Championships_Smeargle","savUrl":"https://projectpokemon.org/home/files/file/725-vgc-worlds-2013-smeargle/"},
+
+    {"id":"BattleChampionRibbon_B2_Event","name":"Politoed with Battle Champion Ribbon", "fullName":"Yamamoto's Politoed", "where":"Pokémon Center stores in Japan", "promo":"2013 World Championships", "when":"September 29 to October 6, 2013",
+     "url":"https://bulbapedia.bulbagarden.net/wiki/List_of_local_Japanese_event_Pok%C3%A9mon_distributions_in_Generation_V#Politoed","savUrl":"https://projectpokemon.org/home/files/file/1271-pok%C3%A9mon-smash-yamamotos-politoed/"},
+
+
+    {"id":"BattleChampionRibbon_B2_Event","name":"Politoed with Battle Champion Ribbon", "fullName":"Yamamoto's Politoed", "where":"Pokémon Center stores in Japan", "promo":"2013 World Championships", "when":"September 29 to October 6, 2013",
+     "url":"https://bulbapedia.bulbagarden.net/wiki/List_of_local_Japanese_event_Pok%C3%A9mon_distributions_in_Generation_V#Politoed","savUrl":"https://projectpokemon.org/home/files/file/1271-pok%C3%A9mon-smash-yamamotos-politoed/"},
+
+
+    {"id":"SouvenirRibbon_B2_Event","name":"Giratina with Souvenir Ribbon", "fullName":"2013 Summer Shiny Giratina", "where":"Gamestop stores in US", "when":"September 30 to October 20, 2013",
+     "url":"https://bulbapedia.bulbagarden.net/wiki/List_of_local_English_event_Pok%C3%A9mon_distributions_in_Generation_V#Giratina_2","savUrl":"https://projectpokemon.org/home/files/file/716-summer-shiny-giratina/"},
+
+
 
 
 
     {"id":"Mew_MyPokemonRanch","name":"My Pokémon Ranch: Mew","fullName":"My Pokémon Ranch Mew",
       "when":"June 9, 2008 to January 31, 2019", "where":"Wii Shop Channel","url":"https://projectpokemon.org/home/files/file/330-mew/","requirements":"Requirement: You must own at least 999 Pokémon within both savefiles to obtain Mew from My Pokémon Ranch NO_PROD."},
 
-    {"id":"PokemonFestaRibbons_RSE_Event","name":"RSE (JP): Country & World Ribbons","fullName":"Country & World Ribbons", "promo":"Pokémon Festa 2005","where":"Tokyo Big Site, Odaiba","when":"July 17 to August 21, 2005","versions":["R","S","E"],"region":"JP", "japanOnly":true,"modifiedSavDataIdx":[1],"url":"https://docs.google.com/document/u/2/d/e/2PACX-1vRe_HT3-5GKszke1sMB7ejD0lxoEsANMRc9yXWCL4wHfT4piIT1D_g7TmVgY8Ua9hwieB45JqKNOidz/pub","requirements":"This event is exclusive to Ruby, Sapphire, Emerald. Load a Ruby, Sapphire or Emerald savefile in .sav #2."},
+    {"id":"PokemonFestaRibbons_RSE_Event","name":"RSE (JP): Country & World Ribbons","fullName":"Country & World Ribbons", "promo":"Pokémon Festa 2005","where":"Tokyo Big Site, Odaiba","when":"July 17 to August 21, 2005","versions":["R","S","E"],"region":"JP", "japanOnly":true,"modifiedSavDataIdx":[1],"url":"https://docs.google.com/document/u/2/d/e/2PACX-1vRe_HT3-5GKszke1sMB7ejD0lxoEsANMRc9yXWCL4wHfT4piIT1D_g7TmVgY8Ua9hwieB45JqKNOidz/pub","requirements":"This event is exclusive to Ruby, Sapphire, Emerald. Load a Ruby, Sapphire or Emerald savefile in .sav #2."}
 
   ]
 },
@@ -267,17 +301,27 @@
 
   
   "------Events-------",
-  ["Victini","$Victini_B2_Event"],
-  ["Deoxys","$Deoxys_B2_Event"],
-  {"id":"Shaymin", "formula":[["$ShayminMicle_DP_Event", "DP"]],"notes":"exist events in other games too"},
-  {"id":"Darkrai", "formula":[["$Darkrai_BW_Event", "BW"]],"notes":"exist events in other games too"},
-  ["Keldeo","$Keldeo_B2_Event"],
-  ["Meloetta","$Meloetta_B2_Event"],
-  ["Genesect","$Genesect_B2_Event"],
-
+  ["WishingRibbon","$KeldeoWishingRibbon_B2_Event", "$MeloettaWishingRibbon_B2_Event"],
+  ["Keldeo","$KeldeoWishingRibbon_B2_Event"],
   ["CountryRibbon","$PokemonFestaRibbons_RSE_Event"],
   ["WorldRibbon","$PokemonFestaRibbons_RSE_Event"],
-  ["PremierRibbon","$MewtwoPremierRibbon_BW_Event"],
+  ["PremierRibbon","$PremierRibbon_BW_Event"],
+  ["BirthdayRibbon","$BirthdayRibbon_B2_Event"],
+  ["EventRibbon","$EventRibbon_B2_Event"],
+  ["Meloetta","$MeloettaWishingRibbon_B2_Event"],
+  ["BattleChampionRibbon","$BattleChampionRibbon_B2_Event"],  
+  ["SouvenirRibbon","$SouvenirRibbon_B2_Event"],
+
+  ["Victini","$Victini_BW_Event"],
+  ["Darkrai","$DarkraiClassicRibbonEnigmaBerry_BW_Event"],
+  ["ClassicRibbon","$DarkraiClassicRibbonEnigmaBerry_BW_Event"],
+  ["EnigmaBerry","$DarkraiClassicRibbonEnigmaBerry_BW_Event"],
+
+  ["Deoxys","$Deoxys_B2_Event"],
+  ["Shaymin", "$Shaymin_BW_Event"],
+  ["Genesect","$Genesect_B2_Event"],
+  {"id":"LightBall","formula":[["TODO"]]},
+
   
   "------Collectable-------",
   ["Mew", "MyPokemonRanch"],
@@ -292,13 +336,10 @@
   ["MicleBerry","TODO"],
 
   ["RowapBerry","TODO"],  
-  ["EnigmaBerry","Darkrai"],
 
   ["JabocaBerry","TODO"],
   ["CustapBerry","TODO"],
 
-
-  ["ClassicRibbon","$ShayminMicle_DP_Event","$ArceusRowap_DP_Event","$CelebiJaboca_Event","$EnteiCustap_Event"],
   ["ForeignDexEntries","$ForeignDexEntries"],
   ["LuckyPunch","10PeopleFunfest","BW","DreamWorld"],
   
@@ -350,12 +391,6 @@
   
   {"id":"TODO","formula":[]},
 
-  {"id":"LightBall","formula":[["TODO"]]},
-  ["EventRibbon","$EventRibbon"],
-  ["BirthdayRibbon","$BirthdayRibbon_B2_Event"],
-  ["SouvenirRibbon","$SouvenirRibbon"],
-  ["BattleChampionRibbon","$BattleChampionRibbon"],
-  ["WishingRibbon","$WishingRibbon_B2_Event"],
   
   {"id":"ForeignDexEntries", "formula":[["$ForeignDexEntries"]],"info":[ "144 Articuno LGPtHS", "145 Zapdos LGPtHS", "146 Moltres LGPtHS", "150 Mewtwo LGHS", "151 Mew MyPkmRanch", "201 Unown LGDPPtHS", "243 Raikou LGColHS", "244 Entei LGColHS", "245 Suicune LGColHS", "249 Lugia XDHS", "250 Ho-Oh ColHS", "251 Celebi JP(Col), Event(RSEDPPtHS)", "377 Regirock RSE", "378 Regice RSE", "379 Registeel RSE", "380 Latias SE", "381 Latios RE", "382 Kyogre SEH", "383 Groudon RES", "384 Rayquaza RSEHS", "385 Jirachi JP(Event DPPtHS), Col", "386 Deoxys Event DPRSELF", "480 Uxie DPPt", "481 Mesprit DPPt", "482 Azelf DPPt", "483 Dialga DPt", "484 Palkia PPt", "485 Heatran DPPt", "486 Regigigas RSE", "487 Giratina DPPt", "488 Cresselia DPPt", "491 Darkrai Event(DPPt)", "492 Shaymin Event(DPPt)", "493 Arceus Event(DPPt)"
   ]},
@@ -375,27 +410,20 @@
 ],
 "waresByType":[
   {"type":"emulator","name":"Emulator (EN)","aliases":[
-    ["$ArceusRowap_DP_Event","$EventTool"],
-    ["$ShayminMicle_DP_Event","$EventTool"],
-    
-    ["$Darkrai_BW_Event","$EventTool"],
-    ["$Keldeo_B2_Event","$EventTool"],
-    ["$Meloetta_B2_Event","$EventTool"],
-    ["$CelebiJaboca_Event","$EventTool"],
-
-
-    ["$MewtwoPremierRibbon_BW_Event","$EventTool"],
+    ["$PremierRibbon_BW_Event","$EventTool"],
     ["$PokemonFestaRibbons_RSE_Event","$EventTool"],
-
-    ["$EnteiCustap_Event","$EventTool"],
-
-    ["$EventRibbon","$EventTool"],
+    ["$EventRibbon_B2_Event","$EventTool"],
     ["$BirthdayRibbon_B2_Event","$EventTool"],
-    ["$SouvenirRibbon","$EventTool"],
-    ["$WishingRibbon_B2_Event","$EventTool"],
-    ["$BattleChampionRibbon","$EventTool"],
-
+    ["$SouvenirRibbon_B2_Event","$EventTool"],
+    ["$KeldeoWishingRibbon_B2_Event","$EventTool"],
+    ["$MeloettaWishingRibbon_B2_Event","$EventTool"],
+    ["$BattleChampionRibbon_B2_Event","$EventTool"],
+    
+    ["$Victini_B2_Event","$EventTool"],
+    ["$DarkraiClassicRibbon_BW_Event","$EventTool"],
     ["$Deoxys_B2_Event","$EventTool"],
+    ["$Genesect_B2_Event","$EventTool"],    
+    ["$Shaymin_BW_Event","$EventTool"],
     ["$Victini_Event","$EventTool"],
     ["$PWTEvent_EN","$EventTool"],
     ["$PWTEvent_JP","$EventTool_JP"],
@@ -2004,17 +2032,17 @@
   {"name":"National Ribbon","obtainable":0,"iconUrl":"ribbon/National_Ribbon.png","location":"Trade from XD, Colosseum","reqs":["XD","Colosseum"]},
   {"name":"Earth Ribbon","obtainable":0,"iconUrl":"ribbon/Earth_Ribbon.png","location":"Trade from XD, Colosseum","reqs":["XD","Colosseum"]},
   {"name":"World Ribbon","obtainable":0,"iconUrl":"ribbon/World_Ribbon.png","location":"Trade from Ruby, Sapphire, Emerald which obtained it from Pokémon Festa 2004 or 2005 event","reqs":["WorldRibbon"]},
-  {"name":"Classic Ribbon","obtainable":0,"iconUrl":"ribbon/Classic_Ribbon.png","location":"Various event Pokémon (ex: Arceus from Arceus Movie 2009 Promo)","reqs":["ClassicRibbon"]},
-  {"name":"Event Ribbon","obtainable":0,"location":"Event TODO","reqs":["EventRibbon"]},
+  {"name":"Classic Ribbon","obtainable":0,"iconUrl":"ribbon/Classic_Ribbon.png","location":"Event TODO","reqs":["ClassicRibbon"]},
+  {"name":"Event Ribbon","obtainable":0,"location":"Event (ex: 2013 World Championships Smeargle)","reqs":["EventRibbon"]},
   {"name":"Birthday Ribbon","location":"Event (ex: 2012 Birthday Audino)","obtainable":0,"reqs":["BirthdayRibbon"]},
   {"name":"Special Ribbon","obtainable":-1},
   {"name":"Souvenir Ribbon","obtainable":0,"location":"Event TODO","reqs":["SouvenirRibbon"]},
-  {"name":"Wishing Ribbon","obtainable":0,"location":"Event (ex: Movie 2013 Mewtwo)","reqs":["WishingRibbon"]},
+  {"name":"Wishing Ribbon","obtainable":0,"location":"Event (ex: Pokémon Hills Mewtwo)","reqs":["WishingRibbon"]},
   {"name":"Battle Champion Ribbon","obtainable":0,"location":"Event (ex: Yamamoto's Tournament Politoed)","reqs":["BattleChampionRibbon"]},
   {"name":"Regional Champion Ribbon","obtainable":-1},
   {"name":"National Champion Ribbon","obtainable":-1},
   {"name":"World Champion Ribbon","obtainable":-1},
-  {"name":"Premier Ribbon","obtainable":0,"iconUrl":"ribbon/Premier_Ribbon.png","location":"Event (ex: Mighty Mewtwo)","reqs":["PremierRibbon"]}
+  {"name":"Premier Ribbon","obtainable":0,"iconUrl":"ribbon/Premier_Ribbon.png","location":"Event (ex: February 2012 Mewtwo)","reqs":["PremierRibbon"]}
  ]},
  {"id":"battleSubway","name":"Battle Subway","list":[
   {"name":"Single - 21 wins","location":"Battle Subway"},
