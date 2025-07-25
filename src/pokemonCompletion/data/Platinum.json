@@ -307,7 +307,7 @@
     ["FL","$AuroraTicketEvent_Gen3"]
   ]},
   {"id":"Manaphy", "formula":[
-    ["$Ranger_EN","DP_EN"],
+    ["$Ranger_EN"],
     ["$Manaphy_DP_Event", "DP"]
   ]},
   {"id":"Darkrai", "formula":[
@@ -1152,7 +1152,7 @@
   {"name":"Giratina","id":"487","location":"Distortion World (Origin Forme), Turnback Cave (Altered Forme)","iconUrl":"pokemon/p487.png","pos":[[8795.2,13808.3],[432.5,15153]]},
   {"name":"Cresselia","id":"488","location":"Roaming Sinnoh","iconUrl":"pokemon/p488.png"},
   {"name":"Phione","id":"489","location":"Trade from My Pokémon Ranch (transfer 250 Pokémon), Breed Manaphy","reqs":["Phione"],"iconUrl":"pokemon/p489.png"},
-  {"name":"Manaphy","id":"490","location":"Trade from Pokémon Ranger to Pokémon Diamond/Pearl to Platinum, which obtained it from mission Recover the Precious Egg! unlocked with password P8M2-9D6F-43H7.","reqs":["Manaphy"],"iconUrl":"pokemon/p490.png"},
+  {"name":"Manaphy","id":"490","location":"Trade from Pokémon Ranger which obtained it from mission Recover the Precious Egg! unlocked with password P8M2-9D6F-43H7.","reqs":["Manaphy"],"iconUrl":"pokemon/p490.png"},
   {"name":"Darkrai","id":"491","location":"Newmoon Island (requires Member Card obtained from event), Trade from Pokémon Ranger: Shadows of Almia which obtained it from mission Liberate the Tower! unlocked with event.","reqs":["Darkrai"],"iconUrl":"pokemon/p491.png","pos":[[2327.4,1187.5]]},
   {"name":"Shaymin","id":"492","location":"Flower Paradise (requires Oak's Letter obtained from event)","reqs":["Shaymin"],"iconUrl":"pokemon/p492.png","pos":[[174.4,14143.5]]},
   {"name":"Arceus","id":"493","location":"Event (Ex: Toys R Us Arceus November 7 to 15, 2009)","reqs":["Arceus"],"iconUrl":"pokemon/p493.png"}
@@ -3210,12 +3210,12 @@
   {"name":"Pokémon - Solrock","location":"Stark Mountain (battle Sterling)","pos":[[1396.2,13253.2]]},
   {"name":"Pokémon - Others","location":"See the Pokémon to unlock its name. This group includes all Pokémon not included elsewhere.","reqs":[["NationalDex","Mew","Lugia","HoOh","Celebi","Jirachi","Deoxys","Phione","Manaphy","Darkrai","Shaymin","Arceus"]]},
   {"name":"Moves","location":"Sandgem Town (after obtain the national Pokédex from Professor Rowan)","pos":[[8028.5,2773.7]]},
-  {"name":"Greetings - KONNICHIWA","location":"Interact with a Japanese player in the Union Room","reqs":[["ForeignDexEntries"]]},
-  {"name":"Greetings - HELLO","location":"Obtained automatically when starting a new game"},
-  {"name":"Greetings - BONJOUR","location":"Interact with a French player in the Union Room","reqs":[["ForeignDexEntries"]]},
-  {"name":"Greetings - CIAO","location":"Interact with an Italian player in the Union Room","reqs":[["ForeignDexEntries"]]},
-  {"name":"Greetings - HALLO","location":"Interact with a German player in the Union Room","reqs":[["ForeignDexEntries"]]},
-  {"name":"Greetings - HOLA ","location":"Interact with a Spanish player in the Union Room","reqs":[["ForeignDexEntries"]]}
+  {"name":"Greetings - Konnichiwa","location":"Interact with a Japanese player in the Union Room","reqs":[["ForeignDexEntries"]]},
+  {"name":"Greetings - Hello","location":"Obtained automatically when starting a new game"},
+  {"name":"Greetings - Bonjour","location":"Interact with a French player in the Union Room","reqs":[["ForeignDexEntries"]]},
+  {"name":"Greetings - Ciao","location":"Interact with an Italian player in the Union Room","reqs":[["ForeignDexEntries"]]},
+  {"name":"Greetings - Hallo","location":"Interact with a German player in the Union Room","reqs":[["ForeignDexEntries"]]},
+  {"name":"Greetings - Hola ","location":"Interact with a Spanish player in the Union Room","reqs":[["ForeignDexEntries"]]}
  ]},
 
  {"id":"jubilifeTvRankings","name":"Jubilife TV Ranking Room","iconUrl":"decoration3/TV.png", "url":"https://bulbapedia.bulbagarden.net/wiki/Jubilife_TV#Ranking_Rooms", "list":[
