@@ -2,7 +2,7 @@
 To deply on production server:
     cd C:\Users\Samuel\source\repos\pokemoncompletion
     npm run compil-prod
-    ./deploy_heroku.js
+    node ./deploy_heroku.js
     cd ../pokemoncompletion-heroku
     git add .
     git commit -m "."
