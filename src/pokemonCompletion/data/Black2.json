@@ -1272,7 +1272,7 @@
   {"name":"Meloetta - Aria","obtainable":0,"location":"Event (ex: Spring 2013 Meloetta)","reqs":["Meloetta"],"iconUrl":"pokemon/p648.png"},
   {"name":"Meloetta - Pirouette","obtainable":0,"location":"Using the move Relic Song in battle, learned in Café Sonata in Castelia City","reqs":["Meloetta"],"iconUrl":"pokemon/p648.png"},
   {"name":"Male & Female Form for All Pokémon","obtainable":0,"location":"See the Male and Female forms of all Pokémon with gender.","reqs":["AllMaleFemaleForms"]},
-  {"name":"Shiny Male & Female Form for All Pokémon", "obtainable":0,"location":"See the shiny forms of all Pokémon in its gender forms. Excludes Celebi, Arceus, Victini, Reshiram, Zekrom, Keldeo, Meloetta. ","reqs":["ShinyForms"]},
+  {"name":"Shiny Male & Female Form for All Pokémon", "obtainable":0,"location":"See the shiny forms of all Pokémon in its gender forms. Excludes Celebi, Arceus, Victini, Reshiram, Zekrom, Keldeo, Meloetta which are impossible to get.","reqs":["ShinyForms"]},
   {"name":"All Foreign Pokédex Entries","href":"","location":"Obtain the first 493 Pokémon originating from an English, Japanese, French, Italian, German, Spanish, Korean game.","reqs":[["ForeignDexEntries"]]}
 
  ]},

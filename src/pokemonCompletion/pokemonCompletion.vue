@@ -46,7 +46,7 @@
                 <label style="padding-left:5px;" :for="grp.id + playingWith" class="clickable" :class="{'cs-orange':grp.wares[0].hasWarning && grp.wares[0].minCount === 0}">
                   {{w.name}}
                 </label>
-                <span v-if="w.url">
+                <span v-if="w.url && displayWaresUrl">
                   ({{w.url[2] === undefined ? 'Ex: ' : w.url[2]}}<a :href="w.url[1]" target="_blank" rel="noopener">{{w.url[0]}}</a>)
                 </span>
                 <span v-if="w.warning" style="color: #f0ad4e; text-shadow: 0.1em  0.1em 0 #000;">⚠{{w.warning}}⚠</span>
@@ -162,7 +162,7 @@
   </div>
 </div>
 
-<div class="div-section" v-if="pkCompletionist" v-show="playingWith.includes('emulator') || !waresByType.length">
+<div class="div-section" v-if="pkCompletionist">
   <div id="pkCompletionist-slot"></div>
 </div>
 

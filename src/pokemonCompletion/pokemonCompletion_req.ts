@@ -143,6 +143,9 @@ export class Vue_pokemonCompletion_req_methods {
   }
 
 
+  isEmuWareSelected = function(this:Vue_pokemonCompletion_full){
+    return this.playingWith.includes('emulator');
+  }
   getWareGroups = function(this:Vue_pokemonCompletion_full){
     return this.waresByType.find(w => w.type === this.playingWith)?.groups || [];
   }

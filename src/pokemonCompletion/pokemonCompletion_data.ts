@@ -666,7 +666,7 @@ export class GameData {
   displayIcons = false;
   iconData:ReturnType<typeof getIconData> = null;
 
-  waresByType:{type:string, name:string, warning:string | null, wares:Ware[], groups:WareGroup[],aliases:Map<string,string>}[] = [];
+  waresByType:{type:string, name:string, warning:string | null, wares:Ware[], groups:WareGroup[],aliases:Map<string,string>, isEmu:boolean}[] = [];
   requirements:Requirement[] = [];
 
   collectableWithVariableObtainability:Collectable[] = [];
@@ -716,6 +716,7 @@ export class GameData {
   interactiveMapVue:PkInteractiveMap | null = null;
   additionalTasks:string[] = [];
   displayAdditionalTasks = false;
+  displayWaresUrl = !window.location.href.includes('reddit');
 
   constructor(gameInput:GameDataInput){
     const game = {...gameInput};
@@ -794,6 +795,11 @@ export class GameData {
 
 
     if(game.waresByType){
+      if (DEFAULT_TO_CONSOLE){
+        game.waresByType.sort((w1,w2) => {
+          return w1.name.includes('emulator') ? 1 : -1;
+        });
+      }
       this.createWaresByType(game);
       this.playingWith = this.waresByType[0]?.type || '';
 
@@ -920,6 +926,7 @@ export class GameData {
         this.waresByType.push({
           type, name:s.name, warning:s.warning || '', groups, wares,
           aliases:new Map(<[string,string][]>s.aliases),
+          isEmu:s.name.includes('emulator'),
         });
       });
     });
