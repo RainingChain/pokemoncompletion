@@ -1,6 +1,35 @@
 
 declare let L:any;
 
+export const isMobile = () => {
+  //based on chrome dino game
+  return /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/.test(window.navigator.userAgent) && window.ontouchstart !== undefined;
+};
+
+export const defaultMyMapParams = function(config:Config) : any {
+  const bounds = (() => {
+    if(!config.getBottomRight)
+      return undefined;
+    const br = config.getBottomRight();
+    if(!br)
+      return undefined;
+
+    return [[0,0], br];
+  })();
+
+  return {
+    crs: L.CRS.Simple,
+    minZoom: 0,
+    maxZoom: config.getTotalMaxZoom(),
+    maxBoundsViscosity:bounds ? 1 : undefined,
+    bounds:bounds,
+    maxBounds:bounds ? [[50,-200], bounds[1]] : undefined,
+    doubleClickZoom: !isMobile(),
+    fullscreenControl: true,
+    attributionControl: false,
+  };
+};
+
 export class Config {
   getMaxZoom(){
     const crop = this.getCropSize();
@@ -69,21 +98,7 @@ export class Config {
   contributors:{href?:string,text:string}[] = [];
   speedrunLinks:{href?:string,text:string}[] = [];
   myMapParams = function(this:Config) : any {
-    if(!this.getBottomRight)
-      throw new Error('!this.getBottomRight');
-    const br = this.getBottomRight();
-    if(!br)
-      throw new Error('!br');
-
-    const bounds = [[0,0], br];
-    return {
-      crs: L.CRS.Simple,
-      minZoom: 0,
-      maxZoom: this.getTotalMaxZoom(),
-      maxBoundsViscosity:1,
-      bounds:bounds,
-      maxBounds:bounds,
-    };
+    return defaultMyMapParams(this);
   };
   mainImgOpacity = 1;
   DEBUG = window.location.href.includes('localhost');
@@ -94,6 +109,7 @@ export class Config {
     visibleLayers:"hkMapVisibleLayers",
     state:"",
   };
+  validImageSet:Set<string> | null = null; //if null, assumes they all exist
   alternativeMap:{text:string,href:string} | null = null;
   mapPosIdx = 0;
   nonDetailedImageUrl:string | null = null;

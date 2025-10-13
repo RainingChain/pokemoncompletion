@@ -39,7 +39,9 @@ export const dependencies = {
   vSave:<any>null,
 }
 
-export const MyMarker = function(pos2:Pos,iconUrl:string,title:string,popupText?:string|null,klass=''){
+export const MyMarker = function(pos2:Pos | null,iconUrl:string,title:string,popupText?:string|null,klass='',size=20){
+  if(!pos2)
+    return null;
   let pos:number[] = [];
   const unusedPos:number[] = [];
 
@@ -55,19 +57,20 @@ export const MyMarker = function(pos2:Pos,iconUrl:string,title:string,popupText?
   if(pos[0] === 0 && pos[1] === 0)
     return null;
 
+  const oldId = '' + pos[0] + '_' + pos[1];
   pos = config.convertPixelToWH(<[number,number]>pos);
 
   (<any>window).markersJSON.push({pos:pos, unusedPos, iconUrl, title});
 
   if(config.DEBUG)
-    title = pos.toString() + '  ' + title;
+    title = pos.toString() + ' | ' + oldId + ' | '  + title;
 
   const cacheKey = [iconUrl,title,popupText,klass].join('@');
   const icon = iconModelHistory.get(cacheKey) || L.divIcon({
     className:'',
-    html:htmlHelper(iconUrl,20,false, klass),
-    iconSize: [20, 20],
-    iconAnchor: [10, 10],
+    html:htmlHelper(iconUrl,size,false, klass),
+    iconSize: [size, size],
+    iconAnchor: [size/2, size/2],
   });
   iconModelHistory.set(cacheKey,icon);
 
@@ -105,6 +108,14 @@ export const MyMarker = function(pos2:Pos,iconUrl:string,title:string,popupText?
       return;
     alert(`${title} : [${pos[0]},${pos[1]}]`);
   });
+  marker.on('click',function(ev:{originalEvent:MouseEvent}){
+    const lastTxt = document.getElementById('lastClickedIconName');
+    if(!lastTxt)
+      return;
+    lastTxt.innerText = title;
+  });
+
+  marker.oldId = oldId; // needed to support legacy saves
 
   return marker;
 }
@@ -125,7 +136,6 @@ export const htmlHelper = function(iconUrl:string,size:number,embed:boolean,klas
   return `<div style="width:${size}px;height:${size}px">${inside}</div>`;
 }
 
-
 export class IconLayer {
   layerGroup = <any>null; // L.layerGroup
   id = '';
@@ -133,18 +143,22 @@ export class IconLayer {
   iconUrl = '';
   markers:any[] = [];
   isVisibleByDefault = true;
+  alwaysVisible = false;
 
-  constructor(opts:{id:string,name:string,iconUrl:string,markers:any[],isVisibleByDefault?:boolean}){
+  constructor(opts:{id:string,name:string,iconUrl:string,markers:any[],isVisibleByDefault?:boolean,alwaysVisible?:boolean}){
     this.id = opts.id;
     this.name = opts.name;
     this.iconUrl = opts.iconUrl;
+    opts.markers.forEach((m,i) => {
+      if(m)
+        m.permId = '' + i;
+    });
     this.markers = opts.markers.filter((v:any) => !!v);
     this.layerGroup = L.layerGroup(this.markers);
-
-    if(opts.isVisibleByDefault !== undefined)
+    if (opts.isVisibleByDefault !== undefined)
       this.isVisibleByDefault = opts.isVisibleByDefault;
-    if(config.DEBUG)
-      this.isVisibleByDefault = true;
+    if (opts.alwaysVisible !== undefined)
+      this.alwaysVisible = opts.alwaysVisible;
 
     IconLayer.layers.set(this.id,this);
   }
@@ -215,4 +229,18 @@ export const calculateTranslate = function(oldPos:[number,number], newPos:[numbe
       return res;
     },
   }
+}
+
+export const polyline = function(pos:[number,number,number,number],dashArray:string|null=null){
+  //return MyMarker(pos,"jiji.png","Debug Map Link"); //for debugging
+  const start = pos.slice(0,2);
+  const end = pos.slice(2);
+
+  return new L.polyline([start, end],{
+    color: 'white',
+    weight: dashArray ? 2 : 3,
+    opacity: 0.5,
+    smoothFactor: 1,
+    dashArray,
+  });
 }

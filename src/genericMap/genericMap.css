@@ -15,7 +15,7 @@ html, body {
 }
 
 #myMap {
-  height: 100%;
+  height: calc(100vh - 26px);
   width: 100%;
 }
 
@@ -46,4 +46,27 @@ nav.navbar {
 /** otherwise impossible to close sidebar on mobile */
 .close {
   z-index:1000 !important;
+}
+
+.miscGame-title {
+  font-size:1.2em;
+}
+
+.miscGame-title a {
+  color:rgba(200,200,200,1);
+  text-decoration: none !important;
+}
+.miscGame-title span:first-of-type {
+  color:rgba(200,200,200,1);
+}
+
+.miscGame-title a:hover {
+  opacity:0.8;
+  text-decoration: underline !important;
+}
+
+#lastClickedIconName {
+  background-color:rgba(0,0,0,0.5);
+  color:white;
+  margin-bottom:30px;
 }

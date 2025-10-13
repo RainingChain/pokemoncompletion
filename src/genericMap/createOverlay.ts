@@ -43,7 +43,12 @@ export const createOverlay = function (config: Config) {
 
   const tileLayerFallback = L.TileLayer.extend({
     getTileUrl: function (coords: { x: number; y: number; z: number }) {
-      if (config.digitalZoom !== 0 && coords.z === maxZoom) 
+      if (config.digitalZoom !== 0 && coords.z === maxZoom)
+        return emptyImageUrl;
+
+      let imgZ = maxZoom - coords.z;
+
+      if (config.validImageSet && !config.validImageSet.has(`${imgZ}_${coords.x}_${coords.y}`))
         return emptyImageUrl;
 
       return L.TileLayer.prototype.getTileUrl.apply(this, [coords]);
@@ -64,12 +69,13 @@ export const createOverlay = function (config: Config) {
 
   lay.on('tileloadstart', (obj:any) => {
     const {tile,coords} = obj;
-    if (tile.src === emptyImageUrl){
+    //TODO support both validImageSet and digitalZoom
+    if (config.digitalZoom !== 0 && tile.src === emptyImageUrl){
       tile.style.backgroundImage = 'url(' + url
         .replace('{z}', '1')
         .replace('{y}', '' + Math.floor(coords.y / 2))
         .replace('{x}', '' + Math.floor(coords.x / 2)) + ')';
-      
+
       const my = coords.y % 2;
       const mx = coords.x % 2;
       tile.style.visibility  = 'visible';

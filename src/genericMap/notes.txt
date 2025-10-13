@@ -1,0 +1,58 @@
+
+short term goals:
+    clean icon layer
+    add dummy icon spritesheet
+    add 1 dummy one
+    adapt credits
+  add contributor only if contributor in url
+  remove speedrun tab
+
+
+mid-term goal:
+  add icons with pokemon input format + glue to convert to genericMap format.
+
+long term:
+  use similar structure as pokemon
+
+  GameData
+    Category
+      Collectable
+
+    keep genericMap between the two identical.
+
+    move stuff from
+
+
+
+
+
+  share same code between pokemon and other games.
+  keep it modulable. ex: without playing with etc.
+
+  move UI + some structure to genericMap
+
+  create a npm package
+
+
+
+--
+Step 1:
+  move pokemon stuff to genericMap
+
+  make package for genericMap
+
+  pokemon uses that package.
+
+  sw uses that package
+
+
+
+
+  class Icon {
+    leafletIcon,
+    permId,
+    category
+    et.c
+
+  }
+

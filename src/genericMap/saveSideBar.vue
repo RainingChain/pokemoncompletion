@@ -1,8 +1,8 @@
 <div id="save-sidebar" style="padding:15px;overflow-x:hidden">
   <div style="height:calc(100% - 100px)">
+    <div>Free unlimited progress tracking. No login. No ads.</div>
     <div>
-      Click to toggle a marker.<br>
-      Version: 1.0
+      Click a marker to hide it.<br>
     </div>
     <br>
     <table>

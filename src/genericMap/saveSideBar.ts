@@ -1,4 +1,4 @@
-
+/*! LICENSED CODE BY SAMUEL MAGNAN-LEVESQUE FOR SCRIPTERSWAR.COM */
 import Vue from "vue";
 
 import {log} from "./log";
@@ -15,9 +15,11 @@ export class SavePanel {
   static saveSidebar:any;
 
   static addSavePanel(myMap:any, onOpen:() => void){
-    const getMarkerId = function(mark:any){
+    const getMarkerIds = function(mark:any){
       const latLng = mark.getLatLng();
-      return '' + latLng.lat + '_' + latLng.lng;
+      const v1Id = mark.oldId;
+      const v2Id = '' + latLng.lat + '_' + latLng.lng;
+      return [mark.permId, v1Id, v2Id];
     }
 
     SavePanel.vSave = new Vue(withRenderSave({
@@ -44,7 +46,7 @@ export class SavePanel {
             lay.markers.forEach(m => {
               if(m.options.opacity === 1)
                 return;
-              icons.push(getMarkerId(m));
+              icons.push(getMarkerIds(m)[0]);
             });
             obj.layers[lay.id] = icons.join(',');
           });
@@ -61,16 +63,18 @@ export class SavePanel {
           }
 
           try {
-            const allStatesFromJson:string[] = [];
+            const allStatesFromJson = new Map<string,string[]>();
             for(const i in obj.layers){
               const stateStr = obj.layers[i];
-              allStatesFromJson.push(...stateStr.split(','));
+              allStatesFromJson.set(i, stateStr.split(','));
+
             }
 
             IconLayer.forEachMarkerLayers(lay => {
+              const jsonMarks = allStatesFromJson.get(lay.id) ?? [];
               lay.markers.forEach(m => {
-                const markId = getMarkerId(m);
-                if(allStatesFromJson.includes(markId))
+                const markIds = getMarkerIds(m);
+                if(markIds.some(markId => jsonMarks.includes(markId)))
                   m.setOpacity(0.2);
                 else
                   m.setOpacity(1);
@@ -92,7 +96,7 @@ export class SavePanel {
         saveVisibleLayer(this:any){
           const visLayers:string[] = [];
           IconLayer.forEachMarkerLayers(lay => {
-            if(!lay.isVisibleByDefault && myMap.hasLayer(lay.layerGroup))
+            if(myMap.hasLayer(lay.layerGroup))
               visLayers.push(lay.id);
           });
           const str = visLayers.join(',');
@@ -126,7 +130,7 @@ export class SavePanel {
       mounted:function(this:any){
         setInterval(function(){
           SavePanel.vSave.saveVisibleLayer();
-        },10000);
+        },1000);
 
         SavePanel.saveSidebar = L.control.sidebar(this.$el, {
           position: 'left'
@@ -138,19 +142,34 @@ export class SavePanel {
           SavePanel.saveSidebar.toggle();
         }).addTo(myMap);
 
+        let good = false;
         try {
+          IconLayer.forEachLayers((lay) => {
+            if(lay.alwaysVisible)
+              lay.layerGroup.addTo(myMap);
+          });
+
           SavePanel.vSave.loadStateFromStr(window.localStorage.getItem(config.localStorage.state));
           SavePanel.vSave.addStateToHistory();
           const layIds = window.localStorage.getItem(config.localStorage.visibleLayers);
           if(layIds){
             layIds.split(',').forEach(layId => {
               const lay = IconLayer.getLayer(layId);
-              if(lay)
+              if(lay){
                 lay.layerGroup.addTo(myMap);
+                good = true;
+              }
             });
           }
         } catch(err){
           log('Error loading map state from localStorage.',err);
+        }
+
+        if (!good){
+          IconLayer.forEachLayers((lay) => {
+            if(lay.isVisibleByDefault || lay.alwaysVisible)
+              lay.layerGroup.addTo(myMap);
+          });
         }
       }
     }));

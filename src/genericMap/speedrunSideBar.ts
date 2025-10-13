@@ -1,4 +1,4 @@
-
+/*! LICENSED CODE BY SAMUEL MAGNAN-LEVESQUE FOR SCRIPTERSWAR.COM */
 import Vue from "vue";
 
 import {easyButton, IconLayer} from "./markerHelpers";
@@ -7,7 +7,7 @@ const config = Config.c;
 
 import withRenderSpeedrun from "./speedrunSideBar.vue";
 import {UrlInfo} from "./UrlInfo";
-import {Youtube} from "./Youtube";
+import {Youtube} from "./youtube";
 
 declare let L:any;
 

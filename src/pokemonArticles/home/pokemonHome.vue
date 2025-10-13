@@ -64,12 +64,9 @@
 <div v-if="loc === 'home'">
   <h3>Currently working on</h3>
   <ul>
-    <li>Pokémon Platinum RNG manipulation for Battle Tower Single and Double</li>
-    <li>Pokémon Platinum simulated events</li>
-    <li>Pokémon Version Compatibility Generation IV</li>
-    <li>Pokémon Ranger Almia 100% Checklist</li>
     <li>Pokémon Black 2 interative map</li>
-    <li>Pokémon Black 2 hardware/requirement list</li>
+    <li>Pokémon Platinum RNG manipulation for Battle Tower Single and Double</li>
+    <li>Pokémon Ranger Almia 100% Checklist</li>
   </ul>
 </div>
 

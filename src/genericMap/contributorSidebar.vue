@@ -1,6 +1,6 @@
 
 <div id="contributor-sidebar">
-  <div v-show="!contributorMode">
+  <div v-show="contributorMode === 'none'">
     <h3>Credits</h3>
     <ul>
       <li class="bold" style="font-size:1.2em">RainingChain</li>
@@ -11,7 +11,7 @@
     </ul>
 
     <div>
-      Feedback: Contact RainingChain on <a href="https://discord.com/invite/tMXrJzjWmg">Discord</a></li>
+      Feedback: Contact RainingChain on <a target='_blank' rel="noopener" href='https://discord.gg/dKEegX4'>Discord</a></li>
     </div>
     <br>
     <div>
@@ -19,14 +19,30 @@
     </div>
   </div>
 
-  <label><input type="checkbox" v-model="contributorMode" @change="onContributorModeChange"> Activate Contributor Mode</label>
-  <div v-show="contributorMode" style="height:calc(100% - 100px)">
+  <div style="font-size:1.2em">
+    Contributor Mode:
+    <div style="padding-left:10px">
+      <input type="radio" id="ContributorModeInactive" value="none" v-model="contributorMode" @change="onContributorModeChange">
+      <label for="ContributorModeInactive">Inactive</label>
+      <br>
+      <input type="radio" id="ContributorModeIcon" value="icon" v-model="contributorMode" @change="onContributorModeChange">
+      <label for="ContributorModeIcon">Icon</label>
+      <br>
+      <input type="radio" id="ContributorModeMapLink" value="mapLink" v-model="contributorMode" @change="onContributorModeChange">
+      <label for="ContributorModeMapLink">Map Link</label>
+    </div>
+  </div>
+
+  <div v-show="contributorMode !== 'none'" style="height:calc(100% - 100px)">
     <h3>How to contribute</h3>
     <div>
       <ol>
-        <li>Click on the map where you want to add an icon.</li>
-        <li>Enter the description in the dialogue box. This will add an entry in the textbox below.</li>
-        <li>Once all icons have been done, send the textbox content to RainingChain on Discord.</li>
+        <li v-show="contributorMode === 'icon'">Click on the map where you want to add a nameless icon.</li>
+        <li v-show="contributorMode === 'icon'">Cltr+Click to add an icon with a description.</li>
+
+        <li v-show="contributorMode === 'mapLink'">Click twice the map to add a white line connecting your 2 clicks.</li>
+
+        <li>Once all icons/map links have been added, send the textbox content to RainingChain on <a target='_blank' rel="noopener" href='https://discord.gg/dKEegX4'>Discord</a>.</li>
       </ol>
     </div>
     <button @click="refreshIcons" class="btn btn-primary">Refresh Icons</button>
