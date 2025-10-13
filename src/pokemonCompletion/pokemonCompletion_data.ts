@@ -2,6 +2,7 @@
 import externalLinkIcon from "./externalLinkIcon.svg";
 import { getIconData } from "./icons/pokemonIcon";
 import type { PkInteractiveMap, PkInteractiveMapInput } from "./map/pokemonMap";
+import {CollectableInputGen} from "../genericMap/genericData";
 
 const DEFAULT_TO_CONSOLE = window.location.href.includes('reddit');
 
@@ -68,14 +69,8 @@ export enum ObtainType {
   notObtainableUnknownReason = 0
 }
 
-export type CollectableInput = {
-  id?: string,
-  name: string,
-  location?: string,
+export type CollectableInput = CollectableInputGen & {
   obtainable?: ObtainTypeInJson, href?: string, reqs?: (string | string[])[],
-  trackable?:boolean,
-  pos?:number[] | number[][],
-  iconUrl?:string,
 };
 
 export class FormulaContext {
@@ -103,7 +98,7 @@ export class Formula {
   evaluate(getFunc:(id:string) => number){
     if(!this.list)
       return true;
-    
+
     try {
       return this.list.some(crits => {
         return crits.every(crit => crit.evaluate(getFunc));
@@ -295,18 +290,20 @@ export type PkCompletionistInput = {
   supportSortPkms?:boolean,
 }
 
-export type CollectableCategoryInput = {
+export type CollectableCategoryInputGen = {
   id?: string,
   name: string,
   url?: string,
   showId?: boolean,
-  conflicts?: string[][][] | ConflictInput[],
   missables?: MissableInput[],
   urlSuffix?: string | null,
   iconUrl?:string,
   list: CollectableInput[],
   iconColorClass?:string,
   iconVisibleByDefault?:boolean,
+}
+export type CollectableCategoryInput = CollectableCategoryInputGen & {
+  conflicts?: string[][][] | ConflictInput[],
 };
 
 export type WareInput = {
@@ -803,8 +800,8 @@ export class GameData {
       this.createWaresByType(game);
       this.playingWith = this.waresByType[0]?.type || '';
 
-      if (DEFAULT_TO_CONSOLE && 
-          this.playingWith.includes('emulator') && 
+      if (DEFAULT_TO_CONSOLE &&
+          this.playingWith.includes('emulator') &&
           this.waresByType.length > 1)
         this.playingWith = this.waresByType.find(t => !t.type.includes('emulator'))?.type || '';
     }
@@ -826,7 +823,7 @@ export class GameData {
           }
           return raw;
         })();
-        
+
         const waresByType:Requirement['waresByType'] = [];
         const waresByTypeInput = r.waresByType || types.map(type => {
           return {type, formula: r.formula!};
