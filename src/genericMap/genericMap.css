@@ -16,6 +16,7 @@ html, body {
 
 #myMap {
   height: calc(100vh - 26px);
+  height: calc(100dvh - 26px);
   width: 100%;
 }
 
@@ -69,4 +70,12 @@ nav.navbar {
   background-color:rgba(0,0,0,0.5);
   color:white;
   margin-bottom:30px;
+}
+
+.mapLabel {
+  background-color:rgba(0,0,0,0.75);
+  text-align:left;
+  white-space: nowrap;
+  font-size:calc(12px * var(--mapLabelFontSizeScale));
+  z-index:100000 !important;
 }

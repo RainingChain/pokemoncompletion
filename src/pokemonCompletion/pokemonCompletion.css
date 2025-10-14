@@ -151,14 +151,6 @@ a.sobreLink:not(:hover) {
   margin-left: 13px !important; /*save a bit of space*/
 }
 
-.mapLabel {
-  background-color:rgba(0,0,0,0.75);
-  text-align:left;
-  white-space: nowrap;
-  font-size:calc(12px * var(--mapLabelFontSizeScale));
-  z-index:100000 !important;
-}
-
 .flyToPin {
   width:20px;
   text-align:center;

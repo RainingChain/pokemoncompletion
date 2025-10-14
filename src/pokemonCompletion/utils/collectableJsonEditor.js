@@ -46,26 +46,9 @@ setTimeout(async () => {
 
 if(true){
 setTimeout(async () => {
-  const plat = await readJson(`C:\\Users\\Samuel\\source\\repos\\pokemoncompletion\\src\\pokemonCompletion\\data\\Platinum.json`);
-  await func(`C:\\Users\\Samuel\\source\\repos\\pokemoncompletion\\src\\pokemonCompletion\\data\\Black2.json`, (col, cat) => {
-    if(cat === 'ribbon'){
-      const p = plat.categories.find(c => c.id == "ribbon").list.find(m => m.name === col.name);
-      if (!p)
-        return null;
-
-      col.location = p.location;
-      col.reqs = p.reqs;
-      return col;
-    }
-
-    /*const em = plat.categories.find(c => c.id === cat);
-    if(!em)
-      return null;
-
-    const emel = em.list.find(a => a.name === col.name);
-    if(emel && emel.iconUrl)
-      col.iconUrl = emel.iconUrl;
-    return col;*/
+  await func(`C:\\rc\\rainingchain\\src\\hollowknight\\ssMap\\ssData.json`, (col, cat) => {
+    col.pos = col.pos.map(a => a * 2);
+    return col;
   });
 }, 1);
 }
@@ -127,7 +110,8 @@ const readJson = async function(file){
 };
 
 const func = async function(file, edit){
-  const str = await fs.readFile(file,'utf8');
+  let str = await fs.readFile(file,'utf8');
+  str = str.replace(/\n\n/,'\n');
   const json = JSON.parse(str);
   const lines = str.split('\n');
   const catStartId = lines.findIndex(line => line.trim().includes(`"categories":[`));

@@ -45,8 +45,6 @@ export class PkInteractiveMapInput {
   mapLinks:number[][][] = [];
 };
 
-const iconModelHistory = new Map<string,any>();
-
 export class PkInteractiveMap {
   constructor(public domQuery:string, public inp:Vue_pokemonCompletion_full){
   }
