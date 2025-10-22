@@ -46,8 +46,9 @@ setTimeout(async () => {
 
 if(true){
 setTimeout(async () => {
+  let uid = 0;
   await func(`C:\\rc\\rainingchain\\src\\hollowknight\\ssMap\\ssData.json`, (col, cat) => {
-    col.pos = col.pos.map(a => a * 2);
+    col.uid = uid++;
     return col;
   });
 }, 1);
