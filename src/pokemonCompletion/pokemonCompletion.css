@@ -324,3 +324,17 @@ textarea:focus, input:not([type=checkbox]):not([type*='ra']):focus{
    white-space: nowrap;
    overflow: hidden;
 }
+
+#lastClickedIconName {
+  background-color:rgba(0,0,0,0.5);
+  color:white;
+  margin-bottom:30px;
+}
+
+.mapLabel {
+  background-color:rgba(0,0,0,0.75);
+  text-align:left;
+  white-space: nowrap;
+  font-size:calc(12px * var(--mapLabelFontSizeScale));
+  z-index:100000 !important;
+}

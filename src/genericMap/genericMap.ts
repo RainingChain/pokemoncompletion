@@ -102,12 +102,12 @@ export class GenericMap {
         const lat = e.latlng.lat.toFixed(config.mapIsSplitInMultipleImages ? 1 : 0);
         const lng = e.latlng.lng.toFixed(config.mapIsSplitInMultipleImages ? 1 : 0);
         const px = config.convertWHToPixel([lat,lng]);
-        const txt = `{"pos":[${px[0]},${px[1]}],"name":"${p}","iconUrl":""},\n`;
+        const txt = `{"pos":[${px[0]},${px[1]}],"name":"${p}","iconUrl":"","flag":""},\n`;
         GenericMap.addToTextArea(txt);
 
         const POKEMON = false;
         if(POKEMON)
-          navigator.clipboard.writeText(`,"pos":[${px[0]},${px[1]}]`);
+          navigator.clipboard.writeText(`"pos":[${px[0]},${px[1]}]`.replace(/\.0/g,''));
 
         const newMark = MyMarker(px,"contributorMarker.png",p);
         if(newMark)

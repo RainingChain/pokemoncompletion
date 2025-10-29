@@ -44,11 +44,75 @@ setTimeout(async () => {
 }, 1);
 }
 
+if(false){
+setTimeout(async () => {
+  const json = JSON.parse(await fs.readFile(`C:\\rc\\rainingchain\\src\\hollowknight\\ssMap\\ssData.json`, 'utf8'));
+  const nextUid = Math.max(...json.categories.map(cat => {
+    return cat.list.map(col => col.uid);
+  }).flat()) + 1;
+
+
+  await func(`C:\\rc\\rainingchain\\src\\hollowknight\\ssMap\\ssData.json`, (col, cat) => {
+    if(col.uid === undefined)
+      col.uid = nextUid++;
+    return col;
+  });
+}, 1);
+}
+
 if(true){
 setTimeout(async () => {
-  let uid = 0;
+  const json = JSON.parse(await fs.readFile(`C:\\rc\\rainingchain\\src\\hollowknight\\ssMap\\ssData.json`, 'utf8'));
+  let nextUid = Math.max(...json.categories.map(cat => {
+    return cat.list.map(col => col.uid);
+  }).flat().filter(a => a >= 0)) + 1;
+
+
   await func(`C:\\rc\\rainingchain\\src\\hollowknight\\ssMap\\ssData.json`, (col, cat) => {
-    col.uid = uid++;
+    if(col.uid === undefined)
+      col.uid = nextUid++;
+
+    if(col.pos)
+        col.pos = [
+          +(col.pos[0]  * 0.659836 - 171.112).toFixed(1),
+          +(col.pos[1] * (0.977455 - (5 / 1000)) + 1.76514 + 0.5).toFixed(1),
+        ];
+
+/*
+{"pos":[-480.7,978.1],"name":"","iconUrl":"","flag":""},
+"pos":[-480.8,1003.2]
+
+1003.2 => 25
+*/
+
+    return col;
+  });
+}, 1);
+}
+
+
+if(false){
+setTimeout(async () => {
+  const json = JSON.parse(await fs.readFile(`C:\\rc\\rainingchain\\src\\hollowknight\\ssMap\\ssData.json`, 'utf8'));
+  const permFlags = json.categories.find(cat => {
+    return cat.id === 'permFlags';
+  }).list;
+
+  await func(`C:\\rc\\rainingchain\\src\\hollowknight\\ssMap\\ssData.json`, (col, cat) => {
+    if (cat === 'permFlags'){
+      const other = json.categories.some(cat => {
+        if(cat.id === 'permFlags')
+            return false;
+        return cat.list.some(col2 => col2.pos.toString() == col.pos.toString());
+      });
+      if (other)
+        return {};
+      return null;
+    }
+    const perm = permFlags.find(p => p.pos.toString() === col.pos.toString());
+    if (perm)
+        col.flag = perm.flag;
+
     return col;
   });
 }, 1);
@@ -162,5 +226,5 @@ const func = async function(file, edit){
     lines[i] = '  ' + newCollStr;
   }
 
-  await fs.writeFile(file + '2', lines.join('\n'));
+  await fs.writeFile(file, lines.join('\n'));
 };
