@@ -1440,7 +1440,7 @@
   ],"reqsToSolve":[]}
  ],
  "list":[
-  {"id":"AARON","flag":"549","flagName":"EVENT_BEAT_COOLTRAINERM_AARON","name":"Cooltrainer Aaron","location":"Lake of Rage","pos":[1872,5980.8]},
+  {"id":"AARON","flag":"549","flagName":"EVENT_BEAT_COOLTRAINERM_AARON","name":"Cooltrainer Aaron","location":"Lake of Rage","pos":[1824,5472]},
   {"id":"ABE","flag":"3FC","flagName":"EVENT_BEAT_BIRD_KEEPER_ABE","name":"Bird Keeper Abe","location":"Violet Gym","pos":[3968,5475.2]},
   {"id":"AL","flag":"53D","flagName":"EVENT_BEAT_BUG_CATCHER_AL","name":"Bug Catcher Al","location":"Azalea Gym","pos":[6144,4512]},
   {"id":"ALAN1","flag":"46E","flagName":"EVENT_BEAT_SCHOOLBOY_ALAN","name":"Schoolboy Alan","location":"Route 36","pos":[4000,4304]},
