@@ -60,7 +60,8 @@ export const MyMarker = function(pos2:Pos | null,iconUrl:string,title:string,pop
   const oldId = '' + pos[0] + '_' + pos[1];
   pos = config.convertPixelToWH(<[number,number]>pos);
 
-  (<any>window).markersJSON.push({pos:pos, unusedPos, iconUrl, title});
+  if ((<any>window).markersJSON)
+    (<any>window).markersJSON.push({pos:pos, unusedPos, iconUrl, title});
 
   if(config.DEBUG)
     title = pos.toString() + ' | ' + oldId + ' | '  + title;

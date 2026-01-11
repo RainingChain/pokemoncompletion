@@ -59,31 +59,39 @@ setTimeout(async () => {
   });
 }, 1);
 }
+const convertPos = (pos) => {
+    return [
+      +(pos[0] * 0.999817 - 257.881).toFixed(2),
+      +(pos[1] * 0.999933 + 2.02076).toFixed(2),
+    ];
+};
+
+if(false){
+setTimeout(async () => {
+  const json = JSON.parse(await fs.readFile(`C:\\rc\\rainingchain\\src\\hollowknight\\ssMap\\ssMap_data.json`, 'utf8'));
+  json.interactiveMap.mapLinks.smallGaps = json.interactiveMap.mapLinks.smallGaps.map(pos => ([convertPos(pos[0]), convertPos(pos[1])]));
+  json.interactiveMap.mapLinks.largeGapsConnectingOverVoid = json.interactiveMap.mapLinks.largeGapsConnectingOverVoid.map(pos => ([convertPos(pos[0]), convertPos(pos[1])]));
+  json.interactiveMap.mapLinks.largeGapsConnectingOverMaps = json.interactiveMap.mapLinks.largeGapsConnectingOverMaps.map(pos => ([convertPos(pos[0]), convertPos(pos[1])]));
+
+  json.locations.forEach(a => {
+    a.pos = convertPos(a.pos);
+  });
+
+  await fs.writeFile(`C:\\rc\\rainingchain\\src\\hollowknight\\ssMap\\ssMap_data.json`, JSON.stringify(json));
+}, 1);
+}
 
 if(true){
 setTimeout(async () => {
-  const json = JSON.parse(await fs.readFile(`C:\\rc\\rainingchain\\src\\hollowknight\\ssMap\\ssData.json`, 'utf8'));
+  const json = JSON.parse(await fs.readFile(`C:\\rc\\rainingchain\\src\\hollowknight\\ssMap\\ssMap_data.json`, 'utf8'));
   let nextUid = Math.max(...json.categories.map(cat => {
     return cat.list.map(col => col.uid);
   }).flat().filter(a => a >= 0)) + 1;
 
 
-  await func(`C:\\rc\\rainingchain\\src\\hollowknight\\ssMap\\ssData.json`, (col, cat) => {
+  await func(`C:\\rc\\rainingchain\\src\\hollowknight\\ssMap\\ssMap_data.json`, (col, cat) => {
     if(col.uid === undefined)
       col.uid = nextUid++;
-
-    if(col.pos)
-        col.pos = [
-          +(col.pos[0]  * 0.659836 - 171.112).toFixed(1),
-          +(col.pos[1] * (0.977455 - (5 / 1000)) + 1.76514 + 0.5).toFixed(1),
-        ];
-
-/*
-{"pos":[-480.7,978.1],"name":"","iconUrl":"","flag":""},
-"pos":[-480.8,1003.2]
-
-1003.2 => 25
-*/
 
     return col;
   });

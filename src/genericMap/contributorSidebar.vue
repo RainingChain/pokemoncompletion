@@ -1,5 +1,5 @@
 
-<div id="contributor-sidebar">
+<div id="contributor-sidebar" style="color:black">
   <div v-show="contributorMode === 'none'">
     <h3>Credits</h3>
     <ul>

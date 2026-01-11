@@ -9,6 +9,7 @@ import { getIconData } from "../icons/pokemonIcon";
 import { Vue_pokemonCompletion_full } from "../pokemonCompletion";
 import { Collectable } from "../pokemonCompletion_data";
 import { callableOncePerCycle } from "../pokemonCompletion";
+import { ContributorPanel } from "../../genericMap/contributorSideBar";
 
 /*
 Ctrl        + Click => [pos]
@@ -433,6 +434,8 @@ export class PkInteractiveMap {
     const initView = this.config.getInitialView();
     this.myMap.setView(this.config.convertPixelToWH(<[number,number]>initView.pos), initView.zoom);
 
+    if(window.location.href.includes('contributor'))
+      ContributorPanel.addContributor(this.myMap, () => {});
 
     const controlOverlays:DictObj<any> = {};
     const layers = [

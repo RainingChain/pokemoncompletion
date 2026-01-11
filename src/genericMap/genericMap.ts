@@ -109,7 +109,7 @@ export class GenericMap {
         if(POKEMON)
           navigator.clipboard.writeText(`"pos":[${px[0]},${px[1]}]`.replace(/\.0/g,''));
 
-        const newMark = MyMarker(px,"contributorMarker.png",p);
+        const newMark = MyMarker(px,"pokemon/p213.png",p);
         if(newMark)
           newMark.addTo(ContributorPanel.contributorLayer);
       }
