@@ -564,7 +564,7 @@
   {"name":"Raticate","id":"20","location":"Evolve traded Rattata (Level 20). Trade from XD","reqs":["LeafGreen","FireRed","XD"],"iconUrl":"pokemon/p20.png"},
   {"name":"Spearow","id":"21","location":"Trade from LeafGreen, FireRed, XD","reqs":["LeafGreen","FireRed","XD"],"iconUrl":"pokemon/p21.png"},
   {"name":"Fearow","id":"22","location":"Evolve traded Spearow (Level 20)","reqs":["LeafGreen","FireRed","XD"],"iconUrl":"pokemon/p22.png"},
-  {"name":"Ekans","id":"23","location":"Trade from FireRed. Breed traded Arbok","reqs":["FireRed"],"iconUrl":"pokemon/p23.png"},
+  {"name":"Ekans","id":"23","location":"Trade from FireRed. Breed traded Arbok","reqs":["FireRed","XD"],"iconUrl":"pokemon/p23.png"},
   {"name":"Arbok","id":"24","location":"Evolve traded Ekans (Level 22). Trade from XD","reqs":["FireRed","XD"],"iconUrl":"pokemon/p24.png"},
   {"name":"Pikachu","id":"25","location":"Safari Zone","iconUrl":"pokemon/p25.png","pos":[[2609.7,7513.9]]},
   {"name":"Raichu","id":"26","location":"Evolve Pikachu (Thunderstone)","iconUrl":"pokemon/p26.png"},

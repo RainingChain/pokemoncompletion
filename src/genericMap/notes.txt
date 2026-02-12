@@ -1,27 +1,8 @@
 
-short term goals:
-    clean icon layer
-    add dummy icon spritesheet
-    add 1 dummy one
-    adapt credits
+
   add contributor only if contributor in url
-  remove speedrun tab
 
-
-mid-term goal:
-  add icons with pokemon input format + glue to convert to genericMap format.
-
-long term:
-  use similar structure as pokemon
-
-  GameData
-    Category
-      Collectable
-
-    keep genericMap between the two identical.
-
-    move stuff from
-
+remove addSpeedrun
 
 
 

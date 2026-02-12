@@ -1796,7 +1796,7 @@
   {"id":"910","flagHex":"0x38E","name":"Big Mushroom #9 (Hidden)","location":"Valor Lakefront (Hidden)","pos":[[6931.1,11039]],"iconUrl":"item/Big_Mushroom.png"},
   {"id":"944","flagHex":"0x3B0","name":"Big Mushroom #10 (Hidden)","location":"Great Marsh Area 5 (Hidden)","pos":[[7658.7,9008.3]],"iconUrl":"item/Big_Mushroom.png"},
   {"id":"993","flagHex":"0x3E1","name":"Big Mushroom #11 (Hidden)","location":"Route 222 (Hidden)","pos":[[7472,12689.7]],"iconUrl":"item/Big_Mushroom.png"},
-  {"id":"759","flagHex":"0x2F7","name":"Big Pearl (Hidden)","location":"Route 213 (Hidden)","iconUrl":"item/Big_Pearl.png","pos":[[0,0]]},
+  {"id":"759","flagHex":"0x2F7","name":"Big Pearl (Hidden)","location":"Route 213 (Hidden)","iconUrl":"item/Big_Pearl.png","pos":[[8302.7,11132.3]]},
   {"id":"778","flagHex":"0x30A","name":"Big Pearl #2 (Hidden)","location":"Route 220 (Hidden)","iconUrl":"item/Big_Pearl.png","pos":[[9039,2979.2]]},
   {"id":"857","flagHex":"0x359","name":"Big Pearl #3 (Hidden)","location":"Route 224 (Hidden)","iconUrl":"item/Big_Pearl.png","pos":[[4301,14190.5]]},
   {"id":"915","flagHex":"0x393","name":"Big Pearl #4 (Hidden)","location":"Route 213 (Hidden)","iconUrl":"item/Big_Pearl.png","pos":[[8307,10507.2]]},
