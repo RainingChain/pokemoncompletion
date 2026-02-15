@@ -1,28 +1,15 @@
 
-import { Config } from "./Config";
-const config = Config.c;
+import { Collectable } from "./Collectable";
+import { Config, IS_MULTI_MAP_MODE, IS_CONTRIBUTOR_MODE } from "./Config";
+import L from "leaflet";
+import { GenericMap } from "./genericMap";
 
-declare let L:any;
-export type Pos = [number,number] | [number,number,number,number];
+export type Any = any; // use Any when it's a valid usage of any
 
-export const createBasicMarkers = function(name:string, iconUrl:string, positions:Pos[], klass=''){
-  return positions.map(pos => MyMarker(pos,iconUrl,name,null, klass));
-}
-
-export const createPopupText = function(list:{iconUrl:string,name:string}[]){
-  const lis = list.map(el => {
-    const img = el.iconUrl ? htmlHelper(el.iconUrl,16,true) : ''
-    return `<tr>
-      <td>${img}</td>
-      <td><span style="margin-left:5px">${el.name}</span></td>
-    </tr>`;
-  }).join('');
-
-  return `<table>${lis}</table>`;
-}
+export type Pos = [number,number];
 
 export const easyButton = function(myClass:string, title:string, onclick:() => void){
-  return L.easyButton({
+  return (<Any>L).easyButton({
     states: [{
       stateName: 'whatever',
       icon:myClass,
@@ -32,184 +19,364 @@ export const easyButton = function(myClass:string, title:string, onclick:() => v
   });
 }
 
-const iconModelHistory = new Map<string /*iconUrl*/,any>();
-
-export const dependencies = {
-  myMap:<any>null,
-  vSave:<any>null,
-}
-
-export const MyMarker = function(pos2:Pos | null,iconUrl:string,title:string,popupText?:string|null,klass='',size=20){
-  if(!pos2)
+export const MyMarkerMulti = function({
+  pos,
+  iconUrl,
+  title,
+  gmap,
+  popupDiv,
+  klass,
+  size=28,
+  uids=[],
+}:{
+  pos:Pos | null,
+  iconUrl:string,
+  title:string,
+  popupDiv:HTMLDivElement,
+  gmap:GenericMap | null,
+  klass?:string,
+  size?:number,
+  uids?:number[]
+}){
+  if(!pos)
     return null;
-  let pos:number[] = [];
-  const unusedPos:number[] = [];
 
-  pos2.forEach((p,i) => {
-    if (i === config.mapPosIdx * 2 || i === config.mapPosIdx * 2 + 1)
-      pos.push(p);
-    else
-      unusedPos.push(p);
-  });
-
-  if(pos.length !== 2)
-    pos = [-100000,-100000];
   if(pos[0] === 0 && pos[1] === 0)
     return null;
 
-  const oldId = '' + pos[0] + '_' + pos[1];
-  pos = config.convertPixelToWH(<[number,number]>pos);
+  pos = <[number,number]>pos;
 
-  if ((<any>window).markersJSON)
-    (<any>window).markersJSON.push({pos:pos, unusedPos, iconUrl, title});
+  (<Any>window).debug_markersJSON.push({pos, iconUrl, title});
 
-  if(config.DEBUG)
-    title = pos.toString() + ' | ' + oldId + ' | '  + title;
+  if(IS_CONTRIBUTOR_MODE)
+    title = pos.toString() + ' | '  + title;
 
-  const cacheKey = [iconUrl,title,popupText,klass].join('@');
-  const icon = iconModelHistory.get(cacheKey) || L.divIcon({
+  const fullSubTxt = uids ? `<div class="icon-subText">x${uids.length}</div>` : '';
+
+  const div = document.createElement('div');
+  div.style.height = `${size}px`;
+  div.classList.add('icon-scaling');
+  if (klass)
+    div.classList.add(klass);
+  div.innerHTML = `
+    ${fullSubTxt}${htmlHelper(iconUrl,size,false)}
+  `;
+
+  const icon = L.divIcon({
     className:'',
-    html:htmlHelper(iconUrl,size,false, klass),
+    html:div,
     iconSize: [size, size],
     iconAnchor: [size/2, size/2],
   });
-  iconModelHistory.set(cacheKey,icon);
+
+  const opts = {
+    title,
+    riseOnHover:true,
+    icon: icon,
+  };
+  const marker = L.marker(<L.LatLngTuple>pos, opts);
+
+  const myPopup = L.popup()
+      .setLatLng(<L.LatLngTuple>pos)
+      .setContent(popupDiv)
+
+  marker.bindPopup(popupDiv);
+  marker.on('click',  (e) => {
+    const myMap = (<any>marker)._map;
+    if(myMap)
+      myPopup.openOn(myMap);
+  });
+
+  if(IS_CONTRIBUTOR_MODE){
+    let firstTime = true;
+    marker.on('click',function(e){
+      if(!e.latlng)
+        return;
+
+      const lat = +e.latlng.lat.toFixed(2);
+      const lng = +e.latlng.lng.toFixed(2);
+      const px = [lat,lng];
+      const posTerm = gmap?.activeOverlayIdx === 1 ? 'pos2' : 'pos';
+      navigator.clipboard.writeText(`"${posTerm}":[${px[0]},${px[1]}]`);
+
+      (<any>window).debug_clickedUid = (<any>window).debug_clickedUid || [];
+      const len = (<any>window).debug_clickedUid.length;
+      (<any>window).debug_clickedUid.push(...uids);
+
+      if (!firstTime || !IS_MULTI_MAP_MODE)
+        return;
+
+      firstTime = false;
+
+      marker.setIcon(L.divIcon({
+        html:`<div style="font-size:3em;color:white">${len} x${uids.length}</div>`
+      }));
+    });
+  }
+
+  return marker;
+}
+
+export const createMultiMarkerPopupHtml = (cols:Collectable[]) => {
+  /*
+  <div>
+    <div><label><input type="checkbox"> Element </label></div>
+  </div>
+  */
+
+  const div = document.createElement('div');
+  cols.forEach(col => {
+    const div2 = document.createElement('div');
+    col.tags?.forEach(tag => {
+      div2.classList.add('icon-tag-' + tag);
+    });
+    const label = document.createElement('label');
+    label.style.alignItems = 'center';
+    const input = document.createElement('input');
+    input.type = 'checkbox';
+    label.append(input, ' ' + col.name);
+    div2.appendChild(label);
+    div.appendChild(div2);
+
+    input.addEventListener('change', () => {
+      col.setMarked(input.checked);
+    });
+
+    col.onChange.push(() => {
+      input.checked = col.marked;
+      input.style.display = col.isVisible ? '' : 'none';
+    });
+  });
+  return div;
+};
+
+export const MyMarker = function({
+  pos,
+  iconUrl,
+  title,
+  gmap=null,
+  popupText=null,
+  klass=[],
+  tagClasses=[],
+  href='',
+  subText='',
+  size=20,
+  col=null,
+  uid=0
+}: {
+  pos:Pos | null | number[],
+  iconUrl:string,
+  title:string,
+  gmap:GenericMap | null,
+  popupText?:string|null,
+  href?:string,
+  subText?:string,
+  klass?:string[],
+  tagClasses?:string[],
+  size?:number,
+  uid?:number,
+  col:Collectable | null,
+}){
+  if(!pos)
+    return null;
+
+  if(pos[0] === 0 && pos[1] === 0)
+    return null;
+
+  (<Any>window).debug_markersJSON.push({pos:pos, iconUrl, title});
+
+  if(IS_CONTRIBUTOR_MODE)
+    title = pos.toString() + ' | '  + title;
+
+  const cacheKey = [iconUrl,title,popupText,...klass].join('@');
+  const fullSubTxt = subText ? `<div class="icon-subText">${subText}</div>` : '';
+
+  const div = document.createElement('div');
+  div.style.height = `${size}px`;
+  div.classList.add('icon-scaling');
+  div.classList.add(...tagClasses);
+  if (col?.alwaysVisible)
+    div.classList.add('icon-alwaysVisible');
+
+  div.innerHTML = `
+    ${fullSubTxt}
+    ${htmlHelper(iconUrl,size,false, klass)}
+  `;
+  const icon = L.divIcon({
+    className:'',
+    html:div,
+    iconSize: [size, size],
+    iconAnchor: [size/2, size/2],
+  });
+
+
 
   const opts = {
     title:title,
     riseOnHover:true,
     icon: icon,
   };
-  const marker = L.marker(pos, opts);
+  const marker = L.marker(<L.LatLngTuple>pos, opts);
 
-  if(popupText){
+  if(popupText && gmap){
     const myPopup = L.popup()
-        .setLatLng(pos)
+        .setLatLng(<L.LatLngTuple>pos)
         .setContent(popupText)
 
     marker.bindPopup(popupText);
-    marker.on('mouseover', function (e:any) {
-      myPopup.openOn(dependencies.myMap);
+    marker.on('mouseover', function (e) {
+      myPopup.openOn(gmap.myMap);
     });
-    marker.on('mouseout', function (e:any) {
-      myPopup.removeFrom(dependencies.myMap);
+    marker.on('mouseout', function (e) {
+      myPopup.removeFrom(gmap.myMap);
+    });
+  }
+
+  if (gmap && col){
+    marker.on('click',function(){
+      col.setMarked(!col.marked)
+
+      gmap.vSave?.onPostMapStateChange();
     });
   }
   marker.on('click',function(ev:{originalEvent:MouseEvent}){
-    if(config.noActionIconUrls.includes(iconUrl))
-      return; //BAD
-    if(marker.options.opacity === 1)
-      marker.setOpacity(0.2);
-    else
-      marker.setOpacity(1);
-    dependencies.vSave.onPostMapStateChange();
-  });
-  marker.on('click',function(ev:{originalEvent:MouseEvent}){
-    if(!ev.originalEvent.shiftKey)
-      return;
-    alert(`${title} : [${pos[0]},${pos[1]}]`);
-  });
-  marker.on('click',function(ev:{originalEvent:MouseEvent}){
-    const lastTxt = document.getElementById('lastClickedIconName');
-    if(!lastTxt)
-      return;
-    lastTxt.innerText = title;
+    const lastTxtName = document.getElementById('lastClickedIconName-name');
+    if(lastTxtName){
+      lastTxtName.innerText = title;
+    }
+
+    const lastTxtWiki = <HTMLAnchorElement>document.getElementById('lastClickedIconName-link');
+    if(lastTxtWiki){
+      if (href){
+        lastTxtWiki.href = href;
+        lastTxtWiki.style.display = '';
+      }
+      else
+        lastTxtWiki.style.display = 'none';
+    }
   });
 
-  marker.oldId = oldId; // needed to support legacy saves
+  if(IS_CONTRIBUTOR_MODE){
+    let firstTime = true;
+    marker.on('click',function(e){
+      if(!e.latlng)
+        return;
+      const lat = +e.latlng.lat.toFixed(2);
+      const lng = +e.latlng.lng.toFixed(2);
+      const px = [lat,lng];
+      const posTerm = gmap?.activeOverlayIdx === 1 ? 'pos2' : 'pos';
+      navigator.clipboard.writeText(`"${posTerm}":[${px[0]},${px[1]}]`);
 
+      const str = (<HTMLTextAreaElement>document.getElementById('contribTextArea')).value.split('\n');
+      const count = str.filter(s => s.includes('"pos"')).length;
+
+      const txt = `{"num":${count}, "pos":[${px[0]},${px[1]}],"name":"","iconUrl":"","flag":""},\n`;
+      GenericMap.addToTextArea(txt);
+
+      (<any>window).debug_clickedUid = (<any>window).debug_clickedUid || [];
+      (<any>window).debug_clickedUid.push(uid);
+
+      if (!uid || !firstTime || !IS_MULTI_MAP_MODE)
+        return;
+
+      firstTime = false;
+
+      marker.setIcon(L.divIcon({
+        html:`<div style="font-size:3em;color:white">${(<any>window).debug_clickedUid.length - 1}</div>`
+      }));
+    });
+  }
   return marker;
 }
 
-export const htmlHelper = function(iconUrl:string,size:number,embed:boolean,klass2?:string){
+export const htmlHelper = function(iconUrl:string,size:number,embed:boolean,klass2?:string[]) : string {
   if(!iconUrl)
     return '';
 
   const klass = iconUrl.replace('.png','');
-  const wh = config.sizeData[iconUrl];
-  if (!wh)
-    throw new Error('invalid iconUrl: ' + iconUrl);
+  const wh = Config.iconSizeData[iconUrl];
+  if (!wh){
+    console.error(new Error('invalid iconUrl: ' + iconUrl));
+    if (iconUrl === 'contributorMarker.png')
+      return '';
+    return htmlHelper('contributorMarker.png', size, embed, klass2);
+  }
+
   const w = size / wh.w;
   const h = size / wh.h;
-  const inside = `<div class="genericMap-marker ${klass} ${klass2 || ''}" style="transform:scale3d(${w}, ${h}, 1);transform-origin:0% 0%"></div>`;
+  const inside = `<div class="genericMap-marker ${klass} ${klass2?.join(' ') ?? ''}" style="transform:scale3d(${w}, ${h}, 1);transform-origin:0% 0%"></div>`;
   if(!embed)
     return inside;
   return `<div style="width:${size}px;height:${size}px">${inside}</div>`;
 }
 
+
+export type IconLayerMarker = Omit<IconLayer,'markers'> & {
+  markers:L.Marker[];
+}
+
+/** doesnt change after creation */
 export class IconLayer {
-  layerGroup = <any>null; // L.layerGroup
   id = '';
   name = '';
   iconUrl = '';
-  markers:any[] = [];
+  markersByOverlay:(L.Marker | L.Polyline)[][] = [];
   isVisibleByDefault = true;
   alwaysVisible = false;
+  areIcons = true;
+  toggleableByUser = true;
+  layerGroupByOverlay:L.LayerGroup[] = [];
 
-  constructor(opts:{id:string,name:string,iconUrl:string,markers:any[],isVisibleByDefault?:boolean,alwaysVisible?:boolean}){
+  constructor(opts:{
+    id:string,
+    name:string,
+    areIcons?:boolean,
+    iconUrl:string,
+    markersByOverlay:(L.Marker | L.Polyline | null)[][] | undefined,
+    isVisibleByDefault?:boolean,
+    alwaysVisible?:boolean,
+    toggleableByUser?:boolean,
+    overlayCount:number,
+  }){
     this.id = opts.id;
     this.name = opts.name;
     this.iconUrl = opts.iconUrl;
-    opts.markers.forEach((m,i) => {
-      if(m)
-        m.permId = '' + i;
-    });
-    this.markers = opts.markers.filter((v:any) => !!v);
-    this.layerGroup = L.layerGroup(this.markers);
     if (opts.isVisibleByDefault !== undefined)
       this.isVisibleByDefault = opts.isVisibleByDefault;
     if (opts.alwaysVisible !== undefined)
       this.alwaysVisible = opts.alwaysVisible;
 
-    IconLayer.layers.set(this.id,this);
-  }
-  static getGlitchMarkers(){
-    const il = IconLayer.layers.get('glitchSkip');
-    if(!il)
-      return [];
-    return il.markers;
-  }
-  private static layers = new Map<string,IconLayer>();
-  static getLayer(id:string){
-    return IconLayer.layers.get(id);
-  }
-  static forEachLayers(cb:(layer:IconLayer,id:string) => void){
-    IconLayer.layers.forEach(lay => {
-      cb(lay,lay.id);
-    });
-  }
-  static forEachMarkerLayers(cb:(layer:IconLayer,id:string) => void){
-    IconLayer.layers.forEach(lay => {
-      if(lay.id === "mapLink")
-        return;
-      cb(lay,lay.id);
-    });
-  }
-  static getAllMarkers(){
-    const list:any[] = [];
-    IconLayer.layers.forEach((l,id) => {
-      if(id === 'mapLink')
-        return;
-      list.push(...l.markers);
-    });
-    return list;
-  }
-  static getTooCloseMarkers = function(minDist=2){
-    const bad:[[number,number],[number,number]][] = [];
-    const markers = IconLayer.getAllMarkers();
-    markers.forEach(m => {
-      markers.forEach(m2 => {
-        if(m === m2)
-          return;
-        const dist = Math.abs(m._latlng.lat - m2._latlng.lat) + Math.abs(m._latlng.lng - m2._latlng.lng);
-        if(dist <= minDist)
-          bad.push([[m._latlng.lat,m._latlng.lng],[m2._latlng.lat,m2._latlng.lng]]);
+    if(opts.areIcons !== undefined)
+      this.areIcons = opts.areIcons;
+    if(opts.toggleableByUser !== undefined)
+      this.toggleableByUser = opts.toggleableByUser;
+
+    for (let i = 0; i < opts.overlayCount; i++){
+      this.markersByOverlay[i] = [];
+
+      const subLay = L.layerGroup();
+      this.layerGroupByOverlay.push(subLay);
+    }
+
+    if (opts.markersByOverlay !== undefined){
+      opts.markersByOverlay.forEach((markers,idx) => {
+        this.addMarkers(idx, markers);
       });
+    }
+  }
+  addMarkers(overlayIdx:number, markers:(L.Marker | L.Polyline | null)[]){
+    markers.forEach((m,i) => {
+      if(m)
+        this.addMarker(overlayIdx, m);
     });
-    return bad;
+  }
+  addMarker(overlayIdx:number, marker:(L.Marker | L.Polyline)){
+    marker.addTo(this.layerGroupByOverlay[overlayIdx]);
+    this.markersByOverlay[overlayIdx].push(marker);
   }
 }
 
+//for debug/dev
 export const calculateTranslate = function(oldPos:[number,number], newPos:[number,number]){
   const round = function(num:number, decimals=0){
     return Math.round(num * Math.pow(10, decimals)) / Math.pow(10, decimals);
@@ -232,16 +399,28 @@ export const calculateTranslate = function(oldPos:[number,number], newPos:[numbe
   }
 }
 
-export const polyline = function(pos:[number,number,number,number],dashArray:string|null=null){
+export const MyPolyline = function(pos:L.LatLngTuple[], opts:L.PolylineOptions){
   //return MyMarker(pos,"jiji.png","Debug Map Link"); //for debugging
-  const start = pos.slice(0,2);
-  const end = pos.slice(2);
+  const poly = L.polyline(pos,opts);
+  if (IS_CONTRIBUTOR_MODE){
+    poly.on('click',function(e){
+      if(e.originalEvent.ctrlKey){
+        poly.setStyle({color:'red'});
+        navigator.clipboard.writeText(JSON.stringify(pos));
+        L.DomEvent.stopPropagation(e);
+      }
+    });
+  }
+  return poly;
+}
 
-  return new L.polyline([start, end],{
+export const polyline = function(pos:number[][],dashArray:string|null=null){
+  //return MyMarker(pos,"jiji.png","Debug Map Link"); //for debugging
+  return MyPolyline(<L.LatLngTuple[]>pos,{
     color: 'white',
-    weight: dashArray ? 2 : 3,
+    weight: dashArray ? 2 : 10,
     opacity: 0.5,
     smoothFactor: 1,
-    dashArray,
+    dashArray:dashArray ?? undefined,
   });
 }

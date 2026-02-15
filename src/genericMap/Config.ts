@@ -1,49 +1,58 @@
 
-declare let L:any;
+import L from "leaflet";
+import { CollectableJson } from "./Collectable";
 
 export const isMobile = () => {
   //based on chrome dino game
   return /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/.test(window.navigator.userAgent) && window.ontouchstart !== undefined;
 };
 
-export const defaultMyMapParams = function(config:Config) : any {
-  const bounds = (() => {
-    if(!config.getBottomRight)
-      return undefined;
-    const br = config.getBottomRight();
-    if(!br)
-      return undefined;
-
-    return [[0,0], br];
-  })();
+export const defaultMyMapParams = function(config:OverlayConfig) : L.MapOptions & {fullscreenControl:boolean} {
+  const br = config.getBottomRightExcludingBlack();
+  const bounds:[[number,number],[number,number]] = [
+    [br[0] * 1.1, -br[1] * 0.1],
+    [-br[0] * 0.1, br[1] * 1.1]
+  ]; //bounds is [SouthWest, NorthEast].
 
   return {
     crs: L.CRS.Simple,
+    zoomControl: false,
     minZoom: 0,
     maxZoom: config.getTotalMaxZoom(),
-    maxBoundsViscosity:bounds ? 1 : undefined,
-    bounds:bounds,
-    maxBounds:bounds ? [[50,-200], bounds[1]] : undefined,
-    doubleClickZoom: !isMobile(),
+    maxBoundsViscosity:0.01,
+    maxBounds:config.hasBounds ? bounds : undefined,
+    doubleClickZoom: !isMobile() && !IS_CONTRIBUTOR_MODE,
     fullscreenControl: true,
     attributionControl: false,
   };
 };
 
-export class Config {
+export const IS_CONTRIBUTOR_MODE = (() => {
+  if (window.location.href.includes('localhost'))
+    return !window.location.href.includes('prod');
+  return window.location.href.includes('contributor');
+})();
+
+export const IS_MULTI_MAP_MODE = (() => {
+  return window.location.href.includes('localhost') && window.location.href.includes('multi');
+})();
+
+export class OverlayConfig {
+  static create(extra:Partial<OverlayConfig>){
+    const c = new OverlayConfig();
+    Object.assign(c, extra);
+    return c;
+  }
+  idx = 0;
+  name = 'Screenshots Image';
   getMaxZoom(){
     const crop = this.getCropSize();
     const dim = this.getDim();
     const m = Math.max(dim.w, dim.h) / crop;
     return Math.log2(m) - 1; //-1 because zoom0 is included (zoom 0,1,2,3,4 is 5 values)
   }
-  fullImgUrl = '';
-  fullImgSize = '';
   /** when using digital zoom, we say to leaflet to use tile of size 1024, but the image is only 512. leafet will zoom all images x2 */
   digitalZoom = 0;
-  /** if true, pos used for icons represent pixels. ex: so you can position icon by using the img in paint.
-      if false, pos use the internal leeaflet reference system. you must use leaflet to position the icons */
-  usePxRefForIconPos = false;
 
   getTotalMaxZoom(){
     return this.getMaxZoom() + this.digitalZoom;
@@ -54,82 +63,74 @@ export class Config {
   getDim(){
     return {w:32768,h:32768};
   }
+  getDimExcludingBlack(){
+    return this.getDim();
+  }
   getCropSize(){
     return 1024;
   }
-  getBottomRight(){
+  getMarkerPos(col:CollectableJson) : [number,number] | null {
+    return <[number,number]>col.pos;
+  }
+  hasBounds = true;
+  getBottomRightExcludingBlack(){
     return [
-      -this.getDim!().h / (2 ** this.getMaxZoom()),
-      this.getDim!().w / (2 ** this.getMaxZoom())
+      -this.getDimExcludingBlack!().h / (2 ** this.getMaxZoom()),
+      this.getDimExcludingBlack!().w / (2 ** this.getMaxZoom())
     ];
   }
   getInitialView(){
     return {pos:[-256,256], zoom:1};
   }
-  convertWHToPixel(obj:[number,number]) : [number, number]{
-    if(!this.usePxRefForIconPos)
-      return obj;
-
-    const br = this.getBottomRight();
-    const dim = this.getDim();
-    // wh / totalWh  ==  px / totalPx
-    // => px = wh / totalWh * totalPx
-    return [
-      obj[0] / br[0] * dim.h,
-      obj[1] / br[1] * dim.w,
-    ];
-  }
-  convertPixelToWH(px:[number,number]){
-    if(!this.usePxRefForIconPos)
-      return px;
-
-    const br = this.getBottomRight();
-    const dim = this.getDim();
-    // wh / totalWh  ==  px / totalPx
-    // => wh = px / totalPx * totalWh
-    return [
-      px[0] / dim.h * br[0],
-      px[1] / dim.w * br[1],
-    ];
-  }
-  nonDetailedImageBounds:[[number,number], [number,number]] | null = null;
-  noActionIconUrls = ["glitch.png","skip.png"];
-  sizeData = <DictObj<{w:number,h:number}>>{};
-  contributors:{href?:string,text:string}[] = [];
-  speedrunLinks:{href?:string,text:string}[] = [];
-  myMapParams = function(this:Config) : any {
+  getLeafMapOpts = function(this:OverlayConfig) : L.MapOptions {
     return defaultMyMapParams(this);
   };
-  mainImgOpacity = 1;
-  DEBUG = window.location.href.includes('localhost');
+
+  validImageSet:Set<string> | null = null; //if null, assumes they all exist
+}
+
+export class Config {
+  overlays:OverlayConfig[] = [];
+  fullImgUrl = '';
+  fullImgSize = '';
+  nonDetailedImageBounds:[[number,number], [number,number]] | null = null;
+  contributors:{
+    title:string,
+    fontSize?:string,
+    list:{href?:string,text:string,html?:string}[]
+  }[] = [];
   mapIsSplitInMultipleImages = true;
   saveEditorUrl:string | null = null;
   saveEditorSrcUrl:string | null = null;
+  saveVersion:'1.1' = '1.1';
   localStorage = {
-    visibleLayers:"hkMapVisibleLayers",
+    visibleLayers:"",
     state:"",
+    viewPanel:'',
+    overlay:''
   };
-  validImageSet:Set<string> | null = null; //if null, assumes they all exist
-  alternativeMap:{text:string,href:string} | null = null;
-  mapPosIdx = 0;
+  hasSaveFlagEvaluator = false;
   nonDetailedImageUrl:string | null = null;
   /** bad trick to make icons smaller or bigger on certain maps. its a patch. the real solution would be to consider the maxZoom when determining the zoom */
   mapZoomIconScaleModifier = 0;
 
-  static c = new Config();
-  static init(c:Partial<Config>){
-    for(const i in c){
-      if ((<any>c)[i] !== undefined)
-        (<any>Config.c)[i] = (<any>c)[i];
-    }
-    return Config.c;
+  static create(extra:Partial<Config>){
+    const c = new Config();
+    Object.assign(c, extra);
+    return c;
   }
 
+  static iconSizeData:DictObj<{w:number,h:number}> = {};
 
-  static jsonToSizeData(json:any){
+  static jsonToSizeData(json:{
+    frames:{
+      filename:string,
+      sourceSize:{w:number,h:number}
+      }[]
+    }){
     const obj:DictObj<{w:number,h:number}> = {};
     // { "filename": "arrowDown.png",  "sourceSize": {"w":94,"h":94} }
-    json.frames.forEach((f:any) => {
+    json.frames.forEach(f => {
       obj[f.filename] = f.sourceSize;
     });
     return obj;

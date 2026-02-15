@@ -1,11 +1,19 @@
-import { Config } from "./Config";
-declare let L:any;
+import { Config, OverlayConfig } from "./Config";
+import L from "leaflet";
+import { Any } from "./markerHelpers";
 
-const emptyImageUrl =
+const EMPTY_IMAGE_URL_FOR_DIGITAL_ZOOM =
   "data:image/gif;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=";
 
-export const createOverlay = function (config: Config) {
+const FULLY_BLACK_IMAGE_URL = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=";
+
+export const createOverlay = function (config: OverlayConfig) {
   const size = config.getDim();
+  if (Math.log2(size.w / config.getCropSize()) % 1 !== 0)
+    throw new Error('size.w must be a power of 2'); // use validImgSet to restrict
+  if (Math.log2(size.h / config.getCropSize()) % 1 !== 0)
+    throw new Error('size.w must be a power of 2');
+
   const cropSize = config.getCropSize();
   const imgPerZoom: { w: number; h: number }[] = [];
   for (let zoom = 0; ; zoom++) {
@@ -41,22 +49,22 @@ export const createOverlay = function (config: Config) {
 
   const maxZoom = config.getTotalMaxZoom();
 
-  const tileLayerFallback = L.TileLayer.extend({
+  const tileLayerFallback:Any = L.TileLayer.extend({
     getTileUrl: function (coords: { x: number; y: number; z: number }) {
-      if (config.digitalZoom !== 0 && coords.z === maxZoom)
-        return emptyImageUrl;
-
       let imgZ = maxZoom - coords.z;
 
+      if (config.digitalZoom !== 0 && coords.z === maxZoom)
+        return EMPTY_IMAGE_URL_FOR_DIGITAL_ZOOM;
+
       if (config.validImageSet && !config.validImageSet.has(`${imgZ}_${coords.x}_${coords.y}`))
-        return emptyImageUrl;
+        return FULLY_BLACK_IMAGE_URL;
 
       return L.TileLayer.prototype.getTileUrl.apply(this, [coords]);
     },
   });
 
   const url = config.getUrl();
-  const lay = new tileLayerFallback(url, {
+  const lay:L.TileLayer = new tileLayerFallback(url, {
     tileSize: cropSize,
     zoomReverse: true,
     minZoom: 0,
@@ -67,10 +75,9 @@ export const createOverlay = function (config: Config) {
     ],
   });
 
-  lay.on('tileloadstart', (obj:any) => {
+  lay.on('tileloadstart', (obj) => {
     const {tile,coords} = obj;
-    //TODO support both validImageSet and digitalZoom
-    if (config.digitalZoom !== 0 && tile.src === emptyImageUrl){
+    if (config.digitalZoom !== 0 && tile.src === EMPTY_IMAGE_URL_FOR_DIGITAL_ZOOM){
       tile.style.backgroundImage = 'url(' + url
         .replace('{z}', '1')
         .replace('{y}', '' + Math.floor(coords.y / 2))

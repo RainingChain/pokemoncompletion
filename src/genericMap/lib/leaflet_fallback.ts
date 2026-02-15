@@ -1,19 +1,19 @@
 
-declare let L:any;
+const L2 = <any>L;
 
-L.TileLayer.Fallback = L.TileLayer.extend({
+L2.TileLayer.Fallback = L2.TileLayer.extend({
 
 	options: {
 		minNativeZoom: 0
 	},
   //@ts-ignore
 	initialize: function (urlTemplate, options) {
-		L.TileLayer.prototype.initialize.call(this, urlTemplate, options);
+		L2.TileLayer.prototype.initialize.call(this, urlTemplate, options);
 	},
 
   //@ts-ignore
 	createTile: function (coords, done) {
-		var tile = L.TileLayer.prototype.createTile.call(this, coords, done);
+		var tile:any = L2.TileLayer.prototype.createTile.call(this, coords, done);
 		tile._originalCoords = coords;
 		tile._originalSrc = tile.src;
 
@@ -29,7 +29,7 @@ L.TileLayer.Fallback = L.TileLayer.extend({
 		return currentCoords;
 	},
 
-	_originalTileOnError: L.TileLayer.prototype._tileOnError,
+	_originalTileOnError: L2.TileLayer.prototype._tileOnError,
 
   //@ts-ignore
 	_tileOnError: function (done, tile, e) {
@@ -86,7 +86,7 @@ L.TileLayer.Fallback = L.TileLayer.extend({
 		var z = coords.z = coords.fallback ? coords.z : this._getZoomForUrl();
 
 		var data = {
-			r: L.Browser.retina ? '@2x' : '',
+			r: L2.Browser.retina ? '@2x' : '',
 			s: this._getSubdomain(coords),
 			x: coords.x,
 			y: coords.y,
@@ -101,7 +101,7 @@ L.TileLayer.Fallback = L.TileLayer.extend({
 			data['-y'] = invertedY;
 		}
 
-		return L.Util.template(this._url, L.extend(data, this.options));
+		return L2.Util.template(this._url, L2.extend(data, this.options));
 	}
 
 });
@@ -110,6 +110,6 @@ L.TileLayer.Fallback = L.TileLayer.extend({
 
 // Supply with a factory for consistency with Leaflet.
 //@ts-ignore
-L.tileLayer.fallback = function (urlTemplate, options) {
-	return new L.TileLayer.Fallback(urlTemplate, options);
+L2.tileLayer.fallback = function (urlTemplate, options) {
+	return new L2.TileLayer.Fallback(urlTemplate, options);
 };

@@ -711,7 +711,7 @@ class Vue_pokemonCompletion_methods extends Vue_pokemonCompletion_req_methods {
       this.interactiveMapIsInit = true;
       return new Promise<void>(resolve => {
         Vue.nextTick(() => {
-          this.interactiveMapVue = PkInteractiveMap.createAndMount('#pkInteractiveMap-slot', this);
+          this.interactiveMapVue = PkInteractiveMap.createAndMount(this);
           resolve();
         });
       });

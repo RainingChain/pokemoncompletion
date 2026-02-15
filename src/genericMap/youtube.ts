@@ -1,8 +1,9 @@
+import { Any } from "./markerHelpers";
 
-declare let YT:any;
+declare let YT:Any;
 
 export class Youtube {
-  static youtubePlayer:any;
+  static youtubePlayer:Any;
 
   static youtubeLoaded = false;
   static async loadYoutube(){
@@ -12,7 +13,7 @@ export class Youtube {
 
     //Youtube
     return new Promise<void>(resolve => {
-      (<any>window).onYouTubeIframeAPIReady = function(){
+      (<Any>window).onYouTubeIframeAPIReady = function(){
         Youtube.youtubePlayer = new YT.Player('youtube-player', {
           height: 420 / 640 * 360,
           width: 420,

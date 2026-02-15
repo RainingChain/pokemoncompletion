@@ -1,165 +1,187 @@
 /*! LICENSED CODE BY SAMUEL MAGNAN-LEVESQUE FOR SCRIPTERSWAR.COM */
 import Vue from "vue";
-import { easyButton, MyMarker, polyline } from "./markerHelpers";
+import { Any, MyMarker, MyPolyline, Pos } from "./markerHelpers";
 
-import { Config } from "./Config";
+import { Config, IS_CONTRIBUTOR_MODE } from "./Config";
 import withRenderContrib from "./contributorSideBar.vue";
-import { IconLayer } from "./markerHelpers";
+import {GenericMap} from "./genericMap";
+import type { LeafletSidebar } from "./leaflet_type";
+import L from "leaflet";
 
-const config = Config.c;
+const data = (config:Config) => ({
+  contributorMode:IS_CONTRIBUTOR_MODE ? 'icon' : 'none',
+  firstTime:true,
+  contributors:config.contributors,
+  fullImgSize:config.fullImgSize,
+  fullImgUrl:config.fullImgUrl,
+  isHk:window.location.href.toLocaleLowerCase().includes('/hollowknight/map'),
+});
 
-declare let L:any;
+const methods = {
+  init(){
+    if(!IS_CONTRIBUTOR_MODE)
+      return;
 
-let prevMapLinkClickLatLng:number[] | null = null;
+    const myMapHtml = document.getElementById('myMap');
+    if(!myMapHtml)
+      return;
+
+    myMapHtml.classList.add('crosshairPointer');
+  },
+  activateContributorMode(){
+    window.location.assign(window.location.href.replace('#','') + '?contributor');
+  },
+  refreshIcons(){
+    ContributorPanel.contributorLayer.eachLayer(function (layer) {
+      ContributorPanel.contributorLayer.removeLayer(layer);
+    });
+
+    const str = (<HTMLTextAreaElement>document.getElementById('contribTextArea')).value.split('\n');
+
+    str.map(line => {
+      line = line.trim().slice(0, -1); //remove trailing ,
+      if(!line)
+        return null!;
+      try {
+        const marker = JSON.parse(line);
+        if (Array.isArray(marker))
+          return MyPolyline(marker,{
+            color: 'white',
+            className:'mapEdge',
+            weight: 1,
+            smoothFactor: 1,
+          });
+        else
+          return MyMarker({
+            gmap:null,
+            pos:<Pos>marker.pos,
+            iconUrl:marker.iconUrl || "contributorMarker.png",
+            title:marker.name,
+            col:null,
+          })!;
+      } catch(_err){
+        return null!;
+      }
+    })
+    .filter(m => m)
+    .forEach(m => m.addTo(ContributorPanel.contributorLayer));
+  }
+};
+
+let prevMapLinkClickLatLng:[number,number] | null = null;
+let mapLinkDynamic:L.Polyline | null = null;
 
 export class ContributorPanel {
-  static contributorLayer:any;
-  static contributorSidebar:any;
-  static vContributor:any;
+  static contributorLayer:L.LayerGroup;
+  static sidebar:LeafletSidebar & L.Control<{}>;
+  static vContributor:ReturnType<typeof data> & typeof methods & {$mount:() => void};
 
-  static addToTextArea = function(str:string){
-    const ta = (<HTMLTextAreaElement>document.getElementById('contribTextArea'));
-    ta.value += str;
-  }
-  static addContributor(myMap:any, onOpen:() => void){
+  static addPanel(gmap:GenericMap){
+    const {config, myMap} = gmap;
+
+    if(IS_CONTRIBUTOR_MODE){
+      myMap.on('keyup', function(e) {
+        if(e.originalEvent.code === "Escape")
+          prevMapLinkClickLatLng = null;
+      });
+
+      myMap.on('mousemove', function(e) {
+        if(prevMapLinkClickLatLng === null){
+          if (mapLinkDynamic){
+            mapLinkDynamic.removeFrom(myMap);
+            mapLinkDynamic = null;
+          }
+          return;
+        }
+
+        if (!mapLinkDynamic){
+          // not MyPolyline because dont want onclick
+          mapLinkDynamic = new L.Polyline([prevMapLinkClickLatLng, e.latlng],{
+            color: 'white',
+            className:'mapEdge',
+            weight: 1,
+            smoothFactor: 1,
+          });
+          if(mapLinkDynamic)
+            mapLinkDynamic.addTo(myMap);
+        } else {
+          mapLinkDynamic.setLatLngs([prevMapLinkClickLatLng, [e.latlng.lat,e.latlng.lng]]);
+        }
+      });
+
+      myMap.on('click', function(e) {
+        if (!e.latlng)
+          return;
+
+        if(ContributorPanel.vContributor.contributorMode === 'none')
+          return;
+
+        if(ContributorPanel.vContributor.contributorMode === 'icon'){
+          const tooClose = gmap.getAllActiveMarkers().some(m => {
+            const MAX_DIST = config.mapIsSplitInMultipleImages ? 0.2 : 2;
+            return (Math.abs(e.latlng.lat - m.getLatLng().lat) + Math.abs(e.latlng.lng - m.getLatLng().lng)) <= MAX_DIST;
+          });
+          if(tooClose){
+            alert("Error: This icon is too close to an existing icon.");
+            return;
+          }
+
+          const quickEdit = !e.originalEvent.ctrlKey;
+          const p = quickEdit ? '' : prompt("Description") || '';
+
+          const lat = +e.latlng.lat.toFixed(config.mapIsSplitInMultipleImages ? 2 : 0);
+          const lng = +e.latlng.lng.toFixed(config.mapIsSplitInMultipleImages ? 2 : 0);
+          const px = [lat,lng];
+
+          const str = (<HTMLTextAreaElement>document.getElementById('contribTextArea')).value.split('\n');
+          const count = str.filter(s => s.includes('"pos"')).length;
+
+          const txt = `{"num":${count}, "pos":[${px[0]},${px[1]}],"name":"${p}","iconUrl":"","flag":""},\n`;
+          GenericMap.addToTextArea(txt);
+
+          navigator.clipboard.writeText(txt);
+
+          const newMark = MyMarker({
+            pos:px,
+            gmap,
+            iconUrl:"contributorMarker.png",
+            title:p,
+            col:null,
+          });
+          if(newMark)
+            newMark.addTo(ContributorPanel.contributorLayer);
+        }
+
+
+        if(ContributorPanel.vContributor.contributorMode === 'mapLink'){
+          const lat = +e.latlng.lat.toFixed(config.mapIsSplitInMultipleImages ? 2 : 0);
+          const lng = +e.latlng.lng.toFixed(config.mapIsSplitInMultipleImages ? 2 : 0);
+
+          if(!prevMapLinkClickLatLng){
+            prevMapLinkClickLatLng = [lat,lng];
+            return;
+          }
+
+          const txt = `[[${prevMapLinkClickLatLng[0]},${prevMapLinkClickLatLng[1]}],[${lat},${lng}]],\n`;
+          GenericMap.addToTextArea(txt);
+
+          prevMapLinkClickLatLng = null;
+
+          ContributorPanel.vContributor.refreshIcons();
+        }
+      });
+    }
+
     ContributorPanel.contributorLayer = L.layerGroup();
     ContributorPanel.contributorLayer.addTo(myMap);
 
-    
-    myMap.on('click', function(e:any) {
-      if (!e.latlng)
-        return;
-
-      if(ContributorPanel.vContributor.contributorMode === 'none')
-        return;
-
-      if(ContributorPanel.vContributor.contributorMode === 'icon'){
-        //TEMP move to contributor panel
-        const tooClose = IconLayer.getAllMarkers().some(m => {
-          const MAX_DIST = config.mapIsSplitInMultipleImages ? 0.2 : 2;
-          return (Math.abs(e.latlng.lat - m._latlng.lat) + Math.abs(e.latlng.lng - m._latlng.lng)) <= MAX_DIST;
-        });
-        if(tooClose){
-          alert("Error: This icon is too close to an existing icon.");
-          return;
-        }
-
-        const quickEdit = !e.originalEvent.ctrlKey;
-        const p = quickEdit ? '' : prompt("Description") || '';
-
-        const lat = e.latlng.lat.toFixed(config.mapIsSplitInMultipleImages ? 2 : 0);
-        const lng = e.latlng.lng.toFixed(config.mapIsSplitInMultipleImages ? 2 : 0);
-        const px = config.convertWHToPixel([lat,lng]);
-        const txt = `{"pos":[${px[0]},${px[1]}],"name":"${p}","iconUrl":"","flag":""},\n`;
-        ContributorPanel.addToTextArea(txt);
-
-        const POKEMON = false;
-        if(POKEMON)
-          navigator.clipboard.writeText(`"pos":[${px[0]},${px[1]}]`);
-        else
-          navigator.clipboard.writeText(txt);
-
-
-        const newMark = MyMarker(px,"pokemon/p213.png",p);
-        if(newMark)
-          newMark.addTo(ContributorPanel.contributorLayer);
-      }
-
-
-      if(ContributorPanel.vContributor.contributorMode === 'mapLink'){
-        const lat = e.latlng.lat.toFixed(config.mapIsSplitInMultipleImages ? 2 : 0);
-        const lng = e.latlng.lng.toFixed(config.mapIsSplitInMultipleImages ? 2 : 0);
-        const px = config.convertWHToPixel([lat,lng]);
-
-        if(!prevMapLinkClickLatLng){
-          prevMapLinkClickLatLng = px;
-          return;
-        }
-
-        const txt = `[[${prevMapLinkClickLatLng[0]},${prevMapLinkClickLatLng[1]}],[${px[0]},${px[1]}]],\n`;
-        ContributorPanel.addToTextArea(txt);
-
-        prevMapLinkClickLatLng = null;
-
-        ContributorPanel.vContributor.refreshIcons();
-      }
-    });
-
     ContributorPanel.vContributor = new Vue(withRenderContrib({
-      data: {
-        contributorMode:'none',
-        firstTime:true,
-        contributors:config.contributors,
-        fullImgSize:config.fullImgSize,
-        fullImgUrl:config.fullImgUrl,
-      },
-      methods:{
-        onContributorModeChange(this:any){
-          const myMapHtml = document.getElementById('pkInteractiveMap-slot');
-          if(!myMapHtml)
-            return;
+      data:data(config),
+      methods,
+      mounted:function(this:Any){
+        ContributorPanel.sidebar = gmap.createSidebar(this.$el, 'glyphicon-wrench',"Contributors");
 
-          if(ContributorPanel.vContributor.contributorMode !== 'none'){
-            myMapHtml.classList.add('crosshairPointer');
-            ContributorPanel.contributorLayer.addTo(myMap);
-
-            if (ContributorPanel.vContributor.firstTime &&
-                window.location.href.includes('localhost')){
-              ContributorPanel.vContributor.firstTime = false;
-
-              IconLayer.forEachMarkerLayers(lay => {
-                lay.markers.forEach(marker => {
-                  marker.on('click',function(e:any){
-                    if(!e.latlng)
-                      return;
-                    const lat = e.latlng.lat.toFixed(config.mapIsSplitInMultipleImages ? 1 : 0);
-                    const lng = e.latlng.lng.toFixed(config.mapIsSplitInMultipleImages ? 1 : 0);
-                    const px = config.convertWHToPixel([lat,lng]);
-                    navigator.clipboard.writeText(`,"pos":[${px[0]},${px[1]}]`);
-                  });
-                });
-              });
-            }
-          } else {
-            myMapHtml.classList.remove('crosshairPointer');
-            ContributorPanel.contributorLayer.removeFrom(myMap);
-          }
-        },
-        refreshIcons(this:any){
-          ContributorPanel.contributorLayer.eachLayer(function (layer:any) {
-            ContributorPanel.contributorLayer.removeLayer(layer);
-          });
-
-          const str = (<HTMLTextAreaElement>document.getElementById('contribTextArea')).value.split('\n');
-
-          str.map(line => {
-            line = line.trim().slice(0, -1); //remove trailing ,
-            if(!line)
-              return null;
-            try {
-              const marker = JSON.parse(line);
-              if (Array.isArray(marker))
-                return polyline(<any>marker);
-              else
-                return MyMarker(<any>[...marker.pos,...marker.pos], marker.iconUrl || "pokemon/p213.png",marker.name);
-            } catch(_err){
-              return null;
-            }
-          })
-          .filter(m => m)
-          .forEach(m => m.addTo(ContributorPanel.contributorLayer));
-        }
-      },
-      mounted:function(this:any){
-        ContributorPanel.contributorSidebar = L.control.sidebar(this.$el, {
-          position: 'left'
-        });
-        myMap.addControl(ContributorPanel.contributorSidebar);
-
-        easyButton('glyphicon-cog',"Contributors",function(){
-          onOpen();
-          ContributorPanel.contributorSidebar.toggle();
-        }).addTo(myMap);
+        this.init();
       }
     }));
     ContributorPanel.vContributor.$mount();
