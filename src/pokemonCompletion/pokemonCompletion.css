@@ -37,56 +37,10 @@ a.sobreLink:not(:hover) {
   background-color:rgba(255,122,122,0.5);
 }
 
-
-.leaflet-control-container {
-	--iconSize:24; /**hardcoded in pokemonMap.ts*/
-	--iconScale:1 !important;
-}
-
-.mapLink-marker {
-	--iconSize:12; /**hardcoded in pokemonMap.ts*/
-}
-
 :root {
 	--iconSize:32;
 	--iconScale:1;
   --mapLabelFontSizeScale:1;
-}
-.leaflet-map-pane {
-	--iconSize:20;
-}
-.map-zoom-6 {
-	--iconScale:2;
-  --mapLabelFontSizeScale:1.5;
-}
-.map-zoom-5 {
-	--iconScale:1.75;
-}
-.map-zoom-4 {
-	--iconScale:1.5;
-}
-.map-zoom-3 {
-	--iconScale:1.25;
-}
-.map-zoom-2 {
-	--iconScale:1;
-}
-.map-zoom-1 {
-	--iconScale:0.75;
-  --mapLabelFontSizeScale:0.75;
-}
-.map-zoom-0 {
-	--iconScale:0.5;
-  --mapLabelFontSizeScale:0.75;
-}
-
-.home-gameLogo {
-  transform-origin:0% 0%;
-  position:absolute;
-  transform:translate(0,-5px) scale3d(0.5,0.5, 1);
-  width: 32px;
-  height: 32px;
-  margin-right: 3px;
 }
 
 .icon-10x10 {
@@ -202,15 +156,6 @@ a:hover {
   margin-bottom:20px
 }
 
-input[type=checkbox] {
-  width:18px;
-  height:18px;
-}
-
-.flex {
-  display:flex;
-}
-
 a.sobreLink:not(:hover) {
   text-decoration-style: dotted !important;
   color:white;
@@ -256,37 +201,6 @@ a.sobreLink:not(:hover) {
 	--cemph: #022;
 }
 
-label.button, button:not([disabled]):hover {
-	filter: brightness(92%);
-  color: var(--cemph);
-  border-color: var(--cemph);
-}
-
-/* forms and inputs  */
-textarea, input:not([type=range]), label.button, button, select {
-	border-radius: 4px;
-	border: 1.5px solid var(--cmed);
-	padding: 0.4em 0.8em;
-	background-color: var(--clight);
-}
-input:not([type=checkbox]):not([type=radio]) {
-	display: block;
-	width: 100%;
-	margin: 0 0 1rem;
-}
-button, label.button, select {
-	margin: .5em;
-	border: 1.5px solid var(--clink);
-}
-button, label.button { padding: 0.4em 1em; letter-spacing: 0.1em; }
-textarea:hover, input:not([type=checkbox]):not([type*='ra']):hover, select:hover{
-  border: 1.5px solid var(--cemph);
-}
-textarea:focus, input:not([type=checkbox]):not([type*='ra']):focus{
-	border: 1.5px solid var(--clink);
-	box-shadow: 0 0 5px var(--clink);
-}
-
 
 @media (max-width: 768px) {
   .noPaddingIfSmallDevice {
@@ -325,16 +239,54 @@ textarea:focus, input:not([type=checkbox]):not([type*='ra']):focus{
    overflow: hidden;
 }
 
-#lastClickedIconName {
-  background-color:rgba(0,0,0,0.5);
-  color:white;
-  margin-bottom:30px;
+/* forms and inputs  */
+input[type=checkbox]:not(#myMap *) {
+  width:18px;
+  height:18px;
 }
 
-.mapLabel {
-  background-color:rgba(0,0,0,0.75);
-  text-align:left;
-  white-space: nowrap;
-  font-size:calc(12px * var(--mapLabelFontSizeScale));
-  z-index:100000 !important;
+label.button:not(#myMap *), 
+button:not([disabled]):hover:not(#myMap *) {
+	filter: brightness(92%);
+  color: var(--cemph);
+  border-color: var(--cemph);
+}
+
+textarea:not(#myMap *), 
+input:not([type=range]):not(#myMap *), 
+label.button:not(#myMap *), 
+button:not(#myMap *), 
+select:not(#myMap *) {
+	border-radius: 4px;
+	border: 1.5px solid var(--cmed);
+	padding: 0.4em 0.8em;
+	background-color: var(--clight);
+}
+input:not([type=checkbox]):not([type=radio]):not(#myMap *) {
+	display: block;
+	width: 100%;
+	margin: 0 0 1rem;
+}
+button:not(#myMap *), 
+label.button:not(#myMap *), 
+select:not(#myMap *) {
+	margin: .5em;
+	border: 1.5px solid var(--clink);
+}
+button:not(#myMap *), 
+label.button:not(#myMap *) { 
+  padding: 0.4em 1em; 
+  letter-spacing: 0.1em; 
+}
+
+textarea:hover:not(#myMap *), 
+input:not([type=checkbox]):not([type*='ra']):hover:not(#myMap *), 
+select:hover:not(#myMap *) {
+  border: 1.5px solid var(--cemph);
+}
+
+textarea:focus:not(#myMap *), 
+input:not([type=checkbox]):not([type*='ra']):focus:not(#myMap *){
+	border: 1.5px solid var(--clink);
+	box-shadow: 0 0 5px var(--clink);
 }
