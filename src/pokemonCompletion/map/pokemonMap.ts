@@ -12,6 +12,13 @@ import { ContributorPanel } from "../../genericMap/contributorSideBar";
 import { GenericMap } from "../../genericMap/genericMap";
 
 /*
+add uid to json.
+add group to json
+
+*/
+
+
+/*
 Ctrl        + Click => [pos]
 Alt         + Click => [pos,pos]
 Alt + Shift + Click => reset
