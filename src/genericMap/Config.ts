@@ -16,7 +16,7 @@ export const defaultMyMapParams = function(config:OverlayConfig) : L.MapOptions 
 
   return {
     crs: L.CRS.Simple,
-    zoomControl: false,
+    zoomControl: true,
     minZoom: 0,
     maxZoom: config.getTotalMaxZoom(),
     maxBoundsViscosity:0.01,
@@ -69,14 +69,27 @@ export class OverlayConfig {
   getCropSize(){
     return 1024;
   }
-  getMarkerPos(col:CollectableJson) : [number,number] | null {
-    return <[number,number]>col.pos;
+  getMarkerPositions(col:CollectableJson) : [number,number][] | null {
+    return this.toMarkerPositions(col.pos);
+  }
+  toMarkerPositions(colPos?:number[] | number[][] | null) : [number,number][] | null {
+    if(!colPos)
+      return null;
+    if (typeof colPos[0] === 'number')
+      return <[number,number][]>[colPos];
+    return <[number,number][]>colPos;
   }
   hasBounds = true;
   getBottomRightExcludingBlack(){
     return [
       -this.getDimExcludingBlack!().h / (2 ** this.getMaxZoom()),
       this.getDimExcludingBlack!().w / (2 ** this.getMaxZoom())
+    ];
+  }
+  getBottomRightIncludingBlack(){
+    return [
+      -this.getDim!().h / (2 ** this.getMaxZoom()),
+      this.getDim!().w / (2 ** this.getMaxZoom())
     ];
   }
   getInitialView(){
@@ -93,13 +106,11 @@ export class Config {
   overlays:OverlayConfig[] = [];
   fullImgUrl = '';
   fullImgSize = '';
-  nonDetailedImageBounds:[[number,number], [number,number]] | null = null;
   contributors:{
     title:string,
     fontSize?:string,
     list:{href?:string,text:string,html?:string}[]
   }[] = [];
-  mapIsSplitInMultipleImages = true;
   saveEditorUrl:string | null = null;
   saveEditorSrcUrl:string | null = null;
   saveVersion:'1.1' = '1.1';
@@ -110,7 +121,6 @@ export class Config {
     overlay:''
   };
   hasSaveFlagEvaluator = false;
-  nonDetailedImageUrl:string | null = null;
   /** bad trick to make icons smaller or bigger on certain maps. its a patch. the real solution would be to consider the maxZoom when determining the zoom */
   mapZoomIconScaleModifier = 0;
 
@@ -135,6 +145,36 @@ export class Config {
     });
     return obj;
   }
+  static getIconData(iconUrl:string,extraClasses:string[] = []){
+    if(!iconUrl)
+      return null;
+
+    const filename = iconUrl;
+    const spriteClass = iconUrl.replace('.png','').replace(/\//g,'-');
+    let wh = Config.iconSizeData[filename];
+    if (!wh){
+      const errMsg = `invalid icon: {iconUrl=${iconUrl}, filename=${filename}}`;
+      console.error(errMsg);
+      wh = {w:32, h:32};
+    }
+    const sizeClass = `icon-${wh.w}x${wh.h}`
+    if (!SUPPORTED_DIM.includes(sizeClass))
+      console.error('invalid image size', iconUrl);
+
+    return {
+      id:iconUrl,
+      filename,
+      spriteClass,
+      extraClasses,
+      w:wh.w,
+      h:wh.h,
+      sizeClass,
+    }
+  }
 }
 
+export type IconData = ReturnType<typeof Config['getIconData']>;
 
+const SUPPORTED_DIM = [
+  "icon-10x10","icon-16x16","icon-16x32","icon-32x16","icon-24x24","icon-32x32","icon-48x48","icon-48x32","icon-32x48","icon-48x64","icon-64x64","icon-64x32","icon-64x48","icon-32x64",
+];

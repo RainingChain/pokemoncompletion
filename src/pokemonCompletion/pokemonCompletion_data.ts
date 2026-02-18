@@ -70,6 +70,7 @@ export enum ObtainType {
 
 export type CollectableInput = {
   id?: string,
+  uid?:number, //NO_PROD will be mandatory
   name: string,
   location?: string,
   obtainable?: ObtainTypeInJson, href?: string, reqs?: (string | string[])[],
@@ -391,6 +392,7 @@ export class Collectable {
   obtainable = ObtainType.obtainable;
   /** obtainableJson is const */
   obtainableJson = ObtainTypeInJson.obtainable;
+  uid = -1;
   id = "";
   name = "";
   location = "";
@@ -425,6 +427,9 @@ export class Collectable {
       this.id = info.id;
     else
       this.id = formatNameToId(info.name);
+
+    if(info.uid != undefined)
+      this.uid = info.uid;
 
     this.name = info.name;
     this.categoryId = cat.id ?? formatNameToId(info.name);
@@ -554,8 +559,10 @@ export class Category {
 
       return p;
     });
-    if(!this.iconData && this.list[0])
+    if(!this.iconData && this.list[0]){
+      this.iconUrl = this.list[0].iconData?.id ?? '';
       this.iconData = this.list[0].iconData;
+    }
 
     this.listByNameMap = new Map(this.list.map(el => ([el.name,el])));
     this.listByIdMap = new Map(this.list.map(el => ([el.id,el])));

@@ -19,24 +19,41 @@ export const easyButton = function(myClass:string, title:string, onclick:() => v
   });
 }
 
+export const callableOncePerCycle = function(toCall:(this:any, arg?:any) => void){
+  let map:Map<any, any> = new Map();
+
+  return function(this:any, arg?:any){
+    const timer = map.get(arg);
+    if(timer)
+      return;
+    const tim = setTimeout(() => {
+      toCall.call(this, arg);
+      map.delete(arg);
+    },1);
+    map.set(arg, tim);
+  };
+}
+
+
 export const MyMarkerMulti = function({
   pos,
-  iconUrl,
+  iconDatas,
   title,
   gmap,
   popupDiv,
-  klass,
   size=28,
-  uids=[],
+  cols=[],
 }:{
   pos:Pos | null,
-  iconUrl:string,
+  iconDatas:{
+    iconUrl:string,
+    extraClasses?:string[],
+  }[],
   title:string,
   popupDiv:HTMLDivElement,
   gmap:GenericMap | null,
-  klass?:string,
+  cols:Collectable[]
   size?:number,
-  uids?:number[]
 }){
   if(!pos)
     return null;
@@ -46,33 +63,34 @@ export const MyMarkerMulti = function({
 
   pos = <[number,number]>pos;
 
-  (<Any>window).debug_markersJSON.push({pos, iconUrl, title});
+  (<Any>window).debug_markersJSON.push({pos, iconUrl:iconDatas[0].iconUrl, title});
 
   if(IS_CONTRIBUTOR_MODE)
     title = pos.toString() + ' | '  + title;
 
-  const fullSubTxt = uids ? `<div class="icon-subText">x${uids.length}</div>` : '';
+  const fullSubTxt = cols.length ? `<div class="icon-subText">x${cols.length}</div>` : '';
 
-  const div = document.createElement('div');
-  div.style.height = `${size}px`;
-  div.classList.add('icon-scaling');
-  if (klass)
-    div.classList.add(klass);
-  div.innerHTML = `
-    ${fullSubTxt}${htmlHelper(iconUrl,size,false)}
-  `;
+  const icons = iconDatas.map(iconData => {
+    const div = document.createElement('div');
+    div.style.height = `${size}px`;
+    div.classList.add('icon-scaling');
+    div.innerHTML = `
+      ${fullSubTxt}${htmlHelper(iconData.iconUrl,size,false, iconData.extraClasses)}
+    `;
 
-  const icon = L.divIcon({
-    className:'',
-    html:div,
-    iconSize: [size, size],
-    iconAnchor: [size/2, size/2],
+    return L.divIcon({
+      className:'',
+      html:div,
+      iconSize: [size, size],
+      iconAnchor: [size/2, size/2],
+    });
   });
 
+  let lastIconIdx = 0;
   const opts = {
     title,
     riseOnHover:true,
-    icon: icon,
+    icon: icons[lastIconIdx],
   };
   const marker = L.marker(<L.LatLngTuple>pos, opts);
 
@@ -85,6 +103,32 @@ export const MyMarkerMulti = function({
     const myMap = (<any>marker)._map;
     if(myMap)
       myPopup.openOn(myMap);
+  });
+
+  cols.forEach(col => {
+    col.onChange.push(callableOncePerCycle(() => {
+      const idx = cols.findIndex(col => col.isVisible && !col.marked);
+      if (idx >= 0 && idx !== lastIconIdx){
+        marker.setIcon(icons[idx]);
+        lastIconIdx = idx;
+      }
+
+      /*
+      const visibles = icons.filter(icon => this.inp.isVisible(icon.col));
+      const shouldBeInMap = visibles.length > 0;
+      const firstNotObtained = visibles.find(icon => !icon.col.obtained);
+      const allObtained = !firstNotObtained;
+      if (shouldBeInMap){
+        marker.setOpacity(allObtained ? 0.2 : 1);
+        if(firstNotObtained)
+          marker.setIcon(firstNotObtained.icon);
+      }
+
+      const domEl:HTMLElement = marker.getElement();
+      if(domEl)
+        domEl.style.display = shouldBeInMap ? '' : 'none';
+        */
+    }));
   });
 
   if(IS_CONTRIBUTOR_MODE){
@@ -101,7 +145,7 @@ export const MyMarkerMulti = function({
 
       (<any>window).debug_clickedUid = (<any>window).debug_clickedUid || [];
       const len = (<any>window).debug_clickedUid.length;
-      (<any>window).debug_clickedUid.push(...uids);
+      (<any>window).debug_clickedUid.push(...cols.map(c => c.uid));
 
       if (!firstTime || !IS_MULTI_MAP_MODE)
         return;
@@ -109,7 +153,7 @@ export const MyMarkerMulti = function({
       firstTime = false;
 
       marker.setIcon(L.divIcon({
-        html:`<div style="font-size:3em;color:white">${len} x${uids.length}</div>`
+        html:`<div style="font-size:3em;color:white">${len} x${cols.length}</div>`
       }));
     });
   }
@@ -156,7 +200,7 @@ export const MyMarker = function({
   title,
   gmap=null,
   popupText=null,
-  klass=[],
+  extraClasses=[],
   tagClasses=[],
   href='',
   subText='',
@@ -171,7 +215,7 @@ export const MyMarker = function({
   popupText?:string|null,
   href?:string,
   subText?:string,
-  klass?:string[],
+  extraClasses?:string[],
   tagClasses?:string[],
   size?:number,
   uid?:number,
@@ -188,7 +232,6 @@ export const MyMarker = function({
   if(IS_CONTRIBUTOR_MODE)
     title = pos.toString() + ' | '  + title;
 
-  const cacheKey = [iconUrl,title,popupText,...klass].join('@');
   const fullSubTxt = subText ? `<div class="icon-subText">${subText}</div>` : '';
 
   const div = document.createElement('div');
@@ -200,7 +243,7 @@ export const MyMarker = function({
 
   div.innerHTML = `
     ${fullSubTxt}
-    ${htmlHelper(iconUrl,size,false, klass)}
+    ${htmlHelper(iconUrl,size,false, extraClasses)}
   `;
   const icon = L.divIcon({
     className:'',
@@ -289,22 +332,15 @@ export const MyMarker = function({
   return marker;
 }
 
-export const htmlHelper = function(iconUrl:string,size:number,embed:boolean,klass2?:string[]) : string {
-  if(!iconUrl)
+export const htmlHelper = function(iconUrl:string,size:number,embed:boolean,extraClasses?:string[]) : string {
+  let iconData = Config.getIconData(iconUrl);
+  if(!iconData)
     return '';
 
-  const klass = iconUrl.replace('.png','');
-  const wh = Config.iconSizeData[iconUrl];
-  if (!wh){
-    console.error(new Error('invalid iconUrl: ' + iconUrl));
-    if (iconUrl === 'contributorMarker.png')
-      return '';
-    return htmlHelper('contributorMarker.png', size, embed, klass2);
-  }
-
-  const w = size / wh.w;
-  const h = size / wh.h;
-  const inside = `<div class="genericMap-marker ${klass} ${klass2?.join(' ') ?? ''}" style="transform:scale3d(${w}, ${h}, 1);transform-origin:0% 0%"></div>`;
+  //NO_PROD fallback for bad image should be just color-border
+  const w = size / iconData.w;
+  const h = size / iconData.h;
+  const inside = `<div class="genericMap-marker ${iconData.spriteClass} ${iconData.sizeClass} ${extraClasses?.join(' ') ?? ''}" style="transform:scale3d(${w}, ${h}, 1);transform-origin:0% 0%"></div>`;
   if(!embed)
     return inside;
   return `<div style="width:${size}px;height:${size}px">${inside}</div>`;

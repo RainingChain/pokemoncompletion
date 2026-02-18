@@ -49,7 +49,7 @@ class methods {
         desc:p.desc,
         collectables:cols,
         collectableHasPositionByOverlay:this.gmap.config.overlays.map((ov,idx) => {
-          return cols.some(col => col.markerByOverlay[idx]);
+          return cols.some(col => col.markersByOverlay[idx]?.length);
         }),
       };
     }).filter(a => a);
@@ -74,7 +74,7 @@ class methods {
     }, 0);
   }
   flyTo(this:ChecklistPanel_full, col:Collectable){
-    const pos = col.getPosition(this.gmap.activeOverlayIdx);
+    const pos = col.getFirstPosition(this.gmap.activeOverlayIdx);
     if(!pos)
       return false;
     this.gmap.myMap.flyTo(pos, this.gmap.getFlyToZoom());

@@ -1,5 +1,5 @@
 <div class="leaflet-control-layers leaflet-control" :class="{'leaflet-control-layers-expanded':extended}">
-  <a class="leaflet-control-layers-toggle" href="#" title="Layers" role="button" @click="extend"></a>
+  <a class="leaflet-control-layers-toggle" title="Layers" role="button" @click="extend"></a>
 
   <div v-show="extended" class="leaflet-control-layers-list">
     <div style="position: absolute; top: -5px; right: -5px; width: 20px; height: 20px;"><span

@@ -23,7 +23,7 @@ export const LAYER_MAP_LINK = 'mapLink';
 export const LAYER_MAP_LABEL = 'mapLabel';
 
 export type GenericMapOptions = {
-  isAlwaysVisible:(colJson:CollectableJson) => boolean,
+  isAlwaysVisible?:(colJson:CollectableJson) => boolean,
   parseCollectableFlagInSave?:(str?:string | null) => any | null,
   getLegacyIds?:(colJson:CollectableJson) => string[],
   fallbackIconUrl?:string,
@@ -59,6 +59,8 @@ export class GenericMap {
   displayContributorButton = true;
   displayChecklistButton = true;
   displaySaveRestoreStatButton = true;
+  contributorMarker = 'contributorMarker.png';
+  onlyStackSameImgIcons = true;
 
   vue_saveUpload:{
     onLoadSaveFileClick:() => void,
@@ -112,7 +114,7 @@ export class GenericMap {
           tags:colJson.tags,
           iconUrl:colJson.iconUrl ?? cat.iconUrl ?? opts.fallbackIconUrl,
           href:this.formatHref(colJson.href ?? cat.href, colJson.name),
-          alwaysVisible: opts.isAlwaysVisible(colJson),
+          alwaysVisible: opts.isAlwaysVisible?.(colJson) ?? false,
           flag:opts.parseCollectableFlagInSave?.(colJson.flag) ?? null,
           legacyIds:opts.getLegacyIds?.(colJson),
           sourceJsonObj:colJson,
@@ -183,7 +185,13 @@ export class GenericMap {
       originalPos[1] + STACKED_POS_OFFSET * offset[1],
     ];
   }
-
+  getExtraClasses(colJson:CollectableJson){
+    if (Array.isArray(colJson.extraClasses))
+      return colJson.extraClasses;
+    if(!colJson.extraClasses)
+      return [];
+    return [colJson.extraClasses];
+  }
   createMarkersFromJson(
     jsonData:GameDataJson,
     opts:GenericMapOptions,
@@ -199,21 +207,27 @@ export class GenericMap {
 
       jsonData.categories.forEach(cat => {
         cat.list.forEach(col => {
-          const pos = ovConfig.getMarkerPos(col);
-          if(!pos || (pos[0] === 0 && pos[1] === 0))
-            return;
           if(!col.name)
             return;
 
-          const posStr = pos.toString();
-          const existing = iconsByPos.get(posStr);
-          if (existing)
-            existing.samePosCollectables.push(col);
-          else
-            iconsByPos.set(posStr, {
-              samePosCollectables:[col],
-              pos
-            });
+          const posList = ovConfig.getMarkerPositions(col);
+          if(!posList)
+            return;
+
+          posList.forEach(pos => {
+            if (pos[0] === 0 && pos[1] === 0)
+              return;
+
+            const posStr = pos.toString();
+            const existing = iconsByPos.get(posStr);
+            if (existing)
+              existing.samePosCollectables.push(col);
+            else
+              iconsByPos.set(posStr, {
+                samePosCollectables:[col],
+                pos,
+              })
+          });
         });
       });
 
@@ -224,18 +238,19 @@ export class GenericMap {
 
         const colsByImg = new Map<string, Collectable[]>();
         cols.forEach(col => {
-          const arr = colsByImg.get(col.iconUrl);
+          const key = this.onlyStackSameImgIcons ? col.iconUrl : '';
+          const arr = colsByImg.get(key);
           if (arr)
             arr.push(col)
           else
-            colsByImg.set(col.iconUrl, [col]);
+            colsByImg.set(key, [col]);
         });
 
         Array.from(colsByImg.values()).forEach((samePosAndImgCollectables, idx) => {
-          const col = samePosAndImgCollectables[0];
-          const colJson = col.sourceJsonObj;
+          const firstCol = samePosAndImgCollectables[0];
+          const firstColJson = firstCol.sourceJsonObj;
 
-          const lay = this.layers.find(lay => lay.id === col.categoryId);
+          const lay = this.layers.find(lay => lay.id === firstCol.categoryId);  //NO_PROD how to handle diff layer...
           if(!lay)
             return;
 
@@ -244,31 +259,33 @@ export class GenericMap {
             //multi marker
             if (samePosAndImgCollectables.length > 1){
               const popupDiv = createMultiMarkerPopupHtml(samePosAndImgCollectables);
-              const grpName = jsonData.groups.find(grp => grp.id === col.categoryId)?.name ?? '';
+              const grpName = jsonData.groups.find(grp => grp.id === firstCol.categoryId)?.name ?? '';
 
               return MyMarkerMulti({
                 pos:adaptedPos,
-                iconUrl:col.iconUrl,
+                iconDatas:samePosAndImgCollectables.map(col => {
+                  return {iconUrl:col.iconUrl, extraClasses:this.getExtraClasses(col.sourceJsonObj)};
+                }),
                 title:`x${samePosAndImgCollectables.length} ${grpName}`,
                 gmap:this,
                 popupDiv,
-                size:28,
-                uids:samePosAndImgCollectables.map(c => c.uid)
+                size:20,
+                cols:samePosAndImgCollectables,
               });
             }
 
             return MyMarker({
               pos:adaptedPos,
               gmap:this,
-              href:col.href,
-              subText:this.getSubText(colJson),
-              iconUrl:col.iconUrl,
-              title:col.name,
-              klass:(colJson.myClass ? [colJson.myClass] : []),
-              tagClasses:(col.tags?.map(t => 'icon-tag-' + t) ?? []),
-              size:24,
-              uid:col.uid,
-              col,
+              href:firstCol.href,
+              subText:this.getSubText(firstColJson),
+              iconUrl:firstCol.iconUrl,
+              title:firstCol.name,
+              extraClasses:this.getExtraClasses(firstColJson),
+              tagClasses:(firstCol.tags?.map(t => 'icon-tag-' + t) ?? []),
+              size:20,
+              uid:firstCol.uid,
+              col: firstCol,
             });
           })();
 
@@ -424,13 +441,9 @@ export class GenericMap {
     this.activateOverlay(this.activeOverlayIdx);
 
     const newOverlayInfo = this.overlayInfos[this.activeOverlayIdx];
-    if (this.config.mapIsSplitInMultipleImages){
-      const initView = newOverlayInfo.config.getInitialView();
-      this.myMap.setView(<L.LatLngTuple>initView.pos, initView.zoom);
-    } else {
-      if(this.config.nonDetailedImageBounds)
-        this.myMap.fitBounds(this.config.nonDetailedImageBounds);
-    }
+
+    const initView = newOverlayInfo.config.getInitialView();
+    this.myMap.setView(<L.LatLngTuple>initView.pos, initView.zoom);
 
     const gmap = this;
     const CustomInfo = L.Control.extend({
@@ -486,33 +499,7 @@ export class GenericMap {
     return icon;
   }
 
-  createMapLinkLayer(mapLinksByOverlay:MapLinks[]){
-    const polyline = function(pos:number[][],dashArray:string|null=null){
-      //return MyMarker(pos,"jiji.png","Debug Map Link"); //for debugging
-      return MyPolyline(<L.LatLngTuple[]>pos,{
-        color: 'white',
-        weight: dashArray ? 2 : 5,
-        opacity: 0.5,
-        smoothFactor: 1,
-        className:'mapLink',
-        dashArray:dashArray ?? undefined,
-      });
-    }
-
-    const polylineArrow = function(pos:number[][]){
-      return [
-        MyPolyline(<L.LatLngTuple[]>pos,{
-          color: 'white',
-          weight: 2,
-          opacity: 0.5,
-          smoothFactor: 1,
-          className:'mapLink',
-        }),
-        ...polylineArrow_sub(pos),
-        ...polylineArrow_sub([pos[1], pos[0]]),
-      ];
-    };
-
+  createPolylineArrow(pos:number[][]){
     const polylineArrow_sub = function(pos:number[][]){
       const [y1,x1] = pos[0];
       const [y2,x2] = pos[1];
@@ -552,16 +539,42 @@ export class GenericMap {
           className:'mapLink',
         })
       ];
-    }
+    };
 
-    const markersByOverlay = mapLinksByOverlay.map(mapLinks => {
+    return [
+      MyPolyline(<L.LatLngTuple[]>pos,{
+        color: 'white',
+        weight: 2,
+        opacity: 0.5,
+        smoothFactor: 1,
+        className:'mapLink',
+      }),
+      ...polylineArrow_sub(pos),
+      ...polylineArrow_sub([pos[1], pos[0]]),
+    ];
+  }
+  createMapLink(pos:number[][],dashArray:string|null=null){
+    return MyPolyline(<L.LatLngTuple[]>pos,{
+      color: 'white',
+      weight: dashArray ? 2 : 5,
+      opacity: 0.5,
+      smoothFactor: 1,
+      className:'mapLink',
+      dashArray:dashArray ?? undefined,
+    });
+  }
+  createMapLinkMarkersByOverlay(mapLinksByOverlay:MapLinks[]){
+    return mapLinksByOverlay.map(mapLinks => {
       return [
-        ...mapLinks.smallGaps.map((pos) => polyline(pos)),
-        ...mapLinks.largeGapsConnectingOverMaps.map((pos) => polyline(pos,'1 24')),
-        ...mapLinks.largeGapsConnectingOverVoid.map((pos) => polyline(pos,'1 8')),
-        ...mapLinks.arrows.map((pos) => polylineArrow(pos)).flat(),
+        ...mapLinks.smallGaps.map((pos) => this.createMapLink(pos)),
+        ...mapLinks.largeGapsConnectingOverMaps.map((pos) => this.createMapLink(pos,'1 24')),
+        ...mapLinks.largeGapsConnectingOverVoid.map((pos) => this.createMapLink(pos,'1 8')),
+        ...mapLinks.arrows.map(pos => this.createPolylineArrow(pos)).flat()
       ];
     });
+  }
+  createMapLinkLayer(markersByOverlay:(L.Marker | L.Polyline | null)[][]){
+    // const markersByOverlay = this.createMapLinkMarkersByOverlay(mapLinksByOverlay);
 
     if (markersByOverlay.every(m => m.length === 0))
       return;

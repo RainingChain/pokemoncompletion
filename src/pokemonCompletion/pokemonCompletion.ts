@@ -721,8 +721,8 @@ class Vue_pokemonCompletion_methods extends Vue_pokemonCompletion_req_methods {
     this.displayInteractiveMap = true;
 
     await this.ensureInteractiveMapIsInit();
-    if(this.interactiveMapVue)
-      this.interactiveMapVue.flyToCollectable(c);
+    //if(this.interactiveMapVue) //NO_PROD
+     // this.interactiveMapVue.flyToCollectable(c);
   }
   debug_printCollectableWithoutPos = function(this:Vue_pokemonCompletion_full){
     return this.getAllCollectables()

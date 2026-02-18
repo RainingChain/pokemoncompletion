@@ -1,5 +1,4 @@
 import L from "leaflet";
-import { CollectableFlagInSave } from "../hollowknight/ssMap/saveFlagEvaluator";
 
 export const OPACITY_CLICKED = 0.2;
 export const OPACITY_ALWAYS_VISIBLE_MARKER = 0.8;
@@ -12,13 +11,13 @@ export const mapPush = <T,U>(map:Map<T,U[]>,key:T,newKeyVal:U) => {
 };
 
 export type CollectableJson = {
-  pos:number[]
+  pos:number[] | number[][],
   name:string;
   iconUrl?:string;
+  extraClasses?:string | string[];
   href?:boolean | string;
   uid:number;
   flag?:string | null;
-  myClass?:string;
   legacyIds?:string[];
   tags?:string[];
 };
@@ -30,13 +29,13 @@ export class Collectable {
 
   marked = false;
   isVisible = true;
-  markerByOverlay:(L.Marker | null)[] = [];
+  markersByOverlay:L.Marker[][] = [];
   iconUrl = '';
   name = '';
   categoryId = '';
   uid = 0;
   legacyIds:string[] = [];
-  flag:CollectableFlagInSave | null = null;
+  flag:any | null = null;
   alwaysVisible = false;
   href = '';
   sourceJsonObj:CollectableJson;
@@ -54,27 +53,26 @@ export class Collectable {
 
     this.onChange.forEach(f => f());
 
-    this.markerByOverlay.forEach(marker => {
-      if(!marker)
-        return;
+    this.markersByOverlay.forEach(markers => {
+      markers.forEach(marker => {
+        const siblings = markerToCollectables.get(marker) ?? [];
+        const marked = siblings.every(s => s.marked);
 
-      const siblings = markerToCollectables.get(marker) ?? [];
-      const marked = siblings.every(s => s.marked);
+        const leaf_icon = marker.options.icon as L.DivIcon;
+        const html = leaf_icon?.options?.html as HTMLElement;
 
-      const leaf_icon = marker.options.icon as L.DivIcon;
-      const html = leaf_icon?.options?.html as HTMLElement;
-
-      if (html?.classList){
-        if (marked)
-          html.classList.add('icon-marked');
-        else
-          html.classList.remove('icon-marked');
-      } else { //fallback
-        if (marked)
-          marker.setOpacity(this.alwaysVisible ? OPACITY_ALWAYS_VISIBLE_MARKER : OPACITY_CLICKED);
-        else
-          marker.setOpacity(1);
-      }
+        if (html?.classList){
+          if (marked)
+            html.classList.add('icon-marked');
+          else
+            html.classList.remove('icon-marked');
+        } else { //fallback
+          if (marked)
+            marker.setOpacity(this.alwaysVisible ? OPACITY_ALWAYS_VISIBLE_MARKER : OPACITY_CLICKED);
+          else
+            marker.setOpacity(1);
+        }
+      });
     });
   }
 
@@ -85,15 +83,18 @@ export class Collectable {
     return col;
   }
   addMarker(overlayIdx:number, m:L.Marker){
-    while (this.markerByOverlay.length <= overlayIdx)
-      this.markerByOverlay.push(null);
+    while (this.markersByOverlay.length <= overlayIdx)
+      this.markersByOverlay.push([]);
 
-    this.markerByOverlay[overlayIdx] = m;
+    this.markersByOverlay[overlayIdx].push(m);
     mapPush(markerToCollectables, m, this);
   }
 
-  getPosition(overlayIdx:number){
-    return this.markerByOverlay[overlayIdx]?.getLatLng() ?? null;
+  getFirstPosition(overlayIdx:number){
+    const list = this.markersByOverlay[overlayIdx];
+    if (!list || list.length === 0)
+      return null;
+    return list[0].getLatLng();
   }
 
   static list:Collectable[] = [];

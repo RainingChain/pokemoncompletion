@@ -7,7 +7,6 @@ import { Any, htmlHelper, IconLayer } from "./markerHelpers";
 import { Collectable, markerToCollectables } from "./Collectable";
 import clarity from "@microsoft/clarity";
 import { SavePanel } from "./saveSideBar";
-import { Vue_saveUpload_data } from "../hollowknight/ssMap/saveUpload";
 
 type LayGroupInfo = {
   name:string,
@@ -220,7 +219,9 @@ class Methods {
     if(!cols || !cols.length)
       return;
 
-    const markerInNewOverlayPos = cols[0].getPosition(this.gmap.activeOverlayIdx);
+    // Limitation: You can't have collectable with multiple locations AND multiple overlays. flyTo might fly to a
+    // different location. To fix, we need to pick the right position (and not just the first one).
+    const markerInNewOverlayPos = cols[0].getFirstPosition(this.gmap.activeOverlayIdx);
     if(!markerInNewOverlayPos)
       return;
 

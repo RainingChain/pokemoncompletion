@@ -130,7 +130,7 @@ class methods {
 
       this.onChange();
     } catch(err){
-      console.error('error loading view panel settings');
+      console.error('error loading view panel settings from local storage');
     }
   }
 };

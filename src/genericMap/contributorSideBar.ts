@@ -118,7 +118,7 @@ export class ContributorPanel {
 
         if(ContributorPanel.vContributor.contributorMode === 'icon'){
           const tooClose = gmap.getAllActiveMarkers().some(m => {
-            const MAX_DIST = config.mapIsSplitInMultipleImages ? 0.2 : 2;
+            const MAX_DIST = 0.2;
             return (Math.abs(e.latlng.lat - m.getLatLng().lat) + Math.abs(e.latlng.lng - m.getLatLng().lng)) <= MAX_DIST;
           });
           if(tooClose){
@@ -129,14 +129,14 @@ export class ContributorPanel {
           const quickEdit = !e.originalEvent.ctrlKey;
           const p = quickEdit ? '' : prompt("Description") || '';
 
-          const lat = +e.latlng.lat.toFixed(config.mapIsSplitInMultipleImages ? 2 : 0);
-          const lng = +e.latlng.lng.toFixed(config.mapIsSplitInMultipleImages ? 2 : 0);
+          const lat = +e.latlng.lat.toFixed(2);
+          const lng = +e.latlng.lng.toFixed(2);
           const px = [lat,lng];
 
           const str = (<HTMLTextAreaElement>document.getElementById('contribTextArea')).value.split('\n');
           const count = str.filter(s => s.includes('"pos"')).length;
 
-          const txt = `{"num":${count}, "pos":[${px[0]},${px[1]}],"name":"${p}","iconUrl":"","flag":""},\n`;
+          const txt = `{"num":${count}, "pos":[${px[0]},${px[1]}],"name":"${p}","iconUrl":"${gmap.contributorMarker}","flag":""},\n`;
           GenericMap.addToTextArea(txt);
 
           navigator.clipboard.writeText(txt);
@@ -144,7 +144,7 @@ export class ContributorPanel {
           const newMark = MyMarker({
             pos:px,
             gmap,
-            iconUrl:"contributorMarker.png",
+            iconUrl:gmap.contributorMarker,
             title:p,
             col:null,
           });
@@ -154,8 +154,8 @@ export class ContributorPanel {
 
 
         if(ContributorPanel.vContributor.contributorMode === 'mapLink'){
-          const lat = +e.latlng.lat.toFixed(config.mapIsSplitInMultipleImages ? 2 : 0);
-          const lng = +e.latlng.lng.toFixed(config.mapIsSplitInMultipleImages ? 2 : 0);
+          const lat = +e.latlng.lat.toFixed(2);
+          const lng = +e.latlng.lng.toFixed(2);
 
           if(!prevMapLinkClickLatLng){
             prevMapLinkClickLatLng = [lat,lng];

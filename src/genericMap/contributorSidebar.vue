@@ -70,11 +70,11 @@
     </div>
 
 
-    <h4>Shortcuts & Features</h4>
+    <h4>Contributor Mode Features</h4>
     <ul>
-      <li>Icon title contains their position.</li>
+      <li>In contributor mode, icon titles contain their position.</li>
       <li>Click an existing icon to set the clipboard to "pos":[XXX,YYY]</li>
-      <li>Ctrl+Click an existing link to set the clipboard to [[XXX,YYY],[XXX,YYY]]</li>
+      <li>Ctrl+Click an existing map link to set the clipboard to [[XXX,YYY],[XXX,YYY]]</li>
     </ul>
   </div>
 </div>

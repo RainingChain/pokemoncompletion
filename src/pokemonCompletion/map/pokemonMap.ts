@@ -2,7 +2,7 @@ import "../../genericMap/libGroup";
 import "../../genericMap/genericMap.css";
 
 import { Config, OverlayConfig } from "../../genericMap/Config";
-import { IconLayer } from "../../genericMap/markerHelpers";
+import { htmlHelper, IconLayer, MyPolyline } from "../../genericMap/markerHelpers";
 import { createOverlay } from "../../genericMap/createOverlay";
 import { getIconData } from "../icons/pokemonIcon";
 import { Vue_pokemonCompletion_full } from "../pokemonCompletion";
@@ -10,10 +10,19 @@ import { Collectable } from "../pokemonCompletion_data";
 import { callableOncePerCycle } from "../pokemonCompletion";
 import { ContributorPanel } from "../../genericMap/contributorSideBar";
 import { GenericMap } from "../../genericMap/genericMap";
+import { GameDataJson } from "../../genericMap/dataHelper";
+import L from "leaflet";
 
 /*
-add uid to json.
-add group to json
+TODO:
+  flyTo
+  icon in mainControl 
+  contributor mode activate link
+
+  htmlHelper fallback to border color
+
+  run convertPixelToWH on yellow.json
+
 
 */
 
@@ -27,43 +36,33 @@ Alt + Shift + Click => reset
 /*
 
 
-  convertPixelToWH(px:[number,number]){
-    if(!this.usePxRefForIconPos)
-      return px;
-
-    const br = this.getBottomRight();
-    const dim = this.getDim();
-    // wh / totalWh  ==  px / totalPx
-    // => wh = px / totalPx * totalWh
-    return [
-      px[0] / dim.h * br[0],
-      px[1] / dim.w * br[1],
-    ];
-  }
-  convertWHToPixel(obj:[number,number]) : [number, number]{
-    if(!this.usePxRefForIconPos)
-      return obj;
-
-    const br = this.getBottomRight();
-    const dim = this.getDim();
-    // wh / totalWh  ==  px / totalPx
-    // => px = wh / totalWh * totalPx
-    return [
-      obj[0] / br[0] * dim.h,
-      obj[1] / br[1] * dim.w,
-    ];
-  }
     */
+
+const convertPixelToWH = (config:Config, px:number[]) : [number,number] => {
+  const br = config.overlays[0].getBottomRightIncludingBlack();
+  const dim = config.overlays[0].getDim();
+  console.log(br,dim);
+  // wh / totalWh  ==  px / totalPx
+  // => wh = px / totalPx * totalWh
+  return [
+    px[0] / dim.h * br[0],
+    px[1] / dim.w * br[1],
+  ];
+}
+const convertWHToPixel = (config:Config,obj:number[]) : [number, number] => {
+  const br = config.overlays[0].getBottomRightIncludingBlack();
+  const dim = config.overlays[0].getDim();
+  // wh / totalWh  ==  px / totalPx
+  // => px = wh / totalWh * totalPx
+  return [
+    obj[0] / br[0] * dim.h,
+    obj[1] / br[1] * dim.w,
+  ];
+}
 
 const MAP_LINK_ICON = 'misc/teleport.png';
 
 const USE_LOCAL_IMG = false; //NO_PROD window.location.href.includes('localhost') && !window.location.href.includes('prod');
-const ICON_SIZE = 24; //hardcoded in .css
-
-type LeafletEvent = {latlng:{lat:number,lng:number},originalEvent:MouseEvent};
-
-const allMarkers:any[] = [];
-(<any>window).debug_markers = allMarkers;
 
 const mapSetOrPush = function<T,U>(map:Map<T,U[]>, key:T, val:U){
   const arr = map.get(key);
@@ -89,9 +88,12 @@ export class PkInteractiveMap extends GenericMap {
               public inp:Vue_pokemonCompletion_full){
     super(config);
   }
-  displayContributorButton = false;
+  displayContributorButton = window.location.href.includes('contributor');
   displayChecklistButton = false;
   displaySaveRestoreStatButton = false;
+  contributorMarker = 'pokemon/p1.png';
+  onlyStackSameImgIcons = false;
+
 
 /*
   htmlHelper(data:ReturnType<typeof getIconData>,size:number,embed:boolean){
@@ -138,6 +140,107 @@ export class PkInteractiveMap extends GenericMap {
       ],
     });
   }
+  static createGameDataJson(config:Config, data:Vue_pokemonCompletion_full) : GameDataJson {
+    return {
+      groups:data.categories.map(cat => {
+        return {
+          id: cat.id,
+          name: cat.name,
+          iconUrl: cat.iconUrl,
+          isVisibleByDefault: cat.iconVisibleByDefault,
+        }
+      }),
+      categories:data.categories.map(cat => {
+        return {
+          group: cat.id,
+          href: cat.url || undefined,
+          iconUrl: cat.iconUrl,
+          list: cat.list.map(col => {
+            if(!col.pos)
+              return null!;
+            return {
+              pos:col.pos.map(pos => convertPixelToWH(config, pos)),
+              name:col.name,
+              iconUrl:col.iconData?.id,
+              href:col.href || undefined,
+              uid:col.uid, //NO_PROD
+              flag:null,
+              extraClasses:col.iconData?.colorClass, //NO_PROD add more class
+              legacyIds:[],
+              tags:[],
+            };
+          }).filter(a => a),
+        }
+      }),
+    };
+  }
+
+  static createAndMount(data:Vue_pokemonCompletion_full){
+    if(!data.interactiveMap)
+      return null;
+    const config = PkInteractiveMap.createConfig(data.interactiveMap);
+    const gmap = new PkInteractiveMap(config, data);
+    gmap.createLeafMap();
+
+    const gmapData = PkInteractiveMap.createGameDataJson(config, data);
+    console.log(gmapData);
+
+    gmap.createMarkersFromJson(gmapData, {});
+    gmap.createMapLabelLayer([
+      data.locations.filter(loc => loc.pos).map(loc => {
+        return {name:loc.name, pos:convertPixelToWH(config, loc.pos!)};
+      })
+    ])
+    gmap.createMapLinkLayer([
+      data.interactiveMap.mapLinks.map(mapLink => gmap.createMapLinkMarkers(mapLink)).flat()
+    ]);
+
+    gmap.init();
+
+
+    (<any>window).debug_PkInteractiveMap = gmap;
+    return gmap;
+  }
+
+  createMapLinkMarkers(pos:[[number,number],[number,number]] | number[][]){
+    const pos0 = convertPixelToWH(this.config, pos[0]);
+    const pos1 = convertPixelToWH(this.config, pos[1]);
+    let opacity = 0;
+    const line = MyPolyline([pos0,pos1],{
+      color: 'white',
+      weight: 2,
+      opacity,
+      smoothFactor: 1,
+      dashArray:'1 8',
+    });
+    const icons = [pos0,pos1].map(p => {
+      const iconSize = 24 / 2;
+      const m = L.marker(p, {
+        icon:this.getOrCreateIcon({
+          className:'mapLink-marker',
+          html:htmlHelper(MAP_LINK_ICON, iconSize,false,),
+          iconSize: [iconSize,iconSize],
+          iconAnchor: [iconSize / 2, iconSize / 2],
+        })
+      });
+
+      m.on('click',function(){
+        opacity = 1 - opacity;
+        line.setStyle({opacity});
+      });
+      //mouseover/out only matters if map link isnt clicked
+      m.on('mouseover',function(){
+        if(opacity === 0)
+          line.setStyle({opacity:1});
+      });
+      m.on('mouseout',function(){
+        if(opacity === 0)
+          line.setStyle({opacity:0});
+      });
+      return m;
+    });
+    return [...icons, line];
+  }
   /*
 
     cols.forEach(col => {
@@ -182,57 +285,11 @@ export class PkInteractiveMap extends GenericMap {
       return new L.marker(ltnLagPos, { icon:this.getOrCreateIcon({className, html:text, iconSize:null}) });
     };
 
-    const polyline = (pos:[[number,number],[number,number]],dashArray:string|null='1 8') => {
-      const pos0 = this.config.convertPixelToWH(pos[0]);
-      const pos1 = this.config.convertPixelToWH(pos[1]);
-      let opacity = 0;
-      const line = new L.polyline([pos0,pos1],{
-        color: 'white',
-        weight: dashArray ? 2 : 3,
-        opacity,
-        smoothFactor: 1,
-        dashArray,
-      });
-      const icons = [pos0,pos1].map(p => {
-        const iconSize = ICON_SIZE / 2;
-        const m = L.marker(p, {
-          icon:this.getOrCreateIcon({
-            className:'mapLink-marker',
-            html:this.htmlHelper(getIconData(MAP_LINK_ICON), iconSize,false,),
-            iconSize: [iconSize,iconSize],
-            iconAnchor: [iconSize / 2, iconSize / 2],
-          })
-        });
-        m.on('click',function(e:LeafletEvent){
-          if(e.originalEvent.shiftKey)
-            alert(`${pos[0]},${pos[1]}`);
-        });
-
-        m.on('click',function(){
-          opacity = 1 - opacity;
-          line.setStyle({opacity});
-        });
-        //mouseover/out only matters if map link isnt clicked
-        m.on('mouseover',function(){
-          if(opacity === 0)
-            line.setStyle({opacity:1});
-        });
-        m.on('mouseout',function(){
-          if(opacity === 0)
-            line.setStyle({opacity:0});
-        });
-        return m;
-      });
-      return [...icons, line];
-    };
 
     const markers = this.inp.locations.map(loc => {
       if(!loc.pos || !loc.pos.length)
         return null!;
       return mapLabel(loc.pos, loc.name);
-    });
-    const lines = this.inp.interactiveMap!.mapLinks.map(link => {
-      return polyline(<[[number,number],[number,number]]>link);
     });
 
     return new IconLayer({
@@ -294,29 +351,4 @@ export class PkInteractiveMap extends GenericMap {
     }, 250);
   }
 */
-  static createAndMount(data:Vue_pokemonCompletion_full){
-    if(!data.interactiveMap)
-      return null;
-    const config = PkInteractiveMap.createConfig(data.interactiveMap);
-    const gmap = new PkInteractiveMap(config, data);
-    gmap.createLeafMap();
-    gmap.init();
-
-      
-    /*gmap.createMarkersFromJson({
-      ...data,
-      groups:[]
-    }, {
-      isAlwaysVisible:(jsonMarker) => jsonMarker.name.includes('Bench') || jsonMarker.name.includes('Stag Station'),
-      getLegacyIds:(colJson) => {
-        return [
-          ...(colJson.legacyIds ?? []),
-          ...((<any>colJson).legacyIds2 ?? [])
-        ];
-      }
-    });*/
-
-    (<any>window).debug_PkInteractiveMap = gmap;
-    return gmap;
-  }
 }
