@@ -756,6 +756,27 @@ export class GenericMap {
       });
     });
   }
+
+  flyToCollectable_lastElements:HTMLElement[] = [];
+  async flyToCollectable(c:Collectable){
+    //fly to first marker, but highlight them all
+    const pos = c.getFirstPosition(this.activeOverlayIdx);
+    if(!pos)
+      return;
+
+    this.myMap.flyTo(pos, this.getFlyToZoom());
+
+    this.flyToCollectable_lastElements.forEach(el => el.classList.remove('icon-highlighted'));
+    this.flyToCollectable_lastElements = [];
+    
+    c.markersByOverlay[this.activeOverlayIdx]?.forEach(marker => {
+      const genericMarker = marker.getElement()?.querySelector('.genericMap-marker');
+      if (genericMarker instanceof HTMLElement){
+        genericMarker.classList.add('icon-highlighted');
+        this.flyToCollectable_lastElements.push(genericMarker);
+      }
+    });
+  }
 }
 
 type Location = {

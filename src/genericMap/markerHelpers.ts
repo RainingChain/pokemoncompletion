@@ -164,7 +164,7 @@ export const MyMarkerMulti = function({
 export const createMultiMarkerPopupHtml = (cols:Collectable[]) => {
   /*
   <div>
-    <div><label><input type="checkbox"> Element </label></div>
+    <div><label><input type="checkbox"> <img> Element </label></div>
   </div>
   */
 
@@ -178,7 +178,8 @@ export const createMultiMarkerPopupHtml = (cols:Collectable[]) => {
     label.style.alignItems = 'center';
     const input = document.createElement('input');
     input.type = 'checkbox';
-    label.append(input, ' ' + col.name);
+    const img = htmlHelper(col.iconUrl, 20, true);
+    label.append(input, img, ' ' + col.name);
     label.title = col.categoryName;
     div2.appendChild(label);
     div.appendChild(div2);
@@ -333,6 +334,7 @@ export const MyMarker = function({
   return marker;
 }
 
+//NO_PROD why still string?
 export const htmlHelper = function(iconUrl:string,size:number,embed:boolean,extraClasses?:string[]) : string {
   let iconData = Config.getIconData(iconUrl);
   if(!iconData)

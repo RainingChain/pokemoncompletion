@@ -11,17 +11,17 @@ import { callableOncePerCycle } from "../pokemonCompletion";
 import { ContributorPanel } from "../../genericMap/contributorSideBar";
 import { GenericMap } from "../../genericMap/genericMap";
 import { GameDataJson } from "../../genericMap/dataHelper";
+import {Collectable as GenericMapCollectable} from "../../genericMap/Collectable";
 import L from "leaflet";
 
 /*
 TODO:
-
+  icon in multimarkerlist
 
   hide icons if cant obtained based on requirements
 
   support multiple icons with diff category
 
-  flyTo pin from list
 
   run convertPixelToWH on all .json
 
@@ -42,7 +42,9 @@ const convertPixelToWH = (config:Config, px:number[]) : [number,number] => {
 
 const MAP_LINK_ICON = 'misc/teleport.png';
 
-const USE_LOCAL_IMG = false; //NO_PROD window.location.href.includes('localhost') && !window.location.href.includes('prod');
+let USE_LOCAL_IMG = false;
+if (!window.location.href.includes('localhost'))
+  USE_LOCAL_IMG = false; //DONT TOUCH
 
 const mapSetOrPush = function<T,U>(map:Map<T,U[]>, key:T, val:U){
   const arr = map.get(key);
@@ -73,28 +75,6 @@ export class PkInteractiveMap extends GenericMap {
   displaySaveRestoreStatButton = false;
   onlyStackSameImgIcons = false;
 
-
-/*
-  htmlHelper(data:ReturnType<typeof getIconData>,size:number,embed:boolean){
-    const inside = document.createElement('div');
-    if (!data)
-      return inside;
-
-    inside.classList.add('genericMap-marker');
-    [data.sizeClass, data.spriteClass, data.colorClass].forEach(c => {
-      if(c)
-        inside.classList.add(c);
-
-    });
-    if(!embed)
-      return inside;
-
-    const outside = document.createElement('div');
-    outside.style.width = `${size}px`;
-    outside.style.height = `${size}px`;
-    outside.appendChild(inside);
-    return outside;
-  }*/
   static createConfig(mapData:PkInteractiveMapInput){
     return Config.create({
       mapZoomIconScaleModifier:mapData.mapZoomIconScaleModifier,
@@ -259,77 +239,23 @@ export class PkInteractiveMap extends GenericMap {
         domEl.style.display = shouldBeInMap ? '' : 'none';
     });
   */
-/*
-  protected createMapLinkLayer(){
-    const mapLabel = (pxPos:[number,number], text:string,className='mapLabel') => {
-      const ltnLagPos = this.config.convertPixelToWH(pxPos);
-      return new L.marker(ltnLagPos, { icon:this.getOrCreateIcon({className, html:text, iconSize:null}) });
-    };
-
-
-    const markers = this.inp.locations.map(loc => {
-      if(!loc.pos || !loc.pos.length)
-        return null!;
-      return mapLabel(loc.pos, loc.name);
-    });
-
-    return new IconLayer({
-      id:'mapLink',
-      name:'Map Labels',
-      iconUrl:"misc/townMap.png",
-      markers:[
-        ...markers,
-        ...lines.flat(),
-      ],
-      isVisibleByDefault:true,
-    });
-  }*/
-  /*
-  
-    ['overlayadd','overlayremove'].forEach(evt => {
-      this.myMap.on(evt, (e:any) => {
-        this.inp.updateInteractiveMapIconsVisibility();
-      });
-    });
-
-    this.inp.categories.forEach(c => {
-      c.list.forEach(c => c.onChange.forEach(f => f()));
-    });
-    */
    /*
-  flyToCollectable_lastElements:HTMLElement[] = [];
+*/
 
-  async flyToCollectable(c:Collectable){
-    this.flyToCollectable_lastElements.forEach(el => el.classList.remove('icon-highlighted'));
-    this.flyToCollectable_lastElements = [];
-
-    const pos = c.pos;
-    if(!pos || !pos.length)
+  async flyToPkCollectable(c:Collectable){
+    const gcol = GenericMapCollectable.listByUid.get(c.uid);
+    if(!gcol)
       return;
 
     if(!this.inp.displayInteractiveMap)
       await this.inp.toggleDisplayInteractiveMap();
 
     const header = document.getElementById('interactiveMapHeader');
-    if(!header)
-      return;
+    if(header)
+      header.scrollIntoView();
 
-    header.scrollIntoView();
     setTimeout(() => {
-      this.myMap.flyTo(this.config.convertPixelToWH(<[number,number]>pos[0]), this.config.getTotalMaxZoom());
-
-      const markers = this.markersByCollectable.get(c) || [];
-      markers.forEach(marker => {
-        const genericMarker = marker.getElement()?.querySelector('.genericMap-marker');
-        if (genericMarker){
-          genericMarker.classList.add('icon-highlighted');
-          this.flyToCollectable_lastElements.push(genericMarker);
-        } else {
-          console.error('no genericMarker');
-        }
-      });
-
+      this.flyToCollectable(gcol);
     }, 250);
   }
-*/
 }

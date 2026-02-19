@@ -115,15 +115,6 @@ a.sobreLink:not(:hover) {
   opacity:0.8;
 }
 
-.icon-highlighted {
-  border:10px solid yellow !important;
-  opacity:1 !important;
-}
-.icon-highlighted.icon-64x64 {
-  border:20px solid yellow !important;
-  opacity:1 !important;
-}
-
 a:hover {
   text-decoration: underline;
 }
