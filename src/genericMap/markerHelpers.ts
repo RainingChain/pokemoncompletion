@@ -74,9 +74,7 @@ export const MyMarkerMulti = function({
     const div = document.createElement('div');
     div.style.height = `${size}px`;
     div.classList.add('icon-scaling');
-    div.innerHTML = `
-      ${fullSubTxt}${htmlHelper(iconData.iconUrl,size,false, iconData.extraClasses)}
-    `;
+    div.append(fullSubTxt, htmlHelper(iconData.iconUrl,size,false, iconData.extraClasses));
 
     return L.divIcon({
       className:'',
@@ -243,18 +241,14 @@ export const MyMarker = function({
   if (col?.alwaysVisible)
     div.classList.add('icon-alwaysVisible');
 
-  div.innerHTML = `
-    ${fullSubTxt}
-    ${htmlHelper(iconUrl,size,false, extraClasses)}
-  `;
+  div.append(fullSubTxt, htmlHelper(iconUrl,size,false, extraClasses));
+
   const icon = L.divIcon({
     className:'',
     html:div,
     iconSize: [size, size],
     iconAnchor: [size/2, size/2],
   });
-
-
 
   const opts = {
     title:title,
@@ -334,19 +328,30 @@ export const MyMarker = function({
   return marker;
 }
 
-//NO_PROD why still string?
-export const htmlHelper = function(iconUrl:string,size:number,embed:boolean,extraClasses?:string[]) : string {
+export const htmlHelper = function(iconUrl:string,size:number,embed:boolean,extraClasses?:string[]) : HTMLElement {
   let iconData = Config.getIconData(iconUrl);
-  if(!iconData)
-    return `<div style="width:${size}px;height:${size}px;border:3px solid red"></div>`;
+  if(!iconData){
+    const div = document.createElement('div');
+    div.style.width = `${size}px`;
+    div.style.height = `${size}px`;
+    div.style.border = '3px solid red';
+    return div;
+  }
 
-  //NO_PROD fallback for bad image should be just color-border
   const w = size / iconData.w;
   const h = size / iconData.h;
-  const inside = `<div class="genericMap-marker ${iconData.spriteClass} ${iconData.sizeClass} ${extraClasses?.join(' ') ?? ''}" style="transform:scale3d(${w}, ${h}, 1);transform-origin:0% 0%"></div>`;
+  const inside = document.createElement('div');
+  inside.classList.add('genericMap-marker', iconData.spriteClass, iconData.sizeClass, ...(extraClasses ?? []));
+  inside.style.transform = `scale3d(${w}, ${h}, 1)`;
+  inside.style.transformOrigin = '0% 0%';
   if(!embed)
     return inside;
-  return `<div style="width:${size}px;height:${size}px">${inside}</div>`;
+
+  const div = document.createElement('div');
+  div.style.width = `${size}px`;
+  div.style.height = `${size}px`;
+  div.appendChild(inside);
+  return div;
 }
 
 

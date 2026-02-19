@@ -51,7 +51,7 @@ class Data {
         name:lay.name,
         id:lay.id,
         iconLayer:lay,
-        iconHtml:htmlHelper(lay.iconUrl,24,true),
+        iconHtml:htmlHelper(lay.iconUrl,24,true).innerHTML,
         isShown:lay.isVisibleByDefault,
       };
     }).filter(a => a);

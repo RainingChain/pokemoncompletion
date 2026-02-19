@@ -16,13 +16,14 @@ import L from "leaflet";
 
 /*
 TODO:
+
   icon in multimarkerlist
 
   hide icons if cant obtained based on requirements
 
   support multiple icons with diff category
 
-
+  rename htmlHelper to createIconDiv
   run convertPixelToWH on all .json
 
 */
@@ -139,7 +140,7 @@ export class PkInteractiveMap extends GenericMap {
   static createAndMount(data:Vue_pokemonCompletion_full){
     if(!data.interactiveMap)
       return null;
-    
+
     const config = PkInteractiveMap.createConfig(data.interactiveMap);
     const gmap = new PkInteractiveMap(config, data);
     gmap.createLeafMap();
@@ -225,7 +226,7 @@ export class PkInteractiveMap extends GenericMap {
 
     return marker;
   }
-    
+
     col.onChange.push(() => {
       let shouldBeInMap = this.inp.isVisible(col);
       if(col.obtained && col.categoryId === 'pokemon' && col.id !== this.inp.categoriesMap.get(col.categoryId)?.lastClickedId)
