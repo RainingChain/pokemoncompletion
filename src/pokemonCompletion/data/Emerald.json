@@ -13,7 +13,13 @@
   "cropSize":512,
   "mapZoomIconScaleModifier":0,
   "initialPos":{"zoom":2, "pos":[4200,4200]},
-  "imgCredit":"<a target='_blank' rel='noopener' href='https://www.jaxsonkeenes.com/'>Jaxson Keenes</a> and <a target='_blank' rel='noopener' href='https://bulbapedia.bulbagarden.net/'>Bulbapedia</a>",
+  "mapContributors":[{
+      "title":"Image",
+      "list":[
+        {"text":"Jaxson Keenes","href":"https://www.jaxsonkeenes.com"},
+        {"text":"Bulbapedia","href":"https://bulbapedia.bulbagarden.net"}
+      ]
+  }],
   "mapLinks":[
     [[2681.0,1408.7],[1719.3,986.7]],
     [[488.0,346.9],[2021.9,1780.5]],

@@ -33,7 +33,6 @@ L2.TileLayer.Fallback = L2.TileLayer.extend({
 
   //@ts-ignore
 	_tileOnError: function (done, tile, e) {
-    console.log(1);
 		var layer = this, // `this` is bound to the Tile Layer in L.TileLayer.prototype.createTile.
 		    originalCoords = tile._originalCoords,
 		    currentCoords = tile._currentCoords = tile._currentCoords || layer._createCurrentCoords(originalCoords),

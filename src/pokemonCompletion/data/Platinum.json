@@ -75,7 +75,13 @@
   "url":"https://pokemonmap.b-cdn.net/platinum/{z}_{x}_{y}.png?v=1",
   "fullImgUrl":"https://pokemonmap.b-cdn.net/platinum/full.png",
   "fullImgSize":"35MB",
-  "imgCredit":"<a target='_blank' rel='noopener' href='https://github.com/ICEREG1992/pkmnmap4'>ICEREG1992</a> and <a target='_blank' rel='noopener' href='https://bulbapedia.bulbagarden.net/'>Bulbapedia</a>",
+  "mapContributors":[{
+    "title":"Image",
+    "list":[
+      {"text":"ICEREG1992","href":"https://github.com/ICEREG1992/pkmnmap4"},
+      {"text":"Bulbapedia","href":"https://bulbapedia.bulbagarden.net"}
+    ]
+  }],
   "dim":{"w":16384,"h":16384},
   "cropSize":512,
   "mapZoomIconScaleModifier":0,

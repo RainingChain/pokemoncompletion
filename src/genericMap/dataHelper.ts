@@ -5,6 +5,7 @@ export type GameDataJson = {
     list:CollectableJson[],
     group:string;
     href?:boolean | string;
+    name?:string;
     iconUrl?:string;
   }[];
   groups:{

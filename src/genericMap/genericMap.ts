@@ -110,6 +110,7 @@ export class GenericMap {
         Collectable.create({
           name:colJson.name,
           categoryId:cat.group,
+          categoryName:cat.name ?? '',
           uid:colJson.uid,
           tags:colJson.tags,
           iconUrl:colJson.iconUrl ?? cat.iconUrl ?? opts.fallbackIconUrl,

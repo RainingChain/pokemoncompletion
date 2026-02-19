@@ -29,7 +29,12 @@
   "cropSize":512,
   "mapZoomIconScaleModifier":0,
   "initialPos":{"zoom":2, "pos":[0,8000]},
-  "imgCredit":"ZaidusRecon",
+  "mapContributors":[{
+      "title":"Image",
+      "list":[
+        {"text":"ZaidusRecon"}
+      ]
+  }],
   "mapLinks":[
    [[2505.6,4779.5],[3285.6,4768.5]],
    [[2503.6,4998.5],[3348.6,5058.5]],

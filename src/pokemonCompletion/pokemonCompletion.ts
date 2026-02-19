@@ -732,6 +732,9 @@ class Vue_pokemonCompletion_methods extends Vue_pokemonCompletion_req_methods {
             .map(a => a.name + ' ' + a.categoryId + ' ' + a.location)
             .join('\n');
   }
+  activateContributorMode(){
+    window.location.assign(window.location.href.replace('#','') + '?contributor');
+  }
   static instance:Vue_pokemonCompletion_full | null = null;
 }
 
@@ -750,14 +753,6 @@ document.addEventListener("DOMContentLoaded",async function(){
     });
     if(e)
       e.pos = [<any>a.pos];
-  });
-
-  //idk why its needed...
-  gameData?.getAllCollectables().forEach(col => {
-    col.pos?.forEach(p => {
-      p[0] -= 8;
-      p[1] -= 4;
-    });
   });
 
   const vue = {

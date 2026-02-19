@@ -179,6 +179,7 @@ export const createMultiMarkerPopupHtml = (cols:Collectable[]) => {
     const input = document.createElement('input');
     input.type = 'checkbox';
     label.append(input, ' ' + col.name);
+    label.title = col.categoryName;
     div2.appendChild(label);
     div.appendChild(div2);
 

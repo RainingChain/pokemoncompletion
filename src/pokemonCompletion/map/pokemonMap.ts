@@ -16,13 +16,12 @@ import L from "leaflet";
 /*
 TODO:
   flyTo
-  icon in mainControl 
-  contributor mode activate link
 
   htmlHelper fallback to border color
 
   run convertPixelToWH on yellow.json
 
+    mouse over multi icon should have title
 
 */
 
@@ -39,9 +38,10 @@ Alt + Shift + Click => reset
     */
 
 const convertPixelToWH = (config:Config, px:number[]) : [number,number] => {
+  if(px[0] === 655)
+    debugger;
   const br = config.overlays[0].getBottomRightIncludingBlack();
   const dim = config.overlays[0].getDim();
-  console.log(br,dim);
   // wh / totalWh  ==  px / totalPx
   // => wh = px / totalPx * totalWh
   return [
@@ -49,6 +49,7 @@ const convertPixelToWH = (config:Config, px:number[]) : [number,number] => {
     px[1] / dim.w * br[1],
   ];
 }
+
 const convertWHToPixel = (config:Config,obj:number[]) : [number, number] => {
   const br = config.overlays[0].getBottomRightIncludingBlack();
   const dim = config.overlays[0].getDim();
@@ -79,7 +80,7 @@ export class PkInteractiveMapInput {
   mapZoomIconScaleModifier = 0;
   initialPos = {zoom:1, pos:[0,0]};
   cropSize = 512;
-  imgCredit = '';
+  mapContributors:Config['contributors'] = [];
   mapLinks:number[][][] = [];
 };
 
@@ -88,7 +89,7 @@ export class PkInteractiveMap extends GenericMap {
               public inp:Vue_pokemonCompletion_full){
     super(config);
   }
-  displayContributorButton = window.location.href.includes('contributor');
+  displayContributorButton = true; //window.location.href.includes('contributor');
   displayChecklistButton = false;
   displaySaveRestoreStatButton = false;
   contributorMarker = 'pokemon/p1.png';
@@ -119,6 +120,7 @@ export class PkInteractiveMap extends GenericMap {
   static createConfig(mapData:PkInteractiveMapInput){
     return Config.create({
       mapZoomIconScaleModifier:mapData.mapZoomIconScaleModifier,
+      contributors:mapData.mapContributors,
       overlays:[
         OverlayConfig.create({
           digitalZoom:mapData.digitalZoom,
@@ -155,11 +157,12 @@ export class PkInteractiveMap extends GenericMap {
           group: cat.id,
           href: cat.url || undefined,
           iconUrl: cat.iconUrl,
+          name:cat.name,
           list: cat.list.map(col => {
             if(!col.pos)
               return null!;
             return {
-              pos:col.pos.map(pos => convertPixelToWH(config, pos)),
+              pos:col.pos, // .map(pos), // => convertPixelToWH(config, pos)),
               name:col.name,
               iconUrl:col.iconData?.id,
               href:col.href || undefined,
@@ -178,12 +181,12 @@ export class PkInteractiveMap extends GenericMap {
   static createAndMount(data:Vue_pokemonCompletion_full){
     if(!data.interactiveMap)
       return null;
+    
     const config = PkInteractiveMap.createConfig(data.interactiveMap);
     const gmap = new PkInteractiveMap(config, data);
     gmap.createLeafMap();
 
     const gmapData = PkInteractiveMap.createGameDataJson(config, data);
-    console.log(gmapData);
 
     gmap.createMarkersFromJson(gmapData, {});
     gmap.createMapLabelLayer([

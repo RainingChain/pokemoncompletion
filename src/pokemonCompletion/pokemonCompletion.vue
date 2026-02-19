@@ -208,7 +208,6 @@
   <h5>
     <span  @click="toggleDisplayInteractiveMap(), saveSettingsToLocalStorage()" id="interactiveMapHeader">
       {{displayInteractiveMap ? '▼' : '▶'}} Interactive Map
-      <span style="padding-left:20px;font-size:0.7em" v-if="displayInteractiveMap">(Image by <span v-html="interactiveMap.imgCredit"></span>)</span>
     </span>
   </h5>
   <div v-show="displayInteractiveMap" style="background-color: black;height: 95vh;width: 100%;padding-left:5px;padding-bottom:20px">

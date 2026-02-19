@@ -240,7 +240,7 @@ class Vue_pkAssistant_methods extends PkAssitant_update {
     connect_one();
   }
   onMsg_updateUi = async function(this:THIS,msg:MsgFromMgba){
-    console.log('onMsg_updateUi', msg);
+    console['log']('onMsg_updateUi', msg);
     this.lastMsg = msg;
     this.log(msg);
     this.updateBattleState(this.battleState, msg);

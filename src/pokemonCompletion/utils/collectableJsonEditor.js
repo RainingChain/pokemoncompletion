@@ -24,6 +24,30 @@ setTimeout(async () => {
 }, 1);
 */
 
+if(true){
+setTimeout(async () => {
+  const convertPixelToWH = ( px) => {
+    const br = [-1024,1024]
+    const dim = {h:8192, w:8192}
+    return [
+      (px[0] - 8) / dim.h * br[0],
+      (px[1] - 4) / dim.w * br[1],
+    ];
+  }
+
+  await func(`C:\\Users\\Samuel\\source\\repos\\pokemoncompletion\\src\\pokemonCompletion\\data\\Yellow.json`, (col, cat) => {
+    if(!col.pos)
+        return;
+
+    if (typeof col.pos[0] === 'number')
+      col.pos = [col.pos];;
+    
+    col.pos = col.pos.map(pos => convertPixelToWH(pos)); //.map(p => +p.toFixed(2)));
+    return col;
+  });
+}, 1);
+}
+
 if(false){
 setTimeout(async () => {
   await func(`C:\\Users\\Samuel\\source\\repos\\pokemoncompletion\\src\\pokemonCompletion\\data\\Black2.json`, (col, cat) => {

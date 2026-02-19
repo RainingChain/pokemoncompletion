@@ -110,7 +110,7 @@ export class Formula {
         return crits.every(crit => crit.evaluate(getFunc));
       });
     } catch(err){
-      console.log(err, this.getIdsReferenced());
+      console['log'](err, this.getIdsReferenced());
       return false;
     }
   }

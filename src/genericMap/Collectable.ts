@@ -33,6 +33,7 @@ export class Collectable {
   iconUrl = '';
   name = '';
   categoryId = '';
+  categoryName = '';
   uid = 0;
   legacyIds:string[] = [];
   flag:any | null = null;
