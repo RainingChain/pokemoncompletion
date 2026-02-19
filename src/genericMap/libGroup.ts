@@ -16,5 +16,3 @@ import "./lib/L.Control.Sidebar.js";
 
 import "./lib/easy-button.css";
 import "./lib/easy-button.js";
-
-import "./lib/Map.SelectArea.min.js";

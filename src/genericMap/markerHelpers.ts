@@ -336,7 +336,7 @@ export const MyMarker = function({
 export const htmlHelper = function(iconUrl:string,size:number,embed:boolean,extraClasses?:string[]) : string {
   let iconData = Config.getIconData(iconUrl);
   if(!iconData)
-    return '';
+    return `<div style="width:${size}px;height:${size}px;border:3px solid red"></div>`;
 
   //NO_PROD fallback for bad image should be just color-border
   const w = size / iconData.w;

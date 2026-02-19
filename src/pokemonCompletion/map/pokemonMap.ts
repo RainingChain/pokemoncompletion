@@ -15,27 +15,17 @@ import L from "leaflet";
 
 /*
 TODO:
-  flyTo
 
-  htmlHelper fallback to border color
 
-  run convertPixelToWH on yellow.json
+  hide icons if cant obtained based on requirements
 
-    mouse over multi icon should have title
+  support multiple icons with diff category
+
+  flyTo pin from list
+
+  run convertPixelToWH on all .json
 
 */
-
-
-/*
-Ctrl        + Click => [pos]
-Alt         + Click => [pos,pos]
-Alt + Shift + Click => reset
-*/
-
-/*
-
-
-    */
 
 const convertPixelToWH = (config:Config, px:number[]) : [number,number] => {
   if(px[0] === 655)
@@ -47,17 +37,6 @@ const convertPixelToWH = (config:Config, px:number[]) : [number,number] => {
   return [
     px[0] / dim.h * br[0],
     px[1] / dim.w * br[1],
-  ];
-}
-
-const convertWHToPixel = (config:Config,obj:number[]) : [number, number] => {
-  const br = config.overlays[0].getBottomRightIncludingBlack();
-  const dim = config.overlays[0].getDim();
-  // wh / totalWh  ==  px / totalPx
-  // => px = wh / totalWh * totalPx
-  return [
-    obj[0] / br[0] * dim.h,
-    obj[1] / br[1] * dim.w,
   ];
 }
 
@@ -92,7 +71,6 @@ export class PkInteractiveMap extends GenericMap {
   displayContributorButton = true; //window.location.href.includes('contributor');
   displayChecklistButton = false;
   displaySaveRestoreStatButton = false;
-  contributorMarker = 'pokemon/p1.png';
   onlyStackSameImgIcons = false;
 
 

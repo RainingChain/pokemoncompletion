@@ -136,7 +136,7 @@ export class ContributorPanel {
           const str = (<HTMLTextAreaElement>document.getElementById('contribTextArea')).value.split('\n');
           const count = str.filter(s => s.includes('"pos"')).length;
 
-          const txt = `{"num":${count}, "pos":[${px[0]},${px[1]}],"name":"${p}","iconUrl":"${gmap.contributorMarker}","flag":""},\n`;
+          const txt = `{"num":${count}, "pos":[${px[0]},${px[1]}],"name":"${p}","iconUrl":"","flag":""},\n`;
           GenericMap.addToTextArea(txt);
 
           navigator.clipboard.writeText(txt);
@@ -144,7 +144,7 @@ export class ContributorPanel {
           const newMark = MyMarker({
             pos:px,
             gmap,
-            iconUrl:gmap.contributorMarker,
+            iconUrl:'',
             title:p,
             col:null,
           });

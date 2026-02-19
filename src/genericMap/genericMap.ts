@@ -59,7 +59,6 @@ export class GenericMap {
   displayContributorButton = true;
   displayChecklistButton = true;
   displaySaveRestoreStatButton = true;
-  contributorMarker = 'contributorMarker.png';
   onlyStackSameImgIcons = true;
 
   vue_saveUpload:{
