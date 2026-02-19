@@ -305,7 +305,7 @@ class Vue_pokemonCompletion_methods extends Vue_pokemonCompletion_req_methods {
     if(!cat)
       return;
 
-    p.onChange.forEach(f => f());
+    p.emitOnChange();
     this.updateObtainedLocalStorageAndTextArea(cat);
     this.updateAllObtainedCounts();
 
@@ -522,7 +522,7 @@ class Vue_pokemonCompletion_methods extends Vue_pokemonCompletion_req_methods {
     if(oldLastClicked){
       const oldLastClickedEl = cat.list.find(el => el.id === oldLastClicked);
       if(oldLastClickedEl)
-        oldLastClickedEl.onChange.forEach(f => f()); //lastClick changed, so visiblity can change
+        oldLastClickedEl.emitOnChange(); //lastClick changed, so visiblity can change
     }
 
     this.onCollectableObtainedStatusChange(p);
@@ -694,7 +694,7 @@ class Vue_pokemonCompletion_methods extends Vue_pokemonCompletion_req_methods {
     return this.ensureInteractiveMapIsInit();
   }
   updateInteractiveMapIconsVisibility = function(this:Vue_pokemonCompletion_full){
-    this.getAllCollectables().forEach(c => c.onChange.forEach(f => f()));
+    this.getAllCollectables().forEach(c => c.emitOnChange());
   }
   getAllCollectables = function(this:Vue_pokemonCompletion_full){
     const col:Collectable[] = [];

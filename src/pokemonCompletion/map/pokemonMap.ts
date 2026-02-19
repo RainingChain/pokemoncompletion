@@ -6,7 +6,7 @@ import { htmlHelper, IconLayer, MyPolyline } from "../../genericMap/markerHelper
 import { createOverlay } from "../../genericMap/createOverlay";
 import { getIconData } from "../icons/pokemonIcon";
 import { Vue_pokemonCompletion_full } from "../pokemonCompletion";
-import { Collectable } from "../pokemonCompletion_data";
+import { Collectable as PkCollectable } from "../pokemonCompletion_data";
 import { callableOncePerCycle } from "../pokemonCompletion";
 import { ContributorPanel } from "../../genericMap/contributorSideBar";
 import { GenericMap } from "../../genericMap/genericMap";
@@ -121,13 +121,13 @@ export class PkInteractiveMap extends GenericMap {
             if(!col.pos)
               return null!;
             return {
-              pos:col.pos, // .map(pos), // => convertPixelToWH(config, pos)),
+              pos:col.pos,
               name:col.name,
               iconUrl:col.iconData?.id,
               href:col.href || undefined,
-              uid:col.uid, //NO_PROD
+              uid:col.uid,
               flag:null,
-              extraClasses:col.iconData?.colorClass, //NO_PROD add more class
+              extraClasses:col.iconData?.colorClass,
               legacyIds:[],
               tags:[],
             };
@@ -148,6 +148,19 @@ export class PkInteractiveMap extends GenericMap {
     const gmapData = PkInteractiveMap.createGameDataJson(config, data);
 
     gmap.createMarkersFromJson(gmapData, {});
+
+    data.getAllCollectables().forEach(pkCol => {
+      pkCol.onChange.push(() => {
+        const gcol = gmap.collectableByUid.get(pkCol.uid);
+        if(!gcol)
+          return;
+        const newval = data.isVisible(pkCol);
+        if(gcol.isVisibleCustomReason !== newval)
+          gcol.isVisibleCustomReason = newval;
+        gcol.onChange.forEach(f => f());
+      });
+    });
+
     gmap.createMapLabelLayer([
       data.locations.filter(loc => loc.pos).map(loc => {
         return {name:loc.name, pos:convertPixelToWH(config, loc.pos!)};
@@ -243,8 +256,8 @@ export class PkInteractiveMap extends GenericMap {
    /*
 */
 
-  async flyToPkCollectable(c:Collectable){
-    const gcol = GenericMapCollectable.listByUid.get(c.uid);
+  async flyToPkCollectable(c:PkCollectable){
+    const gcol = this.collectableByUid.get(c.uid);
     if(!gcol)
       return;
 

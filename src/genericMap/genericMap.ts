@@ -61,6 +61,8 @@ export class GenericMap {
   displaySaveRestoreStatButton = true;
   onlyStackSameImgIcons = true;
 
+  collectableByUid = new Map<number,Collectable>();
+
   vue_saveUpload:{
     onLoadSaveFileClick:() => void,
   } | null = null;
@@ -106,7 +108,7 @@ export class GenericMap {
 
     jsonData.categories.forEach(cat => {
       cat.list.forEach(colJson => {
-        Collectable.create({
+        const col = new Collectable({
           name:colJson.name,
           categoryId:cat.group,
           categoryName:cat.name ?? '',
@@ -119,6 +121,7 @@ export class GenericMap {
           legacyIds:opts.getLegacyIds?.(colJson),
           sourceJsonObj:colJson,
         });
+        this.collectableByUid.set(col.uid, col);
       });
     });
   }
@@ -137,13 +140,16 @@ export class GenericMap {
       if (!colJsons.length)
         return;
 
+      const collectables = colJsons.map(colJson => this.collectableByUid.get(colJson.colJson.uid)!).filter(a => a);
+
       const lay = new IconLayer({
         id:grp.id,
         name:grp.name,
         iconUrl:grp.iconUrl,
-        markersByOverlay:undefined,
+        nonCollectableMarkersByOverlay:undefined,
         isVisibleByDefault:grp.isVisibleByDefault,
         overlayCount:this.config.overlays.length,
+        collectables,
       });
 
       this.layers.push(lay);
@@ -233,7 +239,7 @@ export class GenericMap {
 
       iconsByPos.forEach(({samePosCollectables,pos}) => {
         const cols = samePosCollectables.map(sib => {
-          return Collectable.listByUid.get(sib.uid)!;
+          return this.collectableByUid.get(sib.uid)!;
         }).filter(a => a && a.iconUrl);
 
         const colsByImg = new Map<string, Collectable[]>();
@@ -296,7 +302,7 @@ export class GenericMap {
             col.addMarker(ovIdx, m);
           });
 
-          lay.addMarker(ovIdx, m);
+          lay.addNonCollectableMarker(ovIdx, m); //NO_PROD dont call anymore. collectable.OnChange only
         }); // for each siblings
       }); //iconByPos.forEach
     }); // overlays.forEach
@@ -310,7 +316,7 @@ export class GenericMap {
     this.layers.forEach((l,id) => {
       if(!l.areIcons)
         return;
-      list.push(...(<L.Marker[]>l.markersByOverlay[this.activeOverlayIdx] ?? []));
+      list.push(...(<L.Marker[]>l.nonCollectableMarkersByOverlay[this.activeOverlayIdx] ?? []));
     });
     return list;
   }
@@ -587,7 +593,8 @@ export class GenericMap {
       toggleableByUser:false,
       name:'Area Connection Lines',
       iconUrl:'',
-      markersByOverlay,
+      nonCollectableMarkersByOverlay: markersByOverlay,
+      collectables:[],
       overlayCount:this.config.overlays.length,
     });
     this.layers.push(lay);
@@ -623,7 +630,8 @@ export class GenericMap {
       toggleableByUser:false,
       name:'Area Names',
       iconUrl:'',
-      markersByOverlay,
+      nonCollectableMarkersByOverlay: markersByOverlay,
+      collectables:[],
       overlayCount:this.config.overlays.length,
     });
     this.layers.push(lay);
@@ -727,7 +735,8 @@ export class GenericMap {
       toggleableByUser:false,
       areIcons:false,
       name:'Map Edges',
-      markersByOverlay,
+      nonCollectableMarkersByOverlay: markersByOverlay,
+      collectables:[],
       overlayCount:this.config.overlays.length,
     });
     this.layers.push(lay);
@@ -768,7 +777,7 @@ export class GenericMap {
 
     this.flyToCollectable_lastElements.forEach(el => el.classList.remove('icon-highlighted'));
     this.flyToCollectable_lastElements = [];
-    
+
     c.markersByOverlay[this.activeOverlayIdx]?.forEach(marker => {
       const genericMarker = marker.getElement()?.querySelector('.genericMap-marker');
       if (genericMarker instanceof HTMLElement){

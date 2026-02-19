@@ -33,7 +33,7 @@
 
     <table class="table" style="text-align:left;padding-bottom:20px;" v-if="cat.expanded">
 
-      <tr v-for="col in cat.list" v-if="col.isVisible && (!hideObtained || !col.marked)">
+      <tr v-for="col in cat.list" v-if="col.isVisible() && (!hideObtained || !col.marked)">
         <td>
           <input v-model="col.marked" type="checkbox" @change="onColChange(col)"/>
         </td>

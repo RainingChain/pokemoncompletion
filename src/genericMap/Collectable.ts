@@ -28,7 +28,12 @@ export class Collectable {
   }
 
   marked = false;
-  isVisible = true;
+  /** doesnt take into consideration hideIfMarked and display settings */
+  isVisible(){
+    return this.isIconLayerVisible && this.isVisibleCustomReason;
+  }
+  isVisibleCustomReason = true;
+  isIconLayerVisible = true;
   markersByOverlay:L.Marker[][] = [];
   iconUrl = '';
   name = '';
@@ -57,18 +62,22 @@ export class Collectable {
     this.markersByOverlay.forEach(markers => {
       markers.forEach(marker => {
         const siblings = markerToCollectables.get(marker) ?? [];
-        const marked = siblings.every(s => s.marked);
+        const allMarked = siblings.every(s => !s.isVisible() || s.marked);
+        const allInvisible = siblings.every(s => !s.isVisible());
 
         const leaf_icon = marker.options.icon as L.DivIcon;
         const html = leaf_icon?.options?.html as HTMLElement;
 
         if (html?.classList){
-          if (marked)
+          if (allMarked)
             html.classList.add('icon-marked');
           else
             html.classList.remove('icon-marked');
+
+          //if (allInvisible)
+            //NO_PROD hide
         } else { //fallback
-          if (marked)
+          if (allMarked)
             marker.setOpacity(this.alwaysVisible ? OPACITY_ALWAYS_VISIBLE_MARKER : OPACITY_CLICKED);
           else
             marker.setOpacity(1);
@@ -77,12 +86,6 @@ export class Collectable {
     });
   }
 
-  static create(opts:Partial<Collectable>){
-    const col = new Collectable(opts);
-    Collectable.list.push(col);
-    Collectable.listByUid.set(col.uid, col);
-    return col;
-  }
   addMarker(overlayIdx:number, m:L.Marker){
     while (this.markersByOverlay.length <= overlayIdx)
       this.markersByOverlay.push([]);
@@ -97,9 +100,6 @@ export class Collectable {
       return null;
     return list[0].getLatLng();
   }
-
-  static list:Collectable[] = [];
-  static listByUid = new Map<number, Collectable>();
 };
 
 export const markerToCollectables = new Map<L.Marker, Collectable[]>();

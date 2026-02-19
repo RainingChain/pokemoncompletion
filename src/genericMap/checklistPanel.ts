@@ -41,7 +41,7 @@ const data = (gmap:GenericMap) : {
 class methods {
   init = function(this:ChecklistPanel_full){
     this.permanentlyMissableList = this.gmap.permanentlyMissableList.map(p => {
-      const cols = p.associatedCollectableUids.map(uid => Collectable.list.find(c => c.uid === uid)!).filter(a => a);
+      const cols = p.associatedCollectableUids.map(uid => this.gmap.collectableByUid.get(uid)!).filter(a => a);
       if(!cols.length)
         return null!;
       return {
@@ -61,7 +61,7 @@ class methods {
       return {
         expanded:false,
         name:lay.name,
-        list:Collectable.list.filter(col => col.categoryId === lay.id),
+        list:lay.collectables,
       };
     }).filter(a => a);
   }

@@ -16,9 +16,9 @@ type LayGroupInfo = {
   iconHtml:string,
 };
 
-const getSearchableTerms = () => {
+const getSearchableTerms = (gmap:GenericMap) => {
   const terms = new Set<string>();
-  Collectable.list.forEach(c => {
+  gmap.collectableByUid.forEach(c => {
     const t = c.name.split(' #')[0].trim();
     const t2 = t.split(' (')[0].trim();
     terms.add(t2); //merge Mask #1 and Mask #2 into Mask

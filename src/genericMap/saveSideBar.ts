@@ -21,7 +21,7 @@ const data = (config:Config, gmap:GenericMap) => ({
   gmap,
 });
 
-export const getLocalStorageConvertedSave = function(txt:string): [string,null] | [null, any] {
+export const getLocalStorageConvertedSave = function(gmap:GenericMap, txt:string): [string,null] | [null, any] {
   let obj:Any;
   try {
     obj = JSON.parse(txt);
@@ -43,7 +43,7 @@ export const getLocalStorageConvertedSave = function(txt:string): [string,null] 
       const stateStr = obj.layers[i];
       allStatesFromJson.set(i, stateStr.split(','));
     }
-    Collectable.list.forEach(col => {
+    gmap.collectableByUid.forEach(col => {
       const jsonMarks = allStatesFromJson.get(col.categoryId) ?? [];
       const marked = col.legacyIds?.some(colId => jsonMarks.includes(colId));
       if (marked)
@@ -58,7 +58,7 @@ export const getLocalStorageConvertedSave = function(txt:string): [string,null] 
 class methods {
   clearState = function(this:SavePanel_full){
     this.addStateToHistory();
-    Collectable.list.forEach(c => {
+    this.gmap.collectableByUid.forEach(c => {
       c.setMarked(false);
     });
   }
@@ -68,7 +68,7 @@ class methods {
   }
   getCurrentStateAsStr = function(this:SavePanel_full){
     const obj = {version:this.saveVersion, markedElements:<number[]>[]};
-    Collectable.list.forEach(col => {
+    this.gmap.collectableByUid.forEach(col => {
       if(!col.marked)
         return;
       obj.markedElements.push(col.uid);
@@ -80,11 +80,11 @@ class methods {
     if(!txt)
       return "No load state has been pasted in the text area.";
     try {
-      let [err,obj] = getLocalStorageConvertedSave(txt);
+      let [err,obj] = getLocalStorageConvertedSave(this.gmap, txt);
       if(err)
         return err;
 
-      Collectable.list.forEach(col => {
+      this.gmap.collectableByUid.forEach(col => {
         const marked = obj.markedElements.includes(col.uid);
         col.setMarked(marked);
       });

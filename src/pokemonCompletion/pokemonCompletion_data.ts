@@ -104,7 +104,7 @@ export class Formula {
   evaluate(getFunc:(id:string) => number){
     if(!this.list)
       return true;
-    
+
     try {
       return this.list.some(crits => {
         return crits.every(crit => crit.evaluate(getFunc));
@@ -474,10 +474,13 @@ export class Collectable {
   }
   setObtainable(t:ObtainType){
     this.obtainable = t;
-    this.onChange.forEach(f => f());
+    this.emitOnChange();
   }
   setObtained(t:boolean){
     this.obtained = t;
+    this.emitOnChange();
+  }
+  emitOnChange(){
     this.onChange.forEach(f => f());
   }
 }
@@ -810,8 +813,8 @@ export class GameData {
       this.createWaresByType(game);
       this.playingWith = this.waresByType[0]?.type || '';
 
-      if (DEFAULT_TO_CONSOLE && 
-          this.playingWith.includes('emulator') && 
+      if (DEFAULT_TO_CONSOLE &&
+          this.playingWith.includes('emulator') &&
           this.waresByType.length > 1)
         this.playingWith = this.waresByType.find(t => !t.type.includes('emulator'))?.type || '';
     }
@@ -833,7 +836,7 @@ export class GameData {
           }
           return raw;
         })();
-        
+
         const waresByType:Requirement['waresByType'] = [];
         const waresByTypeInput = r.waresByType || types.map(type => {
           return {type, formula: r.formula!};

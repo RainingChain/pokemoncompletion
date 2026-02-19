@@ -104,28 +104,30 @@ export const MyMarkerMulti = function({
   });
 
   cols.forEach(col => {
+    if(!gmap)
+      return;
+
     col.onChange.push(callableOncePerCycle(() => {
-      const idx = cols.findIndex(col => col.isVisible && !col.marked);
+      // checkbox/name visibility is in createMultiMarkerPopupHtml, so no need to do it here
+      // icon visibility is done in setMarked
+
+      // update the icon image
+      const idx = cols.findIndex(col => col.isVisible() && !col.marked);
       if (idx >= 0 && idx !== lastIconIdx){
         marker.setIcon(icons[idx]);
         lastIconIdx = idx;
       }
 
-      /*
-      const visibles = icons.filter(icon => this.inp.isVisible(icon.col));
-      const shouldBeInMap = visibles.length > 0;
-      const firstNotObtained = visibles.find(icon => !icon.col.obtained);
-      const allObtained = !firstNotObtained;
-      if (shouldBeInMap){
-        marker.setOpacity(allObtained ? 0.2 : 1);
-        if(firstNotObtained)
-          marker.setIcon(firstNotObtained.icon);
+      //NO_PROD always add collectable to map, but play with css to hide them.
+
+      const hasVisible = cols.some(col => col.isVisible());
+      if(!hasVisible){
+        marker.removeFrom(gmap);
+        return;
       }
 
-      const domEl:HTMLElement = marker.getElement();
-      if(domEl)
-        domEl.style.display = shouldBeInMap ? '' : 'none';
-        */
+      marker.addTo(gmap);
+
     }));
   });
 
@@ -188,7 +190,7 @@ export const createMultiMarkerPopupHtml = (cols:Collectable[]) => {
 
     col.onChange.push(() => {
       input.checked = col.marked;
-      input.style.display = col.isVisible ? '' : 'none';
+      input.style.display = col.isVisible() ? '' : 'none';
     });
   });
   return div;
@@ -359,12 +361,15 @@ export type IconLayerMarker = Omit<IconLayer,'markers'> & {
   markers:L.Marker[];
 }
 
+
 /** doesnt change after creation */
 export class IconLayer {
   id = '';
   name = '';
   iconUrl = '';
-  markersByOverlay:(L.Marker | L.Polyline)[][] = [];
+  /** collectableMarkers are indirectly toggled with Collectable.onChange */
+  nonCollectableMarkersByOverlay:(L.Marker | L.Polyline)[][] = [];
+  collectables:Collectable[] = [];
   isVisibleByDefault = true;
   alwaysVisible = false;
   areIcons = true;
@@ -376,7 +381,8 @@ export class IconLayer {
     name:string,
     areIcons?:boolean,
     iconUrl:string,
-    markersByOverlay:(L.Marker | L.Polyline | null)[][] | undefined,
+    nonCollectableMarkersByOverlay:(L.Marker | L.Polyline | null)[][] | undefined,
+    collectables:Collectable[],
     isVisibleByDefault?:boolean,
     alwaysVisible?:boolean,
     toggleableByUser?:boolean,
@@ -396,27 +402,28 @@ export class IconLayer {
       this.toggleableByUser = opts.toggleableByUser;
 
     for (let i = 0; i < opts.overlayCount; i++){
-      this.markersByOverlay[i] = [];
+      this.nonCollectableMarkersByOverlay[i] = [];
 
       const subLay = L.layerGroup();
       this.layerGroupByOverlay.push(subLay);
     }
 
-    if (opts.markersByOverlay !== undefined){
-      opts.markersByOverlay.forEach((markers,idx) => {
-        this.addMarkers(idx, markers);
+    if (opts.nonCollectableMarkersByOverlay !== undefined){
+      opts.nonCollectableMarkersByOverlay.forEach((markers,idx) => {
+        this.addNonCollectableMarkers(idx, markers);
       });
     }
+    this.collectables = opts.collectables;
   }
-  addMarkers(overlayIdx:number, markers:(L.Marker | L.Polyline | null)[]){
+  addNonCollectableMarkers(overlayIdx:number, markers:(L.Marker | L.Polyline | null)[]){
     markers.forEach((m,i) => {
       if(m)
-        this.addMarker(overlayIdx, m);
+        this.addNonCollectableMarker(overlayIdx, m);
     });
   }
-  addMarker(overlayIdx:number, marker:(L.Marker | L.Polyline)){
+  addNonCollectableMarker(overlayIdx:number, marker:(L.Marker | L.Polyline)){
     marker.addTo(this.layerGroupByOverlay[overlayIdx]);
-    this.markersByOverlay[overlayIdx].push(marker);
+    this.nonCollectableMarkersByOverlay[overlayIdx].push(marker);
   }
 }
 
