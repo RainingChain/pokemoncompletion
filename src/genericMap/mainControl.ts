@@ -86,7 +86,6 @@ class Methods {
   }
   refreshLayerGroupVisibility(this:All, lay:LayGroupInfo){
     const overlayIdx = this.gmap.activeOverlayIdx;
-    const layGrp = lay.iconLayer.layerGroupByOverlay[overlayIdx];
     lay.iconLayer.collectables.forEach(c => {
       c.isIconLayerVisible = lay.isShown;
       c.onChange.forEach(ch => ch());

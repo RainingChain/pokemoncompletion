@@ -150,14 +150,35 @@ export class PkInteractiveMap extends GenericMap {
     gmap.createMarkersFromJson(gmapData, {});
 
     data.getAllCollectables().forEach(pkCol => {
-      pkCol.onChange.push(() => {
-        const gcol = gmap.collectableByUid.get(pkCol.uid);
-        if(!gcol)
-          return;
-        const newval = data.isVisible(pkCol);
-        if(gcol.isVisibleCustomReason !== newval)
-          gcol.isVisibleCustomReason = newval;
+      const gcol = gmap.collectableByUid.get(pkCol.uid);
+      if(!gcol)
+        return;
+
+      let active = true; //avoid infinite loop
+      pkCol.onChange.push(() => { 
+        active = false;
+
+        const newVis = data.isVisible(pkCol);
+        if(gcol.isVisibleCustomReason !== newVis)
+          gcol.isVisibleCustomReason = newVis;
+
+        const newMarked = pkCol.obtained;
+        if(gcol.marked !== newMarked)
+          gcol.setMarked(newMarked);
+
         gcol.onChange.forEach(f => f());
+
+        active = true;
+      });
+
+      gcol.onChange.push(() => {
+        debugger;
+        if(!active)
+          return;
+        if(pkCol.obtained !== gcol.marked){
+          pkCol.obtained = gcol.marked;
+          data.onCollectableObtainedStatusChange(pkCol);
+        }
       });
     });
 
