@@ -38,18 +38,16 @@ export const callableOncePerCycle = function(toCall:(this:any, arg?:any) => void
 export const MyMarkerMulti = function({
   pos,
   iconDatas,
-  title,
   gmap,
   popupDiv,
   size=28,
-  cols=[],
+  cols,
 }:{
   pos:Pos | null,
   iconDatas:{
     iconUrl:string,
     extraClasses?:string[],
   }[],
-  title:string,
   popupDiv:HTMLDivElement,
   gmap:GenericMap | null,
   cols:Collectable[]
@@ -61,20 +59,35 @@ export const MyMarkerMulti = function({
   if(pos[0] === 0 && pos[1] === 0)
     return null;
 
+  if(!cols.length)
+      return;
+
+  const cat = cols[0].categoryName;
+
   pos = <[number,number]>pos;
 
-  (<Any>window).debug_markersJSON.push({pos, iconUrl:iconDatas[0].iconUrl, title});
+  const getTitle = () => {
+    let colCount = cols.filter(c => c.isVisible()).length;
+    const title = `x${colCount} ${cat}`;
+    if(IS_CONTRIBUTOR_MODE)
+      return title +  ' | ' + pos.toString();
+    return title; 
+  };
+  (<Any>window).debug_markersJSON.push({pos, iconUrl:iconDatas[0].iconUrl, cols});
 
-  if(IS_CONTRIBUTOR_MODE)
-    title = pos.toString() + ' | '  + title;
-
-  const fullSubTxt = cols.length ? `<div class="icon-subText">x${cols.length}</div>` : '';
-
+  const subTexts:HTMLElement[] = [];
   const icons = iconDatas.map(iconData => {
     const div = document.createElement('div');
     div.style.height = `${size}px`;
     div.classList.add('icon-scaling');
-    div.append(fullSubTxt, htmlHelper(iconData.iconUrl,size,false, iconData.extraClasses));
+    if (cols.length){
+      const subText = document.createElement('div');
+      subText.classList.add('icon-subText');
+      subText.innerText = getTitle().split(' ')[0];
+      subTexts.push(subText);
+      div.append(subText);
+    }
+    div.append(htmlHelper(iconData.iconUrl,size,false, iconData.extraClasses));
 
     return L.divIcon({
       className:'',
@@ -86,7 +99,7 @@ export const MyMarkerMulti = function({
 
   let lastIconIdx = 0;
   const opts = {
-    title,
+    title:getTitle(),
     riseOnHover:true,
     icon: icons[lastIconIdx],
   };
@@ -108,6 +121,12 @@ export const MyMarkerMulti = function({
       return;
 
     col.onChange.push(callableOncePerCycle(() => {
+      marker.options.title = getTitle();
+      subTexts.forEach(subText => {
+        subText.innerText = getTitle().split(' ')[0];
+      });
+
+
       // checkbox/name visibility is in createMultiMarkerPopupHtml, so no need to do it here
       // icon visibility is done in setMarked
 
@@ -117,17 +136,6 @@ export const MyMarkerMulti = function({
         marker.setIcon(icons[idx]);
         lastIconIdx = idx;
       }
-
-      //NO_PROD always add collectable to map, but play with css to hide them.
-
-      const hasVisible = cols.some(col => col.isVisible());
-      if(!hasVisible){
-        marker.removeFrom(gmap);
-        return;
-      }
-
-      marker.addTo(gmap);
-
     }));
   });
 
@@ -175,6 +183,7 @@ export const createMultiMarkerPopupHtml = (cols:Collectable[]) => {
       div2.classList.add('icon-tag-' + tag);
     });
     const label = document.createElement('label');
+    label.classList.add('div-h');
     label.style.alignItems = 'center';
     const input = document.createElement('input');
     input.type = 'checkbox';
@@ -190,7 +199,7 @@ export const createMultiMarkerPopupHtml = (cols:Collectable[]) => {
 
     col.onChange.push(() => {
       input.checked = col.marked;
-      input.style.display = col.isVisible() ? '' : 'none';
+      div2.style.display = col.isVisible() ? '' : 'none';
     });
   });
   return div;
@@ -418,10 +427,10 @@ export class IconLayer {
   addNonCollectableMarkers(overlayIdx:number, markers:(L.Marker | L.Polyline | null)[]){
     markers.forEach((m,i) => {
       if(m)
-        this.addNonCollectableMarker(overlayIdx, m);
+        this.addMarker(overlayIdx, m);
     });
   }
-  addNonCollectableMarker(overlayIdx:number, marker:(L.Marker | L.Polyline)){
+  addMarker(overlayIdx:number, marker:(L.Marker | L.Polyline)){
     marker.addTo(this.layerGroupByOverlay[overlayIdx]);
     this.nonCollectableMarkersByOverlay[overlayIdx].push(marker);
   }

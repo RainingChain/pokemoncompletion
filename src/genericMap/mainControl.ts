@@ -51,14 +51,14 @@ class Data {
         name:lay.name,
         id:lay.id,
         iconLayer:lay,
-        iconHtml:htmlHelper(lay.iconUrl,24,true).innerHTML,
+        iconHtml:htmlHelper(lay.iconUrl,24,true).outerHTML,
         isShown:lay.isVisibleByDefault,
       };
     }).filter(a => a);
 
     this.overlays = gmap.overlayInfos.slice(0);
 
-    this.searchDataList = getSearchableTerms().map(term => {
+    this.searchDataList = getSearchableTerms(this.gmap).map(term => {
       return {
         value:term,
         name:term,
@@ -87,10 +87,10 @@ class Methods {
   refreshLayerGroupVisibility(this:All, lay:LayGroupInfo){
     const overlayIdx = this.gmap.activeOverlayIdx;
     const layGrp = lay.iconLayer.layerGroupByOverlay[overlayIdx];
-    if(lay.isShown)
-      this.gmap.myMap.addLayer(layGrp);
-    else
-      this.gmap.myMap.removeLayer(layGrp);
+    lay.iconLayer.collectables.forEach(c => {
+      c.isIconLayerVisible = lay.isShown;
+      c.onChange.forEach(ch => ch());
+    });
   }
   setLayerGroupVisibility(this:All, layGroupId:string, active:boolean){
     const lay = this.toggleableLayers.find(l => l.id === layGroupId);
@@ -127,7 +127,7 @@ class Methods {
         //console.error(err);
       }
     }
-
+    //NO_PROD redo with isVisible
     const {myMap} = this.gmap;
 
     const searchValue = this.searchValue.toLowerCase();
@@ -238,20 +238,25 @@ class Methods {
       this.gmap.myMap.setView(newCenter);
     }, 2000);
   }
+  updateLayersAddOrRemoveFromMap(this:All){
+    this.toggleableLayers.forEach(lay => {
+      lay.iconLayer.layerGroupByOverlay.forEach((layGrp,idx) => {
+        if (idx !== this.gmap.activeOverlayIdx)
+          this.gmap.myMap.removeLayer(layGrp);
+        else
+          this.gmap.myMap.addLayer(layGrp);
+      });
+    });
+
+
+  }
   onOverlayInputChanged(this:All){
     const {center, closestMarker} = this.getMarkerNearCenterAndOffset();
 
     const newOvIdx = +this.selectedOverlayIdxStr;
     this.gmap.activateOverlay(newOvIdx);
 
-    this.toggleableLayers.forEach(lay => {
-      lay.iconLayer.layerGroupByOverlay.forEach((layGrp,idx) => {
-        if (idx !== newOvIdx)
-          this.gmap.myMap.removeLayer(layGrp);
-        else
-          this.refreshLayerGroupVisibility(lay);
-      });
-    });
+    this.updateLayersAddOrRemoveFromMap();
 
     ViewPanel.vue?.onOverlayChange();
 
@@ -286,6 +291,7 @@ export const create_mainControl = (gmap:GenericMap) => {
   }));
   v.$mount();
   v.loadSavedVisibleLayers();
+  v.updateLayersAddOrRemoveFromMap();
   (<any>window).debug_mainControl = v;
   return v;
 };

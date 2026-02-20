@@ -25,6 +25,29 @@ export type CollectableJson = {
 export class Collectable {
   constructor(opts:Partial<Collectable>){
     Object.assign(this, opts);
+
+    this.onChange.push(() => {
+      this.markersByOverlay.forEach(markers => {
+        markers.forEach(marker => {
+          const siblings = markerToCollectables.get(marker) ?? [];
+          const allMarked = siblings.every(s => !s.isVisible() || s.marked);
+          const visible = siblings.some(s => s.isVisible());
+
+          const leaf_icon = marker.options.icon as L.DivIcon;
+          const html = leaf_icon?.options?.html as HTMLElement;
+          
+          if (html?.classList){
+            html.classList.toggle('icon-marked', allMarked);
+            html.classList.toggle('icon-invisible', !visible);
+          } else { //fallback
+            if (allMarked)
+              marker.setOpacity(this.alwaysVisible ? OPACITY_ALWAYS_VISIBLE_MARKER : OPACITY_CLICKED);
+            else
+              marker.setOpacity(1);
+          }
+        });
+      });
+    });
   }
 
   marked = false;
@@ -58,32 +81,6 @@ export class Collectable {
     this.marked = marked;
 
     this.onChange.forEach(f => f());
-
-    this.markersByOverlay.forEach(markers => {
-      markers.forEach(marker => {
-        const siblings = markerToCollectables.get(marker) ?? [];
-        const allMarked = siblings.every(s => !s.isVisible() || s.marked);
-        const allInvisible = siblings.every(s => !s.isVisible());
-
-        const leaf_icon = marker.options.icon as L.DivIcon;
-        const html = leaf_icon?.options?.html as HTMLElement;
-
-        if (html?.classList){
-          if (allMarked)
-            html.classList.add('icon-marked');
-          else
-            html.classList.remove('icon-marked');
-
-          //if (allInvisible)
-            //NO_PROD hide
-        } else { //fallback
-          if (allMarked)
-            marker.setOpacity(this.alwaysVisible ? OPACITY_ALWAYS_VISIBLE_MARKER : OPACITY_CLICKED);
-          else
-            marker.setOpacity(1);
-        }
-      });
-    });
   }
 
   addMarker(overlayIdx:number, m:L.Marker){

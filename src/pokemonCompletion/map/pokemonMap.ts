@@ -17,11 +17,11 @@ import L from "leaflet";
 /*
 TODO:
 
-  icon in multimarkerlist
+test:
+  test change overlay in silksong
 
-  hide icons if cant obtained based on requirements
+  test hide icons if cant obtained based on requirements
 
-  support multiple icons with diff category
 
   rename htmlHelper to createIconDiv
   run convertPixelToWH on all .json

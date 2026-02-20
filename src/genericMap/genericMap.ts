@@ -256,9 +256,6 @@ export class GenericMap {
           const firstCol = samePosAndImgCollectables[0];
           const firstColJson = firstCol.sourceJsonObj;
 
-          const lay = this.layers.find(lay => lay.id === firstCol.categoryId);  //NO_PROD how to handle diff layer...
-          if(!lay)
-            return;
 
           const adaptedPos = this.adaptStackedPos(pos, idx, ovIdx);
           const m = (() => {
@@ -272,7 +269,6 @@ export class GenericMap {
                 iconDatas:samePosAndImgCollectables.map(col => {
                   return {iconUrl:col.iconUrl, extraClasses:this.getExtraClasses(col.sourceJsonObj)};
                 }),
-                title:`x${samePosAndImgCollectables.length} ${grpName}`,
                 gmap:this,
                 popupDiv,
                 size:20,
@@ -300,9 +296,12 @@ export class GenericMap {
 
           samePosAndImgCollectables.forEach(col => {
             col.addMarker(ovIdx, m);
+
+            const lay = this.layers.find(lay => lay.id === col.categoryId);
+            if(lay)
+              lay.addMarker(ovIdx, m); 
           });
 
-          lay.addNonCollectableMarker(ovIdx, m); //NO_PROD dont call anymore. collectable.OnChange only
         }); // for each siblings
       }); //iconByPos.forEach
     }); // overlays.forEach
