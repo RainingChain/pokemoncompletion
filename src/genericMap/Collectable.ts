@@ -25,7 +25,7 @@ export type CollectableJson = {
 export class Collectable {
   constructor(opts:Partial<Collectable>){
     Object.assign(this, opts);
-
+    
     this.onChange.push(() => {
       this.markersByOverlay.forEach(markers => {
         markers.forEach(marker => {
@@ -74,12 +74,17 @@ export class Collectable {
   tags:string[] | null = null;
 
 
-  setMarked(marked:boolean, forceUpdate=false){
-    if(!forceUpdate && this.marked === marked)
+  setMarked(marked:boolean){
+    if(this.marked === marked)
       return;
 
     this.marked = marked;
+    this.emitOnChange();
+  }
 
+  /** must be called when isVisible or marked is changed */
+  emitOnChange(){
+    console.log('gcol.emitOnChange');
     this.onChange.forEach(f => f());
   }
 

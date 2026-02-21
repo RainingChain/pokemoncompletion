@@ -190,7 +190,20 @@ export const createMultiMarkerPopupHtml = (cols:Collectable[]) => {
     const img = htmlHelper(col.iconUrl, 20, true);
     label.append(input, img, ' ' + col.name);
     label.title = col.categoryName;
-    div2.appendChild(label);
+    div2.append(label);
+
+    if(col.href){
+      const wikiLink = document.createElement('a');
+      wikiLink.target = "_blank";
+      wikiLink.rel = "noopener";
+      wikiLink.style.paddingLeft = "15px";
+      wikiLink.style.color = "rgba(0,200,255)";
+      wikiLink.innerHTML = `Wiki <span class="glyphicon glyphicon-new-window"></span>`;
+      wikiLink.href = col.href;
+      div2.append(wikiLink);
+    }
+    //NO_PROD table
+
     div.appendChild(div2);
 
     input.addEventListener('change', () => {

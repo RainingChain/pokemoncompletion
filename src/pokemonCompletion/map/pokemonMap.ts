@@ -17,6 +17,10 @@ import L from "leaflet";
 /*
 TODO:
 
+wiki link
+
+duplicate col in omanyte
+
 test:
   test change overlay in silksong
 
@@ -75,6 +79,7 @@ export class PkInteractiveMap extends GenericMap {
   displayChecklistButton = false;
   displaySaveRestoreStatButton = false;
   onlyStackSameImgIcons = false;
+  baseWikiLink = 'https://bulbapedia.bulbagarden.net/wiki'
 
   static createConfig(mapData:PkInteractiveMapInput){
     return Config.create({
@@ -137,6 +142,40 @@ export class PkInteractiveMap extends GenericMap {
     };
   }
 
+  set2WaysBindingForCollectables(data:Vue_pokemonCompletion_full){
+    data.getAllCollectables().forEach(pkCol => {
+      const gcol = this.collectableByUid.get(pkCol.uid);
+      if(!gcol)
+        return;
+
+      pkCol.onChange.push(() => { 
+        let changed = false;
+        const newVis = data.isVisible(pkCol);
+        if(gcol.isVisibleCustomReason !== newVis){
+          gcol.isVisibleCustomReason = newVis;
+          changed = true;
+        }
+
+        const newMarked = pkCol.obtained;
+        if(gcol.marked !== newMarked){
+          gcol.marked = newMarked;
+          changed = true;
+        }
+
+        if(changed)
+          gcol.emitOnChange();
+      });
+
+      gcol.onChange.push(() => {
+        if(pkCol.obtained !== gcol.marked){
+          pkCol.obtained = gcol.marked;
+          data.onCollectableObtainedStatusChange(pkCol);
+        }
+      });
+    });
+
+  }
+
   static createAndMount(data:Vue_pokemonCompletion_full){
     if(!data.interactiveMap)
       return null;
@@ -148,39 +187,7 @@ export class PkInteractiveMap extends GenericMap {
     const gmapData = PkInteractiveMap.createGameDataJson(config, data);
 
     gmap.createMarkersFromJson(gmapData, {});
-
-    data.getAllCollectables().forEach(pkCol => {
-      const gcol = gmap.collectableByUid.get(pkCol.uid);
-      if(!gcol)
-        return;
-
-      let active = true; //avoid infinite loop
-      pkCol.onChange.push(() => { 
-        active = false;
-
-        const newVis = data.isVisible(pkCol);
-        if(gcol.isVisibleCustomReason !== newVis)
-          gcol.isVisibleCustomReason = newVis;
-
-        const newMarked = pkCol.obtained;
-        if(gcol.marked !== newMarked)
-          gcol.setMarked(newMarked);
-
-        gcol.onChange.forEach(f => f());
-
-        active = true;
-      });
-
-      gcol.onChange.push(() => {
-        debugger;
-        if(!active)
-          return;
-        if(pkCol.obtained !== gcol.marked){
-          pkCol.obtained = gcol.marked;
-          data.onCollectableObtainedStatusChange(pkCol);
-        }
-      });
-    });
+    gmap.set2WaysBindingForCollectables(data);
 
     gmap.createMapLabelLayer([
       data.locations.filter(loc => loc.pos).map(loc => {

@@ -95,7 +95,9 @@ export class GenericMap {
       const removeHypen = removeBracket.split(' - ');
       return this.baseWikiLink + '/' + removeHypen[removeHypen.length - 1];
     }
-
+    if (href.startsWith('http'))
+       return href;
+      
     return this.baseWikiLink + '/' + href;
   }
   getFlyToZoom(){
@@ -226,8 +228,11 @@ export class GenericMap {
 
             const posStr = pos.toString();
             const existing = iconsByPos.get(posStr);
-            if (existing)
+            if (existing){
+              if (existing.samePosCollectables.includes(col))
+                  throw new Error('duplicate pos for col.name=' + col.name);
               existing.samePosCollectables.push(col);
+            }
             else
               iconsByPos.set(posStr, {
                 samePosCollectables:[col],
@@ -236,6 +241,8 @@ export class GenericMap {
           });
         });
       });
+
+      //NO_PROD some duplicate collectable.
 
       iconsByPos.forEach(({samePosCollectables,pos}) => {
         const cols = samePosCollectables.map(sib => {
@@ -256,13 +263,11 @@ export class GenericMap {
           const firstCol = samePosAndImgCollectables[0];
           const firstColJson = firstCol.sourceJsonObj;
 
-
           const adaptedPos = this.adaptStackedPos(pos, idx, ovIdx);
           const m = (() => {
             //multi marker
             if (samePosAndImgCollectables.length > 1){
               const popupDiv = createMultiMarkerPopupHtml(samePosAndImgCollectables);
-              const grpName = jsonData.groups.find(grp => grp.id === firstCol.categoryId)?.name ?? '';
 
               return MyMarkerMulti({
                 pos:adaptedPos,

@@ -66,7 +66,9 @@ class methods {
     }).filter(a => a);
   }
   onColChange = function(col:Collectable){
-    col.setMarked(col.marked, true);
+    const wanted = col.marked;
+    col.marked = !wanted; //undo then redo
+    col.setMarked(wanted);
   }
   getObtainedCount = function(cat:Cat){
     return cat.list.reduce((prev, v) => {

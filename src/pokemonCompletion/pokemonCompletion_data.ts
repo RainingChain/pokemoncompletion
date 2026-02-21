@@ -481,6 +481,7 @@ export class Collectable {
     this.emitOnChange();
   }
   emitOnChange(){
+    console.log('pkcol.emitOnChange');
     this.onChange.forEach(f => f());
   }
 }
