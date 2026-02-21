@@ -26,24 +26,36 @@ setTimeout(async () => {
 
 if(true){
 setTimeout(async () => {
-  const convertPixelToWH = ( px) => {
+  const f = `C:\\Users\\Samuel\\source\\repos\\pokemoncompletion\\src\\pokemonCompletion\\data\\Crystal.json`;
+  const json = await readJson(f);
+  
+  const convertPixelToWH = ( px, offset) => {
     const br = [-1024,1024]
-    const dim = {h:8192, w:8192}
+    const dim = json.interactiveMap.dim;
     return [
-      (px[0] - 8) / dim.h * br[0],
-      (px[1] - 4) / dim.w * br[1],
+      (px[0] - (offset ? 8 : 0)) / dim.h * br[0],
+      (px[1] - (offset ? 4 : 0)) / dim.w * br[1],
     ];
   }
 
-  await func(`C:\\Users\\Samuel\\source\\repos\\pokemoncompletion\\src\\pokemonCompletion\\data\\Yellow.json`, (col, cat) => {
+  await func(f, (col, cat) => {
     if(!col.pos)
-        return;
+      return;
 
     if (typeof col.pos[0] === 'number')
       col.pos = [col.pos];;
     
-    col.pos = col.pos.map(pos => convertPixelToWH(pos)); //.map(p => +p.toFixed(2)));
+    col.pos = col.pos.map(pos => convertPixelToWH(pos, true)); //.map(p => +p.toFixed(2)));
     return col;
+  });
+
+  json.interactiveMap.mapLink.forEach(m => {
+    console.log(JSON.stringify(m.map(m2 => convertPixelToWH(m2))) + ',');
+  });
+
+  json.locations.forEach(m => {
+    m.pos = convertPixelToWH(m.pos)
+    console.log(JSON.stringify(m) + ',');
   });
 }, 1);
 }

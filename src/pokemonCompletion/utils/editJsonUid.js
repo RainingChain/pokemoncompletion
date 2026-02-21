@@ -29,9 +29,29 @@ const fixUidToFile = async (f) => {
     return col;
   });
 };
-
+/*
 fs.readdir(root, async (err,files) => {
   files.forEach(f => {
-    fixUidToFile(root + f);
+    console.log(f);
+    //fixUidToFile(root + '\\' + f);
   });
 });
+*/
+
+let list = [
+"Black2.json",
+"Crystal.json",
+"Emerald.json",
+"Pinball.json",
+"PinballRubySapphire.json",
+"Platinum.json",
+"PmdRescueTeam.json",
+"PmdSky.json",
+"Ranger.json",
+"Shuffle.json",
+"Stadium.json",
+"UltraSun.json",
+"X.json",
+];
+
+list.forEach(el => fixUidToFile(root + '\\' + el));
