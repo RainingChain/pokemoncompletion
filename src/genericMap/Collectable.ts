@@ -84,7 +84,6 @@ export class Collectable {
 
   /** must be called when isVisible or marked is changed */
   emitOnChange(){
-    console.log('gcol.emitOnChange');
     this.onChange.forEach(f => f());
   }
 

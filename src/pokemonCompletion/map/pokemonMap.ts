@@ -27,8 +27,6 @@ test:
 */
 
 const convertPixelToWH = (config:Config, px:number[]) : [number,number] => {
-  if(px[0] === 655)
-    debugger;
   const br = config.overlays[0].getBottomRightIncludingBlack();
   const dim = config.overlays[0].getDim();
   // wh / totalWh  ==  px / totalPx
@@ -175,6 +173,7 @@ export class PkInteractiveMap extends GenericMap {
       return null;
 
     const config = PkInteractiveMap.createConfig(data.interactiveMap);
+    console.log(config.overlays[0].getBottomRightIncludingBlack());
     const gmap = new PkInteractiveMap(config, data);
     gmap.createLeafMap();
 
@@ -185,7 +184,7 @@ export class PkInteractiveMap extends GenericMap {
 
     gmap.createMapLabelLayer([
       data.locations.filter(loc => loc.pos).map(loc => {
-        return {name:loc.name, pos:convertPixelToWH(config, loc.pos!)};
+        return {name:loc.name, pos:loc.pos!};
       })
     ])
     gmap.createMapLinkLayer([
@@ -200,8 +199,8 @@ export class PkInteractiveMap extends GenericMap {
   }
 
   createMapLinkMarkers(pos:[[number,number],[number,number]] | number[][]){
-    const pos0 = convertPixelToWH(this.config, pos[0]);
-    const pos1 = convertPixelToWH(this.config, pos[1]);
+    const pos0 = <[number,number]>pos[0];
+    const pos1 = <[number,number]>pos[1];
     let opacity = 0;
     const line = MyPolyline([pos0,pos1],{
       color: 'white',

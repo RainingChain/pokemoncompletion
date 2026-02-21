@@ -30,12 +30,14 @@ setTimeout(async () => {
   const json = await readJson(f);
   
   const convertPixelToWH = ( px, offset) => {
-    const br = [-1024,1024]
+    const br = [-512,1024]
     const dim = json.interactiveMap.dim;
+    const a = (px[0] - (offset ? 6 : 0)) / dim.h * br[0];
+    const b = (px[1] - (offset ? 1 : 0)) / dim.w * br[1];
     return [
-      (px[0] - (offset ? 8 : 0)) / dim.h * br[0],
-      (px[1] - (offset ? 4 : 0)) / dim.w * br[1],
-    ];
+      +a.toFixed(2),
+      +b.toFixed(2),
+    ]
   }
 
   await func(f, (col, cat) => {
@@ -49,12 +51,13 @@ setTimeout(async () => {
     return col;
   });
 
-  json.interactiveMap.mapLink.forEach(m => {
+  json.interactiveMap.mapLinks.forEach(m => {
     console.log(JSON.stringify(m.map(m2 => convertPixelToWH(m2))) + ',');
   });
 
   json.locations.forEach(m => {
-    m.pos = convertPixelToWH(m.pos)
+    if(m.pos)
+      m.pos = convertPixelToWH(m.pos)
     console.log(JSON.stringify(m) + ',');
   });
 }, 1);
