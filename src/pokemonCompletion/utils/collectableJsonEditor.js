@@ -29,7 +29,8 @@ setTimeout(async () => {
   const f = `C:\\Users\\Samuel\\source\\repos\\pokemoncompletion\\src\\pokemonCompletion\\data\\Emerald.json`;
   const json = await readJson(f);
   
-  const convertPixelToWH = ( px, offset) => {const br = [-1024,1024]
+  const convertPixelToWH = ( px, offset) => {
+    const br = [-512,1024]
     const dim = json.interactiveMap.dim;
     const a = (px[0] - (offset ? 6 : 0)) / dim.h * br[0];
     const b = (px[1] - (offset ? 1 : 0)) / dim.w * br[1];
