@@ -242,8 +242,6 @@ export class GenericMap {
         });
       });
 
-      //NO_PROD some duplicate collectable.
-
       iconsByPos.forEach(({samePosCollectables,pos}) => {
         const cols = samePosCollectables.map(sib => {
           return this.collectableByUid.get(sib.uid)!;

@@ -17,18 +17,12 @@ import L from "leaflet";
 /*
 TODO:
 
-wiki link
-
-duplicate col in omanyte
+  run convertPixelToWH on all .json
 
 test:
   test change overlay in silksong
 
-  test hide icons if cant obtained based on requirements
-
-
   rename htmlHelper to createIconDiv
-  run convertPixelToWH on all .json
 
 */
 

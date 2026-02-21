@@ -176,12 +176,13 @@ export const createMultiMarkerPopupHtml = (cols:Collectable[]) => {
   </div>
   */
 
-  const div = document.createElement('div');
+  const table = document.createElement('table');
   cols.forEach(col => {
-    const div2 = document.createElement('div');
+    const tr = document.createElement('tr');
     col.tags?.forEach(tag => {
-      div2.classList.add('icon-tag-' + tag);
+      tr.classList.add('icon-tag-' + tag);
     });
+    const td1 = document.createElement('td');
     const label = document.createElement('label');
     label.classList.add('div-h');
     label.style.alignItems = 'center';
@@ -190,9 +191,11 @@ export const createMultiMarkerPopupHtml = (cols:Collectable[]) => {
     const img = htmlHelper(col.iconUrl, 20, true);
     label.append(input, img, ' ' + col.name);
     label.title = col.categoryName;
-    div2.append(label);
+    td1.append(label);
+    tr.append(td1);
 
     if(col.href){
+      const td2 = document.createElement('td');
       const wikiLink = document.createElement('a');
       wikiLink.target = "_blank";
       wikiLink.rel = "noopener";
@@ -200,11 +203,11 @@ export const createMultiMarkerPopupHtml = (cols:Collectable[]) => {
       wikiLink.style.color = "rgba(0,200,255)";
       wikiLink.innerHTML = `Wiki <span class="glyphicon glyphicon-new-window"></span>`;
       wikiLink.href = col.href;
-      div2.append(wikiLink);
+      td2.append(wikiLink)
+      tr.append(td2);
     }
-    //NO_PROD table
 
-    div.appendChild(div2);
+    table.appendChild(tr);
 
     input.addEventListener('change', () => {
       col.setMarked(input.checked);
@@ -212,10 +215,10 @@ export const createMultiMarkerPopupHtml = (cols:Collectable[]) => {
 
     col.onChange.push(() => {
       input.checked = col.marked;
-      div2.style.display = col.isVisible() ? '' : 'none';
+      tr.style.display = col.isVisible() ? '' : 'none';
     });
   });
-  return div;
+  return table;
 };
 
 export const MyMarker = function({

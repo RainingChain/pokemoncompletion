@@ -70,7 +70,7 @@ export enum ObtainType {
 
 export type CollectableInput = {
   id?: string,
-  uid?:number, //NO_PROD will be mandatory
+  uid:number,
   name: string,
   location?: string,
   obtainable?: ObtainTypeInJson, href?: string, reqs?: (string | string[])[],
