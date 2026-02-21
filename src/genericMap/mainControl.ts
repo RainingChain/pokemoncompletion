@@ -138,20 +138,21 @@ class Methods {
           return sib.name.toLowerCase().includes(searchValue);
         });
 
-        if (match && !(<Any>m)._icon)
-          m.addTo(myMap);
+        const leaf_icon = m.options.icon as L.DivIcon;
+        const html = leaf_icon?.options?.html as HTMLElement;
 
-        if (!match && (<Any>m)._icon)
-          m.removeFrom(myMap);
+        if (html?.classList)
+          html.classList.toggle('icon-search-match', match);
       });
     } else {
       myMap.getContainer()?.classList.remove('map-search-active');
 
-      this.toggleableLayers.forEach(lay => {
-        const overlayIdx = this.gmap.activeOverlayIdx;
-        const layGrp = lay.iconLayer.layerGroupByOverlay[overlayIdx];
-        layGrp.removeFrom(myMap);  //hack to force full refresh
-        this.refreshLayerGroupVisibility(lay);
+      this.gmap.getAllActiveMarkers().forEach(m => {
+        const leaf_icon = m.options.icon as L.DivIcon;
+        const html = leaf_icon?.options?.html as HTMLElement;
+
+        if (html?.classList)
+          html.classList.remove('icon-search-match');
       });
     }
   }

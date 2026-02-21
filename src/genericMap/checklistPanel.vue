@@ -41,7 +41,7 @@
           {{col.name}}
         </td>
         <td>
-          <div v-if="col.markerByOverlay[gmap.activeOverlayIdx]" @click="flyTo(col)" class="flyToPin">📍</div>
+          <div v-if="col.markersByOverlay[gmap.activeOverlayIdx] && col.markersByOverlay[gmap.activeOverlayIdx].length" @click="flyTo(col)" class="flyToPin">📍</div>
         </td>
       </tr>
     </table>

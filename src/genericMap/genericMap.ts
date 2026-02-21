@@ -97,7 +97,7 @@ export class GenericMap {
     }
     if (href.startsWith('http'))
        return href;
-      
+
     return this.baseWikiLink + '/' + href;
   }
   getFlyToZoom(){
@@ -148,7 +148,7 @@ export class GenericMap {
         id:grp.id,
         name:grp.name,
         iconUrl:grp.iconUrl,
-        nonCollectableMarkersByOverlay:undefined,
+        markersByOverlay:undefined,
         isVisibleByDefault:grp.isVisibleByDefault,
         overlayCount:this.config.overlays.length,
         collectables,
@@ -302,7 +302,7 @@ export class GenericMap {
 
             const lay = this.layers.find(lay => lay.id === col.categoryId);
             if(lay)
-              lay.addMarker(ovIdx, m); 
+              lay.addMarker(ovIdx, m);
           });
 
         }); // for each siblings
@@ -318,7 +318,7 @@ export class GenericMap {
     this.layers.forEach((l,id) => {
       if(!l.areIcons)
         return;
-      list.push(...(<L.Marker[]>l.nonCollectableMarkersByOverlay[this.activeOverlayIdx] ?? []));
+      list.push(...(<L.Marker[]>l.markersByOverlay[this.activeOverlayIdx] ?? []));
     });
     return list;
   }
@@ -595,7 +595,7 @@ export class GenericMap {
       toggleableByUser:false,
       name:'Area Connection Lines',
       iconUrl:'',
-      nonCollectableMarkersByOverlay: markersByOverlay,
+      markersByOverlay: markersByOverlay,
       collectables:[],
       overlayCount:this.config.overlays.length,
     });
@@ -632,7 +632,7 @@ export class GenericMap {
       toggleableByUser:false,
       name:'Area Names',
       iconUrl:'',
-      nonCollectableMarkersByOverlay: markersByOverlay,
+      markersByOverlay: markersByOverlay,
       collectables:[],
       overlayCount:this.config.overlays.length,
     });
@@ -737,7 +737,7 @@ export class GenericMap {
       toggleableByUser:false,
       areIcons:false,
       name:'Map Edges',
-      nonCollectableMarkersByOverlay: markersByOverlay,
+      markersByOverlay: markersByOverlay,
       collectables:[],
       overlayCount:this.config.overlays.length,
     });

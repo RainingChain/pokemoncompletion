@@ -70,8 +70,8 @@ export const MyMarkerMulti = function({
     let colCount = cols.filter(c => c.isVisible()).length;
     const title = `x${colCount} ${cat}`;
     if(IS_CONTRIBUTOR_MODE)
-      return title +  ' | ' + pos.toString();
-    return title; 
+      return title +  ' | ' + pos!.toString();
+    return title;
   };
   (<Any>window).debug_markersJSON.push({pos, iconUrl:iconDatas[0].iconUrl, cols});
 
@@ -200,7 +200,7 @@ export const createMultiMarkerPopupHtml = (cols:Collectable[]) => {
       wikiLink.target = "_blank";
       wikiLink.rel = "noopener";
       wikiLink.style.paddingLeft = "15px";
-      wikiLink.style.color = "rgba(0,200,255)";
+      wikiLink.style.color = "rgba(0,100,150)";
       wikiLink.innerHTML = `Wiki <span class="glyphicon glyphicon-new-window"></span>`;
       wikiLink.href = col.href;
       td2.append(wikiLink)
@@ -259,7 +259,14 @@ export const MyMarker = function({
   if(IS_CONTRIBUTOR_MODE)
     title = pos.toString() + ' | '  + title;
 
-  const fullSubTxt = subText ? `<div class="icon-subText">${subText}</div>` : '';
+  const fullSubTxt = (() => {
+    if(!subText)
+      return '';
+    const d = document.createElement('div');
+    d.classList.add('icon-subText');
+    d.innerText = subText;
+    return d;
+  })();
 
   const div = document.createElement('div');
   div.style.height = `${size}px`;
@@ -393,7 +400,7 @@ export class IconLayer {
   name = '';
   iconUrl = '';
   /** collectableMarkers are indirectly toggled with Collectable.onChange */
-  nonCollectableMarkersByOverlay:(L.Marker | L.Polyline)[][] = [];
+  markersByOverlay:(L.Marker | L.Polyline)[][] = [];
   collectables:Collectable[] = [];
   isVisibleByDefault = true;
   alwaysVisible = false;
@@ -406,7 +413,7 @@ export class IconLayer {
     name:string,
     areIcons?:boolean,
     iconUrl:string,
-    nonCollectableMarkersByOverlay:(L.Marker | L.Polyline | null)[][] | undefined,
+    markersByOverlay:(L.Marker | L.Polyline | null)[][] | undefined,
     collectables:Collectable[],
     isVisibleByDefault?:boolean,
     alwaysVisible?:boolean,
@@ -427,20 +434,20 @@ export class IconLayer {
       this.toggleableByUser = opts.toggleableByUser;
 
     for (let i = 0; i < opts.overlayCount; i++){
-      this.nonCollectableMarkersByOverlay[i] = [];
+      this.markersByOverlay[i] = [];
 
       const subLay = L.layerGroup();
       this.layerGroupByOverlay.push(subLay);
     }
 
-    if (opts.nonCollectableMarkersByOverlay !== undefined){
-      opts.nonCollectableMarkersByOverlay.forEach((markers,idx) => {
-        this.addNonCollectableMarkers(idx, markers);
+    if (opts.markersByOverlay !== undefined){
+      opts.markersByOverlay.forEach((markers,idx) => {
+        this.addMarkers(idx, markers);
       });
     }
     this.collectables = opts.collectables;
   }
-  addNonCollectableMarkers(overlayIdx:number, markers:(L.Marker | L.Polyline | null)[]){
+  addMarkers(overlayIdx:number, markers:(L.Marker | L.Polyline | null)[]){
     markers.forEach((m,i) => {
       if(m)
         this.addMarker(overlayIdx, m);
@@ -448,7 +455,7 @@ export class IconLayer {
   }
   addMarker(overlayIdx:number, marker:(L.Marker | L.Polyline)){
     marker.addTo(this.layerGroupByOverlay[overlayIdx]);
-    this.nonCollectableMarkersByOverlay[overlayIdx].push(marker);
+    this.markersByOverlay[overlayIdx].push(marker);
   }
 }
 

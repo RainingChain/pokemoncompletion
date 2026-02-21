@@ -150,15 +150,6 @@ path.leaflet-interactive {
   stroke-width: 1px !important;
 }
 
-.map-search-active .leaflet-map-pane .icon-marked {
-  opacity:1 !important;
-}
-
-.map-search-active .leaflet-map-pane .genericMap-marker {
-	border:5px solid pink;
-  box-sizing:content-box;
-  opacity:1 !important;
-}
 
 .icon-scaling {
   transform:scale3d(calc(var(--iconScale)), calc(var(--iconScale)), 1);
@@ -215,7 +206,7 @@ path.leaflet-interactive {
     cursor: pointer;
 }
 
-.icon-marked {
+.leaflet-marker-icon:has(> .icon-marked) {
   opacity:0.2;
 }
 
@@ -227,19 +218,35 @@ path.leaflet-interactive {
   display:none;
 }
 
-.icon-marked.icon-alwaysVisible {
+.leaflet-marker-icon:has(> .icon-marked.icon-alwaysVisible) {
   opacity:0.8;
 }
 
-.map-hideObtainedIcons .icon-marked.icon-alwaysVisible {
+.map-hideObtainedIcons .leaflet-marker-icon:has(> .icon-marked.icon-alwaysVisible) {
   opacity:0.8;
 }
 
-.icon-highlighted {
+.leaflet-marker-icon:has(> .icon-highlighted) {
   border:10px solid yellow !important;
   opacity:1 !important;
 }
-.icon-highlighted.icon-64x64 {
+.leaflet-marker-icon:has(> .icon-highlighted.icon-64x64) {
   border:20px solid yellow !important;
   opacity:1 !important;
+}
+
+
+
+.map-search-active .leaflet-marker-icon {
+  display:none !important;
+}
+
+.map-search-active .leaflet-marker-icon:has(> .icon-search-match) {
+  display:block !important;
+  opacity:1 !important;
+}
+
+.map-search-active .leaflet-marker-icon:has(> .icon-search-match) .genericMap-marker {
+  border:10px solid yellow;
+  box-sizing: content-box;
 }
