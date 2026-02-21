@@ -26,22 +26,17 @@ setTimeout(async () => {
 
 if(true){
 setTimeout(async () => {
-  const f = `C:\\Users\\Samuel\\source\\repos\\pokemoncompletion\\src\\pokemonCompletion\\data\\Yellow.json`;
+  const f = `C:\\Users\\Samuel\\source\\repos\\pokemoncompletion\\src\\pokemonCompletion\\data\\Emerald.json`;
   const json = await readJson(f);
   
-  const convertPixelToWH = ( px, offset) => {
-    return [
-      px[0] - 1.6,
-      px[1] + 265.25 - 264.33,
-    ]
-    /*const br = [-1024,1024]
+  const convertPixelToWH = ( px, offset) => {const br = [-1024,1024]
     const dim = json.interactiveMap.dim;
     const a = (px[0] - (offset ? 6 : 0)) / dim.h * br[0];
     const b = (px[1] - (offset ? 1 : 0)) / dim.w * br[1];
     return [
       +a.toFixed(2),
       +b.toFixed(2),
-    ]*/
+    ]
   }
 
   await func(f, (col, cat) => {
