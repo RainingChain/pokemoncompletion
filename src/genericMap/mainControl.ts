@@ -125,7 +125,7 @@ class Methods {
         //console.error(err);
       }
     }
-    //NO_PROD redo with isVisible
+    
     const {myMap} = this.gmap;
 
     const searchValue = this.searchValue.toLowerCase();
