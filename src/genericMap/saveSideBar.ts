@@ -2,177 +2,162 @@
 import Vue from "vue";
 
 import {log} from "./log";
-import {easyButton, IconLayer} from "./markerHelpers";
-import {Config} from "./Config";
-const config = Config.c;
+import {easyButton, Any } from "./markerHelpers";
+import type {Config} from "./Config";
+import L from "leaflet";
 
 import withRenderSave from "./saveSideBar.vue";
+import { LeafletSidebar } from "./leaflet_type";
+import { Collectable } from "./Collectable";
+import clarity from "@microsoft/clarity";
+import { GenericMap } from "./genericMap";
 
-declare let L:any;
+const data = (config:Config, gmap:GenericMap) => ({
+  stateHistory:<string[]>[],
+  saveVersion:config.saveVersion,
+  localStorage:config.localStorage,
+  saveEditorUrl:config.saveEditorUrl,
+  saveEditorSrcUrl:config.saveEditorSrcUrl,
+  gmap,
+});
+
+export const getLocalStorageConvertedSave = function(gmap:GenericMap, txt:string): [string,null] | [null, any] {
+  let obj:Any;
+  try {
+    obj = JSON.parse(txt);
+  } catch(err){
+    return ["Failed to parse the save state: Invalid JSON.", null];
+  }
+
+  if (obj.version === '1.1')
+    return [null, obj];
+
+  try {
+    //convert to 1.1
+    const res = {
+      version:'1.1',
+      markedElements:<number[]>[],
+    };
+    const allStatesFromJson = new Map<string,string[]>();
+    for(const i in obj.layers){
+      const stateStr = obj.layers[i];
+      allStatesFromJson.set(i, stateStr.split(','));
+    }
+    gmap.collectableByUid.forEach(col => {
+      const jsonMarks = allStatesFromJson.get(col.categoryId) ?? [];
+      const marked = col.legacyIds?.some(colId => jsonMarks.includes(colId));
+      if (marked)
+        res.markedElements.push(col.uid);
+    });
+    return [null, res];
+  } catch(err){
+    return ["Failed to convert to supported save state format.", null];
+  }
+}
+
+class methods {
+  clearState = function(this:SavePanel_full){
+    this.addStateToHistory();
+    this.gmap.collectableByUid.forEach(c => {
+      c.setMarked(false);
+    });
+  }
+  saveState = function(this:SavePanel_full){
+    const saveTextArea = <HTMLInputElement>this.$refs.saveTextArea;
+    saveTextArea.value = this.getCurrentStateAsStr();
+  }
+  getCurrentStateAsStr = function(this:SavePanel_full){
+    const obj = {version:this.saveVersion, markedElements:<number[]>[]};
+    this.gmap.collectableByUid.forEach(col => {
+      if(!col.marked)
+        return;
+      obj.markedElements.push(col.uid);
+    });
+    obj.markedElements.sort((a,b) => a - b);
+    return JSON.stringify(obj);
+  }
+  loadStateFromStr = function(this:SavePanel_full,txt?:string | null){
+    if(!txt)
+      return "No load state has been pasted in the text area.";
+    try {
+      let [err,obj] = getLocalStorageConvertedSave(this.gmap, txt);
+      if(err)
+        return err;
+
+      this.gmap.collectableByUid.forEach(col => {
+        const marked = obj.markedElements.includes(col.uid);
+        col.setMarked(marked);
+      });
+    } catch(err){
+      return "Failed to parse the save state:" + err.message;
+    }
+    return null;
+  }
+  loadStateFromTextArea = function(this:SavePanel_full){
+    const saveTextArea = <HTMLInputElement>this.$refs.saveTextArea;
+    const txt = saveTextArea.value;
+    this.addStateToHistory();
+    const res = this.loadStateFromStr(txt);
+    if(res)
+      alert(res);
+
+    try {
+      clarity.event('genericMap_loadStateFromTextArea_' + this.localStorage.state);
+    } catch(err){
+      //console.error(err);
+    }
+  }
+  addStateToHistory = function(this:SavePanel_full){
+    const s = this.getCurrentStateAsStr();
+    try {
+      window.localStorage.setItem(this.localStorage.state,s);
+    } catch(err){
+      log('Error saving map state in localStorage.',err);
+    }
+    this.stateHistory.push(s);
+    if(this.stateHistory.length > 10000)
+      this.stateHistory.shift();
+  }
+  onPostMapStateChange = function(this:SavePanel_full){
+    this.addStateToHistory();
+  }
+  revertToPreviousState = function(this:SavePanel_full){
+    if(this.stateHistory.length === 0)
+      return alert("Error: No previous state.");
+    const lastState = this.stateHistory.pop();
+    this.loadStateFromStr(lastState);
+  }
+};
+
+export type SavePanel_full = methods & ReturnType<typeof data> & {
+  $el:HTMLElement,
+  $mount:() => void,
+  $refs:{saveTextArea:HTMLElement}
+};
 
 export class SavePanel {
-  static vSave:any;
-  static saveSidebar:any;
+  static vSave:SavePanel_full;
+  static sidebar:LeafletSidebar;
 
-  static addSavePanel(myMap:any, onOpen:() => void){
-    const getMarkerIds = function(mark:any){
-      const latLng = mark.getLatLng();
-      const v1Id = mark.oldId;
-      const v2Id = '' + latLng.lat + '_' + latLng.lng;
-      return [mark.permId, v1Id, v2Id];
-    }
+  static addSavePanel(gmap:GenericMap){
+    const {config,myMap} = gmap;
 
-    SavePanel.vSave = new Vue(withRenderSave({
-      data: {
-        stateHistory:<string[]>[],
-        saveEditorUrl:config.saveEditorUrl,
-        saveEditorSrcUrl:config.saveEditorSrcUrl,
-      },
-      methods:{
-        clearState(this:any){
-          this.addStateToHistory();
-          IconLayer.forEachMarkerLayers(lay => {
-            lay.markers.forEach(m => m.setOpacity(1));
-          });
-        },
-        saveState(this:any){
-          const saveTextArea = <HTMLInputElement>this.$refs.saveTextArea;
-          saveTextArea.value = this.getCurrentStateAsStr();
-        },
-        getCurrentStateAsStr(this:any){
-          const obj = {version:'1.0',layers:<DictObj<string>>{}};
-          IconLayer.forEachMarkerLayers(lay => {
-            const icons = <string[]>[];
-            lay.markers.forEach(m => {
-              if(m.options.opacity === 1)
-                return;
-              icons.push(getMarkerIds(m)[0]);
-            });
-            obj.layers[lay.id] = icons.join(',');
-          });
-          return JSON.stringify(obj);
-        },
-        loadStateFromStr(this:any,txt:string){
-          if(!txt)
-            return "No load state has been pasted in the text area.";
-          let obj:any;
-          try {
-            obj = JSON.parse(txt);
-          } catch(err){
-            return "Failed to parse the save state: Invalid JSON.";
-          }
+    const vSave = <SavePanel_full>new Vue(withRenderSave({
+      data:data(config, gmap),
+      methods:new methods(),
+      mounted:function(this:SavePanel_full){
+        SavePanel.sidebar = gmap.createSidebar(this.$el, 'glyphicon-floppy-open',"Save/Restore Icons");
 
-          try {
-            const allStatesFromJson = new Map<string,string[]>();
-            for(const i in obj.layers){
-              const stateStr = obj.layers[i];
-              allStatesFromJson.set(i, stateStr.split(','));
-
-            }
-
-            IconLayer.forEachMarkerLayers(lay => {
-              const jsonMarks = allStatesFromJson.get(lay.id) ?? [];
-              lay.markers.forEach(m => {
-                const markIds = getMarkerIds(m);
-                if(markIds.some(markId => jsonMarks.includes(markId)))
-                  m.setOpacity(0.2);
-                else
-                  m.setOpacity(1);
-              });
-            });
-          } catch(err){
-            return "Failed to parse the save state.";
-          }
-          return null;
-        },
-        loadStateFromTextArea(this:any){
-          const saveTextArea = <HTMLInputElement>this.$refs.saveTextArea;
-          const txt = saveTextArea.value;
-          this.addStateToHistory();
-          const res = this.loadStateFromStr(txt);
-          if(res)
-            alert(res);
-        },
-        saveVisibleLayer(this:any){
-          const visLayers:string[] = [];
-          IconLayer.forEachMarkerLayers(lay => {
-            if(myMap.hasLayer(lay.layerGroup))
-              visLayers.push(lay.id);
-          });
-          const str = visLayers.join(',');
-          try {
-            window.localStorage.setItem(config.localStorage.visibleLayers,str);
-          } catch(err){
-            log('Error saving map state in localStorage.',err);
-          }
-        },
-        addStateToHistory(this:any){
-          const s = this.getCurrentStateAsStr();
-          try {
-            window.localStorage.setItem(config.localStorage.state,s);
-          } catch(err){
-            log('Error saving map state in localStorage.',err);
-          }
-          SavePanel.vSave.stateHistory.push(s);
-          if(SavePanel.vSave.stateHistory.length > 100)
-            SavePanel.vSave.stateHistory.shift();
-        },
-        onPostMapStateChange(this:any){
-          this.addStateToHistory();
-        },
-        revertToPreviousState(this:any){
-          if(SavePanel.vSave.stateHistory.length === 0)
-            return alert("Error: No previous state.");
-          const lastState = SavePanel.vSave.stateHistory.pop();
-          this.loadStateFromStr(lastState);
-        }
-      },
-      mounted:function(this:any){
-        setInterval(function(){
-          SavePanel.vSave.saveVisibleLayer();
-        },1000);
-
-        SavePanel.saveSidebar = L.control.sidebar(this.$el, {
-          position: 'left'
-        });
-        myMap.addControl(SavePanel.saveSidebar);
-
-        easyButton('glyphicon-floppy-save',"Save State",function(){
-          onOpen();
-          SavePanel.saveSidebar.toggle();
-        }).addTo(myMap);
-
-        let good = false;
         try {
-          IconLayer.forEachLayers((lay) => {
-            if(lay.alwaysVisible)
-              lay.layerGroup.addTo(myMap);
-          });
-
-          SavePanel.vSave.loadStateFromStr(window.localStorage.getItem(config.localStorage.state));
-          SavePanel.vSave.addStateToHistory();
-          const layIds = window.localStorage.getItem(config.localStorage.visibleLayers);
-          if(layIds){
-            layIds.split(',').forEach(layId => {
-              const lay = IconLayer.getLayer(layId);
-              if(lay){
-                lay.layerGroup.addTo(myMap);
-                good = true;
-              }
-            });
-          }
+          vSave.loadStateFromStr(window.localStorage.getItem(config.localStorage.state));
+          vSave.addStateToHistory();
         } catch(err){
           log('Error loading map state from localStorage.',err);
         }
-
-        if (!good){
-          IconLayer.forEachLayers((lay) => {
-            if(lay.isVisibleByDefault || lay.alwaysVisible)
-              lay.layerGroup.addTo(myMap);
-          });
-        }
       }
     }));
-    SavePanel.vSave.$mount();
+    vSave.$mount();
+
+    return vSave;
   }
 }

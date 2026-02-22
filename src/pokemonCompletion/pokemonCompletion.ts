@@ -305,7 +305,7 @@ class Vue_pokemonCompletion_methods extends Vue_pokemonCompletion_req_methods {
     if(!cat)
       return;
 
-    p.onChange.forEach(f => f());
+    p.emitOnChange();
     this.updateObtainedLocalStorageAndTextArea(cat);
     this.updateAllObtainedCounts();
 
@@ -522,7 +522,7 @@ class Vue_pokemonCompletion_methods extends Vue_pokemonCompletion_req_methods {
     if(oldLastClicked){
       const oldLastClickedEl = cat.list.find(el => el.id === oldLastClicked);
       if(oldLastClickedEl)
-        oldLastClickedEl.onChange.forEach(f => f()); //lastClick changed, so visiblity can change
+        oldLastClickedEl.emitOnChange(); //lastClick changed, so visiblity can change
     }
 
     this.onCollectableObtainedStatusChange(p);
@@ -694,7 +694,7 @@ class Vue_pokemonCompletion_methods extends Vue_pokemonCompletion_req_methods {
     return this.ensureInteractiveMapIsInit();
   }
   updateInteractiveMapIconsVisibility = function(this:Vue_pokemonCompletion_full){
-    this.getAllCollectables().forEach(c => c.onChange.forEach(f => f()));
+    this.getAllCollectables().forEach(c => c.emitOnChange());
   }
   getAllCollectables = function(this:Vue_pokemonCompletion_full){
     const col:Collectable[] = [];
@@ -711,7 +711,7 @@ class Vue_pokemonCompletion_methods extends Vue_pokemonCompletion_req_methods {
       this.interactiveMapIsInit = true;
       return new Promise<void>(resolve => {
         Vue.nextTick(() => {
-          this.interactiveMapVue = PkInteractiveMap.createAndMount('#pkInteractiveMap-slot', this);
+          this.interactiveMapVue = PkInteractiveMap.createAndMount(this);
           resolve();
         });
       });
@@ -722,7 +722,7 @@ class Vue_pokemonCompletion_methods extends Vue_pokemonCompletion_req_methods {
 
     await this.ensureInteractiveMapIsInit();
     if(this.interactiveMapVue)
-      this.interactiveMapVue.flyToCollectable(c);
+       this.interactiveMapVue.flyToPkCollectable(c);
   }
   debug_printCollectableWithoutPos = function(this:Vue_pokemonCompletion_full){
     return this.getAllCollectables()
@@ -731,6 +731,9 @@ class Vue_pokemonCompletion_methods extends Vue_pokemonCompletion_req_methods {
             .filter(a => !a.pos || a.pos.length === 0)
             .map(a => a.name + ' ' + a.categoryId + ' ' + a.location)
             .join('\n');
+  }
+  activateContributorMode(){
+    window.location.assign(window.location.href.replace('#','') + '?contributor');
   }
   static instance:Vue_pokemonCompletion_full | null = null;
 }
@@ -750,14 +753,6 @@ document.addEventListener("DOMContentLoaded",async function(){
     });
     if(e)
       e.pos = [<any>a.pos];
-  });
-
-  //idk why its needed...
-  gameData?.getAllCollectables().forEach(col => {
-    col.pos?.forEach(p => {
-      p[0] -= 8;
-      p[1] -= 4;
-    });
   });
 
   const vue = {

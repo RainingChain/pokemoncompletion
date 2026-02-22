@@ -1,39 +1,144 @@
 
 
-  add contributor only if contributor in url
-
-remove addSpeedrun
-
+Hollow knight
+  map edges
 
 
+#2 ====== 1 backup every 3 hours =========
 
-  share same code between pokemon and other games.
-  keep it modulable. ex: without playing with etc.
-
-  move UI + some structure to genericMap
-
-  create a npm package
+#X ====== textual list ==========
 
 
 
---
-Step 1:
-  move pokemon stuff to genericMap
+#3 =======  sketch map  ==============================================
 
-  make package for genericMap
+  bug when search then switch overlay
 
-  pokemon uses that package.
+#3 =======  stacked icons  ==============================================
 
-  sw uses that package
+  screenshot: merge icon with about same position
 
 
+#1 =====  correct map image ========================================
+
+  exhaut organ:
+    shard bundle icon missing because couldnt be placed
+      https://mapgenie.io/hollow-knight-silksong/maps/pharloom?locationIds=480017
+
+      unlocked bench: @bool,Organ_01,Organ Webbed Bench,true
+      shortcut to boss: @bool,Organ_01,organ_lift_broken_drop,true
+      shortcut organ to citadel after elevator.: @bool,Library_12,Plug_Gate,true
+      shard just after  shortcut organ to citadel after elevator.: @int,Library_12,Shell Shard Fossil Tiny Front,0
+      exit at {"pos":[-346.78,834.06],"name":"","iconUrl":"","flag":""},
 
 
-  class Icon {
-    leafletIcon,
-    permId,
-    category
-    et.c
+  missing area:
+    missing Coral Tower arena
+      Coral_Tower_01
+      coral tower shortcut down: @bool,Memory_Coral_Tower,Stalactite Group,true
 
-  }
 
+  area with incorrect stuff:
+
+
+#2 =======  add creature icons  ==============================================
+
+
+#4 =======  new icon images  ==============================================
+
+  add diff image req for each key
+
+
+#4 =======  icon position  ==============================================
+
+
+
+everbloom wrong pos
+414.44 break floor is uselss
+redo icons in deep moss for useless break
+
+verdania icon in craw lake is wrong
+
+  placement:
+    RadSmile — 2:57 AM 21 november
+      1: Downwards from cogward dancers.
+      2: Grindle prison cell
+      3: Needolin door in biowater
+    east side
+
+#5 =======  missing icons category  ==============================================
+  bellhome items:
+    Desk: @,playerData.BelltownFurnishingDesk,true
+    @,playerData.ConstructedFarsight,true
+    Gleam Lights,@,playerData.BelltownFurnishingFairyLights,true
+
+  @,playerData.MateriumCollected.savedData
+
+  Materium  entries
+  {"pos":[-316.28,191.5],"name":"Examine Voltstone","iconUrl":"","flag":""},
+
+
+  wish add mid-points
+    final audience
+    garmond
+    cure infestation
+
+===== flags =====
+
+find missing flags
+
+identify marker info:true, (untrackable)
+
+
+
+===== LOW PRIORITY =====
+
+add way to increase digital zoom more than 1 without changing file
+
+
+
+======= UNSORTED  ==============================================
+  {"pos":[-222.61,775.16],"name":"One-Way Shortcut - Right","iconUrl":"shortcut_right.png","flag":"@bool,Song_Enclave_Tube,One Way Wall,true","acts":[3],"NO_ PROD":true,"uid":1366},
+
+  {"pos":[-211.28,175.2],"name":"Magnemite for Matetrium","iconUrl":"","flag":""},
+
+
+  correct map image
+    "uid":325, missing exploded wall
+    bug when croping image. missing image with zoom 1/2? {"pos":[-651.51,800.97],"name":"Map - Hunter's March","iconUrl":"map.png","uid":62},
+    check commentaires francais 2025-11-03
+    missing map: uid 302 {"pos":[-537.61,695.34],"name":"","iconUrl":"","flag":""},
+    wall to break. {"pos":[-676.6,159.21],"name":"One-Way Shortcut - Right","iconUrl":"shortcut_right.png","flag":"@bool,Bonegrave,One Way Wall,true","notes":"","uid":599},
+    missing map {"pos":[-600.22,190.81],"name":"Tool - Dead Bug's Purse","iconUrl":"toolyellow.png","uid":99,"flag":"@tool,Dead Mans Purse"},
+    bad light {"pos":[-532.14,408.16],"name":"","iconUrl":"","flag":""},
+    bad lgith {"pos":[-537.74,376.84],"name":"","iconUrl":"","flag":""},
+    bad light {"pos":[-545.60,375.94],"name":"","iconUrl":"","flag":""},
+    missing shortcut {"pos":[-488.78,417.94],"name":"","iconUrl":"","flag":""},
+    {"pos":[-694.45,937.13],"name":"","iconUrl":"","flag":""},
+    {"pos":[-501.96,933.26],"name":"","iconUrl":"","flag":""},
+    {"pos":[-389.41,936.38],"name":"","iconUrl":"","flag":""},
+    misiing map {"pos":[-294.07,679.88],"name":"","iconUrl":"","flag":""},
+    {"pos":[-900.26,697.52],"name":"","iconUrl":"","flag":""},
+    {"pos":[-299.69,538.38],"name":"","iconUrl":"","flag":""},
+    {"pos":[-155.07,290],"name":"","iconUrl":"","flag":""}, black overlap
+    {"pos":[-298.02,337.89],"name":"","iconUrl":"","flag":""}, missing top
+    {"pos":[-321.19,938.25],"name":"","iconUrl":"","flag":""}, bad
+    move that area {"pos":[-173.89,514.26],"name":"","iconUrl":"","flag":""}, near simple_key_req near architectect
+    {"pos":[-390.92,937.63],"name":"","iconUrl":"","flag":""}, vertical slice.
+
+  {"pos":[-273.11,671.04],"name":"","iconUrl":"","flag":""}, missing map in act 3
+
+  {"pos":[-433.03,762.94],"name":"","iconUrl":"","flag":""}, no clue where that is...
+
+  {"pos":[-227.88,313.06],"name":"","iconUrl":"","flag":""}, enter this area to reach wailing mother
+
+  missing hart boss rooms via elegy
+
+  seems to miss image from {"pos":[-235.91,658.06],"name":"","iconUrl":"","flag":""},  to  {"pos":[-219.22,659.56],"name":"","iconUrl":"","flag":""},
+
+
+
+
+
+
+-----------------------------

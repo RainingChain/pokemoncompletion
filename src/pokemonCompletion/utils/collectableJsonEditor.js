@@ -1,4 +1,5 @@
 import * as fs from "fs/promises";
+import {readJson, func} from "./editJsonBase.js";
 
 /* REQUIREMENTS for the .json file:
 - must contain a line with "categories":[
@@ -22,6 +23,45 @@ setTimeout(async () => {
   });
 }, 1);
 */
+
+if(true){
+setTimeout(async () => {
+  const f = `C:\\Users\\Samuel\\source\\repos\\pokemoncompletion\\src\\pokemonCompletion\\data\\Platinum.json`;
+  const json = await readJson(f);
+  
+  const convertPixelToWH = ( px, offset) => {
+    const br = [-1024,1024]
+    const dim = json.interactiveMap.dim;
+    const a = (px[0] - (offset ? 6 : 0)) / dim.h * br[0];
+    const b = (px[1] - (offset ? 1 : 0)) / dim.w * br[1];
+    return [
+      +a.toFixed(2),
+      +b.toFixed(2),
+    ]
+  }
+
+  await func(f, (col, cat) => {
+    if(!col.pos)
+      return;
+
+    if (typeof col.pos[0] === 'number')
+      col.pos = [col.pos];;
+    
+    col.pos = col.pos.map(pos => convertPixelToWH(pos, true)); //.map(p => +p.toFixed(2)));
+    return col;
+  });
+
+  json.interactiveMap.mapLinks.forEach(m => {
+    console.log(JSON.stringify(m.map(m2 => convertPixelToWH(m2))) + ',');
+  });
+
+  json.locations.forEach(m => {
+    if(m.pos)
+      m.pos = convertPixelToWH(m.pos)
+    console.log(JSON.stringify(m) + ',');
+  });
+}, 1);
+}
 
 if(false){
 setTimeout(async () => {
@@ -78,23 +118,6 @@ setTimeout(async () => {
   });
 
   await fs.writeFile(`C:\\rc\\rainingchain\\src\\hollowknight\\ssMap\\ssMap_data.json`, JSON.stringify(json));
-}, 1);
-}
-
-if(true){
-setTimeout(async () => {
-  const json = JSON.parse(await fs.readFile(`C:\\rc\\rainingchain\\src\\hollowknight\\ssMap\\ssMap_data.json`, 'utf8'));
-  let nextUid = Math.max(...json.categories.map(cat => {
-    return cat.list.map(col => col.uid);
-  }).flat().filter(a => a >= 0)) + 1;
-
-
-  await func(`C:\\rc\\rainingchain\\src\\hollowknight\\ssMap\\ssMap_data.json`, (col, cat) => {
-    if(col.uid === undefined)
-      col.uid = nextUid++;
-
-    return col;
-  });
 }, 1);
 }
 
@@ -174,65 +197,3 @@ setTimeout(async () => {
   });
 }, 1);
 }
-
-//------------------------
-/*dont touch below*/
-
-const readJson = async function(file){
-  return JSON.parse(await fs.readFile(file,'utf8'));
-};
-
-const func = async function(file, edit){
-  let str = await fs.readFile(file,'utf8');
-  str = str.replace(/\n\n/,'\n');
-  const json = JSON.parse(str);
-  const lines = str.split('\n');
-  const catStartId = lines.findIndex(line => line.trim().includes(`"categories":[`));
-  if (catStartId === -1)
-    return "catStartId === -1";
-
-  const collCountByCat = json.categories.map((cat) => cat.list.length);
-
-  let currentCatIdx = -1;
-  let catIsActive = false;
-  for (let i = catStartId; i < lines.length; i++){
-    let line = lines[i].trim();
-    if (line.endsWith(`"list":[`)){
-      currentCatIdx++;
-      catIsActive = true;
-      continue;
-    }
-    if(currentCatIdx === -1 || !catIsActive)
-      continue;
-
-    if (collCountByCat[currentCatIdx] === 0){
-      catIsActive = false;
-      continue;
-    }
-    collCountByCat[currentCatIdx]--;
-
-    const endsWithComma = line.endsWith(',');
-    if(endsWithComma)
-      line = line.slice(0,-1);
-
-    if(!line)
-      continue;
-
-    let col;
-    try {
-      col = JSON.parse(line);
-    } catch(err){
-      throw new Error('error at line:' + i + ' ; ' + line);
-    }
-    const newCollJson = edit(col, json.categories[currentCatIdx].id);
-    if(!newCollJson)
-      continue;
-
-    let newCollStr = JSON.stringify(newCollJson);
-    if (endsWithComma)
-      newCollStr += ',';
-    lines[i] = '  ' + newCollStr;
-  }
-
-  await fs.writeFile(file, lines.join('\n'));
-};

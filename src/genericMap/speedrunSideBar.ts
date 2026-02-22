@@ -1,42 +1,49 @@
 /*! LICENSED CODE BY SAMUEL MAGNAN-LEVESQUE FOR SCRIPTERSWAR.COM */
 import Vue from "vue";
 
-import {easyButton, IconLayer} from "./markerHelpers";
 import {Config} from "./Config";
-const config = Config.c;
 
 import withRenderSpeedrun from "./speedrunSideBar.vue";
 import {UrlInfo} from "./UrlInfo";
 import {Youtube} from "./youtube";
+import { LeafletSidebar } from "./leaflet_type";
+import {markerToGlitchInfo} from "./GlitchMarker";
+import L from "leaflet";
+import { GenericMap } from "./genericMap";
 
-declare let L:any;
+const data = (config:Config) => ({
+  videoAutoPlay:true,
+  showYoutube:<boolean|null>null, //null means dont show
+  showVideo:true,
+  acceptedCookie:false,
+  videoName:'',
+  videoWidth:340,
+  urlInfo:<UrlInfo|null>null,
+  glitches:<{urlInfo:UrlInfo,desc:string}[]>[],
+});
+
+export type SpeedrunPanel_this = ReturnType<typeof data> & {
+    $mount:() => void,
+    setVideo:(urlInfo:UrlInfo,name:string) => void;
+  };
 
 export class SpeedrunPanel {
-  static speedrunSidebar:any;
-  static vSpeedrun:any;
+  static sidebar:LeafletSidebar & L.Control;
+  static vSpeedrun:SpeedrunPanel_this;
 
-  static addSpeedrun(myMap:any, onOpen:() => void){
+  static addSpeedrun(gmap:GenericMap){
+    const {myMap,config} = gmap;
     SpeedrunPanel.vSpeedrun = new Vue(withRenderSpeedrun({
-      data: {
-        videoAutoPlay:true,
-        showYoutube:null, //null means dont show
-        showVideo:true,
-        acceptedCookie:false,
-        links:config.speedrunLinks,
-        videoName:'',
-        videoWidth:340,
-        urlInfo:null,
-        glitches:<{urlInfo:UrlInfo,desc:string}[]>[],
-      },
+      data:data(config),
       methods:{
-        async agreeYoutube(this:any){
+        async agreeYoutube(this:SpeedrunPanel_this){
           this.acceptedCookie = true;
           await Youtube.loadYoutube();
           if(this.urlInfo)
             this.setVideo(this.urlInfo, this.videoName);
         },
-        setVideo(this:any,urlInfo:UrlInfo,name:string){
-          SpeedrunPanel.speedrunSidebar.show();
+        setVideo(this:SpeedrunPanel_this,urlInfo:UrlInfo,name:string){
+          gmap.openCloseSidebar(SpeedrunPanel.sidebar);
           this.videoName = name;
           this.urlInfo = urlInfo;
           if(!this.acceptedCookie){
@@ -74,22 +81,17 @@ export class SpeedrunPanel {
           });
         },
       },
-      mounted:function(this:any){
-        SpeedrunPanel.speedrunSidebar = L.control.sidebar(this.$el, {
-          position: 'left'
-        });
-        myMap.addControl(SpeedrunPanel.speedrunSidebar);
+      mounted:function(this:{$el:HTMLElement}){
+        SpeedrunPanel.sidebar = gmap.createSidebar(this.$el, 'glyphicon-hourglass',"Speedrun");
 
-        easyButton('glyphicon-hourglass',"Speedrun",function(){
-          onOpen();
-          SpeedrunPanel.speedrunSidebar.toggle();
-          if(SpeedrunPanel.speedrunSidebar.isVisible())
-            IconLayer.getLayer('glitchSkip')!.layerGroup.addTo(myMap); //BAD
-        }).addTo(myMap);
-
-        SpeedrunPanel.vSpeedrun.glitches = (<any[]>IconLayer.getGlitchMarkers()).map(m => {
-          return {urlInfo:m.urlInfo,desc:m.desc};
+        SpeedrunPanel.sidebar.on('show', () => {
+          //TEMP IMPORTANT
+            // gmap.getLayer('glitchSkip')!.layerGroup.addTo(myMap); //BAD
         });
+
+        /*SpeedrunPanel.vSpeedrun.glitches = gmap.getGlitchMarkers().map(m => {
+          return markerToGlitchInfo.get(m)!;
+        }).filter(a => a);*/
       }
     }));
     SpeedrunPanel.vSpeedrun.$mount();

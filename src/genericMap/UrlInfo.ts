@@ -23,7 +23,7 @@ export class UrlInfo { //copy of Zdb
         time = (+ts3[0]) * 3600 + (+ts3[1]) * 60 + (+ts3[2]);
       }
     }
-    const domain:any = q[0].indexOf('twitch') !== -1 ? 'twitch' : 'youtube';
+    const domain = q[0].indexOf('twitch') !== -1 ? 'twitch' : 'youtube';
     //crash if fails but wanted
     const videoId = domain === 'youtube'
       ? q[0].match(/[\w|_|-]{10,15}/)![0]  //real count is 11

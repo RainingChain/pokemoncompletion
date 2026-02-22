@@ -70,6 +70,7 @@ export enum ObtainType {
 
 export type CollectableInput = {
   id?: string,
+  uid:number,
   name: string,
   location?: string,
   obtainable?: ObtainTypeInJson, href?: string, reqs?: (string | string[])[],
@@ -103,13 +104,13 @@ export class Formula {
   evaluate(getFunc:(id:string) => number){
     if(!this.list)
       return true;
-    
+
     try {
       return this.list.some(crits => {
         return crits.every(crit => crit.evaluate(getFunc));
       });
     } catch(err){
-      console.log(err, this.getIdsReferenced());
+      console['log'](err, this.getIdsReferenced());
       return false;
     }
   }
@@ -391,6 +392,7 @@ export class Collectable {
   obtainable = ObtainType.obtainable;
   /** obtainableJson is const */
   obtainableJson = ObtainTypeInJson.obtainable;
+  uid = -1;
   id = "";
   name = "";
   location = "";
@@ -425,6 +427,9 @@ export class Collectable {
       this.id = info.id;
     else
       this.id = formatNameToId(info.name);
+
+    if(info.uid != undefined)
+      this.uid = info.uid;
 
     this.name = info.name;
     this.categoryId = cat.id ?? formatNameToId(info.name);
@@ -469,10 +474,13 @@ export class Collectable {
   }
   setObtainable(t:ObtainType){
     this.obtainable = t;
-    this.onChange.forEach(f => f());
+    this.emitOnChange();
   }
   setObtained(t:boolean){
     this.obtained = t;
+    this.emitOnChange();
+  }
+  emitOnChange(){
     this.onChange.forEach(f => f());
   }
 }
@@ -554,8 +562,10 @@ export class Category {
 
       return p;
     });
-    if(!this.iconData && this.list[0])
+    if(!this.iconData && this.list[0]){
+      this.iconUrl = this.list[0].iconData?.id ?? '';
       this.iconData = this.list[0].iconData;
+    }
 
     this.listByNameMap = new Map(this.list.map(el => ([el.name,el])));
     this.listByIdMap = new Map(this.list.map(el => ([el.id,el])));
@@ -803,8 +813,8 @@ export class GameData {
       this.createWaresByType(game);
       this.playingWith = this.waresByType[0]?.type || '';
 
-      if (DEFAULT_TO_CONSOLE && 
-          this.playingWith.includes('emulator') && 
+      if (DEFAULT_TO_CONSOLE &&
+          this.playingWith.includes('emulator') &&
           this.waresByType.length > 1)
         this.playingWith = this.waresByType.find(t => !t.type.includes('emulator'))?.type || '';
     }
@@ -826,7 +836,7 @@ export class GameData {
           }
           return raw;
         })();
-        
+
         const waresByType:Requirement['waresByType'] = [];
         const waresByTypeInput = r.waresByType || types.map(type => {
           return {type, formula: r.formula!};
