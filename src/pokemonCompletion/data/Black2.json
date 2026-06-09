@@ -14,6 +14,34 @@
   "If aiming for true 100%, you'll need to get all Pokémon forms, including all shiny forms. Make sure to RNG manipulate your secret trainer id when starting your new game.",
   "Check <a href='/completion/Black2/ForeignPokedexEntries' target='_blank' rel='noopener'>Black 2 Foreign Pokédex Entries Guide</a>"
 ],
+"guide_WIP":[
+  "Play Pokémon Black 2. Obtain all possible elements using only that game.",
+    "-The hardest element is the Starf Berry which requires 203 consecutive Battle Subway wins. Check <a href=\"https://github.com/RainingChain/PokemonB2W2BattleSubwayRNG\">https://github.com/RainingChain/PokemonB2W2BattleSubwayRNG</a> for guidance for Battle Subway and Battle Institute.",
+    "-Join Avenue Level 100 is very long but it generates a lot of money. Add Market shops to your avenue and upon reaching level 10 on each shop, there will be a sale for 1 week. Buy all EV-items (ex: Protein) and sell them back to the Pokémart for about 2M $ profit. This can be repeated.",
+    "-Black Entralink Entree level 100 is also long. Best way to level it up is by doing the Find Lost Items! Lvl 1 funfest mission and going to Castelia. Make sure to get a score of at least 11. (Getting score of 10 gives 1 exp, while above 10 gives the score as exp.) You need about 5000 exp for lvl 100.",
+    "-Another long element is getting Pokérus (medal) but it can be RNG-abused.",
+    "-For the medal 10 Followers, you'll need to win 130+ times the musical. To win easily, do Stardom muscial and wear Cowboy Hat, Fake Belly Button, Black Wings, Toy Sword, Toy Cutlass, Fluffy Beard, Small Barrette, Pink Barrette. No need to appeal to win. Credits: Mikey_R",
+    "-Check <a href='/completion/Black2/ForeignPokedexEntries' target='_blank' rel='noopener'>Black 2 Foreign Pokédex Entries Guide</a>",
+    
+  "Complete 100% Platinum to get Pokémon, ribbons, and items by following Check <a href=\"/completion/Platinum\">this guide</a>.",
+  "-Note: Starf Berry and Soul Dew can be obtained in Black 2.",
+
+  "Play White 2 until reaching P2 Laboratory and White Treehollow.",
+  "-Show Genesect in P2 Laboratory for Douse Drive and Chill Drive.",
+  "-Clear Area 5 in White Treehollow to transfer Treehollow Key to Black 2.",
+  "-Host Funfest missions in White 2 and join them in Black 2 until reaching White Entree Level 100.",
+  "-Host a 30+ player Funfest mission for 30 People Funfest medal.",
+  "-Catch and trade Solosis, Rufflet, Reshiram",
+
+  "Play Black until defeating N and Ghetsis, for Memory Master medal.",
+
+  "Play Dream Radar for Thundurus and Landorus.",
+
+  "Play Dream World for several items, and medals.",
+
+  "Obtain all event-exclusive elements.",
+  "Check <a href='/completion/Black2/ForeignPokedexEntries' target='_blank' rel='noopener'>Black 2 Foreign Pokédex Entries Guide</a>"
+],
 "locations":[
   {"name":"Nuvema Town","alias":["Nuvema","Juniper Pokémon Lab"]},
   {"name":"Accumula Town","alias":["Accumula"]},
@@ -325,7 +353,7 @@
   ["Groudon", "Ruby","Emerald","SoulSilver"],
   ["Mewtwo", "HS","FL"],
   ["Glameow", "Pearl","White2"],
-  ["Regice", "White2","RSE"],
+  ["Regice", "White2Key","RSE"],
   ["Reshiram","Black","White2"],
   "------NationalDex------- see ForeignEntries",
   {"id":"NationalDex", "formula":[[
@@ -356,7 +384,11 @@
   {"id":"30PeopleFunfest", "waresByType":[
     {"type":["emulator"], "formula":[["MultiplayerGenDS"]]},
     {"type":["consoleEN"], "formula":[["TODO"]]}
-  ]}
+  ]},
+  {"id":"White2Key", "waresByType":[
+    {"type":["emulator"], "formula":[["White2","EmuInfrared"]]},
+    {"type":["consoleEN"], "formula":[["White2"]]}
+  ]}  
 ],
 "waresByType":[
   {"type":"emulator","name":"Emulator (EN)","aliases":[
@@ -389,6 +421,7 @@
     {"id":"$EmuDS","name":"Emulator for DS", "minCount":1},
     {"id":"$EmuMultiplayer","name":"Emulator supports DS multiplayer?","indent":1, "url":["melonDS","https://melonds.kuribo64.net/"], "fullCompl":1},
     {"id":"$EmuDualSlot","name":"Emulator supports GBA slot?","indent":1, "url":["melonDS","https://melonds.kuribo64.net/"], "fullCompl":1},
+    {"id":"$EmuInfrared","name":"Emulator supports Infrared?","indent":1,"desc":"No emulators exist that support this feature as of 2026-06-08.", "fullCompl":1},
     {"id":"$Black2_EN","name":"Game: Pokémon Black 2 (EN)","indent":1, "minCount":1},
     {"id":"$Black_EN","name":"Game: Pokémon Black (EN)","indent":1, "preReqs":[["MultiplayerGenDS"]],"fullCompl":1},
     {"id":"$White2_EN","name":"Game: Pokémon White 2 (EN)","indent":1, "fullCompl":1, "preReqs":[["MultiplayerGenDS"]]},
@@ -413,10 +446,10 @@
       {"id":"$NintendoWifi","name":"Simulator of Nintendo Wi-Fi Server","desc":"","url":["DWC Network Server", "https://github.com/barronwaffles/dwc_network_server_emulator"],"indent":1,"fullCompl":1}
     ],
     [
-      {"id":"$Emu3DS","name":"Emulator for 3DS","desc":"Must support inserted NDS, which isn't supported by any emulator as of 2025-07-14.", "indent":1,"fullCompl":1},
+      {"id":"$Emu3DS","name":"Emulator for 3DS","desc":"Must support inserted NDS, which isn't supported by any emulator as of 2026-06-08.", "indent":1,"fullCompl":1},
       {"id":"$DreamRadar","name":"Game: Dream Radar","indent":1,"fullCompl":1}
     ],
-    {"id":"$DreamWorld","name":"Simulator of Dream World Server","indent":1,"desc":"No Dream World servers exist as of 2025-07-14.","fullCompl":1},
+    {"id":"$DreamWorld","name":"Simulator of Dream World Server","indent":1,"desc":"No fully-featured Dream World servers exist as of 2026-06-08.","fullCompl":1},
     {"id":"$EmuGba","name":"Emulator for GBA","fullCompl":1,"preReqs":[["$EmuDualSlot"]]},
     {"id":"$EmuGbaMultiplayer","name":"Emulator supports link cables?","indent":1, "url":["mGBA","https://mgba.io/"], "fullCompl":1},
     {"id":"$EmuGbaWireless","name":"Emulator supports wireless adapters?","indent":1, "url":["gpSP","https://github.com/davidgfnet/gpsp"]},    
@@ -442,8 +475,8 @@
       {"id":"$ColosseumBonusDisc_JP","name":"Game: Pokémon Colosseum Bonus Disc (Japan)","indent":1, "fullCompl":1}
     ],
     {"id":"$XD_JP","name":"Game: Pokémon XD (JP)","indent":1,"preReqs":[["AnyGen3_JP"]]},
-    {"id":"$EmuWii","name":"Emulator for WII", "desc":"No WII emulators with DS connectivity exist yet."},
-    {"id":"$MyPokemonRanch_US","name":"Game: My Pokémon Ranch (US)","indent":1,"preReqs":[["DP_EN"]]},
+    {"id":"$EmuWii","name":"Emulator for WII", "desc":"No WII emulators with DS connectivity exist yet.", "fullCompl":1},
+    {"id":"$MyPokemonRanch_US","name":"Game: My Pokémon Ranch (US)","indent":1, "fullCompl":1,"preReqs":[["DP_EN"]]},
     {"id":"$BattleRevolution_US","name":"Game: Pokémon Battle Revolution (US)", "indent":1},
     {"id":"$MyPokemonRanch_JP","name":"Game: My Pokémon Ranch (JP)", "indent":1,"preReqs":[["AnyGen4_JP"]]},
     {"id":"$MyPokemonRanchUpdate_JP","name":"Update: My Pokémon Ranch 1.1 (JP)", "indent":2},
@@ -944,7 +977,7 @@
   {"name":"Dialga","id":"483","obtainable":0,"location":"Trade from Diamond, Platinum","reqs":["Diamond","Platinum"],"iconUrl":"pokemon/p483.png","uid":482},
   {"name":"Palkia","id":"484","obtainable":0,"location":"Trade from Pearl, Platinum","reqs":["Pearl","Platinum"],"iconUrl":"pokemon/p484.png","uid":483},
   {"name":"Heatran","id":"485","obtainable":1,"location":"Reversal Mountain (need Magma Stone)","iconUrl":"pokemon/p485.png","uid":484},
-  {"name":"Regigigas","id":"486","obtainable":0,"location":"Twist Mountain after obtaining Registeel, Regirock, and Regice. Regice is obtained from from Ruby, Sapphire, Emerald; or from Underground Ruins (after getting Iceberg Key from Unova Link which requires White 2).","iconUrl":"pokemon/p486.png","reqs":["White2","RSE"],"uid":485},
+  {"name":"Regigigas","id":"486","obtainable":0,"location":"Twist Mountain after obtaining Registeel, Regirock, and Regice. Regice is obtained from from Ruby, Sapphire, Emerald; or from Underground Ruins (after getting Iceberg Key from Unova Link which requires White 2).","iconUrl":"pokemon/p486.png","reqs":["Regice"],"uid":485},
   {"name":"Giratina","id":"487","obtainable":0,"location":"Trade from Diamond, Pearl, Platinum","reqs":["DPPt"],"iconUrl":"pokemon/p487.png","uid":486},
   {"name":"Cresselia","id":"488","obtainable":1,"location":"Marvelous Bridge","iconUrl":"pokemon/p488.png","uid":487},
   {"name":"Phione","id":"489","obtainable":0,"location":"Trade from My Pokémon Ranch (transfer 250 Pokémon), Breed Manaphy","iconUrl":"pokemon/p489.png","reqs":["Phione"],"uid":488},
@@ -2268,8 +2301,8 @@
   {"name":"All Types Champ","location":"A Medal to prove victories in all the Type Expert Tournaments.","uid":1780},
   {"name":"Tower Junior","location":"A Medal for modest adventurers who have explored up to Area 5 in the Black Tower.","uid":1781},
   {"name":"Tower Master","location":"A Medal for formidable adventurers who have explored up to Area 10 in the Black Tower.","uid":1782},
-  {"name":"Treehollow Junior","location":"A Medal for modest adventurers who have explored up to Area 5 in the White Treehollow. (Requires Treehollow Key obtaining from clearing Area 5 in White 2.)","obtainable":0,"reqs":["White2"],"uid":1783},
-  {"name":"Treehollow Master","location":"A Medal for formidable adventurers who have explored up to Area 10 in the White Treehollow. (Requires Treehollow Key obtaining from clearing Area 5 in White 2.)","obtainable":0,"reqs":["White2"],"uid":1784},
+  {"name":"Treehollow Junior","location":"A Medal for modest adventurers who have explored up to Area 5 in the White Treehollow. (Requires Treehollow Key obtaining from clearing Area 5 in White 2.)","obtainable":0,"reqs":["White2Key"],"uid":1783},
+  {"name":"Treehollow Master","location":"A Medal for formidable adventurers who have explored up to Area 10 in the White Treehollow. (Requires Treehollow Key obtaining from clearing Area 5 in White 2.)","obtainable":0,"reqs":["White2Key"],"uid":1784},
   {"name":"20 Victories","location":"Beat 20 Trainers in Black Tower. A Medal given to slightly strong Trainers who beat 20 Trainers in Unova's Challenge.","uid":1785},
   {"name":"50 Victories","location":"Beat 50 Trainers in Black Tower. A Medal given to modestly strong Trainers who beat 50 Trainers in Unova's Challenge.","uid":1786},
   {"name":"100 Victories","location":"Beat 100 Trainers in Black Tower. A Medal given to pretty strong Trainers who beat 100 Trainers in Unova's Challenge.","uid":1787},
@@ -2315,14 +2348,14 @@
   {"name":"Great Souvenir Getter","location":"A Medal for very popular people who received 50 souvenirs in Join Avenue.","uid":1827},
   {"name":"Tycoon of Souvenirs","location":"A Medal for the most popular people who received 100 souvenirs in Join Avenue.","uid":1828},
   {"name":"Avenue of Fame","location":"Raise Join Avenue to Rank 10 and name it. A Medal for those who developed Join Avenue and earned the right to give it an original name.","uid":1829},
-  {"name":"Minigame Fan","location":"A Medal to praise the emerging playful minds of those who played minigames on the Xtransceiver 10 times.","obtainable":0,"reqs":["AnyGen5"],"uid":1830},
-  {"name":"Minigame Buff","location":"A Medal to praise the modestly playful minds of those who played minigames on the Xtransceiver 30 times.","obtainable":0,"reqs":["AnyGen5"],"uid":1831},
-  {"name":"Minigame Expert","location":"A Medal to praise the substantially playful minds of those who played minigames on the Xtransceiver 50 times.","obtainable":0,"reqs":["AnyGen5"],"uid":1832},
-  {"name":"Best Minigamer","location":"A Medal to praise the superbly playful minds of those who played minigames on the Xtransceiver 100 times.","obtainable":0,"reqs":["AnyGen5"],"uid":1833},
-  {"name":"Balloon Rookie","location":"Reach a total of 50 points in minigames on the Xtransceiver. A Medal to celebrate the small achievement of reaching 50 points in a minigame on the Xtransceiver.","obtainable":0,"reqs":["AnyGen5"],"uid":1834},
-  {"name":"Balloon Technician","location":"Reach a total of 200 points in minigames on the Xtransceiver. A Medal to celebrate the great achievement of reaching 200 points in a minigame on the Xtransceiver.","obtainable":0,"reqs":["AnyGen5"],"uid":1835},
-  {"name":"Balloon Expert","location":"Reach a total of 500 points in minigames on the Xtransceiver. A Medal to celebrate the major achievement of reaching 500 points in a minigame on the Xtransceiver.","obtainable":0,"reqs":["AnyGen5"],"uid":1836},
-  {"name":"Balloon Conqueror","location":"Reach a total of 1,000 points in minigames on the Xtransceiver. A Medal to celebrate the ultimate achievement of reaching 1000 points in a minigame on the Xtransceiver.","obtainable":0,"reqs":["AnyGen5"],"uid":1837},
+  {"name":"Minigame Fan","location":"A Medal to praise the emerging playful minds of those who played minigames on the Xtransceiver 10 times. (Requires multiplayer)","obtainable":0,"reqs":["AnyGen5"],"uid":1830},
+  {"name":"Minigame Buff","location":"A Medal to praise the modestly playful minds of those who played minigames on the Xtransceiver 30 times. (Requires multiplayer)","obtainable":0,"reqs":["AnyGen5"],"uid":1831},
+  {"name":"Minigame Expert","location":"A Medal to praise the substantially playful minds of those who played minigames on the Xtransceiver 50 times. (Requires multiplayer)","obtainable":0,"reqs":["AnyGen5"],"uid":1832},
+  {"name":"Best Minigamer","location":"A Medal to praise the superbly playful minds of those who played minigames on the Xtransceiver 100 times. (Requires multiplayer)","obtainable":0,"reqs":["AnyGen5"],"uid":1833},
+  {"name":"Balloon Rookie","location":"Reach a total of 50 points in minigames on the Xtransceiver. A Medal to celebrate the small achievement of reaching 50 points in a minigame on the Xtransceiver. (Requires multiplayer)","obtainable":0,"reqs":["AnyGen5"],"uid":1834},
+  {"name":"Balloon Technician","location":"Reach a total of 200 points in minigames on the Xtransceiver. A Medal to celebrate the great achievement of reaching 200 points in a minigame on the Xtransceiver. (Requires multiplayer)","obtainable":0,"reqs":["AnyGen5"],"uid":1835},
+  {"name":"Balloon Expert","location":"Reach a total of 500 points in minigames on the Xtransceiver. A Medal to celebrate the major achievement of reaching 500 points in a minigame on the Xtransceiver. (Requires multiplayer)","obtainable":0,"reqs":["AnyGen5"],"uid":1836},
+  {"name":"Balloon Conqueror","location":"Reach a total of 1,000 points in minigames on the Xtransceiver. A Medal to celebrate the ultimate achievement of reaching 1000 points in a minigame on the Xtransceiver. (Requires multiplayer)","obtainable":0,"reqs":["AnyGen5"],"uid":1837},
   {"name":"New Face Hero","location":"A Medal commemorating the release of the debut movie \"Brycen-Man\" in Pokéstar Studios.","uid":1838},
   {"name":"Hero Movie Star","location":"A Medal commemorating the release of the full series of \"Brycen-Man Strikes Back\" in Pokéstar Studios.","uid":1839},
   {"name":"Cop Movie Master","location":"A Medal commemorating the release of the complete series of \"Full Metal Cop\" in Pokéstar Studios.","uid":1840},
@@ -2353,8 +2386,8 @@
   {"name":"Achiever Lv. 2","location":"A Medal for people who have astounding executive ability and cleared 100 Funfest Mission.","uid":1865},
   {"name":"Funfest Complete","location":"A Medal for people who have peerless executive ability and cleared all the Funfest Mission.","uid":1866},
   {"name":"Good Night","location":"Use Game Sync to wake up a tucked-in Pokémon. A Medal for those who tucked in their Pokémon using Game Sync and let them play in the Pokémon Dream World.","obtainable":0,"reqs":["DreamWorld"],"uid":1867},
-  {"name":"Beginning of Memory","location":"A Medal for those who used Memory Link and saw a link event for the first time.","obtainable":0,"reqs":["BW"],"uid":1868},
-  {"name":"Memory Master","location":"A Medal for those who used Memory Link and saw all the link events.","obtainable":0,"reqs":["BW"],"uid":1869},
+  {"name":"Beginning of Memory","location":"A Medal for those who used Memory Link and saw a link event for the first time. (Requires Black or White)","obtainable":0,"reqs":["BW"],"uid":1868},
+  {"name":"Memory Master","location":"A Medal for those who used Memory Link and saw all the link events. (Requires Black or White)","obtainable":0,"reqs":["BW"],"uid":1869},
   {"name":"Entertainment Master","location":"A Medal to reward people who collected all the Entertainment Medals.","obtainable":0,"reqs":["TODO"],"uid":1870},
   {"name":"Normal-type Champ","location":"A Medal to honor the extraordinary skill of those who won the Pokémon League with only Normal-type Pokémon.","uid":1871},
   {"name":"Fire-type Champ","location":"A Medal to honor the blazing ambition of those who won the Pokémon League with only Fire-type Pokémon.","uid":1872},
@@ -2705,4 +2738,4 @@
   {"name":"Score 900+ in Poké Transfer","location":"Poké Transfer Lab","uid":2203}
  ]}
 ]
-}
+}

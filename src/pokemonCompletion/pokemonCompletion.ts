@@ -360,7 +360,8 @@ class Vue_pokemonCompletion_methods extends Vue_pokemonCompletion_req_methods {
       this.updateVisibleCount();
     } catch(err){
       this.suppressObtainedStorageUpdates = wasSuppressingStorageUpdates;
-      alert("Error:" + err?.message);
+      if (err instanceof Error)
+        alert("Error:" + err?.message);
     }
   }
 
@@ -705,12 +706,13 @@ class Vue_pokemonCompletion_methods extends Vue_pokemonCompletion_req_methods {
     this.clearAll();
   }
 
+  //v.debug_obtainAllObtainable()
   debug_obtainAllObtainable = function(this:Vue_pokemonCompletion_full, clearAll=true){
     if(clearAll)
       this.debug_clearAll();
     this.categories.forEach(cat => {
       cat.list.forEach(col => {
-        if (col.obtainable){
+        if (col.obtainable === ObtainType.obtainable){
           col.setObtained(true);
           this.onCollectableObtainedStatusChange(col);
         }

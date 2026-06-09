@@ -48,15 +48,6 @@ platinum:
       Link Multi Battles Battle Tower (Multi with other player)
 
   play 100%
-    ranger for manaphy
-    get jp roselia
-    hg
-      reach battle tower
-      berry juice
-      Pokéathlon Dome
-      mew event
-    wifi
-      35 wins
     battle frontier tool
 
   -----
@@ -78,13 +69,6 @@ pmd sky
   guide
 
   unlocated elements: cleanup
-
-
--------------------
-pokemon shuffle
-  must get 0.11 to do real stuff
-
-
 
 -------------------
 Gen3:
