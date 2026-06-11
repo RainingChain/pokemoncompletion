@@ -253,6 +253,7 @@
   ["White", "$White_EN","$White_JP"],
   ["BW","Black", "White"],
   ["White2", "$White2_JP","$White2_EN"],
+  ["WW2","White","White2"],
   ["AnyGen5","BW","White2","Black2_2"],
   {"id":"Black2_2", "waresByType":[
     {"type":"emulator", "formula":[["MultiplayerGenDS"]]},
@@ -331,23 +332,17 @@
   ]},
   {"id":"NaturePreserve", "formula":[["Black","White"],["Black","White2"],["Reshiram","DreamRadar"]],"notes":"route 7 to register legend trio"},
   {"id":"CatchUnovaPokedex", "formula":[["NaturePreserve","Black","White"],["NaturePreserve","DreamRadar"]]},
-  ["Electabuzz", "White","White2","FireRed","XD","DPPt","HS"],
+  ["Electabuzz", "WW2","FireRed","XD","DPPt","HS"],
   ["Porygon", "White","DPPt","HS","FL"],
   ["Dusclops", "XD","DPPt","HS","RSE"],
   ["Scyther", "Diamond","Platinum","FireRed","XD","HS"],
   {"id":"Electivire", "formula":[["EvolveTradeGen4OrMore","Electabuzz"],["PBR"]]},
   {"id":"Graveler","formula":[["BW"],["DPPt"],["HS"],["FL"],["RSE"]]},
   {"id":"Shaymin","formula":[["$Shaymin_BW_Event"],["Platinum","$OaksLetter_Pt_Event"]]},
-  {"id":"AllMaleFemaleForms", "note":"probably possible by fighting only trainers", "waresByType":[
-    {"type":["emulator", "consoleEN"], "formula":[["NationalDex"]]}
-  ]},
-  {"id":"ShinyForms", "waresByType":[
-    {"type":["emulator", "consoleEN"], "formula":[["NationalDex","ShinyMew","Genesect","$AuroraTicket_Gen3_Event","AuroraTicket_Game", "$MemberCard_Pt_Event","Platinum","$OaksLetter_Pt_Event","Black","White"]],"notes":"BW for Tornadus,Thundurus"}
-  ]},
+  {"id":"AllMaleFemaleForms", "note":"probably possible by fighting only trainers", "formula":[["NationalDex"]]},
+  {"id":"ShinyForms", "formula":[["NationalDex","ShinyMew","Genesect","$AuroraTicket_Gen3_Event","AuroraTicket_Game", "$MemberCard_Pt_Event","Platinum","$OaksLetter_Pt_Event","Black","White"]],"notes":"BW for Tornadus,Thundurus"},
   ["AuroraTicket_Game","FL","$Emerald_EN"],
-  {"id":"ShinyMew", "waresByType":[
-    {"type":["emulator","consoleEN"], "formula":[["$Emerald_JP","$OldSeaMap_E_Event"]]}
-  ]},
+  {"id":"ShinyMew", "formula":[["$Emerald_JP","$OldSeaMap_E_Event"]]},
   {"id":"Latias", "formula":[["Sapphire"],["Emerald"],["Ruby","EonTicket"],["HeartGold"],["White2"]]},
   ["Kyogre", "Sapphire","Emerald","HeartGold"],
   ["Groudon", "Ruby","Emerald","SoulSilver"],
@@ -355,6 +350,12 @@
   ["Glameow", "Pearl","White2"],
   ["Regice", "White2Key","RSE"],
   ["Reshiram","Black","White2"],
+  ["Solosis","WW2"],
+  ["Rufflet","WW2"],
+  {"id":"FlyingTypeCatcher", "formula":[["Black","White"],["DreamRadar","White"],["DreamRadar","White2"]],"notes":"Braviary, Tornadus, Thundurus, Landorus"},
+  {"id":"Landorus", "formula":[["Black","White"],["DreamRadar"]]},
+  {"id":"Thundurus", "formula":[["White"],["DreamRadar"]]},
+  
   "------NationalDex------- see ForeignEntries",
   {"id":"NationalDex", "formula":[[
     "Latias",
@@ -371,24 +372,25 @@
   {"id":"NationalDex_HoOhLugia", "formula":[["HS"], ["XD","Colosseum"]]},
   "------NationalDex end-------",
   {"id":"TODO","formula":[]},
-  {"id":"ForeignDexEntries", "formula":[["$ForeignDexEntries"]],"info":[ "144 Articuno LGPtHS", "145 Zapdos LGPtHS", "146 Moltres LGPtHS", "150 Mewtwo LGHS", "151 Mew MyPkmRanch", "201 Unown LGDPPtHS", "243 Raikou LGColHS", "244 Entei LGColHS", "245 Suicune LGColHS", "249 Lugia XDHS", "250 Ho-Oh ColHS", "251 Celebi JP(Col), Event(RSEDPPtHS)", "377 Regirock RSE", "378 Regice RSE", "379 Registeel RSE", "380 Latias SE", "381 Latios RE", "382 Kyogre SEH", "383 Groudon RES", "384 Rayquaza RSEHS", "385 Jirachi JP(Event DPPtHS), Col", "386 Deoxys Event DPRSELF", "480 Uxie DPPt", "481 Mesprit DPPt", "482 Azelf DPPt", "483 Dialga DPt", "484 Palkia PPt", "485 Heatran DPPt", "486 Regigigas RSE", "487 Giratina DPPt", "488 Cresselia DPPt", "491 Darkrai Event(DPPt)", "492 Shaymin Event(DPPt)", "493 Arceus Event(DPPt)"
-  ]},
+  {"id":"ForeignDexEntries", "formula":[["$ForeignDexEntries"]]},
   {"id":"2PeopleFunfest", "waresByType":[
     {"type":["emulator"], "formula":[["MultiplayerGenDS"]]},
-    {"type":["consoleEN"], "formula":[["TODO"]]}
+    {"type":["consoleEN"], "formula":[["GTE($ConsoleDS, 2)", "GTE($Black_EN, $Black_JP, $Black2_EN, $Black2_JP, $White_EN, $White_JP, $White2_EN, $White2_JP, 2)"]]}
   ]},
   {"id":"10PeopleFunfest", "waresByType":[
     {"type":["emulator"], "formula":[["MultiplayerGenDS"]]},
-    {"type":["consoleEN"], "formula":[["TODO"]]}
+    {"type":["consoleEN"], "formula":[["GTE($ConsoleDS, 10)", "GTE($Black_EN, $Black_JP, $Black2_EN, $Black2_JP, $White_EN, $White_JP, $White2_EN, $White2_JP, 10)"]]}
   ]},
   {"id":"30PeopleFunfest", "waresByType":[
     {"type":["emulator"], "formula":[["MultiplayerGenDS"]]},
-    {"type":["consoleEN"], "formula":[["TODO"]]}
+    {"type":["consoleEN"], "formula":[["GTE($ConsoleDS, 30)", "GTE($Black_EN, $Black_JP, $Black2_EN, $Black2_JP, $White_EN, $White_JP, $White2_EN, $White2_JP, 30)"]]}
   ]},
   {"id":"White2Key", "waresByType":[
-    {"type":["emulator"], "formula":[["White2","EmuInfrared"]]},
+    {"type":["emulator"], "formula":[["White2","$EmuInfrared"]]},
     {"type":["consoleEN"], "formula":[["White2"]]}
-  ]}  
+  ]},
+  {"id":"GreatAdventurerMedal", "formula":[["NationalDex","CGearTag","DreamWorld","CatchUnovaPokedex","FlyingTypeCatcher", "Landorus", "Thundurus","Reshiram", "Solosis", "Rufflet" ]]},
+  {"id":"EntertainmentMasterMedal", "formula":[["30PeopleFunfest","BW","DreamWorld","EvolveTradeGen5","FriendCode","WW2"]]}
 ],
 "waresByType":[
   {"type":"emulator","name":"Emulator (EN)","aliases":[
@@ -451,7 +453,7 @@
     ],
     {"id":"$DreamWorld","name":"Simulator of Dream World Server","indent":1,"desc":"No fully-featured Dream World servers exist as of 2026-06-08.","fullCompl":1},
     {"id":"$EmuGba","name":"Emulator for GBA","fullCompl":1,"preReqs":[["$EmuDualSlot"]]},
-    {"id":"$EmuGbaMultiplayer","name":"Emulator supports link cables?","indent":1, "url":["mGBA","https://mgba.io/"], "fullCompl":1},
+    {"id":"$EmuGbaMultiplayer","name":"Emulator supports link cables?","indent":1, "url":["mGBA","https://mgba.io/"]},
     {"id":"$EmuGbaWireless","name":"Emulator supports wireless adapters?","indent":1, "url":["gpSP","https://github.com/davidgfnet/gpsp"]},    
     {"id":"$Emerald_EN","name":"Game: Pokémon Emerald (EN)","fullComp":1,"indent":1},
     {"id":"$Ruby_EN","name":"Game: Pokémon Ruby (EN)","indent":1,"fullCompl":1},
@@ -1068,9 +1070,9 @@
   {"name":"Gothita","id":"574","obtainable":1,"location":"Route 5, Route 16, Strange House","iconUrl":"pokemon/p574.png","uid":573},
   {"name":"Gothorita","id":"575","obtainable":1,"location":"Route 9, Strange House","iconUrl":"pokemon/p575.png","uid":574},
   {"name":"Gothitelle","id":"576","obtainable":1,"location":"Route 9","iconUrl":"pokemon/p576.png","uid":575},
-  {"name":"Solosis","id":"577","obtainable":0,"location":"Trade from White, White 2","reqs":["White","White2"],"iconUrl":"pokemon/p577.png","uid":576},
-  {"name":"Duosion","id":"578","obtainable":0,"location":"Evolve traded Solosis (Level 32). Trade from White, White 2","reqs":["White","White2"],"iconUrl":"pokemon/p578.png","uid":577},
-  {"name":"Reuniclus","id":"579","obtainable":0,"location":"Evolve traded Duosion (Level 41). Trade from White, White 2","reqs":["White","White2"],"iconUrl":"pokemon/p579.png","uid":578},
+  {"name":"Solosis","id":"577","obtainable":0,"location":"Trade from White, White 2","reqs":["Solosis"],"iconUrl":"pokemon/p577.png","uid":576},
+  {"name":"Duosion","id":"578","obtainable":0,"location":"Evolve traded Solosis (Level 32). Trade from White, White 2","reqs":["Solosis"],"iconUrl":"pokemon/p578.png","uid":577},
+  {"name":"Reuniclus","id":"579","obtainable":0,"location":"Evolve traded Duosion (Level 41). Trade from White, White 2","reqs":["Solosis"],"iconUrl":"pokemon/p579.png","uid":578},
   {"name":"Ducklett","id":"580","obtainable":1,"location":"Driftveil Drawbridge","iconUrl":"pokemon/p580.png","uid":579},
   {"name":"Swanna","id":"581","obtainable":1,"location":"Marvelous Bridge","iconUrl":"pokemon/p581.png","uid":580},
   {"name":"Vanillite","id":"582","obtainable":1,"location":"Breed Vanillish or Vanilluxe","iconUrl":"pokemon/p582.png","uid":581},
@@ -1118,8 +1120,8 @@
   {"name":"Pawniard","id":"624","obtainable":1,"location":"Route 9","iconUrl":"pokemon/p624.png","uid":623},
   {"name":"Bisharp","id":"625","obtainable":1,"location":"Evolve Pawniard","iconUrl":"pokemon/p625.png","uid":624},
   {"name":"Bouffalant","id":"626","obtainable":1,"location":"Route 23 Route 9 (Hidden Grotto)","iconUrl":"pokemon/p626.png","uid":625},
-  {"name":"Rufflet","id":"627","obtainable":0,"location":"Trade from White, White 2","reqs":["White","White2"],"iconUrl":"pokemon/p627.png","uid":626},
-  {"name":"Braviary","id":"628","obtainable":0,"location":"Evolve traded Rufflet (Level 54). Trade from White, White 2","reqs":["White","White2"],"iconUrl":"pokemon/p628.png","uid":627},
+  {"name":"Rufflet","id":"627","obtainable":0,"location":"Trade from White, White 2","reqs":["Rufflet"],"iconUrl":"pokemon/p627.png","uid":626},
+  {"name":"Braviary","id":"628","obtainable":0,"location":"Evolve traded Rufflet (Level 54). Trade from White, White 2","reqs":["Rufflet"],"iconUrl":"pokemon/p628.png","uid":627},
   {"name":"Vullaby","id":"629","obtainable":1,"location":"Route 23","iconUrl":"pokemon/p629.png","uid":628},
   {"name":"Mandibuzz","id":"630","obtainable":1,"location":"Route 4 (Thursday). Evolve Vullaby","iconUrl":"pokemon/p630.png","uid":629},
   {"name":"Heatmor","id":"631","obtainable":1,"location":"Twist Mountain","iconUrl":"pokemon/p631.png","uid":630},
@@ -1133,10 +1135,10 @@
   {"name":"Terrakion","id":"639","obtainable":1,"location":"Route 22","iconUrl":"pokemon/p639.png","uid":638},
   {"name":"Virizion","id":"640","obtainable":1,"location":"Route 11","iconUrl":"pokemon/p640.png","uid":639},
   {"name":"Tornadus","id":"641","obtainable":0,"location":"Trade from Black. Transfer from Dream Radar","reqs":["Black","DreamRadar"],"iconUrl":"pokemon/p641.png","uid":640},
-  {"name":"Thundurus","id":"642","obtainable":0,"location":"Trade from White. Transfer from Dream Radar","reqs":["White","DreamRadar"],"iconUrl":"pokemon/p642.png","uid":641},
+  {"name":"Thundurus","id":"642","obtainable":0,"location":"Trade from White. Transfer from Dream Radar","reqs":["Thundurus"],"iconUrl":"pokemon/p642.png","uid":641},
   {"name":"Reshiram","id":"643","obtainable":0,"location":"Trade from Black, White 2","reqs":["Reshiram"],"iconUrl":"pokemon/p643.png","uid":642},
   {"name":"Zekrom","id":"644","obtainable":1,"location":"Dragonspiral Tower","iconUrl":"pokemon/p644.png","uid":643},
-  {"name":"Landorus","id":"645","obtainable":0,"location":"Trade from Black, White (requires owning Tornadus and Thundurus). Transfer from Dream Radar","reqs":[["Black","White"],["DreamRadar"]],"iconUrl":"pokemon/p645.png","uid":644},
+  {"name":"Landorus","id":"645","obtainable":0,"location":"Trade from Black, White (requires owning Tornadus and Thundurus). Transfer from Dream Radar","reqs":["Landorus"],"iconUrl":"pokemon/p645.png","uid":644},
   {"name":"Kyurem","id":"646","obtainable":1,"location":"Giant Chasm","iconUrl":"pokemon/p646.png","uid":645},
   {"name":"Keldeo","id":"647","obtainable":0,"location":"Event (ex: Winter 2013 Keldeo)","reqs":["Keldeo"],"iconUrl":"pokemon/p647.png","uid":646},
   {"name":"Meloetta","id":"648","obtainable":0,"location":"Event (ex: Spring 2013 Meloetta)","reqs":["Meloetta"],"iconUrl":"pokemon/p648.png","uid":647},
@@ -1219,7 +1221,7 @@
   {"name":"Tornadus - Therian","obtainable":0,"location":"Transfer from Dream Radar","reqs":["DreamRadar"],"iconUrl":"pokemon/p641.png","uid":720},
   {"name":"Thundurus - Incarnate","obtainable":0,"location":"Trade from White. Use Reveal Glass on Therian Thundurus","reqs":["White","DreamRadar"],"iconUrl":"pokemon/p642.png","uid":721},
   {"name":"Thundurus - Therian","obtainable":0,"location":"Transfer from Dream Radar","reqs":["DreamRadar"],"iconUrl":"pokemon/p642.png","uid":722},
-  {"name":"Landorus - Incarnate","obtainable":0,"location":"Trade from Black or White (requires owning both Tornadus and Thundurus). Use Reveal Glass on Therian Landorus","reqs":[["Black","White"],["DreamRadar"]],"iconUrl":"pokemon/p645.png","uid":723},
+  {"name":"Landorus - Incarnate","obtainable":0,"location":"Trade from Black or White (requires owning both Tornadus and Thundurus). Use Reveal Glass on Therian Landorus","reqs":["Landorus"],"iconUrl":"pokemon/p645.png","uid":723},
   {"name":"Landorus - Therian","obtainable":0,"location":"Transfer from Dream Radar","reqs":["DreamRadar"],"iconUrl":"pokemon/p645.png","uid":724},
   {"name":"Kyurem - Normal","location":"Giant Chasm","iconUrl":"pokemon/p646.png","uid":725},
   {"name":"Kyurem - White","obtainable":0,"location":"Use DNA Splicers on Kyurem to fuse with Reshiram","reqs":["Black","White2"],"iconUrl":"pokemon/p646.png","uid":726},
@@ -2180,21 +2182,21 @@
   {"name":"Good Rod Fisherman","location":"The player has only to reel in Pokémon, not catch it. A Medal given to leisure fishers who caught 10 Pokémon.","uid":1659},
   {"name":"Super Rod Fisherman","location":"The player has only to reel in Pokémon, not catch it. A Medal given to very experienced fishers who caught 50 Pokémon.","uid":1660},
   {"name":"Mighty Fisher","location":"The player has only to reel in Pokémon, not catch it. A Medal given to legendary fishers who caught 100 Pokémon.","uid":1661},
-  {"name":"Normal-type Catcher","location":"A Medal in commemoration of catching all the Normal-type Pokémon in the Unova Pokédex. (Excluding Meloetta)","obtainable":0,"reqs":["White","White2"],"notes":"Braviary","uid":1662},
-  {"name":"Fire-type Catcher","location":"A Medal in commemoration of catching all the Fire-type Pokémon in the Unova Pokédex. (Excluding Victini)","obtainable":0,"reqs":["Black","White2"],"notes":"Reshiram","uid":1663},
+  {"name":"Normal-type Catcher","location":"A Medal in commemoration of catching all the Normal-type Pokémon in the Unova Pokédex. (Excluding Meloetta)","obtainable":0,"reqs":["Rufflet"],"uid":1662},
+  {"name":"Fire-type Catcher","location":"A Medal in commemoration of catching all the Fire-type Pokémon in the Unova Pokédex. (Excluding Victini)","obtainable":0,"reqs":["Reshiram"],"uid":1663},
   {"name":"Water-type Catcher","location":"A Medal in commemoration of catching all the Water-type Pokémon in the Unova Pokédex. (Excluding Keldeo)","obtainable":0,"reqs":["EvolveTradeGen5"],"notes":"water starter","uid":1664},
-  {"name":"Electric-type Catcher","location":"A Medal in commemoration of catching all the Electric-type Pokémon in the Unova Pokédex.","obtainable":0,"reqs":["White","DreamRadar"],"notes":"Thundurus","uid":1665},
+  {"name":"Electric-type Catcher","location":"A Medal in commemoration of catching all the Electric-type Pokémon in the Unova Pokédex.","obtainable":0,"reqs":["Thundurus"],"notes":"Thundurus","uid":1665},
   {"name":"Grass-type Catcher","location":"A Medal in commemoration of catching all the Grass-type Pokémon in the Unova Pokédex.","obtainable":0,"reqs":["EvolveTradeGen5"],"notes":"grass starter","uid":1666},
   {"name":"Ice-type Catcher","location":"A Medal in commemoration of catching all the Ice-type Pokémon in the Unova Pokédex.","obtainable":1,"uid":1667},
   {"name":"Fighting-type Catcher","location":"A Medal in commemoration of catching all the Fighting-type Pokémon in the Unova Pokédex. (Excluding Keldeo)","obtainable":0,"reqs":["EvolveTradeGen5"],"notes":"Conkeldurr","uid":1668},
   {"name":"Poison-type Catcher","location":"A Medal in commemoration of catching all the Poison-type Pokémon in the Unova Pokédex.","obtainable":1,"uid":1669},
-  {"name":"Ground-type Catcher","location":"A Medal in commemoration of catching all the Ground-type Pokémon in the Unova Pokédex.","obtainable":0,"reqs":[["Black","White"],["DreamRadar"]],"notes":"Landorus","uid":1670},
-  {"name":"Flying-type Catcher","location":"A Medal in commemoration of catching all the Flying-type Pokémon in the Unova Pokédex.","obtainable":0,"reqs":[["Black","White"],["DreamRadar","White"],["DreamRadar","White2"]],"notes":"Braviary, Tornadus, Thundurus, Landorus","uid":1671},
-  {"name":"Psychic-type Catcher","location":"A Medal in commemoration of catching all the Psychic-type Pokémon in the Unova Pokédex. (Excluding Victini, Meloetta)","obtainable":0,"reqs":["White","White2"],"notes":"Reuniclus","uid":1672},
+  {"name":"Ground-type Catcher","location":"A Medal in commemoration of catching all the Ground-type Pokémon in the Unova Pokédex.","obtainable":0,"reqs":["Landorus"],"notes":"Landorus","uid":1670},
+  {"name":"Flying-type Catcher","location":"A Medal in commemoration of catching all the Flying-type Pokémon in the Unova Pokédex.","obtainable":0,"reqs":["FlyingTypeCatcher"],"uid":1671},
+  {"name":"Psychic-type Catcher","location":"A Medal in commemoration of catching all the Psychic-type Pokémon in the Unova Pokédex. (Excluding Victini, Meloetta)","obtainable":0,"reqs":["Solosis"],"notes":"Reuniclus","uid":1672},
   {"name":"Bug-type Catcher","location":"A Medal in commemoration of catching all the Bug-type Pokémon in the Unova Pokédex. (Excluding Genesect)","obtainable":0,"reqs":["EvolveTradeGen5"],"notes":"Escavalier, Accelgor","uid":1673},
   {"name":"Rock-type Catcher","location":"A Medal in commemoration of catching all the Rock-type Pokémon in the Unova Pokédex.","obtainable":1,"uid":1674},
   {"name":"Ghost-type Catcher","location":"A Medal in commemoration of catching all the Ghost-type Pokémon in the Unova Pokédex.","obtainable":1,"uid":1675},
-  {"name":"Dragon-type Catcher","location":"A Medal in commemoration of catching all the Dragon-type Pokémon in the Unova Pokédex.","obtainable":0,"reqs":["Black","White2"],"notes":"Reshiram","uid":1676},
+  {"name":"Dragon-type Catcher","location":"A Medal in commemoration of catching all the Dragon-type Pokémon in the Unova Pokédex.","obtainable":0,"reqs":["Reshiram"],"uid":1676},
   {"name":"Dark-type Catcher","location":"A Medal in commemoration of catching all the Dark-type Pokémon in the Unova Pokédex.","obtainable":1,"uid":1677},
   {"name":"Steel-type Catcher","location":"A Medal in commemoration of catching all the Steel-type Pokémon in the Unova Pokédex. (Excluding Genesect)","obtainable":0,"reqs":["EvolveTradeGen5"],"notes":"Escavalier, conflict in-game trade Mawile","uid":1678},
   {"name":"Unova Catcher","location":"A Medal in commemoration of receiving the award from the Game Director for completing the Unova Pokédex. (Excluding Victini, Keldeo, Meloetta, Genesect)","obtainable":0,"reqs":["CatchUnovaPokedex"],"uid":1679},
@@ -2257,7 +2259,7 @@
   {"name":"Diamond Dust","location":"A Medal given to people who have seen the rare diamond dust.","uid":1736},
   {"name":"Bridge Enthusiast","location":"A Medal for bridge enthusiasts who visited all the bridges in the Unova region.","uid":1737},
   {"name":"Around Unova","location":"A Medal given to great travelers who have visited every city and town in the Unova region. (This includes Unity Tower which requires making an international trade)","obtainable":0,"reqs":["AnyGen5"],"uid":1738},
-  {"name":"Great Adventurer","location":"A Medal to reward people who collected all the Adventure Medals.","obtainable":0,"reqs":["TODO"],"uid":1739},
+  {"name":"Great Adventurer","location":"A Medal to reward people who collected all the Adventure Medals.","obtainable":0,"reqs":["GreatAdventurerMedal"],"uid":1739},
   {"name":"Battle Learner","location":"A Medal for courageous young Trainers who went through 100 battles.","uid":1740},
   {"name":"Battle Teacher","location":"A Medal for ferociously courageous Trainers who went through 200 battles.","uid":1741},
   {"name":"Battle Veteran","location":"A Medal for tremendously courageous Trainers who went through 400 battles.","uid":1742},
@@ -2313,7 +2315,7 @@
   {"name":"Pinpoint: Hard","location":"Clear Area 6, 7, 8, 9, or 10 of Black Tower in six battles or less. A Medal for Trainers who cleared Area 6, 7, 8, 9, or 10 within six battles in Unova's Challenge.","uid":1792},
   {"name":"Quick Clear: Easy","location":"Clear Area 2, 3, 4, or 5 of Black Tower within 100 steps. A Medal for Trainers who cleared Area 2, 3, 4, or 5 within 100 steps in Unova's Challenge.","uid":1793},
   {"name":"Quick Clear: Hard","location":"Clear Area 6, 7, 8, 9, or 10 of Black Tower within 1,000 steps. A Medal for Trainers who cleared Area 6, 7, 8, 9, or 10 within 1,000 steps in Unova's Challenge.","uid":1794},
-  {"name":"Battle Guru","location":"A Medal to reward people who collected all the Battle Medals.","obtainable":0,"reqs":["TODO"],"uid":1795},
+  {"name":"Battle Guru","location":"A Medal to reward people who collected all the Battle Medals.","obtainable":0,"reqs":["White2Key"],"uid":1795},
   {"name":"Beginning Trader","location":"A Medal to commemorate the first trade of Pokémon by Link Trade.","obtainable":0,"reqs":["EvolveTradeGen5"],"uid":1796},
   {"name":"Occasional Trader","location":"A Medal to commemorate the rich experience of trading Pokémon 10 times by Link Trade.","obtainable":0,"reqs":["EvolveTradeGen5"],"uid":1797},
   {"name":"Frequent Trader","location":"A Medal to commemorate the valuable experience of trading Pokémon 50 times by Link Trade.","obtainable":0,"reqs":["EvolveTradeGen5"],"uid":1798},
@@ -2388,7 +2390,7 @@
   {"name":"Good Night","location":"Use Game Sync to wake up a tucked-in Pokémon. A Medal for those who tucked in their Pokémon using Game Sync and let them play in the Pokémon Dream World.","obtainable":0,"reqs":["DreamWorld"],"uid":1867},
   {"name":"Beginning of Memory","location":"A Medal for those who used Memory Link and saw a link event for the first time. (Requires Black or White)","obtainable":0,"reqs":["BW"],"uid":1868},
   {"name":"Memory Master","location":"A Medal for those who used Memory Link and saw all the link events. (Requires Black or White)","obtainable":0,"reqs":["BW"],"uid":1869},
-  {"name":"Entertainment Master","location":"A Medal to reward people who collected all the Entertainment Medals.","obtainable":0,"reqs":["TODO"],"uid":1870},
+  {"name":"Entertainment Master","location":"A Medal to reward people who collected all the Entertainment Medals.","obtainable":0,"reqs":["EntertainmentMasterMedal"],"uid":1870},
   {"name":"Normal-type Champ","location":"A Medal to honor the extraordinary skill of those who won the Pokémon League with only Normal-type Pokémon.","uid":1871},
   {"name":"Fire-type Champ","location":"A Medal to honor the blazing ambition of those who won the Pokémon League with only Fire-type Pokémon.","uid":1872},
   {"name":"Water-type Champ","location":"A Medal to honor the flowing style of those who won the Pokémon League with only Water-type Pokémon.","uid":1873},
