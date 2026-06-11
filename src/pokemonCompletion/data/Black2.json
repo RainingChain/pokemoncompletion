@@ -22,9 +22,11 @@
     "-Another long element is getting Pokérus (medal) but it can be RNG-abused.",
     "-For the medal 10 Followers, you'll need to win 130+ times the musical. To win easily, do Stardom muscial and wear Cowboy Hat, Fake Belly Button, Black Wings, Toy Sword, Toy Cutlass, Fluffy Beard, Small Barrette, Pink Barrette. No need to appeal to win. Credits: Mikey_R",
     "-Check <a href='/completion/Black2/ForeignPokedexEntries' target='_blank' rel='noopener'>Black 2 Foreign Pokédex Entries Guide</a>",
-    
+
   "Complete 100% Platinum to get Pokémon, ribbons, and items by following Check <a href=\"/completion/Platinum\">this guide</a>.",
   "-Note: Starf Berry and Soul Dew can be obtained in Black 2.",
+
+  "Obtain all event-exclusive elements.",
 
   "Play White 2 until reaching P2 Laboratory and White Treehollow.",
   "-Show Genesect in P2 Laboratory for Douse Drive and Chill Drive.",
@@ -39,7 +41,6 @@
 
   "Play Dream World for several items, and medals.",
 
-  "Obtain all event-exclusive elements.",
   "Check <a href='/completion/Black2/ForeignPokedexEntries' target='_blank' rel='noopener'>Black 2 Foreign Pokédex Entries Guide</a>"
 ],
 "locations":[
@@ -88,7 +89,7 @@
   {"name":"Route 22","alias":[]},
   {"name":"Route 23","alias":[]},
   {"name":"Big Stadium and Small Court","alias":[]},
-  {"name":"Passerby Analytics HQ","alias":[]},   
+  {"name":"Passerby Analytics HQ","alias":[]},
   {"name":"Shopping Mall Nine","alias":[]},
   {"name":"Pokémon World Tournament","alias":[]},
   {"name":"Skyarrow Bridge","alias":[]},
@@ -181,7 +182,7 @@
      "url":"https://bulbapedia.bulbagarden.net/wiki/List_of_Wi-Fi_English_event_Pok%C3%A9mon_distributions_in_Generation_V#Movie_14_Victini","savUrl":"https://projectpokemon.org/home/files/file/700-movie-2011-victini/"},
     {"id":"Deoxys_B2_Event","name":"Deoxys", "fullName":"Plasma Deoxys", "where":"Nintendo Wi-Fi Connection", "when":"May 8 to 31, 2013",
      "url":"https://bulbapedia.bulbagarden.net/wiki/List_of_Wi-Fi_English_event_Pok%C3%A9mon_distributions_in_Generation_V#Plasma_Deoxys","savUrl":"https://projectpokemon.org/home/files/file/703-plasma-deoxys/"},
-    {"id":"Genesect_B2_Event","name":"Shiny Genesect", "fullName":"Theaters in Japan", "where":"Nintendo Wi-Fi Connection", 
+    {"id":"Genesect_B2_Event","name":"Shiny Genesect", "fullName":"Theaters in Japan", "where":"Nintendo Wi-Fi Connection",
     "promo":"ExtremeSpeed Genesect: Mewtwo Awakens","region":"JP", "when":"July 13 to September 30, 2013",
      "url":"https://bulbapedia.bulbagarden.net/wiki/List_of_local_Japanese_event_Pok%C3%A9mon_distributions_in_Generation_V#Cinema_Genesect","savUrl":"https://projectpokemon.org/home/files/file/1244-movie-2013-genesect/"},
     {"id":"DarkraiClassicRibbonEnigmaBerry_BW_Event","name":"Darkrai with Classic Ribbon and Enigma Berry", "fullName":"Winter 2011 Darkrai", "where":"Toys R Us stores in France", "when":"November 14 to 26, 2011",
@@ -265,8 +266,8 @@
   ["DreamRadar","$DreamRadar"],
   ["PWTEvent_EN","$PWTEvent_EN"],
   ["PWTEvent_JP","$PWTEvent_JP"],
-  ["MusicalEvent","$MusicalEvent"],
-  ["DreamWorld","$DreamWorld"],
+  ["MusicalEvent","$MusicalEvent","$PokemonGlobalLink"],
+  ["DreamWorld","$PokemonGlobalLink"],
   "------Inter-Game Interactions-------",
   {"id":"DualFireRed", "formula":[["$FireRed", "DPPt"],["FireRed"]]},
   {"id":"DualLeafGreen", "formula":[["$LeafGreen", "DPPt"],["LeafGreen"]]},
@@ -286,6 +287,10 @@
     {"type":["emulator"],  "formula":[["AnyGen4"]],"notes":"if gen4-gen5 trade is possible, gen4-gen4 too"},
     {"type":["consoleEN"], "formula":[["GTE(AnyGen4,2)"]]}
   ]},
+  {"id":"MultiplayerGen45_PreReq", "waresByType":[
+    {"type":"emulator", "formula":[["$EmuMultiplayer"]]},
+    {"type":["consoleEN"], "formula":[["GTE($ConsoleDS,2)"]]}
+  ]},
   ["TradeGen5ToGen5", "AnyGen5"],
   ["EvolveTradeAnyGen", "TradeGen3ToGen3","TradeGen4ToGen4","TradeGen5ToGen5"],
   ["EvolveTradeGen4OrMore", "TradeGen4ToGen4","TradeGen5ToGen5"],
@@ -302,7 +307,7 @@
   ["BirthdayRibbon","$BirthdayRibbon_B2_Event"],
   ["EventRibbon","$LightBallEventRibbon_B2_Event"],
   ["Meloetta","$MeloettaWishingRibbon_B2_Event"],
-  ["BattleChampionRibbon","$BattleChampionRibbon_B2_Event"],  
+  ["BattleChampionRibbon","$BattleChampionRibbon_B2_Event"],
   ["SouvenirRibbon","$SouvenirRibbon_B2_Event"],
   ["LightBall","$LightBallEventRibbon_B2_Event"],
   ["Victini","$Victini_BW_Event"],
@@ -313,7 +318,7 @@
   ["Genesect","$Genesect_B2_Event"],
   ["DreamWorld_Event","DreamWorld"],
   ["MicleBerry","DreamWorld_Event"],
-  ["RowapBerry","DreamWorld_Event"], 
+  ["RowapBerry","DreamWorld_Event"],
   ["JabocaBerry","DreamWorld_Event"],
   ["CustapBerry","$CustapBerryWishingRibbon_B2_Event"],
   "------Collectable-------",
@@ -321,7 +326,7 @@
   ["HoOh","HS","Colosseum"],
   ["Arceus","$Arceus_BW_Event"],
   ["Celebi", "$ColosseumBonusDisc_JP"],
-  ["Jirachi","$ColosseumBonusDisc_US"],  
+  ["Jirachi","$ColosseumBonusDisc_US"],
   ["Phione","MyPokemonRanch", "Manaphy"],
   {"id":"Manaphy", "formula":[["$Ranger_EN","DP_EN"]]},
   ["ForeignDexEntries","$ForeignDexEntries"],
@@ -355,7 +360,7 @@
   {"id":"FlyingTypeCatcher", "formula":[["Black","White"],["DreamRadar","White"],["DreamRadar","White2"]],"notes":"Braviary, Tornadus, Thundurus, Landorus"},
   {"id":"Landorus", "formula":[["Black","White"],["DreamRadar"]]},
   {"id":"Thundurus", "formula":[["White"],["DreamRadar"]]},
-  
+
   "------NationalDex------- see ForeignEntries",
   {"id":"NationalDex", "formula":[[
     "Latias",
@@ -371,7 +376,6 @@
   {"id":"NationalDex_DialgaPalkia", "formula":[["Diamond","Platinum"], ["Pearl","Platinum"]]},
   {"id":"NationalDex_HoOhLugia", "formula":[["HS"], ["XD","Colosseum"]]},
   "------NationalDex end-------",
-  {"id":"TODO","formula":[]},
   {"id":"ForeignDexEntries", "formula":[["$ForeignDexEntries"]]},
   {"id":"2PeopleFunfest", "waresByType":[
     {"type":["emulator"], "formula":[["MultiplayerGenDS"]]},
@@ -402,11 +406,11 @@
     ["$MeloettaWishingRibbon_B2_Event","$EventTool"],
     ["$BattleChampionRibbon_B2_Event","$EventTool"],
     ["$LightBallEventRibbon_B2_Event","$EventTool"],
-    ["$CustapBerryWishingRibbon_B2_Event","$EventTool"],    
+    ["$CustapBerryWishingRibbon_B2_Event","$EventTool"],
     ["$Victini_BW_Event","$EventTool"],
     ["$DarkraiClassicRibbonEnigmaBerry_BW_Event","$EventTool"],
     ["$Deoxys_B2_Event","$EventTool"],
-    ["$Genesect_B2_Event","$EventTool"],    
+    ["$Genesect_B2_Event","$EventTool"],
     ["$Shaymin_BW_Event","$EventTool"],
     ["$Victini_Event","$EventTool"],
     ["$PWTEvent_EN","$EventTool"],
@@ -451,10 +455,10 @@
       {"id":"$Emu3DS","name":"Emulator for 3DS","desc":"Must support inserted NDS, which isn't supported by any emulator as of 2026-06-08.", "indent":1,"fullCompl":1},
       {"id":"$DreamRadar","name":"Game: Dream Radar","indent":1,"fullCompl":1}
     ],
-    {"id":"$DreamWorld","name":"Simulator of Dream World Server","indent":1,"desc":"No fully-featured Dream World servers exist as of 2026-06-08.","fullCompl":1},
+    {"id":"$PokemonGlobalLink","name":"Simulator of the Pokémon Global Link (Dream World)","indent":1,"desc":"No fully-featured Pokémon Global Link servers exist as of 2026-06-08.","fullCompl":1},
     {"id":"$EmuGba","name":"Emulator for GBA","fullCompl":1,"preReqs":[["$EmuDualSlot"]]},
     {"id":"$EmuGbaMultiplayer","name":"Emulator supports link cables?","indent":1, "url":["mGBA","https://mgba.io/"]},
-    {"id":"$EmuGbaWireless","name":"Emulator supports wireless adapters?","indent":1, "url":["gpSP","https://github.com/davidgfnet/gpsp"]},    
+    {"id":"$EmuGbaWireless","name":"Emulator supports wireless adapters?","indent":1, "url":["gpSP","https://github.com/davidgfnet/gpsp"]},
     {"id":"$Emerald_EN","name":"Game: Pokémon Emerald (EN)","fullComp":1,"indent":1},
     {"id":"$Ruby_EN","name":"Game: Pokémon Ruby (EN)","indent":1,"fullCompl":1},
     {"id":"$Sapphire_EN","name":"Game: Pokémon Sapphire (EN)","indent":1},
@@ -487,6 +491,96 @@
     {"id":"$EventTool","name":"Event Simulator","desc":"Found in the Savefile (.sav) Utilities section in this page","fullCompl":1},
     {"id":"$EventTool_Optional","name":"Permit optional events?", "desc":"Permit events giving gifts obtainabled without events", "indent":1},
     {"id":"$EventTool_JP","name":"Cheat: Permit JP events on US games?", "desc":"This is normally impossible without hacks.", "indent":1}
+  ]},
+
+  {"type":"consoleEN","name":"Console (EN)","aliases":[
+  ],"warnings":[
+  ],"list":[
+    {"id":"$ConsoleDS","name":"Console: DS", "minCount":1, "maxCount":30,"fullCompl":30},
+
+    {"id":"$Black2_EN","name":"Game: Pokémon Black2 (EN)","indent":1,"fullCompl":28, "maxCount":30 },
+    {"id":"$Black_EN","name":"Game: Pokémon Black (EN)","indent":1, "maxCount":29,"fullCompl":1, "preReqs":[["MultiplayerGen45_PreReq"]] },
+    {"id":"$White_EN","name":"Game: Pokémon White (EN)","indent":1, "maxCount":29, "preReqs":[["MultiplayerGen45_PreReq"]] },
+    {"id":"$White2_EN","name":"Game: Pokémon White2 (EN)","indent":1, "fullCompl":1, "maxCount":29, "preReqs":[["MultiplayerGen45_PreReq"]] },
+
+    {"id":"$Platinum_EN","name":"Game: Pokémon Platinum (EN)","indent":1,"fullCompl":1 },
+    {"id":"$Diamond_EN","name":"Game: Pokémon Diamond (EN)","indent":1, "fullCompl":1, "preReqs":[["MultiplayerGen45_PreReq"]]},
+    {"id":"$Pearl_EN","name":"Game: Pokémon Pearl (EN)","indent":1, "preReqs":[["MultiplayerGen45_PreReq"]]},
+    {"id":"$HeartGold_EN","name":"Game: Pokémon HeartGold (EN)","indent":1, "fullCompl":1, "preReqs":[["MultiplayerGen45_PreReq"]]},
+    {"id":"$SoulSilver_EN","name":"Game: Pokémon SoulSilver (EN)","indent":1, "preReqs":[["MultiplayerGen45_PreReq"]]},
+    {"id":"$Ranger_EN","name":"Game: Pokémon Ranger (EN)","indent":1,"fullCompl":1, "preReqs":[["MultiplayerGen45_PreReq"]]},
+    {"id":"$Platinum_JP","name":"Game: Pokémon Platinum (JP)","indent":1, "preReqs":[["MultiplayerGen45_PreReq"]]},
+    {"id":"$Diamond_JP","name":"Game: Pokémon Diamond (JP)","indent":1, "preReqs":[["MultiplayerGen45_PreReq"]]},
+    {"id":"$Pearl_JP","name":"Game: Pokémon Pearl (JP)","indent":1, "fullCompl":1, "preReqs":[["MultiplayerGen45_PreReq"]]},
+    {"id":"$HeartGold_JP","name":"Game: Pokémon HeartGold (JP)","indent":1, "preReqs":[["MultiplayerGen45_PreReq"]]},
+    {"id":"$SoulSilver_JP","name":"Game: Pokémon SoulSilver (JP)","indent":1, "preReqs":[["MultiplayerGen45_PreReq"]]},
+
+    {"id":"$PokemonGlobalLink","name":"Simulator of Pokémon Global Link (Dream World)","indent":1,"desc":"No fully-featured Pokémon Global Link servers exist as of 2026-06-08.","fullCompl":1},
+
+    [
+      {"id":"$Console3DS","name":"Console: 3DS", "indent":1,"fullCompl":1},
+      {"id":"$DreamRadar","name":"Game: Dream Radar","indent":1,"fullCompl":1}
+    ],
+
+    {"id":"$Emerald_EN","name":"Game: Pokémon Emerald (EN)","fullCompl":1,"indent":1},
+    {"id":"$Ruby_EN","name":"Game: Pokémon Ruby (EN)","indent":1},
+    {"id":"$Sapphire_EN","name":"Game: Pokémon Sapphire (EN)","fullCompl":1,"indent":1},
+    {"id":"$FireRed_EN","name":"Game: Pokémon FireRed (EN)","fullCompl":1,"indent":1},
+    {"id":"$LeafGreen_EN","name":"Game: Pokémon LeafGreen (EN)","fullCompl":1,"indent":1},
+    {"id":"$Emerald_JP","name":"Game: Pokémon Emerald (JP)","indent":1,"preReqs":[["TransferGen3JPToGen4US"]]},
+    {"id":"$Ruby_JP","name":"Game: Pokémon Ruby (JP)","indent":1,"fullCompl":1,"preReqs":[["TransferGen3JPToGen4US"]]},
+    {"id":"$Sapphire_JP","name":"Game: Pokémon Sapphire (JP)","indent":1,"preReqs":[["TransferGen3JPToGen4US"]]},
+    {"id":"$FireRed_JP","name":"Game: Pokémon FireRed (JP)","indent":1,"preReqs":[["TransferGen3JPToGen4US"]]},
+    {"id":"$LeafGreen_JP","name":"Game: Pokémon LeafGreen (JP)","indent":1,"preReqs":[["TransferGen3JPToGen4US"]]},
+    {"id":"$Pokewalker","name":"Accessory: PokéWalker","indent":1, "preReqs":[["HS"]]},
+    {"id":"$NintendoWifi","name":"Simulator of Nintendo Wi-Fi Connection","desc":"","url":["DWC Network Server", "https://github.com/barronwaffles/dwc_network_server_emulator"],"indent":1},
+    {"id":"$ConsoleGba","name":"Console: Game Boy Advance","fullCompl":2,"maxCount":2},
+    {"id":"$GbaLinkCable","name":"Accessory: Game Link Cable","indent":1, "fullCompl":1, "preReqs":[["GTE($ConsoleGba,2)"]]},
+    {"id":"$eReader_US","name":"Accessory: e-Reader (EN)","fullCompl":1,"indent":2,"preReqs":[["RS_EN"]]},
+    {"id":"$eReader_AnyBerry_EN","name":"Data: Any e-Reader Berry Card (EN)","indent":3, "desc":"Ex: Pokémon Battle e: Series 1 - Freezing Ray - 08-K001 - Pumkin Berry","fullCompl":1},
+    {"id":"$eReader_EonTicket","name":"Data: Eon Ticket Card","indent":3,"fullCompl":1},
+    {"id":"$eReader_JP","name":"Accessory: e-Reader e+ (JP)","preReqs":[["RS_JP","AnyGen4_JP"]], "indent":2},
+    {"id":"$eReader_AnyBerry_JP","name":"Data: Any e-Reader Berry Card (JP)","indent":3, "desc":"Ex: Pokémon Battle e: Series 1 - Freezing Ray - 08-K001 - Pumkin Berry"},
+    {"id":"$GameCube_US","name":"Console: Game Cube (US)", "fullCompl":1,"preReqs":[["AnyGen3_EN"]]},
+    {"id":"$GameCubeLinkCable","name":"Accessory: Game Cube to GBA Link Cable","indent":1, "fullCompl":1},
+    {"id":"$Colosseum_US","name":"Game: Pokémon Colosseum (US)","indent":1,"preReqs":[["$GameCubeLinkCable"]]},
+    {"id":"$ColosseumBonusDisc_US","name":"Game: Pokémon Colosseum Bonus Disc (US)","indent":1, "fullCompl":1,"preReqs":[["$GameCubeLinkCable","RS"]]},
+    {"id":"$XD_US","name":"Game: Pokémon XD (US)","indent":1,"preReqs":[["$GameCubeLinkCable"]]},
+    {"id":"$GameCube_JP","name":"Console: Game Cube (JP)","fullCompl":1,"preReqs":[["AnyGen3_JP"]]},
+    {"id":"$GameCubeLinkCable","name":"Accessory: Game Cube to GBA Link Cable","indent":1, "fullCompl":1},
+    {"id":"$Colosseum_JP","name":"Game: Pokémon Colosseum (JP)","indent":1, "fullCompl":1,"preReqs":[["$GameCubeLinkCable"]]},
+    {"id":"$ColosseumBonusDisc_JP","name":"Game: Pokémon Colosseum Bonus Disc (JP)","indent":2, "fullCompl":1},
+    {"id":"$XD_JP","name":"Game: Pokémon XD (JP)","indent":1,"preReqs":[["$GameCubeLinkCable"]]},
+    {"id":"$GameCube_PAL","name":"Console: Game Cube (PAL)","preReqs":[["AnyGen3_EN"]]},
+    {"id":"$GameCubeLinkCable","name":"Accessory: Game Cube to GBA Link Cable","indent":1},
+    {"id":"$PokemonChannel_PAL","name":"Game: Pokémon Channel (PAL)","indent":1,"preReqs":[["$GameCubeLinkCable","RS_EN"]]},
+    {"id":"$Colosseum_PAL","name":"Game: Pokémon Colosseum (PAL)","indent":1, "fullCompl":1,"preReqs":[["$GameCubeLinkCable"]]},
+    {"id":"$XD_PAL","name":"Game: Pokémon XD (PAL)","indent":1,"preReqs":[["$GameCubeLinkCable"]]},
+    {"id":"$ConsoleWii_US","name":"Console: WII (US)", "fullCompl":1},
+    {"id":"$MyPokemonRanch_US","name":"Game: My Pokémon Ranch (US)", "fullCompl":1,"indent":1,"preReqs":[["DP_EN"]]},
+    {"id":"$BattleRevolution_US","name":"Game: Pokémon Battle Revolution (US)", "indent":1},
+    {"id":"$ConsoleWii_JP","name":"Console: WII (JP)","preReqs":[["AnyGen4_JP"]]},
+    {"id":"$MyPokemonRanch_JP","name":"Game: My Pokémon Ranch (JP)", "indent":1},
+    {"id":"$MyPokemonRanchUpdate_JP","name":"Update: My Pokémon Ranch 1.1 (JP)", "indent":2},
+    {"id":"$BattleRevolution_JP","name":"Game: Pokémon Battle Revolution (JP)","indent":1,"preReqs":[["AnyGen4_JP"]]},
+    {"id":"$ForeignDexEntries","name":"Many games in all languages", "fullCompl":1,"preReqs":[["MultiplayerGen45_PreReq","$ConsoleGba"]],"url":["Foreign Pokédex Entries Requirements", "./Platinum/ForeignPokedexEntries",""]},
+    {"id":"$Events","name":"Permit discontinued Events?"},
+    {"id":"$ArceusRowap_Event","name":"Arceus holding Rowap Berry","desc":"Ex: Arceus Movie 2009 Promo from November 7 to 15, 2009","indent":1},
+    {"id":"$ShayminMicle_Event","name":"Shaymin holding Micle Berry","desc":"Ex: Giratina and the Sky Warrior 2009 Promo from February 8 to 14, 2009","indent":1},
+    {"id":"$CelebiJaboca_Event","name":"Celebi holding Jaboca Berry","desc":"Ex: Zoroark: Master of Illusions 2011 Promo from February 5 to March 20, 2011","indent":1},
+    {"id":"$MewPremierRibbon_HGSS_Event","name":"Mew with Premier Ribbon","desc":"Ex: 10th Anniversary of Pokémon Gold and Silver from October 15 to 30, 2010 on Pokémon HeartGold/SoulSilver","indent":1,"preReqs":[["HS"]]},
+    {"id":"$PokemonFestaRibbons_RSE_Event","name":"Event giving Country & World Ribbons","desc":"Ex: Pokémon Festa 2005 from July 17 to August 21, 2005 on Pokémon Ruby/Sapphire/Emerald (Japan only)","indent":1,"preReqs":[["RS_JP"],["$Emerald_JP"]]},
+    {"id":"$SecretKey_Event","name":"Event giving Secret Key","desc":"Nintendo Wi-Fi Connection from April 20 to May 12, 2009","indent":1},
+    {"id":"$OaksLetter_Event","name":"Event giving Oak's Letter","desc":"Nintendo Wi-Fi Connection from September 28 to November 8, 2009","indent":1},
+    {"id":"$MemberCard_Event","name":"Event giving Member Card","desc":"Nintendo Wi-Fi Connection from August 3 to September 13, 2009","indent":1},
+    {"id":"$BrickMail_DP_Event","name":"Event giving Brick Mail","desc":"Trading Japanese Lvl10+ Roselia holding Air Mail for Heracross holding Brick Mail on Nintendo Wi-Fi Connection from August 19 to 30, 2007 on Pokémon Diamond/Pearl","indent":1,"preReqs":[["DP"]]},
+    {"id":"$Deoxys_DP_Event","name":"Deoxys","desc":"Ex: GameStop stores from June 20 to 22, 2008 on Pokémon Diamond/Pearl","indent":1,"preReqs":[["DP"]]},
+    {"id":"$EnteiCustap_Event","name":"Entei holding Custap Berry","desc":"Ex: Zoroark: Master of Illusions 2011 Movie Promo from January 17 to 23, 2011","indent":1},
+    {"id":"$LucarioDoll_Event","name":"Event giving Lucario Doll","desc":"Ex: Waku Waku Lucario Fair from May 1 to 31, 2009 (Japan only)","indent":1,"preReqs":[["$Platinum_JP"]]},
+    {"id":"$Jirachi_Event","name":"Jirachi","desc":"Ex: GameStop Jirachi from February 27 to March 13, 2010","indent":1},
+    {"id":"$Darkrai_DP_Event","name":"Darkrai","desc":"Ex: The Rise of Darkrai 2008 DVD Promo from June 20 to 22, 2008 on Pokémon Diamond/Pearl","indent":1,"preReqs":[["DP"]]},
+    {"id":"$Manaphy_DP_Event","name":"Manaphy","desc":"Ex: Pokémon Ranger and the Temple of the Sea 2007 DVD Promo from September 29, 2007 on Pokémon Diamond/Pearl","indent":1,"preReqs":[["DP"]]},
+    {"id":"$AuroraTicketEvent_Gen3","name":"AuroraTicket","desc":"Ex: Pokémon Rocks America 2004 from October 9 to 23, 2004 on Pokémon Emerald/FireRed/LeafGreen (EN)","indent":1,"preReqs":[["$Emerald_EN"],["$FireRed_EN"],["$LeafGreen_EN"]]}
   ]}
 ],
 "categories":[
@@ -2728,6 +2822,28 @@
   {"name":"White Kyurem","location":"After catching Zekrom and Kyurem.","uid":2193},
   {"name":"Reshiram","location":"After catching Zekrom and Kyurem.","uid":2194},
   {"name":"Zekrom","location":"After catching Zekrom and Kyurem.","uid":2195}
+ ]},
+ {"id":"uiSkin","name":"C-Gear & Pokédex Skin","url":"https://bulbapedia.bulbagarden.net/wiki/List_of_Pok%C3%A9mon_Global_Link_promotions/Skins","list":[
+  {"name":"C-Gear: Munna's Flower Garden","location":"Pokemon Global Link"},
+  {"name":"C-Gear: Resolute Forme","location":"Pokemon Global Link (Password KELDEOCGEARBW2)"},
+  {"name":"C-Gear: TRO☆PIKA☆L '","location":"Pokemon Global Link (Event)"},
+  {"name":"C-Gear: Pumpkin Pikachu","location":"Pokemon Global Link (Event)"},
+  {"name":"C-Gear: V-Sign of Victory","location":"Pokemon Global Link (Event). Required owning Black or White."},
+  {"name":"C-Gear: White Hero","location":"Pokemon Global Link (Event). Required owning Black or White."},
+  {"name":"C-Gear: Black Hero","location":"Pokemon Global Link (Event). Required owning Black or White."},
+  {"name":"C-Gear: Singing Voice of the Night Sky","location":"Pokemon Global Link (Event)"},
+  {"name":"C-Gear: Sleeping Eievui","location":"Pokemon Global Link (Event)"},
+  {"name":"C-Gear: Fushigibana!","location":"Pokemon Global Link (Event)"},
+  {"name":"C-Gear: Lizardon!","location":"Pokemon Global Link (Event)"},
+  {"name":"C-Gear: Kamex!","location":"Pokemon Global Link (Event)"},
+  {"name":"C-Gear: Red Genesect!","location":"Pokemon Global Link (Event)"},
+  {"name":"C-Gear: Black Kyurem","location":"Pokemon Global Link (Event)"},
+  {"name":"C-Gear: White Kyurem","location":"Pokemon Global Link (Event)"},
+
+  {"name":"Pokédex: Hugh-themed Trainer Pokédex skin","location":"Pokemon Global Link (Event, password Purrloin)"},
+  {"name":"Pokédex: Bianca-themed Trainer Pokédex skin","location":"Pokemon Global Link (Event, password Floccesy)"},
+  {"name":"Pokédex: Cheren-themed Trainer Pokédex skin","location":"Pokemon Global Link (Event, password Basic)"},
+
  ]},
  {"id":"misc","name":"Miscellaneous Task","list":[
   {"name":"Registered a Geonet location","location":"Any Pokémon Center (ex: in Nimbasa City)","iconUrl":"decoration4/Globe.png","uid":2196},

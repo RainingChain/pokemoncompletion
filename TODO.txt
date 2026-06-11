@@ -3,12 +3,13 @@ tech:
 
 -------------------
 
-black2: 
+black2:
+
   complete all desc + reqs for emu
 
   wares & requirements
 
-  
+
   map visual
 
 
