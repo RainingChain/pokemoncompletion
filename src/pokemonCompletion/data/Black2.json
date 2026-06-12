@@ -4,24 +4,16 @@
 "iconUrl":"pokemon/p644.png",
 "displayIcons":true,
 "wip":"Finish requirements. Add console wares. Create event simulator and progress importer. Add interactive map. Improve the guide.",
-"advices":[
-  "The hardest element is the Starf Berry which requires 203 consecutive Battle Subway wins. Check <a href=\"https://github.com/RainingChain/PokemonB2W2BattleSubwayRNG\">https://github.com/RainingChain/PokemonB2W2BattleSubwayRNG</a> for guidance for Battle Subway and Battle Institute.",
-  "Join Avenue Level 100 is very long but it generates a lot of money. Add Market shops to your avenue and upon reaching level 10 on each shop, there will be a sale for 1 week. Buy all EV-items (ex: Protein) and sell them back to the Pokémart for about 2M $ profit. This can be repeated.",
-  "Black Entralink Entree level 100 is also long. Best way to level it up is by doing the Find Lost Items! Lvl 1 funfest mission and going to Castelia. Make sure to get a score of at least 11. (Getting score of 10 gives 1 exp, while above 10 gives the score as exp.) You need about 5000 exp for lvl 100.",
-  "Another long element is getting Pokérus (medal) but it can be RNG-abused.",
-  "For the medal 10 Followers, you'll need to win 130+ times the musical. To win easily, do Stardom muscial and wear Cowboy Hat, Fake Belly Button, Black Wings, Toy Sword, Toy Cutlass, Fluffy Beard, Small Barrette, Pink Barrette. No need to appeal to win. Credits: Mikey_R",
-  "Make sure to RNG the legendaries for perfect IV and nature, especially Latios and Terrakion which are very good for Battle Subway.",
-  "If aiming for true 100%, you'll need to get all Pokémon forms, including all shiny forms. Make sure to RNG manipulate your secret trainer id when starting your new game.",
-  "Check <a href='/completion/Black2/ForeignPokedexEntries' target='_blank' rel='noopener'>Black 2 Foreign Pokédex Entries Guide</a>"
-],
-"guide_WIP":[
+
+"guide":[
   "Play Pokémon Black 2. Obtain all possible elements using only that game.",
+    "-Make sure to RNG the legendaries for perfect IV and nature, especially Latios and Terrakion which are very good for Battle Subway.",
+    "-If aiming for true 100%, you'll need to get all Pokémon forms, including all shiny forms. Make sure to RNG manipulate your secret trainer id when starting your new game.",
     "-The hardest element is the Starf Berry which requires 203 consecutive Battle Subway wins. Check <a href=\"https://github.com/RainingChain/PokemonB2W2BattleSubwayRNG\">https://github.com/RainingChain/PokemonB2W2BattleSubwayRNG</a> for guidance for Battle Subway and Battle Institute.",
     "-Join Avenue Level 100 is very long but it generates a lot of money. Add Market shops to your avenue and upon reaching level 10 on each shop, there will be a sale for 1 week. Buy all EV-items (ex: Protein) and sell them back to the Pokémart for about 2M $ profit. This can be repeated.",
     "-Black Entralink Entree level 100 is also long. Best way to level it up is by doing the Find Lost Items! Lvl 1 funfest mission and going to Castelia. Make sure to get a score of at least 11. (Getting score of 10 gives 1 exp, while above 10 gives the score as exp.) You need about 5000 exp for lvl 100.",
     "-Another long element is getting Pokérus (medal) but it can be RNG-abused.",
     "-For the medal 10 Followers, you'll need to win 130+ times the musical. To win easily, do Stardom muscial and wear Cowboy Hat, Fake Belly Button, Black Wings, Toy Sword, Toy Cutlass, Fluffy Beard, Small Barrette, Pink Barrette. No need to appeal to win. Credits: Mikey_R",
-    "-Check <a href='/completion/Black2/ForeignPokedexEntries' target='_blank' rel='noopener'>Black 2 Foreign Pokédex Entries Guide</a>",
 
   "Complete 100% Platinum to get Pokémon, ribbons, and items by following Check <a href=\"/completion/Platinum\">this guide</a>.",
   "-Note: Starf Berry and Soul Dew can be obtained in Black 2.",
@@ -41,6 +33,7 @@
 
   "Play Dream World for several items, and medals.",
 
+  "Check <a href='/completion/Black2/Shiny' target='_blank' rel='noopener'>Black 2 Shiny Guide</a>",
   "Check <a href='/completion/Black2/ForeignPokedexEntries' target='_blank' rel='noopener'>Black 2 Foreign Pokédex Entries Guide</a>"
 ],
 "locations":[
@@ -258,7 +251,7 @@
   ["AnyGen5","BW","White2","Black2_2"],
   {"id":"Black2_2", "waresByType":[
     {"type":"emulator", "formula":[["MultiplayerGenDS"]]},
-    {"type":["consoleEN"], "formula":[["GTE($Black2_EN,$Black2_JP,2)"]]}
+    {"type":["consoleEN"], "formula":[["GTE($Black2_EN,$Black2_JP,2)", "GTE($ConsoleDS,2)"]]}
   ]},
   "------Simple Hardware-------",
   ["PokeWalker", "$PokeWalker"],
@@ -459,12 +452,12 @@
     {"id":"$EmuGba","name":"Emulator for GBA","fullCompl":1,"preReqs":[["$EmuDualSlot"]]},
     {"id":"$EmuGbaMultiplayer","name":"Emulator supports link cables?","indent":1, "url":["mGBA","https://mgba.io/"]},
     {"id":"$EmuGbaWireless","name":"Emulator supports wireless adapters?","indent":1, "url":["gpSP","https://github.com/davidgfnet/gpsp"]},
-    {"id":"$Emerald_EN","name":"Game: Pokémon Emerald (EN)","fullComp":1,"indent":1},
+    {"id":"$Emerald_EN","name":"Game: Pokémon Emerald (EN)","fullCompl":1,"indent":1},
     {"id":"$Ruby_EN","name":"Game: Pokémon Ruby (EN)","indent":1,"fullCompl":1},
     {"id":"$Sapphire_EN","name":"Game: Pokémon Sapphire (EN)","indent":1},
     {"id":"$FireRed_EN","name":"Game: Pokémon FireRed (EN)","indent":1},
     {"id":"$LeafGreen_EN","name":"Game: Pokémon LeafGreen (EN)","indent":1},
-    {"id":"$Emerald_JP","name":"Game: Pokémon Emerald (JP)","indent":1,"fullComp":1,"preReqs":[["TransferGen3JPToGen4US"]]},
+    {"id":"$Emerald_JP","name":"Game: Pokémon Emerald (JP)","indent":1,"fullCompl":1,"preReqs":[["TransferGen3JPToGen4US"]]},
     {"id":"$Ruby_JP","name":"Game: Pokémon Ruby (JP)","indent":1,"fullCompl":1,"preReqs":[["TransferGen3JPToGen4US"]]},
     {"id":"$Sapphire_JP","name":"Game: Pokémon Sapphire (JP)","indent":1,"preReqs":[["TransferGen3JPToGen4US"]]},
     {"id":"$FireRed_JP","name":"Game: Pokémon FireRed (JP)","indent":1,"preReqs":[["TransferGen3JPToGen4US"]]},
@@ -498,12 +491,12 @@
   ],"list":[
     {"id":"$ConsoleDS","name":"Console: DS", "minCount":1, "maxCount":30,"fullCompl":30},
 
-    {"id":"$Black2_EN","name":"Game: Pokémon Black2 (EN)","indent":1,"fullCompl":28, "maxCount":30 },
+    {"id":"$Black2_EN","name":"Game: Pokémon Black2 (EN)","indent":1, "minCount":1, "fullCompl":27, "maxCount":30 },
     {"id":"$Black_EN","name":"Game: Pokémon Black (EN)","indent":1, "maxCount":29,"fullCompl":1, "preReqs":[["MultiplayerGen45_PreReq"]] },
-    {"id":"$White_EN","name":"Game: Pokémon White (EN)","indent":1, "maxCount":29, "preReqs":[["MultiplayerGen45_PreReq"]] },
+    {"id":"$White_EN","name":"Game: Pokémon White (EN)","indent":1, "maxCount":29,"fullCompl":1, "preReqs":[["MultiplayerGen45_PreReq"]],"fullCompl_note":"for shiny Thundurus" },
     {"id":"$White2_EN","name":"Game: Pokémon White2 (EN)","indent":1, "fullCompl":1, "maxCount":29, "preReqs":[["MultiplayerGen45_PreReq"]] },
 
-    {"id":"$Platinum_EN","name":"Game: Pokémon Platinum (EN)","indent":1,"fullCompl":1 },
+    {"id":"$Platinum_EN","name":"Game: Pokémon Platinum (EN)","indent":1,"fullCompl":1, "preReqs":[["MultiplayerGen45_PreReq"]] },
     {"id":"$Diamond_EN","name":"Game: Pokémon Diamond (EN)","indent":1, "fullCompl":1, "preReqs":[["MultiplayerGen45_PreReq"]]},
     {"id":"$Pearl_EN","name":"Game: Pokémon Pearl (EN)","indent":1, "preReqs":[["MultiplayerGen45_PreReq"]]},
     {"id":"$HeartGold_EN","name":"Game: Pokémon HeartGold (EN)","indent":1, "fullCompl":1, "preReqs":[["MultiplayerGen45_PreReq"]]},
@@ -527,13 +520,13 @@
     {"id":"$Sapphire_EN","name":"Game: Pokémon Sapphire (EN)","fullCompl":1,"indent":1},
     {"id":"$FireRed_EN","name":"Game: Pokémon FireRed (EN)","fullCompl":1,"indent":1},
     {"id":"$LeafGreen_EN","name":"Game: Pokémon LeafGreen (EN)","fullCompl":1,"indent":1},
-    {"id":"$Emerald_JP","name":"Game: Pokémon Emerald (JP)","indent":1,"preReqs":[["TransferGen3JPToGen4US"]]},
+    {"id":"$Emerald_JP","name":"Game: Pokémon Emerald (JP)","indent":1,"fullCompl":1,"preReqs":[["TransferGen3JPToGen4US"]]},
     {"id":"$Ruby_JP","name":"Game: Pokémon Ruby (JP)","indent":1,"fullCompl":1,"preReqs":[["TransferGen3JPToGen4US"]]},
     {"id":"$Sapphire_JP","name":"Game: Pokémon Sapphire (JP)","indent":1,"preReqs":[["TransferGen3JPToGen4US"]]},
     {"id":"$FireRed_JP","name":"Game: Pokémon FireRed (JP)","indent":1,"preReqs":[["TransferGen3JPToGen4US"]]},
     {"id":"$LeafGreen_JP","name":"Game: Pokémon LeafGreen (JP)","indent":1,"preReqs":[["TransferGen3JPToGen4US"]]},
     {"id":"$Pokewalker","name":"Accessory: PokéWalker","indent":1, "preReqs":[["HS"]]},
-    {"id":"$NintendoWifi","name":"Simulator of Nintendo Wi-Fi Connection","desc":"","url":["DWC Network Server", "https://github.com/barronwaffles/dwc_network_server_emulator"],"indent":1},
+    {"id":"$NintendoWifi","name":"Simulator of Nintendo Wi-Fi Connection","desc":"","url":["DWC Network Server", "https://github.com/barronwaffles/dwc_network_server_emulator"],"indent":1, "fullCompl":1},
     {"id":"$ConsoleGba","name":"Console: Game Boy Advance","fullCompl":2,"maxCount":2},
     {"id":"$GbaLinkCable","name":"Accessory: Game Link Cable","indent":1, "fullCompl":1, "preReqs":[["GTE($ConsoleGba,2)"]]},
     {"id":"$eReader_US","name":"Accessory: e-Reader (EN)","fullCompl":1,"indent":2,"preReqs":[["RS_EN"]]},
@@ -2839,10 +2832,11 @@
   {"name":"C-Gear: Red Genesect!","location":"Pokemon Global Link (Event)"},
   {"name":"C-Gear: Black Kyurem","location":"Pokemon Global Link (Event)"},
   {"name":"C-Gear: White Kyurem","location":"Pokemon Global Link (Event)"},
-
+  {"name":"C-Gear: Starter Pals","location":"Pokemon Global Link (Event)"},
+	
   {"name":"Pokédex: Hugh-themed Trainer Pokédex skin","location":"Pokemon Global Link (Event, password Purrloin)"},
   {"name":"Pokédex: Bianca-themed Trainer Pokédex skin","location":"Pokemon Global Link (Event, password Floccesy)"},
-  {"name":"Pokédex: Cheren-themed Trainer Pokédex skin","location":"Pokemon Global Link (Event, password Basic)"},
+  {"name":"Pokédex: Cheren-themed Trainer Pokédex skin","location":"Pokemon Global Link (Event, password Basic)"}
 
  ]},
  {"id":"misc","name":"Miscellaneous Task","list":[

@@ -131,6 +131,15 @@ export class App_httpPages {
       });
     });
 
+    app.get('/completion/Black2/Shiny',function(req,res){
+      const filePath = app.appConfig.absolutePathFromCwd('/compiled/pokemonCompletion/research/Black2_Shiny.html');
+      app.render2(res, filePath, {
+        location:'pokemonCompletion',
+        title: `Pokémon Black 2 - Shiny advices`,
+        description:`Advices for obtaining all Black 2 shiny Pokémon`,
+      });
+    });
+
     app.get('/completion/Shuffle/dlc',function(req,res){
       const filePath = app.appConfig.absolutePathFromCwd('/compiled/pokemonCompletion/ShuffleMod/shuffleMod.html');
       app.render2(res, filePath, {

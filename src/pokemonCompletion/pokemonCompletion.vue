@@ -138,7 +138,7 @@
     </div>
 
     <div v-show="guide.length !== 0">
-      <h6>Walkthrough:</h6>
+      <h6 v-show="unsolvedMissables.length">Walkthrough:</h6>
       <ul>
         <li v-for="(a,i) in guide" :key="i" v-html="a.html" :style="{marginLeft:a.indented ? '20px':'' }"></li>
       </ul>
