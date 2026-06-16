@@ -27,6 +27,7 @@ import nodeExternals from "webpack-node-externals";
 
 import HtmlWebpackPlugin from 'html-webpack-plugin';
 import MiniCssExtractPlugin from 'mini-css-extract-plugin';
+import CopyWebpackPlugin from 'copy-webpack-plugin';
 
 //dev-only
 import CleanTerminalPlugin from 'clean-terminal-webpack-plugin';
@@ -194,6 +195,12 @@ let serverConfigCommon = (params) => {
     output: {filename:'../app.js',},
     plugins: [
       new CleanTerminalPlugin(),
+      new CopyWebpackPlugin({
+        patterns: [{
+          from: path.resolve(__dirname, 'src/pokemonCompletion/PkCompletionist'),
+          to: path.resolve(__dirname, 'dist/PkCompletionist'),
+        }],
+      }),
     ],
   });
 }
