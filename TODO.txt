@@ -5,17 +5,17 @@ tech:
 
 black2:
 
-  complete all desc + reqs for emu
+  battle
 
-  wares & requirements
+  item gift
+
+  item in map
+
+  completionValidator
+
 
 
   map visual
-
-
-  events
-
-  completionValidator
 
 
   add black/white/white2 based on .json
