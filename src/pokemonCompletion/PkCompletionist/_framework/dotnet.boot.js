@@ -1,7 +1,7 @@
 export const config = /*json-start*/{
   "mainAssemblyName": "PkCompletionist.dll",
   "resources": {
-    "hash": "sha256-vmzHw88D8avUdHGhGiVRIwfxbo2aIbug9LgF2yuB9m0=",
+    "hash": "sha256-9Lc3Gh9e33ZdSLOL+Q8JT39N6OdfaHR7SGxvIkv//NA=",
     "jsModuleNative": [
       {
         "name": "dotnet.native.js"
@@ -15,14 +15,14 @@ export const config = /*json-start*/{
     "wasmNative": [
       {
         "name": "dotnet.native.wasm",
-        "hash": "sha256-p7pafOG40+CudanuKR5IfjzEDmvTQPK/Sf5PxRbVxoo="
+        "hash": "sha256-JoJRBC7+I0k+qxZhIu+9qCcGR0rYutnPpEHwH3xhr1A="
       }
     ],
     "coreAssembly": [
       {
         "virtualPath": "System.Private.CoreLib.wasm",
         "name": "System.Private.CoreLib.wasm",
-        "hash": "sha256-KtNv7uaQPIpP1aNjSFuzErVbrqhLZOIXDRq2Ih5PxXY="
+        "hash": "sha256-819uLn4RmICVopprd7Dj9ok46KHuyef4SYrGYbgQEcw="
       },
       {
         "virtualPath": "System.Runtime.InteropServices.JavaScript.wasm",
@@ -34,22 +34,27 @@ export const config = /*json-start*/{
       {
         "virtualPath": "PkCompletionist.wasm",
         "name": "PkCompletionist.wasm",
-        "hash": "sha256-AQ7uDbnto42TFJR2Ps18CsrWYSDCLChvGoT6PbdbuvU="
+        "hash": "sha256-xBuPTDoHd6aoWoxXCR91qlaqJCn5vocownsjwqT/kF4="
       },
       {
         "virtualPath": "System.Collections.Concurrent.wasm",
         "name": "System.Collections.Concurrent.wasm",
-        "hash": "sha256-Klgs4FMBfHQG9CNxa5RjUC5WFgwXvIiKJmjprrJw4pI="
+        "hash": "sha256-PDK4vkbcA6WitRpUAftq0wwcouRiQ0/j2IPSLxxU8fo="
       },
       {
         "virtualPath": "System.Collections.wasm",
         "name": "System.Collections.wasm",
-        "hash": "sha256-TlxzbqvgVs2f5o0QOrPonbgwRKYioAzus9+0tvN3hcw="
+        "hash": "sha256-kko281f28VBC9VfGTyTaCfjBETlhvoeNeGF5iMhVCHA="
+      },
+      {
+        "virtualPath": "System.ComponentModel.Annotations.wasm",
+        "name": "System.ComponentModel.Annotations.wasm",
+        "hash": "sha256-UrFYhwydwx1mVdY3eqhfas1itqa1AGmJB+j/Gs2iIqI="
       },
       {
         "virtualPath": "System.ComponentModel.Primitives.wasm",
         "name": "System.ComponentModel.Primitives.wasm",
-        "hash": "sha256-bSn/eEC4iYWVf/EDG0vtWeZXFl3S1GQeplvqf+R+EwM="
+        "hash": "sha256-d+jK9ns/ufGw/J4XfQsYTMmAsNEdvDHE/Vyd4bJuKxE="
       },
       {
         "virtualPath": "System.ComponentModel.TypeConverter.wasm",
@@ -59,17 +64,17 @@ export const config = /*json-start*/{
       {
         "virtualPath": "System.Console.wasm",
         "name": "System.Console.wasm",
-        "hash": "sha256-g2Du7lhLLhkmq1568pY4w9GGAB/gxhGnTP51HR8pIdM="
+        "hash": "sha256-RgX6dzIQZAQhRi1vOGTEfCprdv76gat6mJIztj8dZ5M="
       },
       {
-        "virtualPath": "System.Diagnostics.TraceSource.wasm",
-        "name": "System.Diagnostics.TraceSource.wasm",
-        "hash": "sha256-kIq4M2QSNE06u+r95URG7zSITvsG6R5TiH56zvQg8AA="
+        "virtualPath": "System.IO.Compression.wasm",
+        "name": "System.IO.Compression.wasm",
+        "hash": "sha256-EDrHSFwG9xu5GMrxDMuu/AGNaETCmSeRuNC/vheI+OQ="
       },
       {
         "virtualPath": "System.Linq.wasm",
         "name": "System.Linq.wasm",
-        "hash": "sha256-KnwsCrQhwG4BN7wemlHjuk5MOnpZSkHEsdkHYBRRyBA="
+        "hash": "sha256-kT10ICpyUYQNErHlzzYooM4H4z/CQrifmp3kPM2Xd9Y="
       },
       {
         "virtualPath": "System.ObjectModel.wasm",
@@ -77,19 +82,19 @@ export const config = /*json-start*/{
         "hash": "sha256-L4mFdjB1W/3Fim65A4O5PMOCD+IR2BmfyQdJK4XKShc="
       },
       {
-        "virtualPath": "System.Runtime.Numerics.wasm",
-        "name": "System.Runtime.Numerics.wasm",
-        "hash": "sha256-20bWP+jWmtsDm/aDhI9AZjkJjRFFU5OH+X/2suMsqcY="
-      },
-      {
         "virtualPath": "System.Security.Cryptography.wasm",
         "name": "System.Security.Cryptography.wasm",
-        "hash": "sha256-pWW4u/k95XasQQZ8FP4iKmKgOf2r6yaEDOawXPTB4Wk="
+        "hash": "sha256-ztHewpz7W/c1Mv+k8i1YSbevAdjDTqIZh/2l5fmX2VQ="
       },
       {
         "virtualPath": "System.Text.RegularExpressions.wasm",
         "name": "System.Text.RegularExpressions.wasm",
-        "hash": "sha256-yyMONze9oMBjZTMz1nPSt918IfTkpGb9RQmeV4NHYKE="
+        "hash": "sha256-Z1eILdClyYr+0+Z2mHqdKXNB/ObX+FP7t4ExrQ/dgX8="
+      },
+      {
+        "virtualPath": "System.Threading.Tasks.Parallel.wasm",
+        "name": "System.Threading.Tasks.Parallel.wasm",
+        "hash": "sha256-2hD+Yz67yheyLDhvw6oZTnaEnfKTHlAb9MDpqI+6qKg="
       }
     ]
   },
