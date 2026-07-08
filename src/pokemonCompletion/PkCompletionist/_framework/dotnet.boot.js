@@ -1,7 +1,7 @@
 export const config = /*json-start*/{
   "mainAssemblyName": "PkCompletionist.dll",
   "resources": {
-    "hash": "sha256-9Lc3Gh9e33ZdSLOL+Q8JT39N6OdfaHR7SGxvIkv//NA=",
+    "hash": "sha256-VBygUswa2ORvcPkALBJ58fe748LIktvbdsK6uwEojCE=",
     "jsModuleNative": [
       {
         "name": "dotnet.native.js"
@@ -15,14 +15,14 @@ export const config = /*json-start*/{
     "wasmNative": [
       {
         "name": "dotnet.native.wasm",
-        "hash": "sha256-JoJRBC7+I0k+qxZhIu+9qCcGR0rYutnPpEHwH3xhr1A="
+        "hash": "sha256-5x85mgB+DFm8PM2s/eQYzOB6sKibDhtt9DmANPyCdVc="
       }
     ],
     "coreAssembly": [
       {
         "virtualPath": "System.Private.CoreLib.wasm",
         "name": "System.Private.CoreLib.wasm",
-        "hash": "sha256-819uLn4RmICVopprd7Dj9ok46KHuyef4SYrGYbgQEcw="
+        "hash": "sha256-gWaKPLUdmVGZEewN/7Vi/KN/dv17H1keJUfF/Bg/mMY="
       },
       {
         "virtualPath": "System.Runtime.InteropServices.JavaScript.wasm",
@@ -34,7 +34,7 @@ export const config = /*json-start*/{
       {
         "virtualPath": "PkCompletionist.wasm",
         "name": "PkCompletionist.wasm",
-        "hash": "sha256-xBuPTDoHd6aoWoxXCR91qlaqJCn5vocownsjwqT/kF4="
+        "hash": "sha256-q6j7j3fxUBaEhfIDrP4A2SPa5EtYL6fazxVNCimyV/I="
       },
       {
         "virtualPath": "System.Collections.Concurrent.wasm",
