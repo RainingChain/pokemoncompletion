@@ -138,6 +138,13 @@ export class App_private {
         next();
       }, express.static(route));
     });
+
+    const pkCompletionistRoute = app.appConfig.absolutePathFromCwd('PkCompletionist');
+    app.get('/PkCompletionist/*', function(req, res, next){
+      req.url = req.url.replace('/PkCompletionist','');
+      res.header('cache-control', 'public, max-age=31536000');
+      next();
+    }, express.static(pkCompletionistRoute));
   }
 
   static handleSIGKILL(){

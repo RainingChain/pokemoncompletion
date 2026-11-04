@@ -1,21 +1,35 @@
-
-upgrade to es2023?
-
--------------------
-todo:
-  black2: 
-    complete all desc + reqs for emu
-
-  fix map visual
-  
+tech:
+  upgrade to es2023?
 
 -------------------
-black2
-  wares
-  requirements
-  map
+
+black2:
+
+  battle
+
+  item gift
+
+  item in map
+
+  completionValidator
+
+
+
+  map visual
+
 
   add black/white/white2 based on .json
+
+
+
+
+
+
+
+
+
+
+
 
 ---------------
 RNG

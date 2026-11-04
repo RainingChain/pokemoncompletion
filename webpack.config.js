@@ -27,6 +27,7 @@ import nodeExternals from "webpack-node-externals";
 
 import HtmlWebpackPlugin from 'html-webpack-plugin';
 import MiniCssExtractPlugin from 'mini-css-extract-plugin';
+import CopyWebpackPlugin from 'copy-webpack-plugin';
 
 //dev-only
 import CleanTerminalPlugin from 'clean-terminal-webpack-plugin';
@@ -194,6 +195,12 @@ let serverConfigCommon = (params) => {
     output: {filename:'../app.js',},
     plugins: [
       new CleanTerminalPlugin(),
+      new CopyWebpackPlugin({
+        patterns: [{
+          from: path.resolve(__dirname, 'src/pokemonCompletion/PkCompletionist'),
+          to: path.resolve(__dirname, 'dist/PkCompletionist'),
+        }],
+      }),
     ],
   });
 }
@@ -261,6 +268,7 @@ export default async function(env){
     await nongameConfigProd('VersionCompatibility_Gen4',{pathExtra:'pokemonCompletion/research',useDefaultEntry:true}),
     await nongameConfigProd('Platinum_ForeignEntries',{pathExtra:'pokemonCompletion/research',useDefaultEntry:true}),
     await nongameConfigProd('Black2_ForeignEntries',{pathExtra:'pokemonCompletion/research',useDefaultEntry:true}),
+    await nongameConfigProd('Black2_Shiny',{pathExtra:'pokemonCompletion/research',useDefaultEntry:true}),
     await nongameConfigProd('shuffleMod',{pathExtra:'pokemonCompletion/ShuffleMod'}),
     await nongameConfigProd('notFound404'),
     await nongameConfigProd('pokemonCompletion',{useChunk:true}),
