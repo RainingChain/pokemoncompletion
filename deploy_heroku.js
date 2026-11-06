@@ -1,8 +1,8 @@
 /*
 To deply on production server:
     cd C:\Users\Samuel\source\repos\pokemoncompletion
-    npm run compil-prod
-    node ./deploy_heroku.js
+    bun run compil-prod
+    bun ./deploy_heroku.js
     cd ../pokemoncompletion-heroku
     git add .
     git commit -m "."
@@ -24,6 +24,11 @@ const DONT_COPY = ['.git','node_modules'];
             return;
         await fs.cp('./' + file, '../pokemoncompletion-heroku/' + file, {recursive: true});
     }));
+
+    // Remove npm lockfiles left over from previous deployments.
+    await Promise.all(['package-lock.json', 'src/package-lock.json'].map(file =>
+        fs.rm('../pokemoncompletion-heroku/' + file, {force: true})
+    ));
 
     await fs.cp('./deploy_heroku.gitignore', '../pokemoncompletion-heroku/.gitignore');
 })();

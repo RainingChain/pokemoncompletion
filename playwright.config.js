@@ -23,7 +23,7 @@ export default defineConfig({
     { name: 'mobile', testMatch: /(?:articles|pages|visual)\.spec\.js/, use: { ...devices['Pixel 7'] } },
   ],
   webServer: {
-    command: 'npm run build:e2e && npm run start:e2e',
+    command: 'bun run build:e2e && bun run start:e2e',
     url: 'http://localhost:3100',
     timeout: 240_000,
     reuseExistingServer: false,

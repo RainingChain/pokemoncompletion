@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "Pokémon Completion",
   "engines": {
-    "node": ">=21.6.0"
+    "bun": ">=1.4.4"
   },
   "type": "module",
   "dependencies": {

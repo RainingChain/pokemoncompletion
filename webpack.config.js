@@ -1,17 +1,8 @@
-//npm run c-d -- --content=home,server,client --deleteDist=false
-//npm run c-d -- --content=home --deleteDist=false
-//npm run c-d -- --content=nongame --deleteDist=false
-//npm run c-d -- --content=pokemon --deleteDist=false
-//npm run c-d -- --content=nongame --deleteDist=true --watch=false
-
-
-//node --max-old-space-size=8192 node_modules/webpack/bin/webpack.js --content=client,server,nongame --devtool=source-map --deleteDist=true
-
 //to debug dependencies issues:
-//node --max-old-space-size=8192 node_modules/webpack/bin/webpack.js --content=client --profile --json > stats.json
+//bun --bun run webpack --profile --json > stats.json
 
 //to debug bundle size
-//npm run c-p-quick -- --content=client
+//set bundleAnalyzer below to true, then run bun run compil-prod
 
 //process.traceDeprecation = true;
 
