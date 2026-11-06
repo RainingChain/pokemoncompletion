@@ -9,3 +9,5 @@ Vue_nav.createAndMount();
 
 import { Vue_analytics } from "../../common/views/analytics";
 Vue_analytics.createAndMount();
+
+import "../../SimplePage/SimplePage.css";

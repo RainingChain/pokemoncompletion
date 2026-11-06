@@ -5,11 +5,51 @@
 
 .markdown-content {
   padding-top: 10px;
+  max-width: 80ch;
+  margin: 0 auto;
+  color: #e0e0e0;
+  line-height: 1.65;
+  overflow-wrap: anywhere;
+}
+
+.article-page {
+  padding-bottom: 50px;
+}
+
+.markdown-content p,
+.markdown-content ul,
+.markdown-content ol {
+  margin-top: 0.75rem;
+  margin-bottom: 1rem;
+}
+
+.markdown-content li + li {
+  margin-top: 0.35rem;
+}
+
+.markdown-content a {
+  color: #8dcaff;
+  text-decoration: underline;
+  text-underline-offset: 0.15em;
+}
+
+.markdown-content a:hover {
+  color: #c5e4ff;
+}
+
+.markdown-content .pokemon-title {
+  line-height: 1.4;
+}
+
+.markdown-content .pokemon-title span + span {
+  margin-left: 0.3em;
 }
 
 .markdown-content h2:not(:first-child),
 .markdown-content h3:not(:first-child),
-.markdown-content h4:not(:first-child) {
+.markdown-content h4:not(:first-child),
+.markdown-content h5:not(:first-child),
+.markdown-content h6:not(:first-child) {
   margin-top: 1.5rem;
 }
 
@@ -26,15 +66,58 @@
   overflow-x: auto;
   padding: 12px;
   background: #222;
+  overflow-wrap: normal;
+}
+
+.markdown-content code {
+  color: #f0d7a7;
+}
+
+.article-table {
+  max-width: 100%;
+  overflow-x: auto;
+  margin: 1rem 0;
+}
+
+.article-table:focus-visible {
+  outline: 2px solid #8dcaff;
 }
 
 .markdown-content table {
   border-collapse: collapse;
+  line-height: 1.4;
+  overflow-wrap: normal;
 }
 
 .markdown-content th,
 .markdown-content td {
-  padding: 4px 10px 4px 0;
+  padding: 8px 12px;
+  border: 1px solid #666;
+  vertical-align: top;
+}
+
+.markdown-content th,
+.markdown-content .table tr:first-child {
+  background: #303030;
+  font-weight: bold;
+}
+
+.markdown-content .mytable td {
+  text-align: center;
+}
+
+.markdown-content .mytable td:first-child,
+.markdown-content th {
+  text-align: left;
+}
+
+.markdown-content .c-small { color: #99ff99; }
+.markdown-content .c-medium { color: #f0ad4e; }
+.markdown-content .c-large { color: #ff9999; }
+
+.markdown-content .shuffle-image {
+  max-height: 232px;
+  width: auto;
 }
 
 .markdown-content .preserved {

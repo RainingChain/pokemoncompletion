@@ -132,3 +132,5 @@ document.addEventListener("DOMContentLoaded",async function(){
   if (imgMapHtml instanceof HTMLImageElement)
     imgMapHtml.src = img_map;
 });
+
+import "../../SimplePage/SimplePage.css";
