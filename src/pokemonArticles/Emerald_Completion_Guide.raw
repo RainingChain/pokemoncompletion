@@ -16,30 +16,54 @@ How to catch and EV train the recommended Pokémon to complete 100% Emerald:
 <br>
 
 <h2>Catching and Training Pokémon</h2>
+<p>The recommended RNG targets below are stationary encounters. In the linked guide, go directly to step 3: Catch and Calibrate.</p>
 <h3>Swampert</h3>
 <ul>
-  <li><a href="/completion/Emerald/Guide/RNG">RNG manipulate Mudkip</a></li>
+  <li><a href="https://www.pokemonrng.com/emerald-static/">RNG manipulate Mudkip</a>
+    <ul>
+      <li>Target advance: 1475</li>
+      <li>Target nature: Brave. IVs: HP:17, Atk:31, Def:31, SpA:25, SpD:22, Spe:23.</li>
+    </ul>
+  </li>
   <li><a href="https://www.smogon.com/ingame/guides/emerald_ev_manual">EV training</a> for HP:100, Atk:132, Def:28, SpA:140, Spe:108</li>
   <li>Train to Level 50</li>
 </ul>
 <br>
 <h3>Metagross</h3>
 <ul>
-  <li><a href="/completion/Emerald/Guide/RNG">RNG manipulate Beldum</a></li>
+  <li><a href="https://www.pokemonrng.com/emerald-static/">RNG manipulate Beldum</a>
+    <ul>
+      <li>Target advance: 2297</li>
+      <li>Target nature: Adamant. IVs: HP:27, Atk:25, Def:29, SpA:11, SpD:28, Spe:31.</li>
+    </ul>
+  </li>
   <li><a href="https://www.smogon.com/ingame/guides/emerald_ev_manual">EV training</a> for HP:44, Atk:252, Spe:212</li>
   <li>Train to Level 50</li>
 </ul>
 <br>
 <h3>Latios</h3>
 <ul>
-  <li><a href="/completion/Emerald/Guide/RNG">RNG manipulate Latios</a></li>
+  <li><a href="https://www.pokemonrng.com/emerald-static/">RNG manipulate Latios</a>
+    <ul>
+      <li>Target advance: 4571</li>
+      <li>Target nature: Modest. IVs: HP:29, Atk:21, Def:15, SpA:31, SpD:23, Spe:29.</li>
+      <li>Requires the Eon Ticket to access Southern Island.</li>
+      <li>After defeating the Elite Four, pick Red as the color on the TV so Latias roams Hoenn and Latios is on Southern Island.</li>
+    </ul>
+  </li>
   <li><a href="https://www.smogon.com/ingame/guides/emerald_ev_manual">EV training</a> for HP:28, SpA:252, Spe:228</li>
   <li>Train to Level 50</li>
 </ul>
 <br>
 <h3>Kecleon</h3>
 <ul>
-  <li><a href="/completion/Emerald/Guide/RNG">RNG manipulate Kecleon</a> with PID 4513EAD1</li>
+  <li><a href="https://www.pokemonrng.com/emerald-static/">RNG manipulate Kecleon</a>
+    <ul>
+      <li>Target advance: 1008</li>
+      <li>Target nature: Lonely. IVs: HP:14, Atk:4, Def:21, SpA:14, SpD:28, Spe:13.</li>
+      <li>Target PID: 4513EAD1, to access Mirage Island for Liechi Berry.</li>
+    </ul>
+  </li>
   <li>Wait 44 days after starting your game, then talk to old man to see Mirage Island.</li>
 </ul>
 <br>

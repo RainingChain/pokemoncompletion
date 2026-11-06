@@ -8,7 +8,6 @@ import pinballRs_CompletePokedex_raw from "./pokemonArticles/pinballRs_CompleteP
 import pinballRs_CompletePokedex_png from "./pokemonArticles/pinballRs_CompletePokedex.png";
 import Black2_Subway_Rng_Manipulation_raw from "./pokemonArticles/Black2_Subway_Rng_Manipulation.raw";
 import Platinum_Battle_Tower_RNG_Manipulation from "./pokemonArticles/Platinum_Battle_Tower_RNG_Manipulation.raw";
-import Emerald_RNG_Guide from "./pokemonArticles/Emerald_RNG_Guide.raw";
 import Emerald_Completion_Guide from "./pokemonArticles/Emerald_Completion_Guide.raw";
 import Emerald_BattlePyramid_Exploit_raw from "./pokemonArticles/Emerald_BattlePyramid_Exploit.raw";
 import Emerald_Battle_Tower_RNG_Manipulation_raw from "./pokemonArticles/Emerald_Battle_Tower_RNG_Manipulation.raw";
@@ -202,11 +201,6 @@ export class App_httpPages {
     app.get('/completion/Emerald/Guide',function(req,res){
       const txt = Emerald_Completion_Guide;
       renderArticle(app, res, txt,'/completion/Emerald');
-    });
-
-    app.get('/completion/Emerald/Guide/RNG',function(req,res){
-      const txt = Emerald_RNG_Guide;
-      renderArticle(app, res, txt,'/completion/Emerald/Guide');
     });
 
     app.get('/articles/StateOfEmulation',function(req,res){
