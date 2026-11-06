@@ -12,7 +12,7 @@ const bundleAnalyzer = false;
 import fs from "fs/promises";
 import path, { dirname } from "path";
 import { fileURLToPath } from 'url';
-import webpack from "webpack";
+import { createRequire } from 'node:module';
 import merge from 'webpack-merge';
 import nodeExternals from "webpack-node-externals";
 
@@ -23,6 +23,10 @@ import CopyWebpackPlugin from 'copy-webpack-plugin';
 //dev-only
 import CleanTerminalPlugin from 'clean-terminal-webpack-plugin';
 import { BundleAnalyzerPlugin } from 'webpack-bundle-analyzer';
+
+// ESM interop in Bun eagerly reads webpack's deprecated export getters.
+// Require the CommonJS module so only the APIs used below are accessed.
+const webpack = createRequire(import.meta.url)('webpack');
 
 const TS_LOADER = 'ts-loader';
 const CSS_LOADER = 'css-loader';
