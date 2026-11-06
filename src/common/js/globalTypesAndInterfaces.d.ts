@@ -27,6 +27,7 @@ declare module '*.css' {
   let css:any;
   export = css;
 }
+declare module '*.css?url' { let url:FileClientPath; export default url; }
 declare module '*.png' { let url:FileClientPath; export default url; }
 declare module '*.svg' { let url:FileClientPath; export default url; }
 declare module '*.webp' { let url:FileClientPath; export default url; }

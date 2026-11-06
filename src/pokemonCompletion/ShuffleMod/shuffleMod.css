@@ -12,6 +12,24 @@ label.button, button:not([disabled]):hover {
   border-color: var(--cemph);
 }
 
+.shuffle-controls {
+  margin: 1rem 0;
+}
+
+.shuffle-controls label {
+  cursor: pointer;
+  display: inline-block;
+}
+
+.shuffle-output {
+  font-weight: bold;
+  padding: 10px 0;
+}
+
+.shuffle-download {
+  font-size: 1.2em;
+}
+
 /* forms and inputs  */
 textarea, input:not([type=range]), label.button, button, select {
 	border-radius: 4px;

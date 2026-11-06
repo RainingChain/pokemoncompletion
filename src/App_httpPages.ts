@@ -1,3 +1,17 @@
+import VersionCompatibility_Gen1_source from "./pokemonCompletion/research/VersionCompatibility_Gen1.md";
+import VersionCompatibility_Gen2_source from "./pokemonCompletion/research/VersionCompatibility_Gen2.md";
+import VersionCompatibility_Gen3_source from "./pokemonCompletion/research/VersionCompatibility_Gen3.md";
+import VersionCompatibility_Gen4_source from "./pokemonCompletion/research/VersionCompatibility_Gen4.md";
+import Platinum_ForeignEntries_source from "./pokemonCompletion/research/Platinum_ForeignEntries.md";
+import Black2_ForeignEntries_source from "./pokemonCompletion/research/Black2_ForeignEntries.md";
+import Black2_Shiny_source from "./pokemonCompletion/research/Black2_Shiny.md";
+import pkStateEmulator_source from "./pokemonCompletion/research/pkStateEmulator.md";
+import pokemonGlobalCss from "./pokemonArticles/home/pokemonGlobal.css?url";
+import pkStateEmulatorCss from "./pokemonCompletion/research/pkStateEmulator.css?url";
+import shuffle_intro_source from "./pokemonCompletion/ShuffleMod/shuffleMod-intro.md";
+import shuffle_saveInstructions_source from "./pokemonCompletion/ShuffleMod/shuffleMod-save-instructions.md";
+import shuffle_outro_source from "./pokemonCompletion/ShuffleMod/shuffleMod-outro.md";
+
 import { App } from "./App";
 import { renderMarkdown } from "./SimplePage/renderMarkdown";
 
@@ -40,6 +54,20 @@ const Emerald_Battle_Tower_RNG_Manipulation_html = renderMarkdown(Emerald_Battle
 });
 const GamePreservation = renderMarkdown(GamePreservation_source);
 const legal = renderMarkdown(legal_source);
+
+const VersionCompatibility_Gen1_html = renderMarkdown(VersionCompatibility_Gen1_source);
+const VersionCompatibility_Gen2_html = renderMarkdown(VersionCompatibility_Gen2_source);
+const VersionCompatibility_Gen3_html = renderMarkdown(VersionCompatibility_Gen3_source);
+const VersionCompatibility_Gen4_html = renderMarkdown(VersionCompatibility_Gen4_source);
+const Platinum_ForeignEntries_html = renderMarkdown(Platinum_ForeignEntries_source);
+const Black2_ForeignEntries_html = renderMarkdown(Black2_ForeignEntries_source);
+const Black2_Shiny_html = renderMarkdown(Black2_Shiny_source);
+const pkStateEmulator_html = renderMarkdown(pkStateEmulator_source);
+const shuffleContent = {
+  intro: renderMarkdown(shuffle_intro_source),
+  saveInstructions: renderMarkdown(shuffle_saveInstructions_source),
+  outro: renderMarkdown(shuffle_outro_source),
+};
 
 export class App_httpPages {
   static async initHttpPages(app:App){    
@@ -105,7 +133,7 @@ export class App_httpPages {
         location:'pokemonCompletion',
         title: `Pokémon Gen IV - Version Compability`,
         description:`Version Compatibility for Pokémon Diamond, Pearl, Platinum, HeartGold, SoulSilver, Battle Revolution, PokéWalker, Ranch and more`,
-      });
+      }, { content: VersionCompatibility_Gen4_html });
     });
     app.get('/VersionCompatibility/GenIII',function(req,res){
       const filePath = app.appConfig.absolutePathFromCwd('/compiled/pokemonCompletion/research/VersionCompatibility_Gen3.html');
@@ -113,7 +141,7 @@ export class App_httpPages {
         location:'pokemonCompletion',
         title: `Pokémon Gen III - Version Compability`,
         description:`Version Compatibility for Pokémon Ruby, Sapphire, Emerald, FireRed, LeafGreen, Colosseum, XD, e-Reader`,
-      });
+      }, { content: VersionCompatibility_Gen3_html });
     });
     app.get('/VersionCompatibility/GenII',function(req,res){
       const filePath = app.appConfig.absolutePathFromCwd('/compiled/pokemonCompletion/research/VersionCompatibility_Gen2.html');
@@ -121,7 +149,7 @@ export class App_httpPages {
         location:'pokemonCompletion',
         title: `Pokémon Gen II - Version Compability`,
         description:`Version Compatibility for Pokémon Gold, Silver, Crystal, Pokémon Stadium 2`,
-      });
+      }, { content: VersionCompatibility_Gen2_html });
     });
     app.get('/VersionCompatibility/GenI',function(req,res){
       const filePath = app.appConfig.absolutePathFromCwd('/compiled/pokemonCompletion/research/VersionCompatibility_Gen1.html');
@@ -129,7 +157,7 @@ export class App_httpPages {
         location:'pokemonCompletion',
         title: `Pokémon Gen I - Version Compability`,
         description:`Version Compatibility for Pokémon Green, Red, Blue, Yellow, Pokémon Stadium`,
-      });
+      }, { content: VersionCompatibility_Gen1_html });
     });
 
     app.get('/completion/Platinum/ForeignPokedexEntries',function(req,res){
@@ -138,7 +166,7 @@ export class App_httpPages {
         location:'pokemonCompletion',
         title: `Pokémon Platinum - Foreign Pokédex Entries advices`,
         description:`Advices for obtaining all Platinum Foreign Pokédex entries`,
-      });
+      }, { content: Platinum_ForeignEntries_html });
     });
 
     app.get('/completion/Black2/ForeignPokedexEntries',function(req,res){
@@ -147,7 +175,7 @@ export class App_httpPages {
         location:'pokemonCompletion',
         title: `Pokémon Black 2 - Foreign Pokédex Entries advices`,
         description:`Advices for obtaining all Black 2 Foreign Pokédex entries`,
-      });
+      }, { content: Black2_ForeignEntries_html });
     });
 
     app.get('/completion/Black2/Shiny',function(req,res){
@@ -156,7 +184,7 @@ export class App_httpPages {
         location:'pokemonCompletion',
         title: `Pokémon Black 2 - Shiny advices`,
         description:`Advices for obtaining all Black 2 shiny Pokémon`,
-      });
+      }, { content: Black2_Shiny_html });
     });
 
     app.get('/completion/Shuffle/dlc',function(req,res){
@@ -165,7 +193,7 @@ export class App_httpPages {
         location:'pokemonCompletion',
         title: `Pokémon Shuffle - Special Stages DLC`,
         description:`Pokémon Shuffle DLC granting access to the Special stages.`,
-      });
+      }, shuffleContent);
     });
 
     const pokemonsGameToName = function(name:string){
@@ -229,7 +257,8 @@ export class App_httpPages {
         location:'pokemonCompletion',
         title: `State of Emulation of Pokémon Games`,
         description:`State of Emulation of Pokémon Games`,
-      });
+        extraCss:[pokemonGlobalCss, pkStateEmulatorCss],
+      }, { content: pkStateEmulator_html });
     });
 
     app.get('/BattleTowerOhko/Black2',function(req,res){

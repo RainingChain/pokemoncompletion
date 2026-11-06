@@ -14,5 +14,10 @@
 
     <title><%- locals.title %></title>
 
+    {{{htmlWebpackPlugin.tags.headTags}}}
+    <% for (const cssUrl of locals.extraCss) { %>
+    <link rel="stylesheet" href="<%= cssUrl %>">
+    <% } %>
+
   </head>
 

@@ -24,6 +24,7 @@ export class PageParam {
   description = 'Pokémon Completion';
   scalable = true;  
   analyticDisplayCookieBar = true;
+  extraCss:string[] = [];
   
   url_favicon = url_favicon;
   clientData:any = null;
