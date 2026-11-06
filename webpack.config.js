@@ -1,17 +1,8 @@
-//npm run c-d -- --content=home,server,client --deleteDist=false
-//npm run c-d -- --content=home --deleteDist=false
-//npm run c-d -- --content=nongame --deleteDist=false
-//npm run c-d -- --content=pokemon --deleteDist=false
-//npm run c-d -- --content=nongame --deleteDist=true --watch=false
-
-
-//node --max-old-space-size=8192 node_modules/webpack/bin/webpack.js --content=client,server,nongame --devtool=source-map --deleteDist=true
-
 //to debug dependencies issues:
-//node --max-old-space-size=8192 node_modules/webpack/bin/webpack.js --content=client --profile --json > stats.json
+//bun --bun run webpack --profile --json > stats.json
 
 //to debug bundle size
-//npm run c-p-quick -- --content=client
+//set bundleAnalyzer below to true, then run bun run compil-prod
 
 //process.traceDeprecation = true;
 
@@ -21,7 +12,7 @@ const bundleAnalyzer = false;
 import fs from "fs/promises";
 import path, { dirname } from "path";
 import { fileURLToPath } from 'url';
-import webpack from "webpack";
+import { createRequire } from 'node:module';
 import merge from 'webpack-merge';
 import nodeExternals from "webpack-node-externals";
 
@@ -32,6 +23,10 @@ import CopyWebpackPlugin from 'copy-webpack-plugin';
 //dev-only
 import CleanTerminalPlugin from 'clean-terminal-webpack-plugin';
 import { BundleAnalyzerPlugin } from 'webpack-bundle-analyzer';
+
+// ESM interop in Bun eagerly reads webpack's deprecated export getters.
+// Require the CommonJS module so only the APIs used below are accessed.
+const webpack = createRequire(import.meta.url)('webpack');
 
 const TS_LOADER = 'ts-loader';
 const CSS_LOADER = 'css-loader';
@@ -57,9 +52,9 @@ let assetLoader = function(){
   return [main];
 };
 
-let rawLoader = function(){
+let markdownLoader = function(){
  return {
-    test: /\.(raw)$/i,
+    test: /\.md$/i,
     type: 'asset/source'
   };
 }
@@ -176,7 +171,7 @@ let nodeConfigCommon = ({production}) => {
     module:{
       rules:[
         ...assetLoader(),
-        rawLoader(),
+        markdownLoader(),
         tsLoader({
           transpileOnly:!production,
           compilerOptions:{
@@ -213,7 +208,7 @@ let webConfigCommon = ({} = {}) => ({
       {test: /\.vue$/, loader: VUE_TEMPLATE_LOADER},
       {test: /\.hbs$/, loader: HANDLEBARS_LOADER },
       ...assetLoader(),
-      rawLoader(),
+      markdownLoader(),
     ]
   },
   output: {

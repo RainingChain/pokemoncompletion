@@ -1,0 +1,42 @@
+.article-back {
+  position: relative;
+  top: -8px;
+}
+
+.markdown-content {
+  padding-top: 10px;
+}
+
+.markdown-content h2:not(:first-child),
+.markdown-content h3:not(:first-child),
+.markdown-content h4:not(:first-child) {
+  margin-top: 1.5rem;
+}
+
+.markdown-content img {
+  max-width: 100%;
+  height: auto;
+}
+
+.markdown-content .article-image-narrow {
+  max-width: 60%;
+}
+
+.markdown-content pre {
+  overflow-x: auto;
+  padding: 12px;
+  background: #222;
+}
+
+.markdown-content table {
+  border-collapse: collapse;
+}
+
+.markdown-content th,
+.markdown-content td {
+  padding: 4px 10px 4px 0;
+}
+
+.markdown-content .preserved {
+  color: green;
+}

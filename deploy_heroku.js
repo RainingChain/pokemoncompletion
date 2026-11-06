@@ -1,9 +1,11 @@
 /*
 To deply on production server:
     cd C:\Users\Samuel\source\repos\pokemoncompletion
-    npm run compil-prod
-    node ./deploy_heroku.js
+    bun run compil-prod
+    bun run test:e2e
+    bun ./deploy_heroku.js
     cd ../pokemoncompletion-heroku
+    bun i
     git add .
     git commit -m "."
     git push heroku master

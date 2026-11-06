@@ -42,7 +42,7 @@ declare module '*.woff2' { let url:FileClientPath; export default url; }
 declare module '*.lua' { let url:FileClientPath; export default url; }
 declare module '*.csv' { let url:FileClientPath; export default url; }
 declare module 'file-loader!*' { let url:FileClientPath; export default url; }
-declare module '*.raw' { let str:string; export default str; }
+declare module '*.md' { let str:string; export default str; }
 
 declare type VueComputed<T> = {
   [P in keyof T]: T[P] extends (...args:any[]) => any ? ReturnType<T[P]> : any;

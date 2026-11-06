@@ -59,7 +59,6 @@ document.addEventListener("DOMContentLoaded",async function(){
       {klass:'pokemon-p138',href:'/articles/GamePreservation',name:'Game Preservation'},
       {klass:'pokemon-p72',href:'/articles/Crystal_Unobtainable_Decorations',name:'Crystal: Unobtainable Decorations'},
       {klass:'pokemon-p384',href:'/completion/Emerald/Guide',name:'Emerald: 100% Completion Guide'},
-      {klass:'pokemon-p260',href:'/completion/Emerald/Guide/RNG',name:'Emerald: Catch Pokémon RNG Manipulation for 100% Completion'},
       {klass:'pokemon-p381',href:'/articles/Emerald_Battle_Tower_RNG_Manipulation',name:'Emerald: Battle Tower RNG Manipulation Technical'},
       {klass:'pokemon-p212',href:'/articles/Emerald_BattlePyramid_Exploit',name:'Emerald: Battle Pyramid Exploit for Unlimited Sacred Ashes'},
       {klass:'pokemon-p158',href:'/articles/PinballRS_Complete_Pokedex',name:'Pinball R&S: Complete Pokédex'},

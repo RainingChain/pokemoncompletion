@@ -7,13 +7,19 @@
     "pokemoncompletion.com"
   ],
   "engines": {
-    "node": ">=21.6.0"
+    "bun": ">=1.4.4"
   },
+  "packageManager": "bun@1.4.4",
   "type": "module",
   "scripts": {
-    "start": "cd dist && node --no-deprecation --inspect app.js",
-    "compil": "npx webpack --progress --env=debug=true --env=watch=true",
-    "compil-prod": "npx webpack --progress --env=deleteDist=true",
+    "build:e2e": "bun --bun run webpack --env debug=true --env watch=false --env deleteDist=true",
+    "start:e2e": "cd dist && bun app.js",
+    "test:e2e": "bun --bun run playwright test",
+    "test:e2e:update": "bun --bun run playwright test --project=desktop --project=mobile --update-snapshots",
+    "test:e2e:report": "bun --bun run playwright show-report",
+    "start": "cd dist && bun --inspect app.js",
+    "compil": "bun --bun run webpack --progress --env=debug=true --env=watch=true",
+    "compil-prod": "bun --bun run webpack --progress --env=deleteDist=true",
     "herokuLogs": "heroku logs -a pokemoncompletion -n 2000 --source app > ./herokuLogs.txt && code ./herokuLogs.txt"
   },
   "dependencies": {
@@ -21,15 +27,18 @@
     "compression": "^1.7.4",
     "ejs": "^2.5.6",
     "express": "^4.16.3",
+    "markdown-it": "15.0.3",
     "source-map-support": "^0.5.16",
     "ws": "^5.1.1"
   },
   "devDependencies": {
+    "@playwright/test": "1.65.0",
     "@types/body-parser": "^1.17.0",
     "@types/compression": "0.0.36",
     "@types/ejs": "^2.6.0",
     "@types/express": "^4.16.0",
     "@types/html-webpack-plugin": "^3.2.6",
+    "@types/markdown-it": "14.2.0",
     "@types/node": "^20.11.5",
     "@types/source-map-support": "^0.5.0",
     "@types/webpack": "^4.41.0",
@@ -52,6 +61,7 @@
     "mini-css-extract-plugin": "^2.6.1",
     "ts-loader": "^9.3.1",
     "typescript": "^4.3.2",
+    "vue": "^2.6.10",
     "vue-template-compiler": "^2.6.10",
     "vue-template-loader": "^0.4.1",
     "webpack": "^5.67.0",
