@@ -1,0 +1,2 @@
+# JSON snapshot assertions generate LF regardless of the runner's OS.
+tests/e2e/*-snapshots/*.json text eol=lf
