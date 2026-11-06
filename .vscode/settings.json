@@ -1,4 +1,4 @@
 {
     "editor.tabSize": 2,
-    "gitdiff-tag.useTag": "main"
+    "gitdiff-tag.useTag": "origin/main"
 }
