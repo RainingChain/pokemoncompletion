@@ -20,7 +20,7 @@ export default defineConfig({
   },
   projects: [
     { name: 'desktop', use: { ...devices['Desktop Chrome'], viewport: { width: 1280, height: 800 } } },
-    { name: 'mobile', testMatch: /(?:pages|visual)\.spec\.js/, use: { ...devices['Pixel 7'] } },
+    { name: 'mobile', testMatch: /(?:articles|pages|visual)\.spec\.js/, use: { ...devices['Pixel 7'] } },
   ],
   webServer: {
     command: 'npm run build:e2e && npm run start:e2e',

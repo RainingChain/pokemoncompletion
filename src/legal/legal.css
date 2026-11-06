@@ -1,1 +1,17 @@
 
+.legal p {
+  font-size: 1.2em;
+  margin: 10px 2px;
+}
+
+.legal td {
+  padding: 5px;
+}
+
+.markdown-content.legal h3:not(:first-child) {
+  margin-top: 0;
+}
+
+#cookie-opt-out {
+  text-decoration: none;
+}

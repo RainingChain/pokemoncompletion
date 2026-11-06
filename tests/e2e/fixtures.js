@@ -30,7 +30,8 @@ export const test = base.extend({
       if (window !== window.top)
         return;
       // Avoid a consent overlay changing screenshots or intercepting controls.
-      localStorage.setItem('acceptedCookies', 'f4102444800000');
+      if (localStorage.getItem('acceptedCookies') === null)
+        localStorage.setItem('acceptedCookies', 'f4102444800000');
     });
     await use(page);
     expect(errors, 'No uncaught browser errors or failing local assets').toEqual([]);

@@ -57,9 +57,9 @@ let assetLoader = function(){
   return [main];
 };
 
-let rawLoader = function(){
+let markdownLoader = function(){
  return {
-    test: /\.(raw)$/i,
+    test: /\.md$/i,
     type: 'asset/source'
   };
 }
@@ -176,7 +176,7 @@ let nodeConfigCommon = ({production}) => {
     module:{
       rules:[
         ...assetLoader(),
-        rawLoader(),
+        markdownLoader(),
         tsLoader({
           transpileOnly:!production,
           compilerOptions:{
@@ -213,7 +213,7 @@ let webConfigCommon = ({} = {}) => ({
       {test: /\.vue$/, loader: VUE_TEMPLATE_LOADER},
       {test: /\.hbs$/, loader: HANDLEBARS_LOADER },
       ...assetLoader(),
-      rawLoader(),
+      markdownLoader(),
     ]
   },
   output: {

@@ -13,3 +13,5 @@ To run locally:
 This project also relies on [PkCompletionist](https://github.com/RainingChain/PkCompletionist).
 
 See [README_TESTS.md](README_TESTS.md) for browser regression testing instructions.
+
+See [Writing static pages](src/pokemonArticles/README.md) for Markdown authoring instructions.

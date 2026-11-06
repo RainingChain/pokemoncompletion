@@ -1,25 +1,45 @@
 import { App } from "./App";
+import { renderMarkdown } from "./SimplePage/renderMarkdown";
 
-import Battle_Institute_9999_Points_raw from "./pokemonArticles/black2_battle_institute_9999_points.raw";
+import Battle_Institute_9999_Points_source from "./pokemonArticles/black2_battle_institute_9999_points.md";
 import Battle_Institute_9999_Points_png from "./pokemonArticles/black2_battle_institute_9999_points.png";
-import crystal_unobtainable_decorations_raw from "./pokemonArticles/crystal_unobtainable_decorations.raw";
+import crystal_unobtainable_decorations_source from "./pokemonArticles/crystal_unobtainable_decorations.md";
 import crystal_unobtainable_decorations_png from "./pokemonArticles/crystal_unobtainable_decorations.png";
-import pinballRs_CompletePokedex_raw from "./pokemonArticles/pinballRs_CompletePokedex.raw";
+import pinballRs_CompletePokedex_source from "./pokemonArticles/pinballRs_CompletePokedex.md";
 import pinballRs_CompletePokedex_png from "./pokemonArticles/pinballRs_CompletePokedex.png";
-import Black2_Subway_Rng_Manipulation_raw from "./pokemonArticles/Black2_Subway_Rng_Manipulation.raw";
-import Platinum_Battle_Tower_RNG_Manipulation from "./pokemonArticles/Platinum_Battle_Tower_RNG_Manipulation.raw";
-import Emerald_Completion_Guide from "./pokemonArticles/Emerald_Completion_Guide.raw";
-import Emerald_BattlePyramid_Exploit_raw from "./pokemonArticles/Emerald_BattlePyramid_Exploit.raw";
-import Emerald_Battle_Tower_RNG_Manipulation_raw from "./pokemonArticles/Emerald_Battle_Tower_RNG_Manipulation.raw";
+import Black2_Subway_Rng_Manipulation_source from "./pokemonArticles/Black2_Subway_Rng_Manipulation.md";
+import Platinum_Battle_Tower_RNG_Manipulation_source from "./pokemonArticles/Platinum_Battle_Tower_RNG_Manipulation.md";
+import Emerald_Completion_Guide_source from "./pokemonArticles/Emerald_Completion_Guide.md";
+import Emerald_BattlePyramid_Exploit_source from "./pokemonArticles/Emerald_BattlePyramid_Exploit.md";
+import Emerald_Battle_Tower_RNG_Manipulation_source from "./pokemonArticles/Emerald_Battle_Tower_RNG_Manipulation.md";
 import Emerald_Battle_Tower_RNG_Manipulation_png from "./pokemonBattleTower/pkRngAbuse/pkRngAbuse_img.png";
 import CycleCountPerJmon from "./pokemonBattleTower/pkRngAbuse/lua/CycleCountPerJmon.lua";
 import FrameCountPerElevatorFloor from "./pokemonBattleTower/pkRngAbuse/lua/FrameCountPerElevatorFloor.lua";
 import CycleCountPerSection from "./pokemonBattleTower/pkRngAbuse/lua/CycleCountPerSection.lua";
 import FrameCountByTrainer from "./pokemonBattleTower/pkRngAbuse/lua/FrameCountByTrainer.lua";
-import GamePreservation from "./pokemonArticles/GamePreservation.raw";
-import legal from "./legal/legal.raw";
+import GamePreservation_source from "./pokemonArticles/GamePreservation.md";
+import legal_source from "./legal/legal.md";
 
 import { PkBattleTowerServer } from "./pokemonBattleTower/pokemonBattleTower_server";
+
+// Compile repository-authored Markdown once at server startup. Asset URLs still
+// come from the bundler so images and downloadable scripts retain hashed names.
+const Battle_Institute_9999_Points_html = renderMarkdown(Battle_Institute_9999_Points_source, { IMG: Battle_Institute_9999_Points_png });
+const crystal_unobtainable_decorations_html = renderMarkdown(crystal_unobtainable_decorations_source, { IMG: crystal_unobtainable_decorations_png });
+const pinballRs_CompletePokedex_html = renderMarkdown(pinballRs_CompletePokedex_source, { IMG: pinballRs_CompletePokedex_png });
+const Black2_Subway_Rng_Manipulation_html = renderMarkdown(Black2_Subway_Rng_Manipulation_source);
+const Platinum_Battle_Tower_RNG_Manipulation = renderMarkdown(Platinum_Battle_Tower_RNG_Manipulation_source);
+const Emerald_Completion_Guide = renderMarkdown(Emerald_Completion_Guide_source);
+const Emerald_BattlePyramid_Exploit_html = renderMarkdown(Emerald_BattlePyramid_Exploit_source);
+const Emerald_Battle_Tower_RNG_Manipulation_html = renderMarkdown(Emerald_Battle_Tower_RNG_Manipulation_source, {
+  SCRIPT1: CycleCountPerSection,
+  SCRIPT2: CycleCountPerJmon,
+  SCRIPT3: FrameCountByTrainer,
+  SCRIPT4: FrameCountPerElevatorFloor,
+  IMG: Emerald_Battle_Tower_RNG_Manipulation_png,
+});
+const GamePreservation = renderMarkdown(GamePreservation_source);
+const legal = renderMarkdown(legal_source);
 
 export class App_httpPages {
   static async initHttpPages(app:App){    
@@ -221,23 +241,23 @@ export class App_httpPages {
       });
     });
 
-    let renderArticle = function(app:App, res:any, txt:string, back='/articles'){
+    let renderArticle = function(app:App, res:any, txt:string, back='/articles', cssClass=''){
       const filePath = app.appConfig.absolutePathFromCwd('/compiled/SimplePage/SimplePage.html');
       app.render2(res, filePath,{},{
-        content:`<a href="${back}" style="position:relative;top:-8px">← Back</a><div style="padding-top:10px">${txt}</div>`
+        content:`<a href="${back}" class="article-back">← Back</a><div class="markdown-content ${cssClass}">${txt}</div>`
       });
     };
 
     app.get('/legal', async function(req, res, next){
       const txt = legal;
-      renderArticle(app, res, txt);
+      renderArticle(app, res, txt, '/articles', 'root-container legal');
     });
     app.get('/articles/Platinum_Battle_Tower_RNG_Manipulation', async function(req, res, next){
       const txt = Platinum_Battle_Tower_RNG_Manipulation;
       renderArticle(app, res, txt);
     });
     app.get('/articles/Black2_Battle_Institute_9999_Points', async function(req, res, next){
-      const txt = Battle_Institute_9999_Points_raw.replace('{{IMG}}',Battle_Institute_9999_Points_png);
+      const txt = Battle_Institute_9999_Points_html;
       renderArticle(app, res, txt);
     });
     app.get('/articles/GamePreservation', async function(req, res, next){
@@ -245,33 +265,28 @@ export class App_httpPages {
       renderArticle(app, res, txt);
     });
     app.get('/articles/Crystal_Unobtainable_Decorations', async function(req, res, next){
-      const txt = crystal_unobtainable_decorations_raw.replace('{{IMG}}',crystal_unobtainable_decorations_png);
+      const txt = crystal_unobtainable_decorations_html;
       renderArticle(app, res, txt);
     });
 
     app.get('/articles/PinballRS_Complete_Pokedex', async function(req, res, next){
-      const txt = pinballRs_CompletePokedex_raw.replace('{{IMG}}', pinballRs_CompletePokedex_png);
+      const txt = pinballRs_CompletePokedex_html;
       renderArticle(app, res, txt);
     });
 
     //TODO: initial seed for volcarona streak
     app.get('/articles/Black2_Subway_Rng_Manipulation', async function(req, res, next){
-      const txt = Black2_Subway_Rng_Manipulation_raw;
+      const txt = Black2_Subway_Rng_Manipulation_html;
       renderArticle(app, res, txt);
     });
     app.get('/articles/Emerald_BattlePyramid_Exploit', async function(req, res, next){
-      const txt = Emerald_BattlePyramid_Exploit_raw;
+      const txt = Emerald_BattlePyramid_Exploit_html;
       renderArticle(app, res, txt);
     });
 
 
     app.get('/articles/Emerald_Battle_Tower_RNG_Manipulation', async function(req, res, next){
-      const txt = Emerald_Battle_Tower_RNG_Manipulation_raw
-                  .replace('{{SCRIPT1}}', CycleCountPerSection)
-                  .replace('{{SCRIPT2}}', CycleCountPerJmon)
-                  .replace('{{SCRIPT3}}', FrameCountByTrainer)
-                  .replace('{{SCRIPT4}}', FrameCountPerElevatorFloor)
-                  .replace('{{IMG}}', Emerald_Battle_Tower_RNG_Manipulation_png);
+      const txt = Emerald_Battle_Tower_RNG_Manipulation_html;
       renderArticle(app, res, txt);
     });
     
