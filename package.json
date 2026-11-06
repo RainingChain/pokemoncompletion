@@ -11,6 +11,11 @@
   },
   "type": "module",
   "scripts": {
+    "build:e2e": "webpack --env debug=true --env watch=false --env deleteDist=true",
+    "start:e2e": "cd dist && node --no-deprecation app.js",
+    "test:e2e": "playwright test",
+    "test:e2e:update": "playwright test --project=desktop --project=mobile --update-snapshots",
+    "test:e2e:report": "playwright show-report",
     "start": "cd dist && node --no-deprecation --inspect app.js",
     "compil": "npx webpack --progress --env=debug=true --env=watch=true",
     "compil-prod": "npx webpack --progress --env=deleteDist=true",
@@ -25,6 +30,7 @@
     "ws": "^5.1.1"
   },
   "devDependencies": {
+    "@playwright/test": "1.65.0",
     "@types/body-parser": "^1.17.0",
     "@types/compression": "0.0.36",
     "@types/ejs": "^2.6.0",

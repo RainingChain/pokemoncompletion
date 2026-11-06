@@ -1,3 +1,4 @@
+// WASM comes from pk_platinum_battle_facilities_rng_manip repo
 
 // let [exec, res] = Executor.debug_exec_wasm('search_easy --facility single --same_day_seed 0x4CB8E31 --diff_day_seed 0xcf835d7 --wins 49 --filter_min_rating 15 --max_diff_day_change 20 --max_same_day_adv 5')
 

@@ -11,3 +11,5 @@ To run locally:
  - Go to http://localhost:3000/
 
 This project also relies on [PkCompletionist](https://github.com/RainingChain/PkCompletionist).
+
+See [README_TESTS.md](README_TESTS.md) for browser regression testing instructions.
