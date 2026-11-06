@@ -78,6 +78,7 @@ let tsLoader = function(options={}){
 let myHtmlWebpackPlugin = function({
   production=false,
   hbsTemplate='',
+  templateParameters={},
   htmlFilename='',
   cssFilename='',
   cssChunkFilename='',}
@@ -94,6 +95,8 @@ let myHtmlWebpackPlugin = function({
     new HtmlWebpackPlugin({
       hash: true,
       template:hbsTemplate,
+      templateParameters,
+      inject:false,
       filename:htmlFilename,
       scriptLoading:'defer',
       ...(production ? {minify:{
@@ -172,6 +175,12 @@ let nodeConfigCommon = ({production}) => {
       rules:[
         ...assetLoader(),
         markdownLoader(),
+        {
+          test: /\.css$/i,
+          resourceQuery: /^\?url$/,
+          type: 'asset/resource',
+          generator: {filename:'[name]@[contenthash][ext]'},
+        },
         tsLoader({
           transpileOnly:!production,
           compilerOptions:{
@@ -217,7 +226,10 @@ let webConfigCommon = ({} = {}) => ({
   },
 });
 
-let nongameConfigProd = async function(what,{pathExtra=what,useDefaultEntry=false,useChunk=false,target='es5'} = {}){
+let nongameConfigProd = async function(what,{
+  pathExtra=what,useDefaultEntry=false,useChunk=false,target='es5',
+  hbsTemplate=`${pathExtra}/${what}.hbs`,templateParameters={},
+} = {}){
   //await fs.remove(path.resolve(__dirname, `dist/compiled/${pathExtra}`));
   return merge(commonConfig({production:true}),webConfigCommon(),{
     entry: useDefaultEntry ? `./src/common/js/LoadHeaderFooter.ts` : `./src/${pathExtra}/${what}.ts`,
@@ -235,7 +247,8 @@ let nongameConfigProd = async function(what,{pathExtra=what,useDefaultEntry=fals
       ...myHtmlWebpackPlugin({
         cssFilename: `../compiled/${pathExtra}/${what}.css`,
         cssChunkFilename:useChunk ? `../compiled/${pathExtra}/${what}.[id].[contenthash].bundle.css` : '',
-        hbsTemplate:path.resolve(__dirname, `./src/${pathExtra}/${what}.hbs`),
+        hbsTemplate:path.resolve(__dirname, 'src', hbsTemplate),
+        templateParameters,
         htmlFilename:path.resolve(__dirname, `./dist/compiled/${pathExtra}/${what}.html`),
         production:true,
       }),
@@ -247,6 +260,20 @@ let nongameConfigProd = async function(what,{pathExtra=what,useDefaultEntry=fals
   });
 }
 
+// Reuse source templates while retaining each page's entrypoint and output paths.
+const researchConfig = (what, options={}) => nongameConfigProd(what, {
+  pathExtra:'pokemonCompletion/research',
+  useDefaultEntry:true,
+  hbsTemplate:'common/article.hbs',
+  ...options,
+});
+
+const appPageConfig = (what, mountId, options={}) => nongameConfigProd(what, {
+  ...options,
+  hbsTemplate:'common/app.hbs',
+  templateParameters:{mountId},
+});
+
 export default async function(env){
   let {debug,extra,watch,deleteDist,devtool} = env;
  
@@ -256,24 +283,24 @@ export default async function(env){
     await fs.rm(path.join(__dirname, 'node_modules','.cache'), {recursive:true, force:true}); //problem with .cache
 
   let packs = [ 
-    await nongameConfigProd('pkStateEmulator',{pathExtra:'pokemonCompletion/research'}),
-    await nongameConfigProd('VersionCompatibility_Gen1',{pathExtra:'pokemonCompletion/research',useDefaultEntry:true}),
-    await nongameConfigProd('VersionCompatibility_Gen2',{pathExtra:'pokemonCompletion/research',useDefaultEntry:true}),
-    await nongameConfigProd('VersionCompatibility_Gen3',{pathExtra:'pokemonCompletion/research',useDefaultEntry:true}),
-    await nongameConfigProd('VersionCompatibility_Gen4',{pathExtra:'pokemonCompletion/research',useDefaultEntry:true}),
-    await nongameConfigProd('Platinum_ForeignEntries',{pathExtra:'pokemonCompletion/research',useDefaultEntry:true}),
-    await nongameConfigProd('Black2_ForeignEntries',{pathExtra:'pokemonCompletion/research',useDefaultEntry:true}),
-    await nongameConfigProd('Black2_Shiny',{pathExtra:'pokemonCompletion/research',useDefaultEntry:true}),
+    await researchConfig('pkStateEmulator'),
+    await researchConfig('VersionCompatibility_Gen1'),
+    await researchConfig('VersionCompatibility_Gen2'),
+    await researchConfig('VersionCompatibility_Gen3'),
+    await researchConfig('VersionCompatibility_Gen4'),
+    await researchConfig('Platinum_ForeignEntries'),
+    await researchConfig('Black2_ForeignEntries'),
+    await researchConfig('Black2_Shiny'),
     await nongameConfigProd('shuffleMod',{pathExtra:'pokemonCompletion/ShuffleMod'}),
     await nongameConfigProd('notFound404'),
-    await nongameConfigProd('pokemonCompletion',{useChunk:true}),
+    await appPageConfig('pokemonCompletion','pokemonCompletion-slot',{useChunk:true}),
     await nongameConfigProd('SimplePage'),
     await serverConfigCommon({production:!debug}),
-    await nongameConfigProd('pokemonHome',{pathExtra:'pokemonArticles/home'}),
-    await nongameConfigProd('pkRngMonRating',{pathExtra:'pokemonBattleTower/pkRngMonRating'}),
-    await nongameConfigProd('pkAssistant',{pathExtra:'pokemonBattleTower/pkAssistant',target:'es2021'}),
-    await nongameConfigProd('pkRngAbuse',{pathExtra:'pokemonBattleTower/pkRngAbuse',target:'es2021'}),
-    await nongameConfigProd('pkPtRngAbuse',{pathExtra:'pokemonBattleTower/pkPtRngAbuse',target:'es2021'}),
+    await appPageConfig('pokemonHome','slot',{pathExtra:'pokemonArticles/home'}),
+    await appPageConfig('pkRngMonRating','pkRngMonRating-slot',{pathExtra:'pokemonBattleTower/pkRngMonRating'}),
+    await appPageConfig('pkAssistant','pkAssistant-slot',{pathExtra:'pokemonBattleTower/pkAssistant',target:'es2021'}),
+    await appPageConfig('pkRngAbuse','main-slot',{pathExtra:'pokemonBattleTower/pkRngAbuse',target:'es2021'}),
+    await appPageConfig('pkPtRngAbuse','main-slot',{pathExtra:'pokemonBattleTower/pkPtRngAbuse',target:'es2021'}),
   ];
 
   packs = packs.map(pack => {

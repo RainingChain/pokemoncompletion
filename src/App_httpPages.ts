@@ -6,6 +6,8 @@ import Platinum_ForeignEntries_source from "./pokemonCompletion/research/Platinu
 import Black2_ForeignEntries_source from "./pokemonCompletion/research/Black2_ForeignEntries.md";
 import Black2_Shiny_source from "./pokemonCompletion/research/Black2_Shiny.md";
 import pkStateEmulator_source from "./pokemonCompletion/research/pkStateEmulator.md";
+import pokemonGlobalCss from "./pokemonArticles/home/pokemonGlobal.css?url";
+import pkStateEmulatorCss from "./pokemonCompletion/research/pkStateEmulator.css?url";
 import shuffle_intro_source from "./pokemonCompletion/ShuffleMod/shuffleMod-intro.md";
 import shuffle_saveInstructions_source from "./pokemonCompletion/ShuffleMod/shuffleMod-save-instructions.md";
 import shuffle_outro_source from "./pokemonCompletion/ShuffleMod/shuffleMod-outro.md";
@@ -255,6 +257,7 @@ export class App_httpPages {
         location:'pokemonCompletion',
         title: `State of Emulation of Pokémon Games`,
         description:`State of Emulation of Pokémon Games`,
+        extraCss:[pokemonGlobalCss, pkStateEmulatorCss],
       }, { content: pkStateEmulator_html });
     });
 
