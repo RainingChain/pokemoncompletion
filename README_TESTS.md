@@ -32,6 +32,14 @@ exported category IDs to a JSON baseline, verify persistence across reload, and
 load the save again to check there are no remaining differences. The fixture's
 source and checksum are recorded in `tests/fixtures/README.md`.
 
+Emerald map/checklist tests also verify that collecting Tentacool increments the
+count and hides its map icons when **Fully Hide Obtained Elements** is enabled
+(unchecking restores them). The Oddish test clicks its grouped map marker, selects
+Oddish in the popup, and verifies the checklist, count, exported progress, and
+persistence after reload. By default the map fades collected markers instead of
+hiding them; grouped markers open a selection popup rather than immediately
+collecting every Pokémon at that location.
+
 Known current behavior: with this save, the overall completion counter changes
 from 2,332 immediately after synchronization to 2,333 after reload even though
 the exported progress is identical. These tests assert the persisted category

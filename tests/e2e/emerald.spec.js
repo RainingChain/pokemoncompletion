@@ -3,6 +3,64 @@ import { test, expect } from './fixtures.js';
 
 const save = fileURLToPath(new URL('../fixtures/Pokemon Emerald.sav', import.meta.url));
 
+function pokemonRow(page, name) {
+  return page.getByRole('row').filter({ has: page.getByRole('link', { name, exact: true }) });
+}
+
+async function openPokemonChecklist(page) {
+  await page.goto('/completion/Emerald');
+  await page.getByRole('heading', { name: /^▶ Pokémon \(/ }).click();
+  await expect(page.getByRole('heading', { name: /Completion: 0 \// })).toBeVisible();
+}
+
+test('collecting Tentacool updates the count and removes its icons when hiding obtained map elements', async ({ page }) => {
+  await openPokemonChecklist(page);
+  const map = page.locator('#myMap');
+  const tentacoolIcons = map.locator('.leaflet-marker-icon:has(.pokemon-p72):visible');
+  await expect(tentacoolIcons).not.toHaveCount(0);
+
+  await map.getByRole('button', { name: 'Display Settings', exact: true }).click();
+  await map.getByLabel('Fully Hide Obtained Elements', { exact: true }).check();
+  await map.locator('.leaflet-sidebar').filter({ has: page.locator('#view-sidebar') }).locator('a.close').click();
+  await expect(tentacoolIcons).not.toHaveCount(0);
+
+  const row = pokemonRow(page, 'Tentacool');
+  await expect(row.getByRole('checkbox')).not.toBeChecked();
+  await row.getByRole('checkbox').check();
+  await expect(row.getByRole('checkbox')).toBeChecked();
+  await expect(page.getByRole('heading', { name: /Completion: 1 \// })).toBeVisible();
+  await expect(tentacoolIcons).toHaveCount(0);
+
+  // Unchecking restores the icons as well as the original count.
+  await row.getByRole('checkbox').uncheck();
+  await expect(page.getByRole('heading', { name: /Completion: 0 \// })).toBeVisible();
+  await expect(tentacoolIcons).not.toHaveCount(0);
+});
+
+test('collecting Oddish through its map popup updates the checklist and persists', async ({ page, context, baseURL }) => {
+  // Localhost contributor mode copies clicked coordinates to the clipboard.
+  await context.grantPermissions(['clipboard-read', 'clipboard-write'], { origin: baseURL });
+  await openPokemonChecklist(page);
+  const row = pokemonRow(page, 'Oddish');
+  await expect(row.getByRole('checkbox')).not.toBeChecked();
+  // Use the checklist's pin to bring the first Oddish marker into view.
+  await row.locator('.flyToPin').click();
+  const map = page.locator('#myMap');
+  const marker = map.locator('.leaflet-marker-icon:has(.pokemon-p43)').first();
+  await marker.click();
+  // Oddish shares all seven map positions with other collectibles. Clicking
+  // the icon opens the group popup; its checkbox selects Oddish specifically.
+  await map.locator('.leaflet-popup').getByLabel('Oddish', { exact: true }).check();
+  await expect(row.getByRole('checkbox')).toBeChecked();
+  await expect(page.getByRole('heading', { name: /Completion: 1 \// })).toBeVisible();
+  expect((await exportProgress(page)).pokemon).toBe('43');
+
+  await page.reload();
+  await page.getByRole('heading', { name: /^▶ Pokémon \(/ }).click();
+  await expect(pokemonRow(page, 'Oddish').getByRole('checkbox')).toBeChecked();
+  await expect(page.getByRole('heading', { name: /Completion: 1 \// })).toBeVisible();
+});
+
 async function exportProgress(page) {
   const button = page.getByRole('button', { name: 'Export', exact: true });
   if (!await button.isVisible())
